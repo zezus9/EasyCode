@@ -18,66 +18,78 @@ DROP DATABASE IF EXISTS `easycode`;
 CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `easycode`;
 
+-- Copiando estrutura para tabela easycode.administrador
+DROP TABLE IF EXISTS `administrador`;
+CREATE TABLE IF NOT EXISTS `administrador` (
+  `id_adm` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `nome_adm` varchar(40) NOT NULL,
+  `email_adm` varchar(30) NOT NULL,
+  `CPF_adm` char(11) NOT NULL,
+  `matricula_adm` varchar(5) NOT NULL,
+  `nasc_adm` date NOT NULL,
+  `avatar` varchar(10) NOT NULL,
+  `senha` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_adm`),
+  UNIQUE KEY `email_adm` (`email_adm`),
+  UNIQUE KEY `CPF_adm` (`CPF_adm`),
+  UNIQUE KEY `matricula_adm` (`matricula_adm`),
+  UNIQUE KEY `avatar` (`avatar`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+
 -- Copiando estrutura para tabela easycode.aluno
 DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
-  `nome` varchar(25) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `nUsuario` varchar(15) NOT NULL,
-  `data_nasc` date NOT NULL,
-  `certificados` varchar(20) NOT NULL,
+  `id_aluno` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `nome_aluno` varchar(40) NOT NULL,
+  `email_aluno` varchar(30) NOT NULL,
+  `CPF_aluno` char(11) NOT NULL,
+  `matricula_aluno` varchar(5) NOT NULL,
+  `nasc_aluno` date NOT NULL,
+  `avatar` varchar(10) NOT NULL,
+  `linkedin` varchar(512) DEFAULT NULL,
+  `github` varchar(512) DEFAULT NULL,
+  `link_personalizado` varchar(512) DEFAULT NULL,
   `senha` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_aluno`),
+  UNIQUE KEY `email_aluno` (`email_aluno`),
+  UNIQUE KEY `avatar` (`avatar`),
+  UNIQUE KEY `CPF` (`CPF_aluno`) USING BTREE,
+  UNIQUE KEY `matricula` (`matricula_aluno`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.aluno: ~4 rows (aproximadamente)
-/*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-REPLACE INTO `aluno` (`id`, `nome`, `email`, `nUsuario`, `data_nasc`, `certificados`, `senha`) VALUES
-	(1, 'Gustavo Matos Francisco', 'gustavo.francisco@hotmail.com', 'gustaFran', '2005-02-23', '2', '147963852'),
-	(2, 'Pedro Henrique Nascimento', 'pedro.nascimento@hotmail.com', 'PedroH', '2002-12-13', '1', '7554954'),
-	(3, 'Lucia Silva Pereira', 'lucia.pereira@gmail.com', 'LuciaP', '2001-11-15', '2;3', '4564895'),
-	(4, 'Gabriela Santos', 'gabriela.santos@outlook.com', 'gabiS', '2000-05-09', '1;3', '987321654');
-/*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela easycode.certificado
+DROP TABLE IF EXISTS `certificado`;
+CREATE TABLE IF NOT EXISTS `certificado` (
+  `id_certificado` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id_aluno` int(3) NOT NULL,
+  `id_curso` int(3) NOT NULL,
+  `fase` int(2) NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date DEFAULT NULL,
+  `pdf` varchar(20) DEFAULT NULL,
+  `responsavel` varchar(30) NOT NULL,
+  `link` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`id_certificado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela easycode.curso
 DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
-  `nome` varchar(50) NOT NULL,
-  `valor (R$)` double NOT NULL,
-  `duracao (h)` double NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `id_curso` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `nome_curso` varchar(40) NOT NULL,
+  `campo` varchar(15) NOT NULL,
+  `fase` int(2) NOT NULL,
+  `duração` time NOT NULL,
+  PRIMARY KEY (`id_curso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.curso: ~4 rows (aproximadamente)
-/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-REPLACE INTO `curso` (`id`, `nome`, `valor (R$)`, `duracao (h)`) VALUES
-	(1, 'Python', 15, 25),
-	(2, 'C#', 15, 20),
-	(3, 'Lógica de Programação', 20, 25),
-	(4, 'MySQL', 18, 25);
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
-
--- Copiando estrutura para tabela easycode.professor
-DROP TABLE IF EXISTS `professor`;
-CREATE TABLE IF NOT EXISTS `professor` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
-  `nome` varchar(25) NOT NULL,
-  `escola` varchar(25) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `senha` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- Copiando dados para a tabela easycode.professor: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
-REPLACE INTO `professor` (`id`, `nome`, `escola`, `email`, `senha`) VALUES
-	(1, 'Jonathan de Jesus Simões', 'ETEC Jd. Angela', 'jonathan.simoes01@etec.sp.gov.br', '123456789'),
-	(2, 'Erika de Souza', 'ETEC Jd. Angela', 'erika.souza@etec.sp.gov.br', '987654321'),
-	(3, 'Jefferson de Souza', 'ETEC Jd. Angela', 'jefferson.souza@etec.sp.gov.br', '159753654');
-	(4, 'Priscila Miguel', 'ETEC Jd. Angela', 'priscila.miguel@etec.sp.gov.br', '125453239');
-/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
