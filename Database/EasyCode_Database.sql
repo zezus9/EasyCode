@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `id_adm` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nome_adm` varchar(40) NOT NULL,
   `email_adm` varchar(30) NOT NULL,
+  `telefone` char(11) NOT NULL,
   `CPF_adm` char(11) NOT NULL,
   `matricula_adm` varchar(5) NOT NULL,
   `nasc_adm` date NOT NULL,
@@ -43,6 +44,7 @@ DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
   `id_aluno` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nome_aluno` varchar(40) NOT NULL,
+  `telefone` char(11) NOT NULL,
   `email_aluno` varchar(30) NOT NULL,
   `CPF_aluno` char(11) NOT NULL,
   `matricula_aluno` varchar(5) NOT NULL,
