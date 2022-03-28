@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Lovelofont;
+    src: url(../fonts/Lovelo\ Black.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Josefinfont;
+    src: url(../fonts/josefin-sans-regular.ttf) format("opentype");
+}
+
+.title
+{
+    font-family: Lovelofont;
+    font-weight: bold;
+}
+
+.secundary{
+    font-family: Josefinfont;
+    font-weight: bold;
+}
+
+.main
+{
+    background-color: #b3deef;
+}
+
+.label-login
+{
+    font-size: 20px;
+}
+
+.label-signin
+{
+    font-size: 15px;
+}
+
+.text-right
+{
+    text-align: end;
+}
+
+.text-color
+{
+    color: #251a9b;
+}
+
+.bg-color
+{
+    background-color: #251a9b;
+}
