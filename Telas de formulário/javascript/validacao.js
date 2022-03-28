@@ -5,8 +5,6 @@ const validadores = {
 
 export function validar(input) {
     const tipoInput = input.dataset.tipo
-
-    console.log(input.validity.valid)
     
     if (validadores[tipoInput]) {
         validadores[tipoInput](input)
@@ -24,26 +22,29 @@ export function validar(input) {
 }
 
 const mensagensErros = {
-    emailUsuario: {
+    emailMatricula: {
         valueMissing: 'O campo de email ou usuário não pode estar vazio'
     },
     nome: {
-        valueMissing: 'O campo de nome não pode estar vazio'
+        valueMissing: 'O nome não pode estar vazio'
     },
     email: {
-        valueMissing: 'O campo de email não pode estar vazio',
+        valueMissing: 'O email não pode estar vazio',
         typeMismatch: 'O email digitado não é valido'
     },
     senha: {
-        valueMissing: 'O campo de senha não pode estar vazio',
+        valueMissing: 'A senha não pode estar vazio',
         patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
     },
     dataNascimento: {
-        valueMissing: 'O campo de data de nascimento não pode estar vazio'
+        valueMissing: 'A data de nasc não pode estar vazio'
     },
     cpf: {
-        valueMissing: 'O campo de CPF não pode estar vazio',
+        valueMissing: 'O CPF não pode estar vazio',
         customError: 'O CPF digitado não é valido'
+    },
+    celular: {
+        valueMissing: 'O celular não pode estar vazio'
     }
 }
 

@@ -31,7 +31,11 @@
 
 .label-signin
 {
+    position: absolute;
+    left: 10%;
     font-size: 15px;
+
+    transition: all .25s;
 }
 
 .text-right
@@ -47,4 +51,9 @@
 .bg-color
 {
     background-color: #251a9b;
+}
+
+.span-si
+{
+    font-size: 13px;
 }

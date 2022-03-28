@@ -29,55 +29,56 @@
                         <form action="" class="p-2">
                             <h1 class="text-center text-color title">Cadastrar</h1>
                             <br>
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between align-items-start">
 
-                                <div class="input-container mb-4 w-50 mx-3 col-md-5">
-                                    <input name="nome" id="nome" class="input" placeholder="#" type="text" required
-                                    data-tipo="emailMatricula" height="300px">
-                                    <label class="input-label label-login" for="nome">E-mail ou Matricula:</label>
-                                    <span class="input-mensagem-erro">Este campo não está valido</span>
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="nome" class="input" placeholder="#" type="text" required
+                                    data-tipo="nome">
+                                    <label class="input-label-si label-login" for="nome">Nome Completo:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
 
-                                <!-- <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">Nome Completo:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="Felipe Fernandes" required />
-                                    </div>
-                                </div> -->
-
-                                <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">CPF:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="000.000.000-00" required />
-                                    </div>
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="cpf" class="input" placeholder="#" type="number" required
+                                    data-tipo="cpf">
+                                    <label class="input-label-si label-login" for="cpf">CPF:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
+
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">Telefone:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="(99) 99999-9999" required />
-                                    </div>
+
+                            <div class="d-flex justify-content-between align-items-start">
+
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="telefone" class="input" placeholder="#" type="number" required
+                                    data-tipo="celular">
+                                    <label class="input-label-si label-login" for="telefone">Celular:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-                                <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">E-mail:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="nome@dominio.com:" required />
-                                    </div>
+
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="email" class="input" placeholder="#" type="email" required
+                                    data-tipo="email">
+                                    <label class="input-label-si label-login" for="email">E-mail:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
+
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">Data de Nascimento:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="01/01/1000" required />
-                                    </div>
+
+                            <div class="d-flex justify-content-between align-items-start">
+
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="nascimento" class="input" placeholder="#" type="email" required
+                                    data-tipo="dataNascimento">
+                                    <label class="input-label-si label-login" for="nascimento" id="nasc">Data de nascimento:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-                                <div class="form-outline mb-4 w-50 mx-3 col-sm-5">
-                                    <label class="form-label label-signin text-color secundary">Senha:</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="***************" required />
-                                    </div>
+
+                                <div class="input-container mb-4 w-50 mx-2 col-md-5">
+                                    <input id="senha" class="input" type="password" placeholder="#" required data-tipo="senha"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$">
+                                    <label class="input-label-si label-login" for="senha">Senha:</label>
+                                    <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
@@ -98,5 +99,6 @@
             </figure>
         </section>
     </main>
+    <script src="javascript/app.js" type="module"></script>
 </body>
 </html>
