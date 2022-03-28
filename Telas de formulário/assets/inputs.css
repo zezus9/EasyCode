@@ -83,10 +83,6 @@
     padding-bottom: 30px;
 }
 
-.input-container--invalido .input-label-si #nasc {
-    padding: 40px !important;
-}
-
 .input-mensagem-erro {
     display: none;
 }

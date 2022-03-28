@@ -1,6 +1,6 @@
 const validadores = {
     // dataNascimento:input => validarDataNascimento(input),
-    // cpf:input => validarCPF(input)
+    cpf:input => validarCPF(input)
 }
 
 export function validar(input) {
@@ -72,68 +72,68 @@ function mostrarErro(tipoInput,input) {
 //     input.setCustomValidity(mensagem)
 // }
 
-// function validarCPF(input) {
-//     const cpfFormat = input.value.replace(/\D/g,'')
-//     let mensagem = ''
+function validarCPF(input) {
+    const cpfFormat = input.value.replace(/\D/g,'')
+    let mensagem = ''
 
-//     if (!checaCPFRepetido(cpfFormat) || !checarEstruturaCPF(cpfFormat)) {
-//         mensagem = 'O CPF digitado não é valido'
-//     }
+    if (!checaCPFRepetido(cpfFormat) || !checarEstruturaCPF(cpfFormat)) {
+        mensagem = 'O CPF digitado não é valido'
+    }
 
-//     input.setCustomValidity(mensagem)
-// }
+    input.setCustomValidity(mensagem)
+}
 
-// function checaCPFRepetido(cpf) {
-//     const valores = [
-//         '00000000000',
-//         '11111111111',
-//         '22222222222',
-//         '33333333333',
-//         '44444444444',
-//         '55555555555',
-//         '66666666666',
-//         '77777777777',
-//         '88888888888',
-//         '99999999999'
-//     ]
-//     let cpfValido = true
+function checaCPFRepetido(cpf) {
+    const valores = [
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999'
+    ]
+    let cpfValido = true
 
-//     valores.forEach(valor => {
-//         if (valor == cpf) {
-//             cpfValido = false
-//         }
-//     })
-//     return cpfValido
-// }
+    valores.forEach(valor => {
+        if (valor == cpf) {
+            cpfValido = false
+        }
+    })
+    return cpfValido
+}
 
-// function checarEstruturaCPF(cpf) {
-//     const multiplicador = 10
+function checarEstruturaCPF(cpf) {
+    const multiplicador = 10
 
-//     return checarDigitoVerificador(cpf,multiplicador)
-// }
+    return checarDigitoVerificador(cpf,multiplicador)
+}
 
-// function checarDigitoVerificador(cpf,multiplicador) {
-//     if (multiplicador >= 12) {
-//         return true 
-//     }
+function checarDigitoVerificador(cpf,multiplicador) {
+    if (multiplicador >= 12) {
+        return true 
+    }
 
-//     let multiplicadorInicial = multiplicador
-//     let soma = 0
-//     const cpfSemDigitos = cpf.substr(0,multiplicador-1).split('')
-//     const digitoVerificador = cpf.charAt(multiplicador-1)
+    let multiplicadorInicial = multiplicador
+    let soma = 0
+    const cpfSemDigitos = cpf.substr(0,multiplicador-1).split('')
+    const digitoVerificador = cpf.charAt(multiplicador-1)
 
-//     for (let c = 0; multiplicadorInicial > 1; multiplicadorInicial--) {
-//         soma = soma + cpfSemDigitos[c] * multiplicadorInicial
-//         c++
-//     }
+    for (let c = 0; multiplicadorInicial > 1; multiplicadorInicial--) {
+        soma = soma + cpfSemDigitos[c] * multiplicadorInicial
+        c++
+    }
 
-//     if (digitoVerificador == confirmarDigito(soma)) {
-//         return checarDigitoVerificador(cpf,multiplicador+1)
-//     }
+    if (digitoVerificador == confirmarDigito(soma)) {
+        return checarDigitoVerificador(cpf,multiplicador+1)
+    }
     
-//     return false
-// }
+    return false
+}
 
-// function confirmarDigito(soma) {
-//     return 11 - (soma % 11)
-// }
+function confirmarDigito(soma) {
+    return 11 - (soma % 11)
+}
