@@ -6,6 +6,8 @@ const validadores = {
 export function validar(input) {
     const tipoInput = input.dataset.tipo
     
+    console.log(input.validity.__proto__)
+
     if (validadores[tipoInput]) {
         validadores[tipoInput](input)
     }
@@ -44,7 +46,8 @@ const mensagensErros = {
         customError: 'O CPF digitado não é valido'
     },
     celular: {
-        valueMissing: 'O celular não pode estar vazio'
+        valueMissing: 'O celular não pode estar vazio',
+        tooshort: 'Você deve informar 12'
     }
 }
 
