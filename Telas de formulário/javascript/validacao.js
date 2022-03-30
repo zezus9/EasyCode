@@ -1,12 +1,11 @@
 const validadores = {
     // dataNascimento:input => validarDataNascimento(input),
-    cpf:input => validarCPF(input)
+    cpf:input => validarCPF(input),
+    celular:input => validarCel(input)
 }
 
 export function validar(input) {
     const tipoInput = input.dataset.tipo
-    
-    console.log(input.validity.__proto__)
 
     if (validadores[tipoInput]) {
         validadores[tipoInput](input)
@@ -47,7 +46,7 @@ const mensagensErros = {
     },
     celular: {
         valueMissing: 'O celular não pode estar vazio',
-        tooshort: 'Você deve informar 12'
+        customError: 'Você deve digitar 11 ou 12 caracteres no campo celular'
     }
 }
 
@@ -55,6 +54,7 @@ const tiposErro = [
     'customError',
     'typeMismatch',
     'patternMismatch',
+    'tooShort',
     'valueMissing'
 ]
 
@@ -139,4 +139,26 @@ function checarDigitoVerificador(cpf,multiplicador) {
 
 function confirmarDigito(soma) {
     return 11 - (soma % 11)
+}
+
+function validarCel(input) {
+    let mensagem = ''
+    let tamanho = input.value.length
+
+    if (!checarTamannhoCel(tamanho,input)) {
+        mensagem = 'Você deve digitar 11 ou 12 caracteres no campo celular'
+    }
+
+    input.setCustomValidity(mensagem)
+}
+
+function checarTamannhoCel(tamanho,input) {
+    if (tamanho == 11 || tamanho == 12) {
+        if (input.value.length === 11) {
+            input.value = '0' + input.value
+        }
+        return true
+    }
+    return false
+
 }
