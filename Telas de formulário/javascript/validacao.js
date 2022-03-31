@@ -1,5 +1,5 @@
 const validadores = {
-    // dataNascimento:input => validarDataNascimento(input),
+    dataNascimento:input => validarDataNascimento(input),
     cpf:input => validarCPF(input),
     celular:input => validarCel(input)
 }
@@ -38,7 +38,8 @@ const mensagensErros = {
         patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
     },
     dataNascimento: {
-        valueMissing: 'A data de nasc não pode estar vazio'
+        valueMissing: 'A data de nasc não pode estar vazio',
+        customError: 'A data não é válida'
     },
     cpf: {
         valueMissing: 'O CPF não pode estar vazio',
@@ -46,7 +47,7 @@ const mensagensErros = {
     },
     celular: {
         valueMissing: 'O celular não pode estar vazio',
-        customError: 'Você deve digitar 11 ou 12 caracteres no campo celular'
+        customError: 'Favor informar um número de celular'
     }
 }
 
@@ -54,7 +55,6 @@ const tiposErro = [
     'customError',
     'typeMismatch',
     'patternMismatch',
-    'tooShort',
     'valueMissing'
 ]
 
@@ -68,12 +68,40 @@ function mostrarErro(tipoInput,input) {
     return mensagem
 }
 
-// function validarDataNascimento(input) {
-//     const dataRecebida = new Date(input.value)
-//     let mensagem = ''
+function validarDataNascimento(input) {
+    let mensagem = ''
+    
+    let data = input.value.split('/').reverse()
 
-//     input.setCustomValidity(mensagem)
-// }
+    if (isDate(data)) {
+        data = new Date(data)
+        
+        if (!maior10(data)) {
+            mensagem = 'Você deve ter mais de 10 anos'
+        }
+    } else {
+        mensagem = 'Digite uma data válida'
+    }
+
+    input.setCustomValidity(mensagem)
+}
+
+
+function isDate(data) {
+    try {
+        data = new Date(data)
+    } catch {
+        return false
+    }
+    return true
+}
+
+function maior10(data) {
+    const dataAtual = new Date()
+    const dataMais10 = new Date(data.getUTCFullYear() + 10, data.getUTCMonth(), data.getUTCDate())
+
+    return dataAtual > dataMais10
+}
 
 function validarCPF(input) {
     const cpfFormat = input.value.replace(/\D/g,'')
@@ -143,17 +171,25 @@ function confirmarDigito(soma) {
 
 function validarCel(input) {
     let mensagem = ''
-    let tamanho = input.value.length
-
-    if (!checarTamannhoCel(tamanho,input)) {
-        mensagem = 'Você deve digitar 11 ou 12 caracteres no campo celular'
+    let celular = converterCell(input.value)
+    
+    let tamanho = celular.length
+    console.log(tamanho)
+    console.log(celular)
+    if (!checarTamanhoCel(tamanho,input)) {
+        mensagem = 'Favor informar um número de celular'
     }
 
     input.setCustomValidity(mensagem)
 }
 
-function checarTamannhoCel(tamanho,input) {
-    if (tamanho == 11 || tamanho == 12) {
+function converterCell(input) {
+    let novoCampo = input.replace('+55 ','').replace('-',' ')
+    return novoCampo
+}
+
+function checarTamanhoCel(tamanho,input) {
+    if (tamanho === 15) {
         if (input.value.length === 11) {
             input.value = '0' + input.value
         }
