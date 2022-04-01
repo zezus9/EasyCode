@@ -19,61 +19,63 @@
 <body class="secundary">
     <main class="fixed-top fixed-bottom d-flex justify-content-center align-items-center main">
         <section class="mx-auto w-75 h-75 p-0 container row">
+            <!-- !lado esquerdo - logo e formulario -->
             <div class="col-md-8 p-0">
                 <div class="h-75">
+                    <!-- !logos -->
                     <figure id="logo" class="m-1">
                         <img src="src/img/Logo Principal Sem fundo.png" alt="Logo principal" width="10%" class="ms-5">
                         <img src="src/img/EasyCode.png" alt="EasyCode" width="30%">
                     </figure>
+                    <!-- !formulario -->
                     <div class="h-100 m-3 mt-0">
                         <form action="" class="p-2">
                             <h1 class="text-center text-color title">Cadastrar</h1>
                             <br>
+                            <!-- *nome completo e CPF -->
                             <div class="d-flex justify-content-between align-items-start">
-
+                                <!-- ?nome completo -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="nome" class="input" placeholder="#" type="text" required
                                     data-tipo="nome">
                                     <label class="input-label-si label-login" for="nome">Nome Completo:</label>
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-
+                                <!-- ?CPF -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="cpf" class="input" placeholder="#" type="text" required
                                     data-tipo="cpf">
                                     <label class="input-label-si label-login" for="cpf">CPF:</label>
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-
                             </div>
-
+                            <!-- *celular e email -->
                             <div class="d-flex justify-content-between align-items-start">
-
+                                <!-- ?celular -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="celular" class="input" placeholder="#" type="text" required
                                     data-tipo="celular">
                                     <label class="input-label-si label-login" for="celular">Celular:</label>
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-
+                                <!-- ?email -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="email" class="input" placeholder="#" type="email" required
                                     data-tipo="email">
                                     <label class="input-label-si label-login" for="email">E-mail:</label>
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-
                             </div>
-
+                            <!-- *data de nascimento e senha -->
                             <div class="d-flex justify-content-between align-items-start">
-
+                                <!-- ?data de nascimento -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="nascimento" class="input" placeholder="#" type="text" required
                                     data-tipo="dataNascimento">
                                     <label class="input-label-si label-login" for="nascimento">Data de nascimento:</label>
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
-
+                                <!-- ?senha -->
                                 <div class="input-container mb-4 w-50 mx-2 col-md-5">
                                     <input id="senha" class="input" type="password" placeholder="#" required data-tipo="senha"
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$">
@@ -81,10 +83,12 @@
                                     <span class="input-mensagem-erro span-si">Este campo não está valido</span>
                                 </div>
                             </div>
+                            <!-- *botão de cadastrar -->
                             <div class="d-flex justify-content-center">
                                 <input type="submit" value="CADASTRAR" class="btn btn-outline-secondary bg-color text-light">
                             </div>
                             <br>
+                            <!-- *mudar para formulario de login -->
                             <div class="d-flex justify-content-center">
                                 <h4>Já está cadastrado? <a href="#" class="text-color">Entre por aqui</a></h4>
                             </div>
@@ -92,6 +96,7 @@
                     </div>
                 </div>
             </div>
+            <!-- !lado direito - mascote lap -->
             <figure id="imagem" class="d-flex col-md-4 d-none d-lg-block m-0 p-0">
                 <div class="d-flex justify-content-center h-100">
                     <img src="src/img/Logo Mascote Sem fundo.png" alt="Mascote" class="d-flex align-self-center w-75">
@@ -99,6 +104,7 @@
             </figure>
         </section>
     </main>
+    <!-- !javascritp -->
     <script src="javascript/libs/jquery.js"></script>
     <script src="javascript/libs/jquery.mask.js"></script>
     <script src="javascript/app.js" type="module"></script>

@@ -1,27 +1,32 @@
+// *A partir do data-type do input chama uma função para o custom error tipo de dado
 const validadores = {
     dataNascimento:input => validarDataNascimento(input),
     cpf:input => validarCPF(input),
     celular:input => validarCel(input)
 }
 
+// *Essa é a função chamada no app.js, recebe o input como parametro
 export function validar(input) {
+
     const tipoInput = input.dataset.tipo
 
+    // ?Testa se o input tem um dos data-type que tem customError
     if (validadores[tipoInput]) {
         validadores[tipoInput](input)
     }
+
+    // ?Se o valid for false significa que há um erro e o formulario é lockado
     if (input.validity.valid) {
         input.parentElement.classList.remove('input-container--invalido')
-
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = ''
     }
     else {
         input.parentElement.classList.add('input-container--invalido')
-
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = mostrarErro(tipoInput,input)
     }
 }
 
+// *Objeto que guarda todos os tipos de erro baseados no data-type do input
 const mensagensErros = {
     emailMatricula: {
         valueMissing: 'O campo de email ou usuário não pode estar vazio'
@@ -50,7 +55,13 @@ const mensagensErros = {
         customError: 'Favor informar um número de celular'
     }
 }
+// ?valueMissing : Campo vazio
+// ?typeMismatch : Tipo do input não obedecido
+// ?CustomErro : Erro customizado
+// ?patternMismatch : A regra de preenchimento do input não foi obedecida
 
+
+// *Array com erros em string
 const tiposErro = [
     'customError',
     'typeMismatch',
@@ -58,8 +69,12 @@ const tiposErro = [
     'valueMissing'
 ]
 
+// *Função que valida se há algum erro no input e caso sim configura a mensagem que aparecerá no input
 function mostrarErro(tipoInput,input) {
+
     let mensagem = ''
+    
+    // ?Verifica se há um erro no validity que está no array com erros
     tiposErro.forEach(erro => {
         if (input.validity[erro]) {
             mensagem = mensagensErros[tipoInput][erro]
@@ -68,45 +83,36 @@ function mostrarErro(tipoInput,input) {
     return mensagem
 }
 
+// *Verifica se o texto enviado é uma data
 function validarDataNascimento(input) {
+
     let mensagem = ''
-    
     let data = input.value.split('/').reverse()
 
-    if (isDate(data)) {
-        data = new Date(data)
-        
-        if (!maior10(data)) {
-            mensagem = 'Você deve ter mais de 10 anos'
-        }
-    } else {
-        mensagem = 'Digite uma data válida'
+    // ?Chama uma função para verificar a idade do usuário
+    if (!maior6(data)) {
+        mensagem = 'Você deve ter mais de 10 anos'
     }
-
+    
     input.setCustomValidity(mensagem)
 }
 
+// *Função que verifica se o usuário é maior de 6 anos
+function maior6(data) {
 
-function isDate(data) {
-    try {
-        data = new Date(data)
-    } catch {
-        return false
-    }
-    return true
-}
-
-function maior10(data) {
     const dataAtual = new Date()
-    const dataMais10 = new Date(data.getUTCFullYear() + 10, data.getUTCMonth(), data.getUTCDate())
-
-    return dataAtual > dataMais10
+    const dataMais6 = new Date(data.getUTCFullYear() + 6, data.getUTCMonth(), data.getUTCDate())
+    return dataAtual > dataMais6
 }
-
+// *Função que controla a validação do CPF
 function validarCPF(input) {
+
+    // ?Retira tudo que não é número do CPF
     const cpfFormat = input.value.replace(/\D/g,'')
+
     let mensagem = ''
 
+    // ?Checa a veracidade do CPF
     if (!checaCPFRepetido(cpfFormat) || !checarEstruturaCPF(cpfFormat)) {
         mensagem = 'O CPF digitado não é valido'
     }
@@ -114,7 +120,9 @@ function validarCPF(input) {
     input.setCustomValidity(mensagem)
 }
 
+// *Função para testar se o CPF faz parte da lista de CPF repetidas
 function checaCPFRepetido(cpf) {
+
     const valores = [
         '00000000000',
         '11111111111',
@@ -129,6 +137,7 @@ function checaCPFRepetido(cpf) {
     ]
     let cpfValido = true
 
+    // ?Efetivamente testa cada CPF repetida com o CPF enviado
     valores.forEach(valor => {
         if (valor == cpf) {
             cpfValido = false
@@ -137,13 +146,16 @@ function checaCPFRepetido(cpf) {
     return cpfValido
 }
 
+// *Define o valor do multiplicado e chama a função que testa o CPF 
 function checarEstruturaCPF(cpf) {
-    const multiplicador = 10
 
+    const multiplicador = 10
     return checarDigitoVerificador(cpf,multiplicador)
 }
 
+// *Função que testa se o CPF é valido
 function checarDigitoVerificador(cpf,multiplicador) {
+
     if (multiplicador >= 12) {
         return true 
     }
@@ -165,36 +177,39 @@ function checarDigitoVerificador(cpf,multiplicador) {
     return false
 }
 
+// *Função que realiza o ultimo teste para o CPF
 function confirmarDigito(soma) {
+
     return 11 - (soma % 11)
 }
 
+// *Função que valida o celular enviado
 function validarCel(input) {
+
     let mensagem = ''
     let celular = converterCell(input.value)
-    
     let tamanho = celular.length
-    console.log(tamanho)
-    console.log(celular)
-    if (!checarTamanhoCel(tamanho,input)) {
+    
+    // ?Chama uma função para checar o tamanho do celular
+    if (!checarTamanhoCel(tamanho)) {
         mensagem = 'Favor informar um número de celular'
     }
 
     input.setCustomValidity(mensagem)
 }
 
+// *Função que retorna apenas o número de celular do usuário
 function converterCell(input) {
+
     let novoCampo = input.replace('+55 ','').replace('-',' ')
     return novoCampo
 }
 
-function checarTamanhoCel(tamanho,input) {
+// *Função que checa se o tamanho do celualar é valido
+function checarTamanhoCel(tamanho) {
+
     if (tamanho === 15) {
-        if (input.value.length === 11) {
-            input.value = '0' + input.value
-        }
         return true
     }
     return false
-
 }
