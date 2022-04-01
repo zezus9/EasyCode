@@ -15,12 +15,14 @@ export function validar(input) {
         validadores[tipoInput](input)
     }
 
+    console.log(input.validity.valid)
     // ?Se o valid for false significa que há um erro e o formulario é lockado
     if (input.validity.valid) {
         input.parentElement.classList.remove('input-container--invalido')
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = ''
     }
     else {
+        console.log('opa')
         input.parentElement.classList.add('input-container--invalido')
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = mostrarErro(tipoInput,input)
     }
@@ -87,7 +89,7 @@ function mostrarErro(tipoInput,input) {
 function validarDataNascimento(input) {
 
     let mensagem = ''
-    let data = input.value.split('/').reverse()
+    let data = new Date(input.value.split('/').reverse())
 
     // ?Chama uma função para verificar a idade do usuário
     if (!maior6(data)) {
