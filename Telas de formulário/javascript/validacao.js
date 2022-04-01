@@ -104,6 +104,7 @@ function maior6(data) {
     const dataMais6 = new Date(data.getUTCFullYear() + 6, data.getUTCMonth(), data.getUTCDate())
     return dataAtual > dataMais6
 }
+
 // *Função que controla a validação do CPF
 function validarCPF(input) {
 

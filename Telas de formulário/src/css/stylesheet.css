@@ -1,3 +1,4 @@
+/* *Adicionando fonte */
 @font-face {
     font-family: Lovelofont;
     src: url(../fonts/Lovelo\ Black.otf) format("opentype");
@@ -8,58 +9,51 @@
     src: url(../fonts/josefin-sans-regular.ttf) format("opentype");
 }
 
+/* *Padrão para titulo */
 .title
 {
     font-family: Lovelofont;
     font-weight: bold;
 }
 
+/* *Padrão para subtitulos */
 .secundary{
     font-family: Josefinfont;
     font-weight: bold;
 }
 
+/* *Background */
 .main
 {
     background-color: #b3deef;
 }
 
-.label-login
+/* *Tamanho da fonte das labels do login */
+.label
 {
     font-size: 20px;
 }
 
-.label-signin
-{
-    position: absolute;
-    left: 10%;
-    font-size: 15px;
-
-    transition: all .25s;
-}
-
+/* *Coloca o lembrar-me na direita */
 .text-right
 {
     text-align: end;
 }
 
+/* *Cor do texto Principal */
 .text-color
 {
     color: #251a9b;
 }
 
+/* *Atribui essa cor ao botão */
 .bg-color
 {
     background-color: #251a9b;
 }
 
+/* *Tamanho da mensagem de erro da pagina de signin */
 .span-si
 {
     font-size: 13px;
-}
-
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button 
-{
-    -webkit-appearance: none;
-    margin: 0;
 }
