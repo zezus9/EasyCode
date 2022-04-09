@@ -27,6 +27,11 @@ CORES:
     font-weight: bold;
 }
 
+.nav-link:hover{
+    background-color: #7ED957;
+    border-radius: 38%;
+}
+
 /* CORES */
 .White{color: #ffffff !important;}
 .Black{color: #000000 !important;}
