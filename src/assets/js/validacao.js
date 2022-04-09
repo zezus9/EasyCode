@@ -15,14 +15,12 @@ export function validar(input) {
         validadores[tipoInput](input)
     }
 
-    console.log(input.validity.valid)
     // ?Se o valid for false significa que há um erro e o formulario é lockado
     if (input.validity.valid) {
         input.parentElement.classList.remove('input-container--invalido')
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = ''
     }
     else {
-        console.log('opa')
         input.parentElement.classList.add('input-container--invalido')
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = mostrarErro(tipoInput,input)
     }
