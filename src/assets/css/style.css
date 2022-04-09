@@ -1,0 +1,32 @@
+/* 
+CORES:
+#7ED957 
+#C9E265
+#008037 
+*/
+
+/* FONTES */
+@font-face {
+    font-family: Lovelofont;
+    src: url(../fonts/Lovelo\ Black.otf) format("opentype");
+}
+
+.Lovelofont{
+    font-family: Lovelofont;
+    color: #008037 !important;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Josefinfont;
+    src: url(../fonts/josefin-sans-regular.ttf) format("opentype");
+}
+.Josefinfont{
+    font-family: Josefinfont;
+    color: #000000 !important;
+    font-weight: bold;
+}
+
+/* CORES */
+.White{color: #ffffff !important;}
+.Black{color: #000000 !important;}

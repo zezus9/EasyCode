@@ -1,0 +1,79 @@
+/*LAYOUT DA PARTE DE CIMA*/
+.page{
+  background-color: #fff;
+  opacity: 40%;
+}
+
+.position-text{
+  position: absolute; 
+  text-align: left;
+  top: 200px;
+  left: 10%;
+  color: #fff !important;
+}
+
+/* LAYOUT DOS CARDS*/
+.card {
+  position: relative;
+  display: block;
+  height: 100%; 
+  border-radius: 0 !important;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.abadedescricao {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;   
+  border-radius: 20% 0;    
+  background-color: #fff; 
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .abadedescricao {
+  transform: translateY(0);
+}
+
+.abacard {
+  position: relative;
+  display: flex;
+  padding: 10%;
+  border-radius: 20% 0;    
+  background-color: #fff;
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .abacard {
+  transform: translateY(0);
+}
+
+.titulo {
+  font-size: 1.2em;
+  color: #424641;
+}
+
+.subtitulo {
+  font-size: 0.8em;
+  color: #424641;
+}
+
+.descricao{
+  padding: 0 2em 2em;
+  color: #424641;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+
+.botao{
+  border-radius: 5% !important; 
+  font-size: 0.8em !important;
+  background-color: #008037 !important;
+  color: #fff !important;
+}

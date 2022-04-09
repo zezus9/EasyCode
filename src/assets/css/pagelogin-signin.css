@@ -1,14 +1,3 @@
-/* *Adicionando fonte */
-@font-face {
-    font-family: Lovelofont;
-    src: url(../fonts/Lovelo\ Black.otf) format("opentype");
-}
-
-@font-face {
-    font-family: Josefinfont;
-    src: url(../fonts/josefin-sans-regular.ttf) format("opentype");
-}
-
 /* *Padrão para titulo */
 .title
 {
