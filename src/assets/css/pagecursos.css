@@ -1,15 +1,16 @@
-/*LAYOUT DA PARTE DE CIMA*/
-.page{
-  background-color: #fff;
-  opacity: 40%;
+/*LAYOUT DA IMAGEM TOPO*/
+.imagem-header {
+  margin-top: 70px;
+	min-height: 300px;
+	background-image: url(../img/sectionfundo_cursos.JPG);
+	background-size: cover;
+  background-position: center;
+	display: flex;
 }
 
-.position-text{
-  position: absolute; 
-  text-align: left;
-  top: 200px;
-  left: 10%;
-  color: #fff !important;
+.text-imagem{
+  display: flex;
+  align-items: center;
 }
 
 /* LAYOUT DOS CARDS*/
