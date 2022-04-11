@@ -27,13 +27,13 @@
                     </figure>
                     <!-- !formulario -->
                     <div class="h-100 m-3 mt-0">
-                        <form action="" class="formulario flex flex--coluna p-2">
+                        <form action="php/login.php" method="post" class="formulario flex flex--coluna p-2">
                             <h1 class="text-center text-color title">Entrar</h1>
                             <!-- *email e matricula -->
                             <div class="d-flex">
                                 <div class="form-group mb-4 w-100">
                                     <div class="input-container">
-                                        <input id="emailMatricula" class="input" placeholder="#" type="text" required
+                                        <input id="emailMatricula" class="input" name="emailMatricula" placeholder="#" type="text" required
                                         data-tipo="emailMatricula">
                                         <label class="input-label-lg label" for="emailMatricula">E-mail ou Matricula:</label>
                                         <span class="input-mensagem-erro">Este campo não está valido</span>
