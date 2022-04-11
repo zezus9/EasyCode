@@ -29,12 +29,12 @@
 <body style="background-color: #e3f2fd;" onload="carousel()">
 
     <!-- HEADER -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
             <div class="container">
-                <a class="navbar-brand Lovelofont" href="homepage.html"><img width="35" src="img/logoEASYCODE.png"
+                <a class="navbar-brand Lovelofont" href="Home.html"><img width="35" src="assets/img/logoEASYCODE.png"
                         alt="Logo EC">
-                    EASY CODE</a>
+                    EASYCODE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,16 +42,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav Josefinfont">
                         <li class="nav-item">
-                            <a class="nav-link" href="homepage.html">Home</a>
+                            <a class="nav-link" href="Home.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pagecursos.html">Cursos</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="pagecadastro_login.html">Inscreva-se / Entrar</a>
+                            <a class="nav-link" href="cadastro_login.html">Inscreva-se / Entrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagesobrenos.html">Sobre nós</a>
+                            <a class="nav-link" href="sobrenos.html">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
@@ -60,15 +60,18 @@
     </header>
     <!-- HEADER -->
 
-    <!-- teste -->
-    <section style="margin-top: 70px;">
-                <img src="img/sectionfundo_cursos.JPG" class="w-100 page" alt=""> 
-                <div class="position-text container">
-                    <h1 class="text-uppercase Lovelofont">CURSOS</h2>
-                        <p>Já está matriculado na Easy Code? Tenha todos os benefícios que os alunos da Easy Code tem!!
-                        </p>
-                        <a class="btn btn-outline-light" href="#">Inscrever-se</a>
-                </div>   
+    <!-- IMAGEM TOPO -->
+    <section class="imagem-header">
+        <div class="container text-imagem">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-uppercase Lovelofont">CURSOS</h1>
+                    <p>Já está matriculado na Easy Code? Tenha todos os benefícios que os alunos da Easy Code tem!!</p>
+                    <a class="btn btn-outline-light" href="#">Inscrever-se</a>
+                </div>
+                <div class="col-auto d-none d-md-block">
+                    <img src="assets/img/Logo Mascote Sem fundo.png" width="300px"/>
+                </div>
             </div>
         </div>
     </section>
@@ -78,7 +81,6 @@
         <nav class="navbar justify-content-end">
             <form class="form-inline">
                 <div class="input-group container">
-
                     <input class="form-control" type="text" placeholder="O que deseja aprender?">
                     <button class="btn btn-success" type="submit"><b class="fas fa-search"></b></button>
                 </div>
@@ -94,7 +96,7 @@
                 <h3>Front-End</h3>
                 <div class="owl-carousel">
                     <div class="card">
-                        <img src="img/logo_cursos/icon-javascript.png" alt="" />
+                        <img src="assets/img/logo_cursos/icon-javascript.png" alt="" />
                         <div class="abadedescricao">
                             <div class="abacard">
                                 <div>
@@ -123,7 +125,7 @@
                 <h3>Back-End</h3>
                 <div class="owl-carousel">
                     <div class="card">
-                        <img src="img/logo_cursos/icon-c++.png" alt="" />
+                        <img src="assets/img/logo_cursos/icon-c.png" alt="" />
                         <div class="abadedescricao">
                             <div class="abacard">
                                 <div>
@@ -152,7 +154,7 @@
                 <h3>Databases</h3>
                 <div class="owl-carousel">
                     <div class="card">
-                        <img src="img/logo_cursos/icon-c.png" alt="" />
+                        <img src="assets/img/logo_cursos/icon-c++.png" alt="" />
                         <div class="abadedescricao">
                             <div class="abacard">
                                 <div>
