@@ -60,25 +60,6 @@
                 <p id="text">EASYCODE sua plataforma ideal para aprender programação </p>
             </div>
 
-            <script>
-                var i = 0;
-                var tag = document.getElementById("text");
-                var html = document.getElementById("text").innerHTML;
-                var attr = tag.setAttribute("data", html);
-                var txt = tag.getAttribute("data");
-                var speed = 50;
-
-                function typeWriter() {
-                    if (i <= txt.length) {
-                        document.getElementById("text").innerHTML = txt.slice(0 , i + 1);
-                            i++;
-                            setTimeout(typeWriter, speed);
-                }}
-
-                typeWriter();
-
-            </script>
-
             <div class="text2">
                 <p>Aprenda diferentes linguagens
                     <br> de programacao aqui na easycode
@@ -89,8 +70,9 @@
                 </b>
             </a>
 
-
         </div>
 
     </header>
-</body></html>
+    <script src="assets/js/typeWriter.js"></script>
+</body>
+</html>
