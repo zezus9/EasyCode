@@ -47,13 +47,41 @@ border-radius: 38%;
 }
 
 
-  .btn-success:hover {
+.btn-success:hover {
     color: #FFF;
     background: rgb(103, 192, 103, 0.75);
     border: 2px solid rgb(103, 192, 103, 0.75);
-  }
+}
 
-  .text2{
-      font-size: 66%;
-      font-family: josefinfont;
-  }
+.text2{
+    font-size: 66%;
+    font-family: josefinfont;
+}
+
+.typewriter {
+    font-family: JosefinFont;
+    width: 40%; 
+}
+p {
+    overflow: hidden;
+    margin: 0 auto;
+    display: inline-block;
+    font-weight: normal;
+
+}
+p:after{
+    content: '';
+    display: inline-block;
+    background-color: white;
+    margin-left: 2px;
+    height: 25px;
+    width: 4px;
+    animation: cursor 0.4s infinite;
+}
+
+@keyframes cursor {
+    0% { opacity: 1; }
+    49% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
