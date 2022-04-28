@@ -5,7 +5,7 @@
   color: #008037;
   padding: 2rem 1rem;
 }
-@media (min-width: 58rem) {
+@media (min-width: 992px) {
   .area-imagem {
     text-align: left;
     padding: 3rem 0rem;
