@@ -27,16 +27,13 @@ CORES:
     font-weight: bold;
 }
 
-
 .White{
     color: #ffffff !important;
 }
 
-
 .nav-link:hover{
-
-background-color: #7ED957;
-border-radius: 38%;
+    background-color: #7ED957;
+    border-radius: 38%;
 }
 
 .text{
@@ -45,7 +42,6 @@ border-radius: 38%;
     margin-top: 10%;
     font-size: 200%
 }
-
 
 .btn-success:hover {
     color: #FFF;
@@ -62,6 +58,7 @@ border-radius: 38%;
     font-family: JosefinFont;
     width: 40%; 
 }
+
 p {
     overflow: hidden;
     margin: 0 auto;
@@ -69,6 +66,7 @@ p {
     font-weight: normal;
 
 }
+
 p:after{
     content: '';
     display: inline-block;

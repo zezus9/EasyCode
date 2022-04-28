@@ -1,0 +1,29 @@
+/* 
+CORES:
+#7ED957 
+#C9E265
+#008037 
+*/
+
+.background{
+    background-color: #008037;
+}
+
+.card{
+    background-color: #7ED957!important;
+    height: 85vh;
+    width: 85vw;
+}
+
+.titulo{
+    font-size: 80px;
+    margin: 5%;
+}
+
+.botao{
+    background-color: #008037;
+    color: antiquewhite;
+    width: 40%;
+    border-radius: 15%;
+    font-size: 35px;
+}
