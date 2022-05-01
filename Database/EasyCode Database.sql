@@ -15,7 +15,7 @@
 
 -- Copiando estrutura do banco de dados para easycode
 DROP DATABASE IF EXISTS `easycode`;
-CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `easycode`;
 
 -- Copiando estrutura para tabela easycode.aluno
@@ -77,16 +77,16 @@ DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nome` varchar(40) NOT NULL,
-  `campo` varchar(15) NOT NULL,
+  `campo` enum('FrontEnd','BackEnd','Database') NOT NULL,
   `fase` int(2) NOT NULL,
   `duração` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.curso: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.curso: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
 REPLACE INTO `curso` (`id`, `nome`, `campo`, `fase`, `duração`) VALUES
-	(001, 'Python', 'Programação', 9, 15);
+	(001, 'Python', 'BackEnd', 9, 15);
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.professor
