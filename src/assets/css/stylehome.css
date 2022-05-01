@@ -5,30 +5,12 @@ CORES:
 #008037 
 */
 
-/* FONTES */
-@font-face {
-    font-family: Lovelofont;
-    src: url(../fonts/Lovelo\ Black.otf) format("opentype");
+body{
+    background-image: url(../img/bgimg.jpg);;
 }
 
-.Lovelofont{
-    font-family: Lovelofont;
-    color: #008037 !important;
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Josefinfont;
-    src: url(../fonts/josefin-sans-regular.ttf) format("opentype");
-}
-.Josefinfont{
-    font-family: Josefinfont;
-    color: #000000 !important;
-    font-weight: bold;
-}
-
-.White{
-    color: #ffffff !important;
+img{
+    float: right;
 }
 
 .nav-link:hover{
@@ -39,7 +21,7 @@ CORES:
 .text{
     font-family: josefinfont;
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 7%;
     font-size: 200%
 }
 
