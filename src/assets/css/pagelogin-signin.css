@@ -21,6 +21,10 @@ CORES:
     text-decoration: none;
 }
 
+.hover:hover{
+    color: #008037!important;
+}
+
 /* *Background */
 .main
 {
@@ -42,10 +46,5 @@ CORES:
 /* *Atribui essa cor ao botão */
 .bg-color
 {
-    background-color: #7ED957;
-}
-
-a
-{
-    text-decoration: dashed;
+    background-color: #008037!important;
 }

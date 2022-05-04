@@ -51,13 +51,6 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-}
-
 /* Basic */
 
 	@-ms-viewport {
@@ -142,10 +135,6 @@ input, select, textarea {
 		text-decoration: none;
 		color: inherit;
 	}
-
-		a:hover {
-			border-bottom-color: transparent;
-		}
 
 	strong, b {
 		color: #ffffff;
@@ -450,7 +439,6 @@ input, select, textarea {
 		padding: 0.75rem 1rem;
 	}
 
-	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -464,7 +452,6 @@ input, select, textarea {
 		z-index: -1;
 	}
 
-		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
 			-moz-user-select: none;
@@ -482,7 +469,6 @@ input, select, textarea {
 			position: relative;
 		}
 
-			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
@@ -496,7 +482,6 @@ input, select, textarea {
 				font-weight: 900;
 			}
 
-			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
 				-moz-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 				-webkit-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -515,7 +500,6 @@ input, select, textarea {
 				width: 1.65rem;
 			}
 
-		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
 			background: #ffffff !important;
 			border-color: #ffffff !important;
@@ -523,16 +507,11 @@ input, select, textarea {
 			content: '\f00c';
 		}
 
-		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
 			background: rgba(255, 255, 255, 0.075);
 			border-color: #ffffff;
 			box-shadow: 0 0 0 1px #ffffff;
 		}
-
-	input[type="checkbox"] + label:before {
-		border-radius: 4px;
-	}
 
 	input[type="radio"] + label:before {
 		border-radius: 100%;
@@ -906,13 +885,7 @@ input, select, textarea {
 				width: 2.25rem;
 			}
 
-				ul.icons li a:hover {
-					background-color: rgba(255, 255, 255, 0.075);
-				}
-
-				ul.icons li a:active {
-					background-color: rgba(255, 255, 255, 0.175);
-				}
+				
 
 /* Table */
 
@@ -1342,13 +1315,7 @@ input, select, textarea {
 					border-bottom: 0;
 				}
 
-					#header nav ul li a:hover {
-						background-color: rgba(255, 255, 255, 0.075);
-					}
-
-					#header nav ul li a:active {
-						background-color: rgba(255, 255, 255, 0.175);
-					}
+					
 
 		#header nav.use-middle:after {
 			content: '';
@@ -1520,7 +1487,7 @@ input, select, textarea {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			background-color: rgba(36, 36, 36, 0.85);
 			border-radius: 4px;
 			opacity: 0;
 		}

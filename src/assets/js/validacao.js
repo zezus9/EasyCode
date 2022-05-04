@@ -38,7 +38,11 @@ const mensagensErros = {
         valueMissing: 'O email não pode estar vazio',
         typeMismatch: 'O email digitado não é valido'
     },
-    senha: {
+    senhaEnt: {
+        valueMissing: 'A senha não pode estar vazio',
+        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
+    },
+    senhaCad: {
         valueMissing: 'A senha não pode estar vazio',
         patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
     },

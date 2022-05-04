@@ -18,8 +18,10 @@
 	<div id="wrapper">
 		<!-- Header -->
 		<header id="header">
-			<div class="logo">
-				<span><img src="assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%"></span>
+			<div class="logo d-flex justify-content-center align-items-center">
+				<span class="d-flex justify-content-center align-items-center">
+					<img src="assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%">
+				</span>
 			</div>
 			<div class="content">
 				<div class="inner">
@@ -30,8 +32,8 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#entrar" class="secundary">Entre em uma conta</a></li>
-					<li><a href="#cadastrar" class="secundary">Crie uma nova conta</a></li>
+					<li><a href="#entrar" class="secundary hover">Entre em uma conta</a></li>
+					<li><a href="#cadastrar" class="secundary hover">Crie uma nova conta</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -65,7 +67,7 @@
 							<!-- *senha -->
 							<div>
 								<div class="input-container">
-									<input id="senha" class="input" name="senha" type="password" placeholder="#" required data-tipo="senha"
+									<input id="senhaEnt" class="input" name="senha" type="password" placeholder="#" required data-tipo="senha"
 									pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$">
 									<label class="input-label-lg label" for="senha">Senha:</label>
 									<span class="input-mensagem-erro">Este campo não está valido</span>
@@ -85,7 +87,7 @@
 							</div>
 							<!-- *botão para entrar -->
 							<div class="d-flex justify-content-center">
-								<input type="submit" value="ENTRAR" class="btn btn-outline-secondary bg-color text-light">
+								<input type="submit" value="ENTRAR" class="btn btn-outline-secondary bg-color">
 							</div>
 							<br>
 							<!-- *mudar para o formulário de cadastro -->
@@ -147,7 +149,7 @@
 							</div>
 							<!-- ?senha -->
 							<div class="input-container mb-4 mx-2">
-								<input id="senha" class="input" type="password" placeholder="#" required data-tipo="senha"
+								<input id="senhaCad" class="input" type="password" placeholder="#" required data-tipo="senha"
 								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$">
 								<label class="input-label-lg" for="senha">Senha:</label>
 								<span class="input-mensagem-erro">Este campo não está valido</span>
@@ -184,6 +186,9 @@
 	<script src="assets/js/libs/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/app.js" type="module"></script>
+	<script src="assets/js/libs/jquery.js"></script>
+    <script src="assets/js/libs/jquery.mask.js"></script>
+    <script src="assets/js/app.js" type="module"></script>
+    <script src="assets/js/mascara.js"></script>
 </body>
 </html>
