@@ -1,3 +1,11 @@
+/* 
+CORES:
+#7ED957 
+#C9E265
+#008037 
+*/
+
+
 /* *Padrão para titulo */
 .title
 {
@@ -9,18 +17,14 @@
 .secundary{
     font-family: Josefinfont;
     font-weight: bold;
+    color: #7ED957;
+    text-decoration: none;
 }
 
 /* *Background */
 .main
 {
     background-color: #b3deef;
-}
-
-/* *Tamanho da fonte das labels do login */
-.label
-{
-    font-size: 20px;
 }
 
 /* *Coloca o lembrar-me na direita */
@@ -32,17 +36,16 @@
 /* *Cor do texto Principal */
 .text-color
 {
-    color: #251a9b;
+    color: #C9E265;
 }
 
 /* *Atribui essa cor ao botão */
 .bg-color
 {
-    background-color: #251a9b;
+    background-color: #7ED957;
 }
 
-/* *Tamanho da mensagem de erro da pagina de signin */
-.span-si
+a
 {
-    font-size: 13px;
+    text-decoration: dashed;
 }
