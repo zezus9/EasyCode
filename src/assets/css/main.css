@@ -219,9 +219,9 @@ hr {
 	margin: 2.75rem 0;
 }
 
-.align-left {
-	text-align: left;
-}
+	.align-left {
+		text-align: left;
+	}
 
 .align-center {
 	text-align: center;
