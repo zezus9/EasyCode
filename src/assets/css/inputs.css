@@ -1,13 +1,3 @@
-.formulario {
-    margin-top: 2rem;
-}
-
-.formulario__legenda {
-    font-size: var(--fonte-tamanho-formulario-fieldset);
-
-    margin-bottom: 1rem;
-}
-
 .input-container {
     font-weight: var(--fonte-peso-input);
     position: relative;
@@ -22,14 +12,16 @@
     box-sizing: border-box;
     border-bottom: 1px solid var(--cor-secundaria);
     padding: 1.375rem 0.5rem 0.5rem;
-    height: 6rem;
+    height: 3rem;
     width: 100%;
     color: #C9E265!important;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
 .input::placeholder {
     visibility: hidden;
-    color: #00000000;
 }
 
 .input:focus {
@@ -41,7 +33,8 @@
     top: 0.6rem;
     left: 1rem;
     font-size: var(--fonte-tamanho-input-label);
-
+    color: white;
+    
     transition: all .25s;
 }
 

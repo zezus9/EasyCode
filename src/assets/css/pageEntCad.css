@@ -5,7 +5,6 @@ CORES:
 #008037 
 */
 
-
 /* *Padrão para titulo */
 .title
 {
@@ -23,12 +22,6 @@ CORES:
 
 .hover:hover{
     color: #008037!important;
-}
-
-/* *Background */
-.main
-{
-    background-color: #b3deef;
 }
 
 /* *Coloca o lembrar-me na direita */
