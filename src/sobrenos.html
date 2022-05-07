@@ -16,8 +16,8 @@
 <body class="is-preload">	
 	<!-- Wrapper -->
 	<div id="wrapper">
-		<div class="fixed-top">
-			<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd, back">
+		<div id="head" class="fixed-top nonSelect">
+			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<a class="navbar-brand Lovelofont" href="Home.html"><img width="35" src="assets/img/logoEASYCODE.png"
 							alt="Logo EC">
@@ -47,29 +47,26 @@
 		</div>
 		<!-- Header -->
 		<header id="header">
-			
 			<div class="logo d-flex justify-content-center align-items-center">
-				<span class="d-flex justify-content-center align-items-center">
+				<span class="d-flex justify-content-center align-items-center nonSelect">
 					<img src="assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%">
 				</span>
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1 class="text-color">Entre na sua conta</h1>
-					<p class="secundary">seja um desenvolverdor </br> entre para esse novo mundo.<br />
-					</p>
+					<h1 class="text-color selection">Entre na sua conta</h1>
+					<p class="secundary selection">seja um desenvolverdor<br class="nonSelect">entre para esse novo mundo.</p>
 				</div>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#entrar" class="secundary hover">Entre em uma conta</a></li>
-					<li><a href="#cadastrar" class="secundary hover">Crie uma nova conta</a></li>
+					<li><a href="#entrar" class="secundary hover nonSelect">Entre na conta</a></li>
+					<li><a href="#cadastrar" class="secundary hover nonSelect">Crie uma conta</a></li>
 				</ul>
-			</nav>
 		</header>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="main" class="nonSelect">
 
 			<!-- Entrar -->
 			<article id="entrar">
@@ -82,7 +79,7 @@
 					<!-- !formulario -->
 					<div class="h-100 m-3 mt-0">
 						<form action="php/login.php" method="post" class="formulario flex flex--coluna p-2">
-							<h1 class="text-center text-color title">Entrar</h1>
+							<h1 class="text-center Black">Entrar</h1>
 							<!-- *email e matricula -->
 							<div class="d-flex">
 								<div class="form-group mb-4 w-100">
@@ -107,11 +104,11 @@
 							<div class="d-flex">
 								<!-- ?esqueci a senha -->
 								<div class="w-50">
-									<p><a href="#" class="text-color">Esqueci a senha</a></p>
+									<p><a href="#" class="nonTitle">Esqueci a senha</a></p>
 								</div>
 								<!-- ?lembre-me -->
 								<div class="w-50 text-right">
-									<label for="lembreme" class="text-color">Lembre-me</label>
+									<label for="lembreme" class="nonTitle">Lembre-me</label>
 									<input type="checkbox" id="lembreme">
 								</div>
 							</div>
@@ -122,7 +119,7 @@
 							<br>
 							<!-- *mudar para o formulário de cadastro -->
 							<div class="text-center">
-								<h5>Não tem cadastro? <a href="cadastrar.html" class="text-color">Cadastre-se aqui</a></h4>
+								<h5 class="Black">Não tem cadastro? <a href="cadastrar.html" class="nonTitle">Cadastre-se aqui</a></h5>
 							</div>
 						</form>
 					</div>
@@ -140,7 +137,7 @@
                     <!-- !formulario -->
                     <div class="h-100 m-3 mt-0">
                         <form action="" class="p-2">
-                            <h1 class="text-center text-color title">Cadastrar</h1>
+                            <h1 class="text-center Black">Cadastrar</h1>
                             <br>
 							<!-- ?nome completo -->
 							<div class="input-container mb-4 mx-2">
@@ -191,7 +188,7 @@
                             <br>
                             <!-- *mudar para formulario de login -->
                             <div class="text-center">
-                                <h5>Já está cadastrado? <a href="entrar.html" class="text-color">Entre por aqui</a></h5>
+                                <h5 class="Black">Já está cadastrado? <a href="entrar.html" class="nonTitle">Entre por aqui</a></h5>
                             </div>
                         </form>
                     </div>
