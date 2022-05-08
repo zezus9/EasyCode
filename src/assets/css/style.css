@@ -28,7 +28,7 @@ CORES:
 }
 
 .nav-link{
-    background-color: #e3f2fd, back
+    background-color: #e3f2fd, back;
 }
 
 .nav-link:hover{
@@ -36,6 +36,15 @@ CORES:
     border-radius: 38%;
 }
 
+.not-nav-link{
+    color: #008037;
+    text-decoration: none;
+}
+
+.not-nav-link:hover{
+    color: #008037;
+    cursor: default;
+}
 /* CORES */
 .White{color: #ffffff !important;}
 .Black{color: #000000 !important;}
