@@ -9,7 +9,7 @@ body{
     background-image: url(../img/bgimg.jpg);
 }
 
-img{
+.img{
     float: right;
 }
 
