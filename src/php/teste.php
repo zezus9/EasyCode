@@ -63,33 +63,35 @@
                 <div class='owl-carousel'>
         ";
         for ($i=0; $i < count($FrontEnd); $i++){
-            $card = $sql -> QUERY("SELECT * FROM cursos WHERE id = '$FrontEnd[$i]'");
-            echo 
-            "
-                        <div class='card'>
-                            <figure class='fundocard'>
-                                <img src='../assets/img/logo_cursos/$card[$i]['logo']'>
-                            </figure>
-                            <div class='abadedescricao'>
-                                <div class='abacard'>
-                                    <div>
-                                        <h5 class='titulo'>Titulo</h5>
-                                        <span class='subtitulo'>
-                                            <i class='fa-solid fa-clock'></i>
-                                            Duração: --
-                                        </span>
-                                        <br>
-                                        <a href='template_cursos.html' class='btn botao'>
-                                            <i class='bi bi-pencil-square'>&nbsp;</i>
-                                            Inscrever-se
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class='descricao'>Descrição breve do curso</p>
+            $apresentaCard = $sql -> QUERY("SELECT * FROM curso WHERE id = '$FrontEnd[$i]'");
+            echo $apresentaCard[0];
+            while ($card = mysqli_fetch_array($apresentaCard)) {
+                echo 
+                "
+                <div class='card'>
+                    <figure class='fundocard'>
+                        <img src='../assets/img/logo_cursos/$card[logo]'>
+                    </figure>
+                    <div class='abadedescricao'>
+                        <div class='abacard'>
+                            <div>
+                                <h5 class='titulo'>$card[linguagem]</h5>
+                                <span class='subtitulo'>
+                                    <i class='fa-solid fa-clock'></i>
+                                    Duração: $card[duracao]
+                                </span>
+                                <br>
+                                <a href='template_cursos.html' class='btn botao'>
+                                    <i class='bi bi-pencil-square'>&nbsp;</i>
+                                    Inscrever-se
+                                </a>
                             </div>
                         </div>
-                    
-            ";
+                        <p class='descricao'>$card[desc_breve]</p>
+                    </div>
+                </div>
+                ";
+            }
         }
 
         echo 
@@ -97,80 +99,86 @@
                 </div>
             </div>
         </div>
+        <div class='row'>
+            <div>
+                <h3>Back-End</h3>
+                <div class='owl-carousel'>
         ";
         for ($i=0; $i < count($BackEnd); $i++){
-            $card = $sql -> QUERY("SELECT * FROM cursos WHERE id = '$BackEnd[$i]'");
-            echo 
-            '
-            <div class="row">
-                <div>
-                    <h3>Back-End</h3>
-                    <div class="owl-carousel">
-                        <div class="card">
-                            <figure class="fundocard">
-                                <img src="../assets/img/logo_cursos/icon-php.png" alt="">
-                            </figure>
-                            <div class="abadedescricao">
-                                <div class="abacard">
-                                    <div>
-                                        <h5 class="titulo">Titulo</h5>
-                                        <span class="subtitulo">
-                                            <i class="fa-solid fa-clock"></i>
-                                            Duração: --
-                                        </span>
-                                        <br>
-                                        <a href="template_cursos.html" class="btn botao">
-                                            <i class="bi bi-pencil-square">&nbsp;</i>
-                                            Inscrever-se
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="descricao">Descrição breve do curso</p>
+            $apresentaCard = $sql -> QUERY("SELECT * FROM curso WHERE id = '$BackEnd[$i]'");
+            while ($card = mysqli_fetch_array($apresentaCard)) {
+                echo 
+                "
+                <div class='card'>
+                    <figure class='fundocard'>
+                        <img src='../assets/img/logo_cursos/$card[logo]'>
+                    </figure>
+                    <div class='abadedescricao'>
+                        <div class='abacard'>
+                            <div>
+                                <h5 class='titulo'>$card[linguagem]</h5>
+                                <span class='subtitulo'>
+                                    <i class='fa-solid fa-clock'></i>
+                                    Duração: $card[duracao]
+                                </span>
+                                <br>
+                                <a href='template_cursos.html' class='btn botao'>
+                                    <i class='bi bi-pencil-square'>&nbsp;</i>
+                                    Inscrever-se
+                                </a>
                             </div>
-                            </a>
                         </div>
+                        <p class='descricao'>$card[desc_breve]</p>
                     </div>
                 </div>
-            </div>
-            ';
+                ";
+            }
         }
-        for ($i=0; $i < count($Database); $i++){
-            $card = $sql -> QUERY("SELECT * FROM cursos WHERE id = '$Database[$i]'");
-            echo 
-            '
-            <div class="row">
-                <div>
-                    <h3>Databases</h3>
-                    <div class="owl-carousel">
-                        <div class="card">
-                            <figure class="fundocard">
-                                <img src="../assets/img/logo_cursos/icon-mysql.png" alt="">
-                            </figure>
-                            <div class="abadedescricao">
-                                <div class="abacard">
-                                    <div>
-                                        <h5 class="titulo">Titulo</h5>
-                                        <span class="subtitulo">
-                                            <i class="fa-solid fa-clock"></i>
-                                            Duração: --
-                                        </span>
-                                        <br>
-                                        <a href="template_cursos.html" class="btn botao">
-                                            <i class="bi bi-pencil-square">&nbsp;</i>
-                                            Inscrever-se
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="descricao">Descrição breve do curso</p>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
+
+        echo 
+        "
                 </div>
             </div>
-            ';
+        </div>
+        <div class='row'>
+            <div>
+                <h3>Databases</h3>
+                <div class='owl-carousel'>
+        ";
+        for ($i=0; $i < count($Database); $i++){
+            $apresentaCard = $sql -> QUERY("SELECT * FROM curso WHERE id = '$Database[$i]'");
+            while ($card = mysqli_fetch_array($apresentaCard)) {
+                echo 
+                "
+                <div class='card'>
+                    <figure class='fundocard'>
+                        <img src='../assets/img/logo_cursos/$card[logo]'>
+                    </figure>
+                    <div class='abadedescricao'>
+                        <div class='abacard'>
+                            <div>
+                                <h5 class='titulo'>$card[linguagem]</h5>
+                                <span class='subtitulo'>
+                                    <i class='fa-solid fa-clock'></i>
+                                    Duração: $card[duracao]
+                                </span>
+                                <br>
+                                <a href='template_cursos.html' class='btn botao'>
+                                    <i class='bi bi-pencil-square'>&nbsp;</i>
+                                    Inscrever-se
+                                </a>
+                            </div>
+                        </div>
+                        <p class='descricao'>$card[desc_breve]</p>
+                    </div>
+                </div>
+                ";
+            }
         }
     ?>
+                    </div>
+            </div>
+        </div>
     </div>
 
 
