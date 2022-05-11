@@ -64,7 +64,6 @@
         ";
         for ($i=0; $i < count($FrontEnd); $i++){
             $apresentaCard = $sql -> QUERY("SELECT * FROM curso WHERE id = '$FrontEnd[$i]'");
-            echo $apresentaCard[0];
             while ($card = mysqli_fetch_array($apresentaCard)) {
                 echo 
                 "
