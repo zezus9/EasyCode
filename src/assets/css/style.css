@@ -13,7 +13,7 @@ CORES:
 
 .Lovelofont{
     font-family: Lovelofont;
-    color: #008037;
+    color: #008037 !important;
     font-weight: bold;
 }
 
@@ -45,9 +45,16 @@ CORES:
     color: #008037;
     cursor: default;
 }
+
 /* CORES */
 .White{color: #ffffff !important;}
 .Black{color: #000000 !important;}
+.Background{background-color: #cbdfce !important;}
+.Footer{background-color:#008037 !important;}
+.Copyright{background-color: #015c28;}
+.logo-instagram{background-color: #ac2bac;}
+.logo-linkedin{background-color: #0082ca;}
+.logo-github{background-color: #333333;}
 
 .selection::selection{
     background-color: #008037;

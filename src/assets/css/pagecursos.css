@@ -93,3 +93,7 @@
   background-color: #008037 !important;
   color: #fff !important;
 }
+
+input[placeholder] {
+  text-align: center;
+}
