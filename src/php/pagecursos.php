@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
         integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <!-- ICONS -->
@@ -71,19 +71,32 @@
     </header>
     <!-- HEADER -->
     
-    
     <!-- Área de pesquisa -->
-    <section class="container-xl">
-        <nav class="navbar justify-content-end">
-            <form class="form-inline">
-                <div class="input-group container">
-                    <input class="form-control" type="text" placeholder="O que deseja aprender?">
-                    <button class="btn btn-success" type="submit"><b class="bi bi-search"></b></button>
-                </div>
-            </form>
-        </nav>
+    <section class="container">
+        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">     
+            <input class="form-control" id="busca" type="text" placeholder="O que deseja aprender?">        
+        </form>
     </section>
     <!-- Área de pesquisa -->
+
+    <section>
+    <?php
+
+        include 'connect.php';
+
+        $busca =  $_POST['busca'];
+
+        $query = mysqli_query($sql, "SELECT * FROM curso WHERE linguagem LIKE '%$busca%'");
+        $num   = mysqli_num_rows($query);
+        if($num >0){
+            while($row = mysqli_fetch_assoc($query)){
+                echo $row['linguagem'].'<br /><hr>';
+        }else{
+            echo "Curso não encontrado";
+        }
+        ?>
+        <p id="result"></p>
+    </section>
 
     <!-- Cards de Cursos -->
     <div class="container-xl">
@@ -99,11 +112,7 @@
         while($card = mysqli_fetch_array($apresentacard)){
 
             $id = $card['id'];
-            $logo = $card['logo'];
-            $linguagem = $card['linguagem'];
             $campo = $card['campo'];
-            $duracao = $card['duracao'];
-            $desc_breve = $card['desc_breve'];
 
             if($campo == 'FrontEnd'){
                 array_push($FrontEnd, $id);
@@ -242,7 +251,7 @@
     <!-- Cards de Cursos -->
 
     <!-- FOOTER -->
-    <footer class="text-center text-white text-lg-start" class="Footer">
+    <footer class="text-center text-white text-lg-start Footer">
         <div class="container p-4 pb-0">
             <div class="row">
                 <div class="col-lg-6 mb-md-0">
@@ -255,17 +264,17 @@
                     <span>
                         Acompanhe-nos nas Redes Sociais <br>
                         <!-- Instagram -->
-                        <a class="btn btn-outline-light m-1" class="logo-instagram" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-instagram" href="#!" role="button">
                             <b class="bi bi-instagram"></b>
                         </a>
 
                         <!-- Linkedin -->
-                        <a class="btn btn-outline-light m-1" class="logo-linkedin" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-linkedin" href="#!" role="button">
                             <b class="bi bi-linkedin"></b>
                         </a>
 
                         <!-- Github -->
-                        <a class="btn btn-outline-light m-1" class="logo-github" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-github" href="#!" role="button">
                             <b class="bi bi-github"></b>
                         </a>
                     </span>
@@ -274,14 +283,20 @@
             </div>
         </div>
         <!-- Copyright -->
-        <div class="text-center p-3" class="Copyright">
+        <div class="text-center p-3 Copyright">
             © 2022 Easy Code - Todos os Direitos Reservados.
         </div>
         <!-- Copyright -->
     </footer>
     <!-- FOOTER -->
-
-    <script src="../assets/js/nav.js"></script>
+    <script>
+        $("#busca").keyup(function(){
+        var busca = $("#busca").val();
+        $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
+            $("#result").html(data);
+        });
+    });
+    </script>
 
 </body>
 </html>

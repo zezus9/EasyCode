@@ -177,7 +177,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center text-white text-lg-start" class="Footer">
+    <footer class="text-center text-white text-lg-start Footer">
         <div class="container p-4 pb-0">
             <div class="row">
                 <div class="col-lg-6 mb-md-0">
@@ -190,17 +190,17 @@
                     <span>
                         Acompanhe-nos nas Redes Sociais <br>
                         <!-- Instagram -->
-                        <a class="btn btn-outline-light m-1" class="logo-instagram" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-instagram" href="#!" role="button">
                             <b class="bi bi-instagram"></b>
                         </a>
 
                         <!-- Linkedin -->
-                        <a class="btn btn-outline-light m-1" class="logo-linkedin" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-linkedin" href="#!" role="button">
                             <b class="bi bi-linkedin"></b>
                         </a>
 
                         <!-- Github -->
-                        <a class="btn btn-outline-light m-1" class="logo-github" href="#!" role="button">
+                        <a class="btn btn-outline-light m-1 logo-github" href="#!" role="button">
                             <b class="bi bi-github"></b>
                         </a>
                     </span>
@@ -209,7 +209,7 @@
             </div>
         </div>
         <!-- Copyright -->
-        <div class="text-center p-3" class="Copyright">
+        <div class="text-center p-3 Copyright">
             © 2022 Easy Code - Todos os Direitos Reservados.
         </div>
         <!-- Copyright -->
