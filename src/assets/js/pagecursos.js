@@ -16,8 +16,7 @@ function carousel() {
             },
             1190: {
                 items: 4,
-            },
-
+            }
         }
     })
 }

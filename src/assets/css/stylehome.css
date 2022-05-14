@@ -11,6 +11,11 @@ body{
 
 .img{
     float: right;
+    width: 51.5%;
+}
+
+.hidden{
+    overflow: hidden;
 }
 
 .nav-link:hover{
