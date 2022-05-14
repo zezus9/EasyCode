@@ -38,6 +38,16 @@
   text-decoration: none;
 }
 
+.cardBusca {
+  position: relative;
+  display: inline-block;
+  height: 50%;
+  width: 25%;
+  border-radius: 0 !important;
+  overflow: hidden;
+  text-decoration: none;
+}
+
 .abadedescricao {
   position: absolute;
   bottom: 0;
@@ -96,4 +106,8 @@
 
 input[placeholder] {
   text-align: center;
+}
+
+.cardPesquisa {
+  display: inline;
 }
