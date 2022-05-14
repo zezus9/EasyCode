@@ -73,30 +73,16 @@
     
     <!-- Área de pesquisa -->
     <section class="container">
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">     
+        <form>     
+            <h3 class="text-center">Pesquisar cursos</h3>
             <input class="form-control" id="busca" type="text" placeholder="O que deseja aprender?">        
         </form>
-    </section>
+    </section><br>
     <!-- Área de pesquisa -->
 
-    <section>
-    <?php
-
-        include 'connect.php';
-
-        $busca =  $_POST['busca'];
-
-        $query = mysqli_query($sql, "SELECT * FROM curso WHERE linguagem LIKE '%$busca%'");
-        $num   = mysqli_num_rows($query);
-        if($num >0){
-            while($row = mysqli_fetch_assoc($query)){
-                echo $row['linguagem'].'<br /><hr>';
-        }else{
-            echo "Curso não encontrado";
-        }
-        ?>
+    <div class="container-xl">
         <p id="result"></p>
-    </section>
+    </div>
 
     <!-- Cards de Cursos -->
     <div class="container-xl">
@@ -291,11 +277,14 @@
     <!-- FOOTER -->
     <script>
         $("#busca").keyup(function(){
-        var busca = $("#busca").val();
-        $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
-            $("#result").html(data);
+            var busca = $("#busca").val();
+            $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
+                $("#result").html(data);
+            });
         });
-    });
+        // $("#busca").focusout(function(){
+        //     $("#result").html("");
+        // });
     </script>
 
 </body>
