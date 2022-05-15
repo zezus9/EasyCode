@@ -93,7 +93,7 @@
         $FrontEnd = array();
         $BackEnd = array();
         $Database = array();
-        $apresentacard = $sql -> QUERY('SELECT * FROM curso');
+        $apresentacard = $sql -> QUERY('SELECT * FROM curso ORDER BY linguagem');
 
         while($card = mysqli_fetch_array($apresentacard)){
 
@@ -278,9 +278,11 @@
     <script>
         $("#busca").keyup(function(){
             var busca = $("#busca").val();
-            $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
-                $("#result").html(data);
-            });
+            if (busca.length > 2) {
+                $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
+                    $("#result").html(data);
+                });
+            }
         });
         // $("#busca").focusout(function(){
         //     $("#result").html("");
