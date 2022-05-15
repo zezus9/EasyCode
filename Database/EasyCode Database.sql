@@ -110,7 +110,6 @@ REPLACE INTO `curso` (`id`, `logo`, `linguagem`, `campo`, `fase`, `duracao`, `de
 	(020, _binary 0x69636F6E2D6D7973716C2E706E67, 'Excel', 'Database', 12, 20, 'O Microsoft Excel é um programa para manipulação de planilhas e gerenciamento de dados.', 'Seus recursos incluem uma interface intuitiva e capacitadas ferramentas de cálculo e de construção de tabelas que, juntamente com marketing agressivo, tornaram o \r\nExcel um dos mais populares aplicativos de computador até hoje.'),
 	(021, _binary 0x69636F6E2D6D7973716C2E706E67, 'PostgreSQL', 'Database', 12, 25, 'O PostgreSQL é uma ferramenta que atua como sistema de gerenciamento de bancos de dados relacionados.', 'PostgreSQL é um gerenciador de banco de dados relacionados que otimiza muito o trabalho de quem precisa administrar informações nesses níveis.'),
 	(022, _binary 0x69636F6E2D7068702E706E67, 'Lógica de Programação', 'BackEnd', 15, 25, 'Essêncial para um iniciante, pode ser aplicado à todas as linguagens de programação.', 'Lógica de programação é a organização coesa de uma sequência de instruções voltadas à resolução de um problema, ou à criação de um software ou aplicação.');
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.professor
 DROP TABLE IF EXISTS `professor`;
