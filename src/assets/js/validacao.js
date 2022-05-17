@@ -40,11 +40,11 @@ const mensagensErros = {
     },
     senhaEnt: {
         valueMissing: 'A senha não pode estar vazio',
-        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
+        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos ou barras'
     },
     senhaCad: {
         valueMissing: 'A senha não pode estar vazio',
-        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos'
+        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos ou barras'
     },
     dataNascimento: {
         valueMissing: 'A data de nasc não pode estar vazio',
