@@ -278,15 +278,14 @@
     <script>
         $("#busca").keyup(function(){
             var busca = $("#busca").val();
-            if (busca.length > 2) {
+            if (busca.length > 0) {
                 $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
                     $("#result").html(data);
                 });
+            } else {
+                $("#result").html("");
             }
         });
-        // $("#busca").focusout(function(){
-        //     $("#result").html("");
-        // });
     </script>
 
 </body>
