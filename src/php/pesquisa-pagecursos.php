@@ -4,48 +4,34 @@
     
     $busca =  $_POST['busca'];
 
-    $query = mysqli_query($sql, "SELECT * FROM curso WHERE linguagem LIKE '%$busca%'");
-    $num   = mysqli_num_rows($query);
+    $query = $sql -> query("SELECT * FROM curso WHERE linguagem LIKE '%$busca%'");
 
-    if($num > 0){
-        echo "
-            <div class='row'>
-                <div>
-                    <h3>Pesquisa Rápida</h3>
-                    <div class='cardPesquisa'>
+    if(mysqli_num_rows($query) > 0){
+        echo 
+        "
+            <div class='d-flex justify-content-center flex-wrap'>
         ";
         while($card = mysqli_fetch_assoc($query)){
             echo 
             "
-                <div class='cardBusca'>
-                    <figure class='fundocard'>
-                        <img src='../assets/img/logo_cursos/$card[logo]'>
-                    </figure>
-                    <div class='abadedescricao'>
-                        <div class='abacard'>
-                            <div>
-                                <h5 class='titulo'>$card[linguagem]</h5>
-                                <span class='subtitulo'>
-                                    <i class='fa-solid fa-clock'></i>
-                                    Duração: $card[duracao]
-                                </span>
-                                <br>
-                                <a href='template_cursos.php' class='btn botao'>
-                                    <i class='bi bi-pencil-square'>&nbsp;</i>
-                                    Inscrever-se
-                                </a>
-                            </div>
-                        </div>
-                        <p class='descricao'>$card[desc_breve]</p>
+                <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
+                    <div class='d-flex align-center col-md-3'>
+                        <img src='../assets/img/logo_cursos/menores/$card[logo]' width='100%'>
+                    </div>
+                    <div class='col-md-7 d-flex justify-content-center align-items-center'>
+                        <h5 class='text-center'>$card[linguagem]</h5>
+                    </div>
+                    <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                        <a href='template_cursos.php'>   
+                            <img src='../assets/img/proximo0.png' width='100%'>
+                        </a>
                     </div>
                 </div>
             ";
         }
         echo 
         "
-                </div>
             </div>
-        </div>
         ";
     }else{
     echo "Curso não encontrado";

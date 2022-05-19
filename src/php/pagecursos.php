@@ -12,14 +12,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
-    <!-- JS -->
-    <script src="../assets/js/pagecursos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-        crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
     <!-- ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Cursos</title>
@@ -73,15 +65,17 @@
     
     <!-- Área de pesquisa -->
     <section class="container">
-        <form>     
-            <h3 class="text-center">Pesquisar cursos</h3>
-            <input class="form-control" id="busca" type="text" placeholder="O que deseja aprender?">        
+        <form class="m-3">
+            <h3 class="d-block text-center">Pesquisar cursos</h3>
+            <div class="d-flex justify-content-center align-items-center">
+                <input class="form-control w-50 d-block" id="busca" type="text" placeholder="O que deseja aprender?">        
+            </div>
         </form>
     </section><br>
     <!-- Área de pesquisa -->
 
     <div class="container-xl">
-        <p id="result"></p>
+        <div id="result"></div>
     </div>
 
     <!-- Cards de Cursos -->
@@ -113,9 +107,9 @@
 
         echo "
             <div class='row'>
-            <div>
-                <h3>Front-End</h3>
-                <div class='owl-carousel'>
+                <div>
+                    <h3>Front-End</h3>
+                    <div class='owl-carousel'>
         ";
         for ($i=0; $i < count($FrontEnd); $i++){
             $apresentaCard = $sql -> QUERY("SELECT * FROM curso WHERE id = '$FrontEnd[$i]'");
@@ -275,6 +269,12 @@
         <!-- Copyright -->
     </footer>
     <!-- FOOTER -->
+
+    <!-- JS -->
+    <script src="../assets/js/pagecursos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"crossorigin="anonymous"></script>
+    <script src="../assets/js/libs/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $("#busca").keyup(function(){
             var busca = $("#busca").val();
@@ -287,6 +287,6 @@
             }
         });
     </script>
-
+    <!-- JS -->
 </body>
 </html>
