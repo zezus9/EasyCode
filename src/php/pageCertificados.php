@@ -8,9 +8,8 @@
     <link rel="stylesheet"  href="../assets/css/estilo.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container d-flex align-items-center">
         <?php
-
             include "connect.php";
 
             $idAluno = "001";
@@ -32,7 +31,9 @@
                 "
                     <div class='card'>
                         <div class='before'>
-                            <h3>$certificado[linguagem]</h3>
+                            <div class='titulo'>
+                                <h3>$certificado[linguagem]</h3>
+                            </div>
                             <div class='logo_curso'>
                                 <img src='../assets/img/logo_cursos/$certificado[logo]' width='150px'>
                             </div>
@@ -40,13 +41,13 @@
                         <div class='content'>
                             <h3>$certificado[linguagem]</h3>
                             <br>
-                            <p>Campo: $certificado[campo]<p>
-                            <p>Data Inicio: $data_ini</p>
-                            <p>Data Final: $data_fim</p>
-                            <p>Professor: $certificado[nome_prof]</p>
+                            <p><strong>Campo:</strong> $certificado[campo]<p>
+                            <p><strong>Data Inicio:</strong> $data_ini</p>
+                            <p><strong>Data Final:</strong> $data_fim</p>
+                            <p><strong>Professor:</strong> $certificado[nome_prof]</p>
                             <br>
                             <div>
-                                <img src='../assets/img/logo_cursos/$certificado[logo]' width='100px'>
+                                <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
                             </div>
                             <a href='../assets/certificados/'>Baixe o PDF</a>
                         </div>

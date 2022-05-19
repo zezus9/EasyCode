@@ -7,15 +7,15 @@
 
 body{
     display: flex;
-    align-content: center;
+    align-items: center;
     background:url(../img/bgimg.jpg);
 }
 
 .container{
-    padding: 12vh 0 12vh 0;
     display: flex;
-    z-index: 1;
-    position: fixed-top;
+    align-items: center;
+    justify-content: center;
+    height: 97vh;
 }
 
 .container .card{
@@ -96,4 +96,8 @@ body{
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+.titulo{
+    height: 20%;
 }
