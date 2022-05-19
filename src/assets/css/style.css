@@ -52,9 +52,9 @@ CORES:
 .Background{background-color: #cbdfce !important;}
 .Footer{background-color:#008037 !important;}
 .Copyright{background-color: #015c28;}
-.logo-instagram{background-color: #ac2bac;}
-.logo-linkedin{background-color: #0082ca;}
-.logo-github{background-color: #333333;}
+.logo-instagram{background-color: #ac2bac !important;}
+.logo-linkedin{background-color: #0082ca !important;}
+.logo-github{background-color: #333333 !important;}
 
 .selection::selection{
     background-color: #008037;
