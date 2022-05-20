@@ -12,16 +12,12 @@
 
     $emailExiste = false;
     $cpfExiste = false;
-
-    echo "$nome <br> $cpf <br> $celular <br> $email <br> $nascimento <br> $senha <br>";
     
     $alunos = $sql -> query("SELECT * FROM aluno");
     
     while ($aluno = mysqli_fetch_array($alunos)) {
         $emailAlunos = $aluno['email'];
         $cpfAlunos = $aluno['CPF'];
-
-        // echo "$cpf <br> $cpfAlunos <br> $email <br> $emailAlunos <br>";
 
         if ($emailAlunos == $email) {
             $emailExiste = true;

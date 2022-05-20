@@ -21,7 +21,7 @@
 
     <!-- HEADER -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top Background">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top Background nonSelect">
             <div class="container">
                 <a class="navbar-brand Lovelofont" href="Home.html"><img width="35" src="../assets/img/logoEASYCODE.png"
                         alt="Logo EC">
@@ -82,7 +82,7 @@
     <div class="container-xl">
     <?php
 
-        include 'connect.php';
+        include 'Auxiliares/connect.php';
         
         $FrontEnd = array();
         $BackEnd = array();
@@ -275,11 +275,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"crossorigin="anonymous"></script>
     <script src="../assets/js/libs/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="../assets/js/nav.js"></script>
     <script>
         $("#busca").keyup(function(){
             var busca = $("#busca").val();
             if (busca.length > 0) {
-                $.post('pesquisa-pagecursos.php', {busca: busca},function(data){
+                $.post('Auxiliares/pesquisa-pagecursos.php', {busca: busca},function(data){
                     $("#result").html(data);
                 });
             } else {

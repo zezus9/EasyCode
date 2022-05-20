@@ -56,9 +56,21 @@ CORES:
 .logo-linkedin{background-color: #0082ca !important;}
 .logo-github{background-color: #333333 !important;}
 
-.selection::selection{
-    background-color: #008037;
-    color: white;
+p::selection,h1::selection,h2::selection,
+h3::selection,h4::selection,h5::selection,
+input::selection,span::selection,a::selection,
+strong::selection{
+    background-color: #008037!important;
+    color: white!important;
+}
+
+.nonSelect,br,img{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /*LAYOUT DA IMAGEM TOPO*/

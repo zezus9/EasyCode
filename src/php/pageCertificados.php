@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pagina certificado</title>
     <link rel="stylesheet"  href="../assets/css/estilo.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <div class="container d-flex align-items-center">
+    <div class="container d-flex align-items-center nonSelect">
         <?php
-            include "connect.php";
+            include "Auxiliares/connect.php";
 
             $idAluno = "001";
             $certificados = $sql -> query(

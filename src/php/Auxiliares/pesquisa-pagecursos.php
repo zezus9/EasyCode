@@ -23,7 +23,7 @@
                     </div>
                     <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
                         <a href='template_cursos.php'>   
-                            <img src='../assets/img/proximo0.png' width='100%'>
+                            <img src='../assets/img/proximo.png' width='100%'>
                         </a>
                     </div>
                 </div>
