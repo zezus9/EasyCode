@@ -129,7 +129,7 @@
                                     Duração: $card[duracao]
                                 </span>
                                 <br>
-                                <a href='template_cursos.php' class='btn botao'>
+                                <a href='template_cursos.php?curso=$card[id]' class='btn botao'>
                                     <i class='bi bi-pencil-square'>&nbsp;</i>
                                     Inscrever-se
                                 </a>
@@ -170,7 +170,7 @@
                                     Duração: $card[duracao]
                                 </span>
                                 <br>
-                                <a href='template_cursos.php' class='btn botao'>
+                                <a href='template_cursos.php?curso=$card[id]' class='btn botao'>
                                     <i class='bi bi-pencil-square'>&nbsp;</i>
                                     Inscrever-se
                                 </a>
@@ -211,7 +211,7 @@
                                     Duração: $card[duracao]
                                 </span>
                                 <br>
-                                <a href='template_cursos.php' class='btn botao'>
+                                <a href='template_cursos.php?curso=$card[id]' class='btn botao'>
                                     <i class='bi bi-pencil-square'>&nbsp;</i>
                                     Inscrever-se
                                 </a>

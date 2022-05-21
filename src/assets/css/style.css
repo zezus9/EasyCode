@@ -59,7 +59,7 @@ CORES:
 p::selection,h1::selection,h2::selection,
 h3::selection,h4::selection,h5::selection,
 input::selection,span::selection,a::selection,
-strong::selection{
+strong::selection,div::selection{
     background-color: #008037!important;
     color: white!important;
 }
@@ -78,12 +78,10 @@ strong::selection{
     text-align: center;
     margin: 0 auto;
     color: #008037;
-    padding: 2rem 1rem;
 }
 @media (min-width: 992px) {
     .area-imagem {
         text-align: left;
-        padding: 3rem 0rem;
         max-width: 54rem;
         display: flex;
     }

@@ -22,7 +22,7 @@
                         <h5 class='text-center'>$card[linguagem]</h5>
                     </div>
                     <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                        <a href='template_cursos.php'>   
+                        <a href='template_cursos.php?curso=$card[id]'>   
                             <img src='../assets/img/proximo.png' width='100%'>
                         </a>
                     </div>
