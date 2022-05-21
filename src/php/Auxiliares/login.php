@@ -40,13 +40,13 @@
 
 
 
-    
+
     // ! A PARTIR DAQUI É O TESTE DE SESSION
 
     if (!isset($_SESSION)) {session_start();}// Ativa a SESSION senão estivar ativada
 
     // ! CASO A PESSOA NÃO TEM A MATRICULA CERTA ELE IRIA PARA UMA PAGINAD DE ERRO
-    if (!isset($_SESSION['matricula']) or $_SESSION['matricula'] != '') {
+    if (!isset($_SESSION['matricula'])) {
         echo "<h1 style='text-align: center;'>Você não está logado, redirecionando à página de login</h1>";
         header('Refresh: 1;PAGINA DE ERRO.html');
     }
