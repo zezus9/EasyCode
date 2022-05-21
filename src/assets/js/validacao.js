@@ -184,8 +184,7 @@ function checarDigitoVerificador(cpf,multiplicador) {
 
 // *Função que realiza o ultimo teste para o CPF
 function confirmarDigito(soma) {
-
-    return 11 - (soma % 11)
+    return 11 - (soma % 11) != 10 ? 11 - (soma % 11) : 0;
 }
 
 // *Função que valida o celular enviado
