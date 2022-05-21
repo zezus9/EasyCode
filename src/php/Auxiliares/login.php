@@ -46,7 +46,7 @@
     if (!isset($_SESSION)) {session_start();}// Ativa a SESSION senão estivar ativada
 
     // ! CASO A PESSOA NÃO TEM A MATRICULA CERTA ELE IRIA PARA UMA PAGINAD DE ERRO
-    if (!isset($_SESSION['matricula'])) {
+    if (!isset($_SESSION['matricula']) or substr($aluno['matricula'],0,1) != '0 SE FOR ALUNO E 1 SE FOR PROFESSOR') {
         echo "<h1 style='text-align: center;'>Você não está logado, redirecionando à página de login</h1>";
         header('Refresh: 1;PAGINA DE ERRO.html');
     }
