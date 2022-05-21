@@ -1,1 +1,2 @@
 *.vscode/
+src/php/Auxiliares/connect.php
