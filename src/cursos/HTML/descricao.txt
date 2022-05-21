@@ -1,0 +1,2 @@
+Criada pelo britânico Tim Berners-Lee, o acrônimo HTML significa HiperText Markup Language, traduzindo ao português: Linguagem de Marcação de Hipertexto.
+O HTML é o componente básico da web, ele permite inserir o conteúdo e estabelecer a estrutura básica de um website.

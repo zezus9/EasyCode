@@ -1,0 +1,4 @@
+No curso introdutório de PHP ensinaremos os seguintes assuntos:
+- Como escrever no seu site com PHP;
+- Como juntar PHP ao HTML e CSS;
+- Como usar um banco de dados junto com o PHP.

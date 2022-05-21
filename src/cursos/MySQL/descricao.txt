@@ -1,0 +1,2 @@
+O sistema foi desenvolvido pela empresa sueca MySQL AB e publicado, originalmente, em maio de 1995. 
+Após, a empresa foi comprada pela Sun Microsystems e, em janeiro de 2010, integrou a transação bilionária da compra da Sun pela Oracle Corporation.

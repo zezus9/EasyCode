@@ -1,0 +1,2 @@
+Bjarne Stroustrup desenvolveu o C++ em 1983 no Bell Labs como um adicional à linguagem C. 
+Novas características foram adicionadas com o tempo, como funções virtuais, sobrecarga de operadores, herança múltipla, gabaritos e tratamento de exceções.

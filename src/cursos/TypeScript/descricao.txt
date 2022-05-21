@@ -1,0 +1,1 @@
+TypeScript oferece suporte a arquivos de definição que podem conter informações de tipo de bibliotecas JavaScript existentes, assim como arquivos de cabeçalho C++ podem descrever a estrutura de arquivos de objeto existentes.
