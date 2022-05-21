@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     include 'connect.php';
     
     $emailMatricula = $_POST['emailMatricula'];
@@ -13,17 +13,45 @@
 
     // !Se a variavel $dados tiver 0 linhas significa que o usuario não logou corretamente
     if (mysqli_num_rows($dadosAluno) == 0 and mysqli_num_rows($dadosProfessor) == 0) {
-        // *Não foi encontrado o login do usuario no banco
+        // !PAGINA DE ERRO
         echo 'não entrou';
     } 
     // !O usuario foi encontrado no banco agora apenas vamos redireciona-lo para o site de sua matricula
     if ((mysqli_num_rows($dadosAluno) != 0)) {
         // *O usuário é um aluno e deve ser redirecionado para o seu respectivo perfil
-        echo 'Entrou como aluno';
+        while ($aluno = mysqli_fetch_array($dadosAluno)) {
+            $_SESSION['matricula'] = $aluno['matricula'];
+        }
+        // !PERFIL DO ALUNO
+        header("Refresh: 2;PERFIL ALUNO.php");
     }
     else {
         // *O usuário é um professor e deve ser redirecionado para o seu respectivo perfil
-        echo 'Entrou como professor';
+        while ($professor = mysqli_fetch_array($dadosProfessor)) {
+            $_SESSION['matricula'] = $professor['matricula'];
+        }
+        // !PERFIL DO PROFESSOR
+        header("Refresh: 2;PERFIL PROFESSOR.php");
     }
 
+
+
+
+
+
+
+    
+    // ! A PARTIR DAQUI É O TESTE DE SESSION
+
+    if (!isset($_SESSION)) {session_start();}// Ativa a SESSION senão estivar ativada
+
+    // ! CASO A PESSOA NÃO TEM A MATRICULA CERTA ELE IRIA PARA UMA PAGINAD DE ERRO
+    if (!isset($_SESSION['matricula']) or $_SESSION['matricula'] != '') {
+        echo "<h1 style='text-align: center;'>Você não está logado, redirecionando à página de login</h1>";
+        header('Refresh: 1;PAGINA DE ERRO.html');
+    }
+    else {
+        // ! CODIGO DA PAGINA
+        $matricula = $_SESSION['matricula'];
+    }
 ?>
