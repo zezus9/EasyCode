@@ -23,17 +23,15 @@
         while ($aluno = mysqli_fetch_array($dadosAluno)) {
             $_SESSION['matricula'] = $aluno['matricula'];
         }
-        echo "aluno";
         // !PERFIL DO ALUNO
-        header("Refresh: 1;../sobrenos.php");
+        header('Location: ../perfil.php');
     }
     elseif ((mysqli_num_rows($dadosProfessor) != 0)) {
         // *O usuário é um professor e deve ser redirecionado para o seu respectivo perfil
         while ($professor = mysqli_fetch_array($dadosProfessor)) {
             $_SESSION['matricula'] = $professor['matricula'];
         }
-        echo "professor";
         // !PERFIL DO PROFESSOR
-        header("Refresh: 1;../sobrenos.php");
+        header('Location: ../perfil.php');
     }
 ?>
