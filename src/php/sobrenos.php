@@ -51,9 +51,11 @@
 
                         include 'Auxiliares/connect.php';
 
-                        $Aluno     = $sql -> query("SELECT * FROM aluno");
+                        if (!isset($_SESSION)) {
+                            $logado = false;
+                        }
 
-                        if () {
+                        if ($aluno=true) {
                             echo 
                             "
                             <ul class='navbar-nav ml-auto'>
@@ -123,8 +125,6 @@
                         }
  
                     ?>
-                    
-                    
                                
                             <div class="dropdown-menu Background" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">
