@@ -1,0 +1,187 @@
+/* 
+CORES:
+#7ED957 
+#C9E265
+#008037 
+*/
+
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open sans', sans-serif;
+}
+
+body{
+    background-image: url(../img/bgimg.jpg);
+}
+
+.sidebar{
+    background: #008037;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%!important;
+    height:100% ;
+    transition: all 0.5s ease;
+}
+
+.sidebar .profile{
+    text-align:center;
+}
+
+.sidebar .profile img{
+    display: block;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.sidebar .profile h3{
+    color: #ffffff;
+}
+
+.sidebar .profile p {
+    color: rgb(206,240,253);
+    font-size:14px ;
+}
+
+.sidebar  ul{
+    padding: 0;
+}
+
+.sidebar  ul li label{
+    display: block;
+    padding: 5% 10%;
+    color: white;
+    font-size: 13px;
+    position: relative; 
+}
+
+.sidebar  ul li label .icon{
+    color:white;
+    width:30px;
+    display:inline-block;
+}
+
+/* link hover*/
+.sidebar  ul li label:hover,
+.sidebar  ul li label.active{
+    color: #008037;
+    background:rgba(255, 255, 255, 0.699) ;
+}
+
+.sidebar  ul li label:hover .icon,
+.sidebar  ul li label.active .icon{
+    color: #008037;
+}
+
+.sidebar  ul li label:hover:before,
+.sidebar  ul li label.active:before{
+    display:block;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+
+
+
+
+.secao{
+    margin-left: 15%!important;
+    display: none;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container .card{
+    
+    width: 500px!important;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 2px 2px 10px #0080376e;
+    border-radius: 15px;
+    background: #008037;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.container .card .before{
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    
+}
+
+.container .card .content{
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    display: none;
+    transition: 0.5s;
+}
+
+.container .card:hover .before{
+    display: none;
+}
+
+.container .card:hover .content{
+    display: block;
+    transform: translateY(0px);
+}
+
+.container .card .content h3{
+    font-size: 1.5em;
+    color:#C9E265;
+    z-index: 1;
+    word-wrap: break-word;
+}
+
+.container .card .before h3{
+    font-size: 1.5em;
+    color:#C9E265;
+    z-index: 1;
+    word-wrap: break-word;
+}
+
+.container .card .content p{
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+.container .card .content a{
+    display: inline-block;
+    padding: 8px;
+    margin-top:15px;
+    background: #C9E265;
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo_curso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.titulo{
+    height: 20%;
+}

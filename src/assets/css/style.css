@@ -59,7 +59,7 @@ CORES:
 p::selection,h1::selection,h2::selection,
 h3::selection,h4::selection,h5::selection,
 input::selection,span::selection,a::selection,
-strong::selection,div::selection{
+strong::selection,div::selection,label::selection{
     background-color: #008037!important;
     color: white!important;
 }
