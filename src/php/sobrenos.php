@@ -52,24 +52,27 @@
                         include 'Auxiliares/connect.php';
 
                         // !Testa se esta logado ou não
-                        $logado = true;
                         if (!isset($_SESSION)) {
-                            $logado = false;
+                            session_start();
                         }
-                        else {
+                        
+                        // !Testa se esta logado ou não
+                        $logado = false;
+                        if (isset($_SESSION['matricula'])) {
                             // !Testa se quem está logado é aluno ou professor
+                            $logado = true;
+                            $usario = '';
                             $matricula = $_SESSION['matricula'];
-                            if (substr($matricula,0,1) != '0') {
+                            if (substr($matricula,0,1) == 0) {
                                 $usuario = "aluno";
                             }
-                            else {
+                            else{
                                 $usuario = "professor";
                             }
                         }
 
-                        
                         if ($logado) {
-                            if ($usario == "aluno") {
+                            if ($usuario == "aluno") {
                                 echo 
                                 "
                                 <ul class='navbar-nav ml-auto'>
@@ -138,7 +141,6 @@
                                 ";     
                             }
                         }
-                        
  
                     ?>
                                
