@@ -95,3 +95,14 @@ strong::selection,div::selection,label::selection{
     background-position: center;
     display: flex;
 }
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #383838;
+}
