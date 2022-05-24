@@ -39,10 +39,11 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   UNIQUE KEY `matricula` (`matricula`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.aluno: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.aluno: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
 REPLACE INTO `aluno` (`id`, `nome`, `telefone`, `email`, `CPF`, `matricula`, `nasc`, `avatar`, `linkedin`, `github`, `link_personalizado`, `senha`) VALUES
-	(001, 'Jonathan', '11999999999', 'jonathan.simoes01@etec.sp.gov.br', '00000000000', '022001', '2002-10-02', 'd_img.png', NULL, NULL, NULL, 'Aaa000');
+	(001, 'Jonathan', '11999999999', 'jonathan.simoes01@etec.sp.gov.br', '00000000000', '022001', '2002-10-02', 'd_img.png', NULL, NULL, NULL, 'Aaa000'),
+	(002, 'Erika Nunes', '11888888888', 'erika.nunes@etec.sp.gov.br', '31515998002', '022002', '2002-02-28', 'd_img.png', NULL, NULL, NULL, 'Bbb111');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.certificado
@@ -63,17 +64,18 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-aluno` FOREIGN KEY (`id_aluno`) REFERENCES `certificado` (`id`),
   CONSTRAINT `FK-curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`),
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela easycode.certificado: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
 REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `pdf`) VALUES
 	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', '001.pdf'),
-	(002, 001, 007, 001, 25, '2020-01-02', '2022-05-17', '002.pdf'),
-	(003, 001, 009, 001, 30, '2021-12-15', '2022-05-06', '003.pdf'),
+	(002, 001, 007, 001, 15, '2022-05-21', '2022-05-21', '002.pdf'),
+	(003, 001, 008, 001, 13, '2022-05-21', '2022-05-21', '003.pdf'),
 	(004, 001, 022, 001, 50, '2022-05-17', '2022-05-17', '004.pdf'),
-	(005, 001, 019, 001, 30, '2022-05-17', '2022-05-17', '005.pdf'),
-	(006, 001, 013, 001, 30, '2022-05-17', '2022-05-17', '006.pdf');
+	(005, 001, 021, 001, 18, '2022-05-21', '2022-05-21', '005.pdf'),
+	(006, 001, 013, 001, 30, '2022-05-17', '2022-05-17', '006.pdf'),
+	(007, 001, 014, 001, 21, '2022-05-22', '2022-05-22', '007.png');
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.curso
