@@ -5,6 +5,8 @@ CORES:
 #008037 
 */
 
+
+/* !Página inteira */
 *{
     list-style: none;
     text-decoration: none;
@@ -85,19 +87,27 @@ body{
     display:block;
 }
 
-input[type="radio"]{
+input[type="radio"],input[type="file"]{
     display: none;
 }
 
 .secao{
     margin-left: 15%!important;
     display: none;
+    height: 100vh!important;
 }
 
 .secaoAp{
     margin-left: 15%!important;
     display: block!important;
 }
+
+.avatar{
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
+/* !Certificado */
 
 .container{
     display: flex;
@@ -189,4 +199,28 @@ input[type="radio"]{
 
 .titulo{
     height: 20%;
+}
+
+/* !Dados Pessoais */
+.box-form {
+    width: 90%;
+    height: 80%!important;
+}
+
+.form-alt{
+    height: 90%;
+}
+
+.bg-color
+{
+    background-color: #008037!important;
+}
+
+.input{
+    color: rgb(85, 82, 82)!important;
+    
+}
+
+.input:focus{
+    color: #008037!important;
 }

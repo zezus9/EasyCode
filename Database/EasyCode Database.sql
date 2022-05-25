@@ -1,24 +1,7 @@
--- --------------------------------------------------------
--- Servidor:                     127.0.0.1
--- Versão do servidor:           5.7.33 - MySQL Community Server (GPL)
--- OS do Servidor:               Win64
--- HeidiSQL Versão:              11.2.0.6213
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
--- Copiando estrutura do banco de dados para easycode
 DROP DATABASE IF EXISTS `easycode`;
-CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `easycode`;
 USE `easycode`;
 
--- Copiando estrutura para tabela easycode.aluno
 DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
   `id` int(3) unsigned zerofill NOT NULL,
@@ -39,14 +22,10 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   UNIQUE KEY `matricula` (`matricula`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.aluno: ~3 rows (aproximadamente)
-/*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
 REPLACE INTO `aluno` (`id`, `nome`, `telefone`, `email`, `CPF`, `matricula`, `nasc`, `avatar`, `linkedin`, `github`, `link_personalizado`, `senha`) VALUES
 	(001, 'Jonathan', '11999999999', 'jonathan.simoes01@etec.sp.gov.br', '00000000000', '022001', '2002-10-02', 'd_img.png', NULL, NULL, NULL, 'Aaa000'),
 	(002, 'Erika Nunes', '11888888888', 'erika.nunes@etec.sp.gov.br', '31515998002', '022002', '2002-02-28', 'd_img.png', NULL, NULL, NULL, 'Bbb111');
-/*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
--- Copiando estrutura para tabela easycode.certificado
 DROP TABLE IF EXISTS `certificado`;
 CREATE TABLE IF NOT EXISTS `certificado` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
@@ -66,8 +45,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.certificado: ~6 rows (aproximadamente)
-/*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
+
 REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `pdf`) VALUES
 	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', '001.pdf'),
 	(002, 001, 007, 001, 15, '2022-05-21', '2022-05-21', '002.pdf'),
@@ -76,9 +54,7 @@ REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fas
 	(005, 001, 021, 001, 18, '2022-05-21', '2022-05-21', '005.pdf'),
 	(006, 001, 013, 001, 30, '2022-05-17', '2022-05-17', '006.pdf'),
 	(007, 001, 014, 001, 21, '2022-05-22', '2022-05-22', '007.png');
-/*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
--- Copiando estrutura para tabela easycode.curso
 DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
@@ -94,8 +70,6 @@ CREATE TABLE IF NOT EXISTS `curso` (
   CONSTRAINT `FK-responsavel` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.curso: ~21 rows (aproximadamente)
-/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
 REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fase`, `duracao`, `desc_breve`) VALUES
 	(001, 001, _binary 0x69636F6E2D7068702E706E67, 'PHP', 'BackEnd', 9, 15, 'PHP é uma linguagem de script popular que é especialmente adequada para desenvolvimento web.'),
 	(002, 001, _binary 0x69636F6E2D6A6176617363726970742E706E67, 'JavaScript', 'FrontEnd', 10, 30, 'JavaScript é uma linguagem de script aplicado principalmente para desenvolvimento web.'),
@@ -118,9 +92,7 @@ REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fas
 	(020, 001, _binary 0x69636F6E2D657863656C2E706E67, 'Excel', 'Database', 12, 20, 'O Microsoft Excel é um programa para manipulação de planilhas e gerenciamento de dados.'),
 	(021, 001, _binary 0x69636F6E2D706F73746772652E706E67, 'PostgreSQL', 'Database', 12, 25, 'O PostgreSQL é uma ferramenta que atua como sistema de gerenciamento de bancos de dados relacionados.'),
 	(022, 001, _binary 0x69636F6E2D6C6F67696361646570726F6772616D6163616F2E706E67, 'Lógica de Programação', 'BackEnd', 15, 25, 'Essêncial para um iniciante, pode ser aplicado à todas as linguagens de programação.');
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
--- Copiando estrutura para tabela easycode.professor
 DROP TABLE IF EXISTS `professor`;
 CREATE TABLE IF NOT EXISTS `professor` (
   `id` int(3) unsigned zerofill NOT NULL,
@@ -140,13 +112,9 @@ CREATE TABLE IF NOT EXISTS `professor` (
   UNIQUE KEY `avatar` (`avatar`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.professor: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `destaque`, `senha`) VALUES
 	(001, 'Jonathan', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
-/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 
--- Copiando estrutura para função easycode.proximo_id
 DROP FUNCTION IF EXISTS `proximo_id`;
 DELIMITER //
 CREATE FUNCTION `proximo_id`() RETURNS varchar(3) CHARSET latin1
@@ -164,8 +132,3 @@ BEGIN
 
 END//
 DELIMITER ;
-
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

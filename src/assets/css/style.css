@@ -64,6 +64,10 @@ strong::selection,div::selection,label::selection{
     color: white!important;
 }
 
+a{
+    text-decoration: none!important;
+}
+
 .nonSelect,br,img{
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -79,6 +83,7 @@ strong::selection,div::selection,label::selection{
     margin: 0 auto;
     color: #008037;
 }
+
 @media (min-width: 992px) {
     .area-imagem {
         text-align: left;
@@ -100,9 +105,9 @@ body::-webkit-scrollbar {
   width: 12px;
 }
 body::-webkit-scrollbar-track {
-  background: #000000;
+  background: #C9E265;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #383838;
+  background-color: #008037;
 }

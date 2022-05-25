@@ -48,7 +48,8 @@ const mensagensErros = {
     },
     dataNascimento: {
         valueMissing: 'A data de nasc não pode estar vazio',
-        customError: 'A data não é válida'
+        customError: 'A data não é válida',
+        tooShort: 'Favor fornecer data de nascimento completa'
     },
     cpf: {
         valueMissing: 'O CPF não pode estar vazio',
@@ -70,6 +71,7 @@ const tiposErro = [
     'customError',
     'typeMismatch',
     'patternMismatch',
+    'tooShort',
     'valueMissing'
 ]
 

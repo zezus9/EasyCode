@@ -1,7 +1,6 @@
 <?php
     include 'Auxiliares/connect.php';
 
-    // !Testa se esta logado ou não
     if (!isset($_SESSION)) {
         session_start();
     }
@@ -29,6 +28,9 @@
         $idAluno = $dados['id'];
         $nome = $dados['nome'];
         $avatar = $dados['avatar'];
+        $email = $dados['email'];
+        $celular = $dados['telefone'];
+        $nascimento = $dados['nasc'];
     }
 
     $certificados = $sql -> query(
@@ -42,6 +44,11 @@
         WHERE id_aluno = '$idAluno'
         ORDER BY curso.linguagem");
 
+    $nãoCertificado = false;
+    if (mysqli_num_rows($certificados) == 0) {
+        $nãoCertificado = true;
+    }
+
     echo "
     <!DOCTYPE html>
     <html lang='pt-br'>
@@ -53,8 +60,13 @@
         <title>$nome</title>
         <link rel='stylesheet' href='../assets/css/perfil.css'>
         <link rel='stylesheet' href='../assets/css/style.css'>
+        <link rel='stylesheet' href='../assets/css/inputs.css'>
+
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.1/css/all.css'     integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr' crossorigin='anonymous'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' />
+        
     </head>
     ";
 
@@ -64,9 +76,9 @@
         <div class='sidebar d-flex justify-content-center align-items-center'>
             <div>
                 <div class='profile'>
-                    <img src='../assets/img/Avatares/$avatar'>
+                    <img src='../assets/img/Avatares/$avatar' class='avatar'>
                     <h3>$nome</h3>
-                    <p class='text-uppercase'>$usuario</p>
+                    <p class='text-uppercase'>$matricula</p>
                 </div>
     ";
     echo <<<opcoes
@@ -110,14 +122,6 @@
                         </label>
                         <input type='radio' name='opcoes' id='alterSenha'>
                     </li>
-                    
-                    <li>
-                        <label for='config' onclick='opcoes("config")'>
-                            <span class='icon'><i class='fas fa-cog'></i></span>
-                            <span class='item'>Configurações</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='config'>
-                    </li>
 
                     <li>
                         <a href='Auxiliares/sair.php'>
@@ -130,52 +134,123 @@
                 </ul>
             </div>
         </div>
-        <section class='secao secaoAp' id='secao_home'>
+        <section class='secao' id='secao_home'>
             <h1>Home</h1>
         </section>
-        <section class='secao' id='secao_certificados'>
-            <div class='container d-flex align-items-center nonSelect'>
+        <section class='secao h-100' id='secao_certificados'>
+            <div class='container d-flex align-center justify-content-center nonSelect h-100'>
 opcoes;
 
-    while ($certificado = mysqli_fetch_array($certificados)) {
-        $data_ini = implode('/',array_reverse(explode('-',$certificado['data_inicio'])));
-        $data_fim = implode('/',array_reverse(explode('-',$certificado['data_fim'])));
-
+    if ($nãoCertificado) {
         echo 
         "
-            <div class='card'>
-                <div class='before'>
-                    <div class='titulo'>
-                        <h3>$certificado[linguagem]</h3>
-                    </div>
-                    <div class='logo_curso'>
-                        <img src='../assets/img/logo_cursos/$certificado[logo]' width='150px'>
-                    </div>
-                </div>
-                <div class='content'>
-                    <h3>$certificado[linguagem]</h3>
-                    <br>
-                    <p><strong>Campo:</strong> $certificado[campo]<p>
-                    <p><strong>Data Inicio:</strong> $data_ini</p>
-                    <p><strong>Data Final:</strong> $data_fim</p>
-                    <p><strong>Professor:</strong> $certificado[nome_prof]</p>
-                    <br>
-                    <div>
-                        <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
-                    </div>
-                    <a href='../assets/certificados/'>Baixe o PDF</a>
-                </div>
+            <div class='d-flex justify-content-center m-5 p-5'>
+                <h1 class='Josefinfont'>Ainda não há nada aqui!</h1>
             </div>
         ";
-    // <a href='../assets/certificados/$certificados[pdf]'>Baixe o PDF</a>
+    } else {
+        while ($certificado = mysqli_fetch_array($certificados)) {
+            $data_ini = implode('/',array_reverse(explode('-',$certificado['data_inicio'])));
+            $data_fim = implode('/',array_reverse(explode('-',$certificado['data_fim'])));
+    
+            echo 
+            "
+                <div class='card'>
+                    <div class='before'>
+                        <div class='titulo'>
+                            <h3>$certificado[linguagem]</h3>
+                        </div>
+                        <div class='logo_curso'>
+                            <img src='../assets/img/logo_cursos/$certificado[logo]' width='150px'>
+                        </div>
+                    </div>
+                    <div class='content'>
+                        <h3>$certificado[linguagem]</h3>
+                        <br>
+                        <p><strong>Campo:</strong> $certificado[campo]<p>
+                        <p><strong>Data Inicio:</strong> $data_ini</p>
+                        <p><strong>Data Final:</strong> $data_fim</p>
+                        <p><strong>Professor:</strong> $certificado[nome_prof]</p>
+                        <br>
+                        <div>
+                            <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
+                        </div>
+                        <a href='../assets/certificados/'>Baixe o PDF</a>
+                    </div>
+                </div>
+            ";
+        // <a href='../assets/certificados/$certificados[pdf]'>Baixe o PDF</a>
+        }
     }
 
 	echo
     "
             </div>  
         </section>
-        <section class='secao' id='secao_dPessoais'>
-            <h1>Dados Pessoais</h1>
+        <section class='secao secaoAp' id='secao_dPessoais'>
+            <div class='d-flex justify-content-center align-items-center h-100'>
+                <div class='box-form'>
+                    <form action='Auxiliares/alterPessoais.php' method='post' class='formulario flex flex--coluna form-alt'>
+                        <div class='d-flex justify-content-around align-items-center h-100 w-100'>
+                            <div class='col-md-5 h-100'>
+                                <div class='d-flex justify-content-center align-items-end h-50'>
+                                    <label for='avatar'>
+                                        <img src='../assets/img/Avatares/$avatar' width='100%' class='avatar'>
+                                    </label>
+                                    <input type='file' accept='image/*' id='avatar' name='avatar'>
+                                </div>
+                                <div class='d-flex justify-content-center'>
+                                    <h3 class='Josefinfont text-color'>Matricula: $matricula</h3>
+                                </div>
+                                <div class='d-flex justify-content-center h-50'>
+                                    <div class='form-group mb-4 w-100'>
+                                        <div class='input-container'>
+                                            <label for='nome'><strong>Nome</strong></label>
+                                            <input id='nome' class='input' name='nome' placeholder='#' type='text' required
+                                            data-tipo='nome' value='$nome'>
+                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-5'>
+                                <div class='d-flex'>
+                                    <div class='form-group mb-4 w-100'>
+                                        <div class='input-container'>
+                                            <label for='email'><strong>E-mail</strong></label>
+                                            <input id='email' class='input' name='email' placeholder='#' type='email' required
+                                            data-tipo='email' value='$email'>
+                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='d-flex'>
+                                    <div class='form-group mb-4 w-100'>
+                                        <div class='input-container'>
+                                            <label for='celular'><strong>Telefone</strong</label>
+                                            <input id='celular' class='input' name='celular' placeholder='#' type='text' required
+                                            data-tipo='celular' value='$celular'>
+                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='d-flex'>
+                                    <div class='form-group mb-4 w-100'>
+                                        <div class='input-container'>
+                                            <label for='nascimento'><strong>Data de Nascimento</strong</label>
+                                            <input id='nascimento' class='input' name='nascimento' placeholder='#' type='text' required min-leng minlength='10' data-tipo='dataNascimento' value='$nascimento'>
+                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='d-flex justify-content-center'>
+                            <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
         <section class='secao' id='secao_dProfissionais'>
             <h1>Dados Profissionais</h1>
@@ -189,6 +264,12 @@ opcoes;
         
         <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script type='text/javascript' src='../assets/js/vanilla-tilt.js'></script>
+        <script src='../assets/js/app.js' type='module'></script>
+	    <script src='../assets/js/libs/jquery.js'></script>
+        <script src='../assets/js/util.js'></script>
+        <script src='../assets/js/libs/jquery.js'></script>
+        <script src='../assets/js/libs/jquery.mask.js'></script>
+        <script src='../assets/js/mascara.js'></script>
     </body>
     </html>
     ";

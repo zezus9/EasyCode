@@ -1,0 +1,20 @@
+DELIMITER //
+
+CREATE FUNCTION `proximo_id`() RETURNS varchar(3) CHARSET LATIN1
+READS SQL DATA
+DETERMINISTIC
+BEGIN
+	
+   DECLARE last_id INT DEFAULT 0;
+	DECLARE next_id VARCHAR(3) DEFAULT  "";
+	
+	SELECT MAX(id) INTO last_id FROM aluno;
+	
+	set next_id = LPAD(last_id + 1, 3, '0');
+
+	RETURN next_id;
+
+END//
+READS SQL DATA
+DETERMINISTIC
+DELIMITER ;
