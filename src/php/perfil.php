@@ -62,10 +62,8 @@
         <link rel='stylesheet' href='../assets/css/style.css'>
         <link rel='stylesheet' href='../assets/css/inputs.css'>
 
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.1/css/all.css'     integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr' crossorigin='anonymous'>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' />
         
     </head>
     ";
@@ -73,67 +71,91 @@
     echo
     "
     <body>
-        <div class='sidebar d-flex justify-content-center align-items-center'>
-            <div>
-                <div class='profile'>
-                    <img src='../assets/img/Avatares/$avatar' class='avatar'>
-                    <h3>$nome</h3>
-                    <p class='text-uppercase'>$matricula</p>
-                </div>
+        <div >
+            <!-- Abrir menu -->
+            <a class='botao-hamburguer abrir-menu' href='#' role='button'>
+                <i class='bi bi-list'></i> 
+            </a>
+        </div>
+        <!-- Sidebar -->
+        <nav class='sidebar'>
+            <!-- Fechar Menu-->
+            <div class='fechar-x'>
+                <i class='bi bi-x'></i>
+            </div>
+            <div> 
+                <img width='35' src='../assets/img/logoEASYCODE.png' alt='Logo EC'>
+                <span class='Lovelofont'>EASYCODE</span> 
+            </div><br>
+            <div class='profile'>
+                <img src='src='../assets/img/Avatares/$avatar' class='avatar'>
+                <h3>$nome</h3>
+                <p class='text-uppercase'>$matricula</p>
+            </div>
     ";
     echo <<<opcoes
-                <ul>
-                    <li>
-                        <label for='home' onclick='opcoes("home")'>
-                            <span class='icon'><i class='fas fa-home'></i></span>
-                            <span class='item'>Home</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='home' checked>
-                    </li>
-                    
-                    <li>
-                        <label for='certificados' onclick='opcoes("certificados")'>
-                            <span class='icon'><i class='fas fa-certificate'></i></span>
-                            <span class='item'>Certificados</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='certificados'>
-                    </li>
-                    
-                    <li>
-                        <label for='dPessoais' onclick='opcoes("dPessoais")'>
-                            <span class='icon'><i class='fas fa-certificate'></i></span>
-                            <span class='item'>Dados Pessoais</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='dPessoais'>
-                    </li>
-                    
-                    <li>
-                        <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
-                            <span class='icon'><i class='fas fa-edit'></i></span>
-                            <span class='item'>Dados Profissionais</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='dProfissionais'>
-                    </li>
-                    
-                    <li>
-                        <label for='alterSenha' onclick='opcoes("alterSenha")'>
-                            <span class='icon'><i class='fas fa-user-shield'></i></span>
-                            <span class='item'>Alterar Senha</span>
-                        </label>
-                        <input type='radio' name='opcoes' id='alterSenha'>
-                    </li>
+            <ul class='menu-elements'>
+                <li class='active'>
+                    <label for='home' onclick='opcoes("home")'>
+                        <span>
+                            <i class='bi bi-house-door-fill'></i>
+                        </span>
+                        <span>Home</span>
+                    </label>
+                    <input type='radio' name='opcoes' id='home' checked>
+                </li>
+                
+                <li>
+                    <label for='certificados' onclick='opcoes("certificados")'>
+                        <span>
+                            <i class="bi bi-award-fill"></i> 
+                        </span>
+                        <span>Certificados</span>
+                    </label>
+                    <input type='radio' name='opcoes' id='certificados'>
+                </li>
+                <li>
+                    <label for='dPessoais' onclick='opcoes("dPessoais")'>
+                        <span>
+                            <i class="bi bi-person-lines-fill"></i>
+                        </span>
+                        <span>Dados Pessoais</span>
+                    </label>
+                    <input type='radio' name='opcoes' id='dPessoais'>
+                </li>
+                
+                <li>
+                    <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
+                        <span>
+                            <i class="bi bi-person-lines-fill"></i>
+                        </span>
+                        <span>Dados Profissionais</span>
+                    </label>
+                    <input type='radio' name='opcoes' id='dProfissionais'>
+                </li>
+                
+                <li>
+                    <label for='alterSenha' onclick='opcoes("alterSenha")'>
+                        <span>
+                            <i class="bi bi-shield-lock-fill"></i> 
+                        </span>
+                        <span>Alterar Senha</span>
+                    </label>
+                    <input type='radio' name='opcoes' id='alterSenha'>
+                </li>
 
-                    <li>
-                        <a href='Auxiliares/sair.php'>
-                            <label>
-                                <span class='icon'><i class='fas fa-cog'></i></span>
-                                <span class='item'>Sair</span>
-                            </label>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                <li>
+                    <a href='Auxiliares/sair.php'>
+                        <label>
+                            <span>
+                                <i class="bi bi-box-arrow-right"></i>
+                            </span>
+                            <span>Sair</span>
+                        </label>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         <section class='secao' id='secao_home'>
             <h1>Home</h1>
         </section>
@@ -270,6 +292,8 @@ opcoes;
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/libs/jquery.mask.js'></script>
         <script src='../assets/js/mascara.js'></script>
+        <script src='../assets/js/perfil.js'></script>
+        <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     </body>
     </html>
     ";

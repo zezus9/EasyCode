@@ -5,6 +5,95 @@ CORES:
 #008037 
 */
 
+/* Sidebar */
+.sidebar {
+	width: 250px; 
+	height: 100vh; 
+	position: fixed; 
+	top: 0; 
+	left: -255px; 
+	z-index: 999; 
+	background: #008037; 
+	color: #fff; 
+	transition: all .3s; 
+	text-align: left;
+}
+
+.sidebar.active { 
+	left: 0; 
+}
+
+.sidebar ul.menu-elements { 
+	padding: 10px 0; 
+	transition: all .3s; 
+}
+
+.sidebar ul li label {
+	display: block; 
+	padding: 10px 20px;
+	border: 0; 
+	color: #fff;
+}
+
+.sidebar ul li label:hover,
+.sidebar ul li label:focus { 
+	background: #7ED957; 
+}
+
+.sidebar ul li.active > label, label[aria-expanded="true"] {
+	background: #7ED957;
+
+}
+.sidebar label[data-toggle="collapse"] {
+    position: relative;
+}
+
+.fechar-x {
+	width: 35px; 
+	height: 35px; 
+	position: absolute; 
+	top: 10px; 
+	right: 10px; 
+	font-size: 2rem;
+}
+
+.abrir-menu { 
+	position: fixed; 
+	top: 20px; 
+	left: 10px; 
+	z-index: 997; 
+	box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2); 
+}
+
+.botao-hamburguer{
+	padding: 0.5rem 1rem;
+	border-radius: 4px; 
+	font-size: 2rem; 
+	background: var(--verde);
+	color: var(--branco) !important;
+}
+
+.profile{
+    text-align:center;
+}
+
+.profile img{
+    display: block;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.profile h3{
+    color: #fff;
+}
+
+.profile p {
+    color: rgb(206,240,253);
+    font-size:14px ;
+}
+
 
 /* !Página inteira */
 *{
@@ -18,73 +107,6 @@ CORES:
 
 body{
     background-image: url(../img/bgimg.jpg);
-}
-
-.sidebar{
-    background: #008037;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 15%!important;
-    height:100% ;
-    transition: all 0.5s ease;
-}
-
-.sidebar .profile{
-    text-align:center;
-}
-
-.sidebar .profile img{
-    display: block;
-    width:100px;
-    height:100px;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
-.sidebar .profile h3{
-    color: #ffffff;
-}
-
-.sidebar .profile p {
-    color: rgb(206,240,253);
-    font-size:14px ;
-}
-
-.sidebar  ul{
-    padding: 0;
-    width: 200px;
-}
-
-.sidebar  ul li label{
-    display: block;
-    padding: 5%;
-    color: white;
-    font-size: 13px;
-    position: relative; 
-}
-
-.sidebar  ul li label .icon{
-    color:white;
-    width:30px;
-    display:inline-block;
-}
-
-/* link hover*/
-.sidebar  ul li label:hover,
-.sidebar  ul li label.active{
-    color: #008037;
-    background:rgba(255, 255, 255, 0.699) ;
-}
-
-.sidebar  ul li label:hover .icon,
-.sidebar  ul li label.active .icon{
-    color: #008037;
-}
-
-.sidebar  ul li label:hover:before,
-.sidebar  ul li label.active:before{
-    display:block;
 }
 
 input[type="radio"],input[type="file"]{
