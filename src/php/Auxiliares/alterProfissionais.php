@@ -17,23 +17,15 @@
         header('Location: ../cadastro_login.html');
     }
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $celular = explode(' ',$_POST['celular']);
-    $celular = preg_replace('/[+() -]/','',implode('+',\array_splice($celular,1,3)));
+    $linkedin = $_POST['linkedin'];
+    $github = $_POST['github'];
+    $link = $_POST['link'];
 
-    $emails = $sql -> query("SELECT * FROM aluno WHERE email = '$email' AND matricula != '$matricula'");
-
-    if (mysqli_num_rows($emails) != 0) {
-        echo "<h1>Uma conta já foi criada neste e-mail</h1>";
-        header("Refresh: 2; ../perfil.php");
-    }
-    
     $sql -> query(
         "UPDATE aluno SET
-            `nome` = '$nome',
-            `telefone` = '$celular',
-            `email` = '$email'
+            `linkedin` = '$linkedin',
+            `github` = '$github',
+            `link_personalizado` = '$link'
         WHERE matricula = '$matricula'");
 
     echo "<h1>Alterações Realizadas com sucesso!</h1>";

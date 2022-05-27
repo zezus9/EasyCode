@@ -30,7 +30,10 @@
         $avatar = $dados['avatar'];
         $email = $dados['email'];
         $celular = $dados['telefone'];
-        $nascimento = $dados['nasc'];
+        $nascimento = implode('/',array_reverse(explode('-',$dados ['nasc'])));
+        $linkedin = $dados['linkedin'];
+        $github = $dados['github'];
+        $link = $dados['link_personalizado'];
     }
 
     $certificados = $sql -> query(
@@ -190,70 +193,97 @@ opcoes;
         <section class='secao secaoAp' id='secao_dPessoais'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form'>
-                    <form action='Auxiliares/alterPessoais.php' method='post' class='formulario flex flex--coluna form-alt'>
-                        <div class='d-flex justify-content-around align-items-center h-100 w-100'>
-                            <div class='col-md-5 h-100'>
-                                <div class='d-flex justify-content-center align-items-end h-50'>
-                                    <label for='avatar'>
-                                        <img src='../assets/img/Avatares/$avatar' width='100%' class='avatar'>
-                                    </label>
-                                    <input type='file' accept='image/*' id='avatar' name='avatar'>
-                                </div>
+                    <div class='d-flex h-100 w-100'>
+                        <form action='Auxiliares/alterAvatar.php' class='col-md-5 col-sm-10 d-flex justify-content-center align-items-center' method='post' id='form-avatar' enctype='multipart/form-data'>
+                            <div class='d-flex justify-content-center align-items-center flex-column h-100 w-50'>
+                                <label for='avatar'>
+                                    <img src='../assets/img/Avatares/$avatar' class='avatar' width='150em'>
+                                </label>
+                                <input type='file' accept='image/*' id='avatar' name='avatar' onChange='submitForm()'>
+                                <br>
                                 <div class='d-flex justify-content-center'>
                                     <h3 class='Josefinfont text-color'>Matricula: $matricula</h3>
                                 </div>
-                                <div class='d-flex justify-content-center h-50'>
-                                    <div class='form-group mb-4 w-100'>
-                                        <div class='input-container'>
-                                            <label for='nome'><strong>Nome</strong></label>
-                                            <input id='nome' class='input' name='nome' placeholder='#' type='text' required
-                                            data-tipo='nome' value='$nome'>
-                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                        </div>
+                            </div>
+                        </form>
+                        <form action='Auxiliares/alterPessoais.php' method='post' class='formulario flex-column form-alt col-md-5 col-sm-10 d-flex justify-content-center align-items-center'>
+                            <div class='d-flex w-100'>
+                                <div class='form-group mb-4 w-100'>
+                                    <div class='input-container'>
+                                        <label for='nome'><strong>Nome</strong></label>
+                                        <input id='nome' class='input' name='nome' placeholder='#' type='text' required
+                                        data-tipo='nome' value='$nome'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-md-5'>
-                                <div class='d-flex'>
-                                    <div class='form-group mb-4 w-100'>
-                                        <div class='input-container'>
-                                            <label for='email'><strong>E-mail</strong></label>
-                                            <input id='email' class='input' name='email' placeholder='#' type='email' required
-                                            data-tipo='email' value='$email'>
-                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='d-flex'>
-                                    <div class='form-group mb-4 w-100'>
-                                        <div class='input-container'>
-                                            <label for='celular'><strong>Telefone</strong</label>
-                                            <input id='celular' class='input' name='celular' placeholder='#' type='text' required
-                                            data-tipo='celular' value='$celular'>
-                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='d-flex'>
-                                    <div class='form-group mb-4 w-100'>
-                                        <div class='input-container'>
-                                            <label for='nascimento'><strong>Data de Nascimento</strong</label>
-                                            <input id='nascimento' class='input' name='nascimento' placeholder='#' type='text' required min-leng minlength='10' data-tipo='dataNascimento' value='$nascimento'>
-                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                        </div>
+                            <div class='d-flex w-100'>
+                                <div class='form-group mb-4 w-100'>
+                                    <div class='input-container'>
+                                        <label for='email'><strong>E-mail</strong></label>
+                                        <input id='email' class='input' name='email' placeholder='#' type='email' required
+                                        data-tipo='email' value='$email'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class='d-flex justify-content-center'>
-                            <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
-                        </div>
-                    </form>
+                            <div class='d-flex w-100'>
+                                <div class='form-group mb-4 w-100'>
+                                    <div class='input-container'>
+                                        <label for='celular'><strong>Telefone</strong></label>
+                                        <input id='celular' class='input' name='celular' placeholder='#' type='text' required
+                                        data-tipo='celular' value='$celular'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='d-flex justify-content-center'>
+                                <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
         <section class='secao' id='secao_dProfissionais'>
-            <h1>Dados Profissionais</h1>
+            <div class='d-flex justify-content-center align-items-center h-100'>
+                <div class='box-form'>
+                    <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
+                        <form action='Auxiliares/alterProfissionais.php' method='post' class='formulario flex flex--coluna form-alt w-50'>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='github'><strong>Linkedin</strong></label>
+                                        <input id='github' class='input' name='linkedin' placeholder='#' type='url' required data-tipo='link' value='$linkedin'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='github'><strong>GitHub</strong></label>
+                                        <input id='github' class='input' name='github' placeholder='#' type='url' required data-tipo='link' value='$github'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='link'><strong>Link Pessoal</strong></label>
+                                        <input id='link' class='input' name='link' placeholder='#' type='url' required  data-tipo='link' value='$link'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='d-flex justify-content-center'>
+                                <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class='secao' id='secao_alterSenha'>
             <h1>Alterar Senha</h1>
@@ -270,6 +300,7 @@ opcoes;
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/libs/jquery.mask.js'></script>
         <script src='../assets/js/mascara.js'></script>
+        <script src='../assets/js/alterAvatar.js'></script>
     </body>
     </html>
     ";

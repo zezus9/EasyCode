@@ -2,7 +2,8 @@
 const validadores = {
     dataNascimento:input => validarDataNascimento(input),
     cpf:input => validarCPF(input),
-    celular:input => validarCel(input)
+    celular:input => validarCel(input),
+    link:input => noValueMissing(input)
 }
 
 // *Essa é a função chamada no app.js, recebe o input como parametro
@@ -58,6 +59,9 @@ const mensagensErros = {
     celular: {
         valueMissing: 'O celular não pode estar vazio',
         customError: 'Favor informar um número de celular'
+    },
+    linha: {
+        typeMismatch: 'O email digitado não é valido'
     }
 }
 // ?valueMissing : Campo vazio
@@ -87,6 +91,14 @@ function mostrarErro(tipoInput,input) {
         }
     })
     return mensagem
+}
+
+function noValueMissing(input) {
+    if (input.validity.valueMissing) {
+        input.validity.valueMissing = false
+    }
+
+    console.log(input.validity.valueMissing)
 }
 
 // *Verifica se o texto enviado é uma data
