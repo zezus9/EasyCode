@@ -3,7 +3,7 @@ const validadores = {
     dataNascimento:input => validarDataNascimento(input),
     cpf:input => validarCPF(input),
     celular:input => validarCel(input),
-    link:input => noValueMissing(input)
+    senhaNov:input => senhasIguais(input)
 }
 
 // *Essa é a função chamada no app.js, recebe o input como parametro
@@ -47,6 +47,11 @@ const mensagensErros = {
         valueMissing: 'A senha não pode estar vazio',
         patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos ou barras'
     },
+    senhaNov: {
+        valueMissing: 'A senha não pode estar vazio',
+        patternMismatch: 'A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula e minuscula, um número e não deve conter símbolos ou barras',
+        customError: 'As senhas não são iguais'
+    },
     dataNascimento: {
         valueMissing: 'A data de nasc não pode estar vazio',
         customError: 'A data não é válida',
@@ -60,8 +65,8 @@ const mensagensErros = {
         valueMissing: 'O celular não pode estar vazio',
         customError: 'Favor informar um número de celular'
     },
-    linha: {
-        typeMismatch: 'O email digitado não é valido'
+    link: {
+        typeMismatch: 'Você deve informar um link'
     }
 }
 // ?valueMissing : Campo vazio
@@ -91,14 +96,6 @@ function mostrarErro(tipoInput,input) {
         }
     })
     return mensagem
-}
-
-function noValueMissing(input) {
-    if (input.validity.valueMissing) {
-        input.validity.valueMissing = false
-    }
-
-    console.log(input.validity.valueMissing)
 }
 
 // *Verifica se o texto enviado é uma data
@@ -230,4 +227,16 @@ function checarTamanhoCel(tamanho) {
         return true
     }
     return false
+}
+
+function senhasIguais(input) {
+
+    let mensagem = ''
+    let inputSenha = document.querySelector('#senha')
+    let isNotEqual = inputSenha.value != input.value
+
+    if (isNotEqual) {
+        mensagem = 'Você deve ter mais de 10 anos'
+    }
+    input.setCustomValidity(mensagem)
 }

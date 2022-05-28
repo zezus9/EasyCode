@@ -24,32 +24,39 @@
                 // !Testa se quem está logado é aluno ou professor
                 $logado = true;
                 $matricula = $_SESSION['matricula'];
+                if (substr($matricula,0,1) == 0) {
+                    $usuario = 'aluno';
+                    $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
+                }
+                else{
+                    $usuario = 'professor';
+                    $dadosUsuario = $sql -> query("SELECT * FROM professor WHERE matricula = '$matricula'");
+                }
             }
             else{
                 header('Location: ../cadastro_login.html');
             }
 
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $celular = explode(' ',$_POST['celular']);
-            $celular = preg_replace('/[+() -]/','',implode('+',\array_splice($celular,1,3)));
+            $senhaAnt = $_POST['senhaAnt'];
+            $senhaNov = $_POST['senha'];
 
-            $emails = $sql -> query("SELECT * FROM aluno WHERE email = '$email' AND matricula != '$matricula'");
+            while ($dados = mysqli_fetch_array($dadosUsuario)) {
+                $senha = $dados['senha'];
+            }
 
-            if (mysqli_num_rows($emails) != 0) {
-                echo "<h1>Uma conta já foi criada neste e-mail</h1>";
+            if ($senhaAnt != $senha) {
+                echo "<h1>Senha Antiga incorreta</h1>";
+                header("Refresh: 3; ../perfil.php");
+            }
+            else {
+                $sql -> query(
+                    "UPDATE aluno SET
+                        `senha` = '$senhaNov'
+                    WHERE matricula = '$matricula'");
+            
+                echo "<h1>Alterações Realizadas com sucesso!</h1>";
                 header("Refresh: 2; ../perfil.php");
             }
-            
-            $sql -> query(
-                "UPDATE aluno SET
-                    `nome` = '$nome',
-                    `telefone` = '$celular',
-                    `email` = '$email'
-                WHERE matricula = '$matricula'");
-
-            echo "<h1>Alterações Realizadas com sucesso!</h1>";
-            header("Refresh: 2; ../perfil.php");
 
         ?>
     </div>

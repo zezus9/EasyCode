@@ -49,9 +49,7 @@
                 `avatar` = '$avatar'
             WHERE matricula = '$matricula'");
     }
-
-
-    echo "<h1>Alterações Realizadas com sucesso!</h1>";
+    
     header("Location: ../perfil.php");
 
 ?>

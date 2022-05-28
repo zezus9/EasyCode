@@ -161,7 +161,7 @@
                 </ul>
             </div>
         </nav>
-        <section class='secao secaoAp' id='secao_home'>
+        <section class='secao' id='secao_home'>
             <h1>Home</h1>
         </section>
         <section class='secao h-100' id='secao_certificados'>
@@ -269,7 +269,7 @@ opcoes;
                 </div>
             </div>
         </section>
-        <section class='secao' id='secao_dProfissionais'>
+        <section class='secao secaoAp' id='secao_dProfissionais'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form'>
                     <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
@@ -277,8 +277,8 @@ opcoes;
                             <div class='w-100'>
                                 <div class='form-group'>
                                     <div class='input-container'>
-                                        <label for='github'><strong>Linkedin</strong></label>
-                                        <input id='github' class='input' name='linkedin' placeholder='#' type='url' required data-tipo='link' value='$linkedin'>
+                                        <label for='linkedin'><strong>Linkedin</strong></label>
+                                        <input id='linkedin' class='input' name='linkedin' placeholder='#' type='url' data-tipo='link' value='$linkedin'>
                                         <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>
@@ -287,7 +287,7 @@ opcoes;
                                 <div class='form-group'>
                                     <div class='input-container'>
                                         <label for='github'><strong>GitHub</strong></label>
-                                        <input id='github' class='input' name='github' placeholder='#' type='url' required data-tipo='link' value='$github'>
+                                        <input id='github' class='input' name='github' placeholder='#' type='url' data-tipo='link' value='$github'>
                                         <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>
@@ -296,7 +296,7 @@ opcoes;
                                 <div class='form-group'>
                                     <div class='input-container'>
                                         <label for='link'><strong>Link Pessoal</strong></label>
-                                        <input id='link' class='input' name='link' placeholder='#' type='url' required  data-tipo='link' value='$link'>
+                                        <input id='link' class='input' name='link' placeholder='#' type='url' data-tipo='link' value='$link'>
                                         <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>
@@ -310,10 +310,44 @@ opcoes;
             </div>
         </section>
         <section class='secao' id='secao_alterSenha'>
-            <h1>Alterar Senha</h1>
-        </section>
-        <section class='secao' id='secao_config'>
-            <h1>Configurações</h1>
+            <div class='d-flex justify-content-center align-items-center h-100'>
+                <div class='box-form'>
+                    <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
+                        <form action='Auxiliares/alterSenha.php' method='post' class='formulario flex flex--coluna form-alt w-50'>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='senhaAnt'><strong>Senha antiga</strong></label>
+                                        <input id='senhaAnt' class='input' type='password' required data-tipo='senhaCad'  name='senhaAnt' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='senha'><strong>Nova senha</strong></label>
+                                        <input id='senha' class='input' type='password' required data-tipo='senhaCad'  name='senha' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='senhaNov'><strong>Repita a nova senha</strong></label>
+                                        <input id='senhaNov' class='input' type='password' required data-tipo='senhaNov'  name='senhaNov' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='d-flex justify-content-center'>
+                                <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <script src='../assets/js/apresentacaoPerfil.js'></script>
