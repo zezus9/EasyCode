@@ -217,7 +217,7 @@ opcoes;
         <section class='secao' id='secao_dPessoais'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form'>
-                    <div class='d-flex h-100 w-100'>
+                    <div class='d-flex flex-wrap justify-content-center align-items-center h-100 w-100'>
                         <form action='Auxiliares/alterAvatar.php' class='col-md-5 col-sm-10 d-flex justify-content-center align-items-center' method='post' id='form-avatar' enctype='multipart/form-data'>
                             <div class='d-flex justify-content-center align-items-center flex-column h-100 w-50'>
                                 <label for='avatar'>
