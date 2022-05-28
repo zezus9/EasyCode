@@ -24,6 +24,8 @@
         header('Location: ../cadastro_login.html');
     }
 
+    clearstatcache();
+
     while ($dados = mysqli_fetch_array($dadosUsuario)) {
         $idAluno = $dados['id'];
         $nome = $dados['nome'];
@@ -61,6 +63,8 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>$nome</title>
+        <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
+
         <link rel='stylesheet' href='../assets/css/perfil.css'>
         <link rel='stylesheet' href='../assets/css/style.css'>
         <link rel='stylesheet' href='../assets/css/inputs.css'>
@@ -86,80 +90,78 @@
             <div class='fechar-x'>
                 <i class='bi bi-x'></i>
             </div>
-            <div> 
-                <img width='35' src='../assets/img/logoEASYCODE.png' alt='Logo EC'>
-                <span class='Lovelofont'>EASYCODE</span> 
-            </div><br>
-            <div class='profile'>
-                <img src='src='../assets/img/Avatares/$avatar' class='avatar'>
-                <h3>$nome</h3>
-                <p class='text-uppercase'>$matricula</p>
-            </div>
+            <div class='d-flex justify-content-center align-items-center flex-column h-100 w-100'>
+                <div class='profile'>
+                    <img src='../assets/img/Avatares/$avatar' class='avatar'>
+                    <h3>$nome</h3>
+                    <p class='text-uppercase'>$matricula</p>
+                </div>
     ";
     echo <<<opcoes
-            <ul class='menu-elements'>
-                <li class='active'>
-                    <label for='home' onclick='opcoes("home")'>
-                        <span>
-                            <i class='bi bi-house-door-fill'></i>
-                        </span>
-                        <span>Home</span>
-                    </label>
-                    <input type='radio' name='opcoes' id='home' checked>
-                </li>
-                
-                <li>
-                    <label for='certificados' onclick='opcoes("certificados")'>
-                        <span>
-                            <i class="bi bi-award-fill"></i> 
-                        </span>
-                        <span>Certificados</span>
-                    </label>
-                    <input type='radio' name='opcoes' id='certificados'>
-                </li>
-                <li>
-                    <label for='dPessoais' onclick='opcoes("dPessoais")'>
-                        <span>
-                            <i class="bi bi-person-lines-fill"></i>
-                        </span>
-                        <span>Dados Pessoais</span>
-                    </label>
-                    <input type='radio' name='opcoes' id='dPessoais'>
-                </li>
-                
-                <li>
-                    <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
-                        <span>
-                            <i class="bi bi-person-lines-fill"></i>
-                        </span>
-                        <span>Dados Profissionais</span>
-                    </label>
-                    <input type='radio' name='opcoes' id='dProfissionais'>
-                </li>
-                
-                <li>
-                    <label for='alterSenha' onclick='opcoes("alterSenha")'>
-                        <span>
-                            <i class="bi bi-shield-lock-fill"></i> 
-                        </span>
-                        <span>Alterar Senha</span>
-                    </label>
-                    <input type='radio' name='opcoes' id='alterSenha'>
-                </li>
-
-                <li>
-                    <a href='Auxiliares/sair.php'>
-                        <label>
+                <ul class='menu-elements w-100'>
+                    <li class='active'>
+                        <label for='home' onclick='opcoes("home")'>
                             <span>
-                                <i class="bi bi-box-arrow-right"></i>
+                                <i class='bi bi-house-door-fill'></i>
                             </span>
-                            <span>Sair</span>
+                            <span>Home</span>
                         </label>
-                    </a>
-                </li>
-            </ul>
+                        <input type='radio' name='opcoes' id='home' class='opcoes'>
+                    </li>
+                    
+                    <li>
+                        <label for='certificados' onclick='opcoes("certificados")'>
+                            <span>
+                                <i class="bi bi-award-fill"></i> 
+                            </span>
+                            <span>Certificados</span>
+                        </label>
+                        <input type='radio' name='opcoes' id='certificados' class='opcoes'>
+                    </li>
+                    <li>
+                        <label for='dPessoais' onclick='opcoes("dPessoais")'>
+                            <span>
+                                <i class="bi bi-person-lines-fill"></i>
+                            </span>
+                            <span>Dados Pessoais</span>
+                        </label>
+                        <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
+                    </li>
+                    
+                    <li>
+                        <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
+                            <span>
+                                <i class="bi bi-person-lines-fill"></i>
+                            </span>
+                            <span>Dados Profissionais</span>
+                        </label>
+                        <input type='radio' name='opcoes' id='dProfissionais' class='opcoes'>
+                    </li>
+                    
+                    <li>
+                        <label for='alterSenha' onclick='opcoes("alterSenha")'>
+                            <span>
+                                <i class="bi bi-shield-lock-fill"></i> 
+                            </span>
+                            <span>Alterar Senha</span>
+                        </label>
+                        <input type='radio' name='opcoes' id='alterSenha' class='opcoes'>
+                    </li>
+
+                    <li>
+                        <a href='Auxiliares/sair.php'>
+                            <label>
+                                <span>
+                                    <i class="bi bi-box-arrow-right"></i>
+                                </span>
+                                <span>Sair</span>
+                            </label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <section class='secao' id='secao_home'>
+        <section class='secao secaoAp' id='secao_home'>
             <h1>Home</h1>
         </section>
         <section class='secao h-100' id='secao_certificados'>
@@ -212,7 +214,7 @@ opcoes;
     "
             </div>  
         </section>
-        <section class='secao secaoAp' id='secao_dPessoais'>
+        <section class='secao' id='secao_dPessoais'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form'>
                     <div class='d-flex h-100 w-100'>
@@ -324,7 +326,6 @@ opcoes;
         <script src='../assets/js/mascara.js'></script>
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/perfil.js'></script>
-        <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     </body>
     </html>
     ";
