@@ -42,9 +42,8 @@
             WHERE matricula = '$matricula'");
     }
     else {
-        echo '../../assets/img/Avatares/' . $avatar;
-        unlink($avatarA);
-        move_uploaded_file($_FILES['avatar']['tmp_name'],'../../assets/img/Avatares/' . $avatar);
+        unlink('../../assets/img/Avatares/' . $avatarA);
+        move_uploaded_file($_FILES['avatar']['tmp_name'],'../../assets/img/Avatares/'.$avatar);
         $sql -> query(
             "UPDATE aluno SET
                 `avatar` = '$avatar'
