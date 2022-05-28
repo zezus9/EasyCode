@@ -21,35 +21,32 @@
             $email = $_POST['email'];
             $nascimento = implode('-',array_reverse(explode('/',$_POST['nascimento'])));
             $senha = $_POST['senha'];
-
-            $cpfExiste = false;
             
             $emails = $sql -> query("SELECT * FROM aluno WHERE email = '$email'");
-            $cpfs = $sql -> query("SELECT * FROM aluno WHERE email = '$cpfs'");
+            $cpfs = $sql -> query("SELECT * FROM aluno WHERE cpf = '$cpf'");
 
             if (mysqli_num_rows($emails) != 0) {
                 echo "<h1>Uma conta já foi criada neste e-mail</h1>";
                 header("Refresh: 2; ../../cadastro_login.html#cadastrar");
-            } elseif (mysqli_num_rows($emails) != 0) {
-                echo "<h1>Uma conta já foi criada neste cpf</h1>";
+            } elseif (mysqli_num_rows($cpfs) != 0) {
+                echo "<h1>Uma conta já foi criada neste CPF</h1>";
                 header("Refresh: 2; ../../cadastro_login.html#cadastrar");
+            } else {
+                $sql -> query(
+                    "INSERT INTO aluno (id,nome,telefone,email,cpf,matricula,nasc,avatar,linkedin,github,link_personalizado,senha) 
+                    VALUES (proximo_id(),
+                            '$nome',
+                            '$celular',
+                            '$email',
+                            '$cpf',
+                            CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),proximo_id()),
+                            '$nascimento',
+                            'd_img.png',NULL,NULL,NULL,'$senha')");
+    
+                echo "<h1>Usuario Cadastrado com sucesso</h1>";
+                header("Refresh: 2; ../../cadastro_login.html#entrar");
             }
-            
-            $sql -> query(
-                "INSERT INTO aluno (id,nome,telefone,email,cpf,matricula,nasc,avatar,linkedin,github,link_personalizado,senha) 
-                VALUES (proximo_id(),
-                        '$nome',
-                        '$celular',
-                        '$email',
-                        '$cpf',
-                        CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),proximo_id()),
-                        '$nascimento',
-                        'd_img.png',NULL,NULL,NULL,'$senha')");
 
-            
-            echo "<h1>Usuario Cadastrado com sucesso</h1>";
-            header("Refresh: 2; ../../cadastro_login.html#entrar");
-            
         ?>
     </div>
 </body>

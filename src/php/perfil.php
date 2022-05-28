@@ -161,7 +161,7 @@
                 </ul>
             </div>
         </nav>
-        <section class='secao' id='secao_home'>
+        <section class='secao secaoAp' id='secao_home'>
             <h1>Home</h1>
         </section>
         <section class='secao h-100' id='secao_certificados'>
@@ -269,7 +269,7 @@ opcoes;
                 </div>
             </div>
         </section>
-        <section class='secao secaoAp' id='secao_dProfissionais'>
+        <section class='secao' id='secao_dProfissionais'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form'>
                     <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
