@@ -6,19 +6,13 @@
         session_start();
     }
     
-    // !Testa se esta logado ou não
-    $logado = false;
     if (isset($_SESSION['matricula'])) {
-        // !Testa se quem está logado é aluno ou professor
-        $logado = true;
         $matricula = $_SESSION['matricula'];
         if (substr($matricula,0,1) == 0) {
-            $usuario = 'aluno';
-            $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
+            $dadosUsuario = $sql -> query("SELECT avatar FROM aluno WHERE matricula = '$matricula'");
         }
         else{
-            $usuario = 'professor';
-            $dadosUsuario = $sql -> query("SELECT * FROM professor WHERE matricula = '$matricula'");
+            $dadosUsuario = $sql -> query("SELECT avatar FROM professor WHERE matricula = '$matricula'");
         }
     }
     else{

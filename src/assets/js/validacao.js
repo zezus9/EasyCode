@@ -53,7 +53,7 @@ const mensagensErros = {
         customError: 'As senhas não são iguais'
     },
     dataNascimento: {
-        valueMissing: 'A data de nasc não pode estar vazio',
+        valueMissing: 'A data de nascimento não pode estar vazio',
         customError: 'A data não é válida',
         tooShort: 'Favor fornecer data de nascimento completa'
     },

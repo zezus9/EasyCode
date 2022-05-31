@@ -14,48 +14,54 @@
 
             include 'connect.php';
 
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-            
-            // !Testa se esta logado ou não
-            $logado = false;
+            if (!isset($_SESSION)) { session_start(); }
+
             if (isset($_SESSION['matricula'])) {
-                // !Testa se quem está logado é aluno ou professor
-                $logado = true;
+
                 $matricula = $_SESSION['matricula'];
-                if (substr($matricula,0,1) == 0) {
-                    $usuario = 'aluno';
-                    $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
+                if (!isset($_GET['rescue'])) {
+
+                    if (substr($matricula,0,1) == 0) {
+                        $dadosUsuario = $sql -> query("SELECT senha FROM aluno WHERE matricula = '$matricula'");
+                    } else {
+                        $dadosUsuario = $sql -> query("SELECT senha FROM professor WHERE matricula = '$matricula'");
+                    }
+                    
+
+                    while ($dados = mysqli_fetch_array($dadosUsuario)) { $senha = $dados['senha']; }
+
+                    $senhaAnt = $_POST['senhaAnt'];
+                    $senhaNov = $_POST['senha'];
+
+                    if ($senhaAnt != $senha) {
+
+                        echo "<h1>Senha Antiga incorreta</h1>";
+                        header("Refresh: 3; ../perfil.php");
+                    } else {
+
+                        $sql -> query(
+                            "UPDATE aluno SET
+                                `senha` = '$senhaNov'
+                            WHERE matricula = '$matricula'");
+                    
+                        echo "<h1>Alterações Realizadas com sucesso!</h1>";
+                        header("Refresh: 2; ../perfil.php");
+                    }
+                } else {
+                    if (isset($_SESSION['matricula'])) { $matricula = $_SESSION['matricula']; }  
+                    else { header('Location: ../cadastro_login.html'); }
+    
+                    $senhaNov = $_POST['senha'];
+                    $sql -> query(
+                        "UPDATE aluno SET
+                            `senha` = '$senhaNov'
+                        WHERE matricula = '$matricula'");
+                
+                    echo "<h1>Senha alterada com sucesso!</h1>";
+                    // header("Refresh: 2; ../perfil.php");
                 }
-                else{
-                    $usuario = 'professor';
-                    $dadosUsuario = $sql -> query("SELECT * FROM professor WHERE matricula = '$matricula'");
-                }
-            }
-            else{
+            } else {
                 header('Location: ../cadastro_login.html');
-            }
-
-            $senhaAnt = $_POST['senhaAnt'];
-            $senhaNov = $_POST['senha'];
-
-            while ($dados = mysqli_fetch_array($dadosUsuario)) {
-                $senha = $dados['senha'];
-            }
-
-            if ($senhaAnt != $senha) {
-                echo "<h1>Senha Antiga incorreta</h1>";
-                header("Refresh: 3; ../perfil.php");
-            }
-            else {
-                $sql -> query(
-                    "UPDATE aluno SET
-                        `senha` = '$senhaNov'
-                    WHERE matricula = '$matricula'");
-            
-                echo "<h1>Alterações Realizadas com sucesso!</h1>";
-                header("Refresh: 2; ../perfil.php");
             }
 
         ?>

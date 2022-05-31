@@ -2,7 +2,7 @@
 import { validar } from "./validacao.js";
 
 // *Recebe todos inputs
-const input = document.querySelectorAll('input')
+const input = document.querySelectorAll('.input')
 
 // *Ativa um eventListener para cada input que aconetcerá cada vez que um input for "deselecionado"
 input.forEach(input => {

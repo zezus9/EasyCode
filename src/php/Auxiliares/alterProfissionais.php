@@ -18,11 +18,7 @@
                 session_start();
             }
             
-            // !Testa se esta logado ou não
-            $logado = false;
             if (isset($_SESSION['matricula'])) {
-                // !Testa se quem está logado é aluno ou professor
-                $logado = true;
                 $matricula = $_SESSION['matricula'];
             }
             else{

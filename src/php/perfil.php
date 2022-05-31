@@ -1,4 +1,5 @@
 <?php
+
     include 'Auxiliares/connect.php';
 
     if (!isset($_SESSION)) {
@@ -32,7 +33,6 @@
         $avatar = $dados['avatar'];
         $email = $dados['email'];
         $celular = $dados['telefone'];
-        $nascimento = implode('/',array_reverse(explode('-',$dados ['nasc'])));
         $linkedin = $dados['linkedin'];
         $github = $dados['github'];
         $link = $dados['link_personalizado'];
@@ -350,15 +350,13 @@ opcoes;
             </div>
         </section>
         
-        <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script type='text/javascript' src='../assets/js/vanilla-tilt.js'></script>
         <script src='../assets/js/app.js' type='module'></script>
-	    <script src='../assets/js/libs/jquery.js'></script>
-        <script src='../assets/js/util.js'></script>
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/libs/jquery.mask.js'></script>
         <script src='../assets/js/mascara.js'></script>
         <script src='../assets/js/alterAvatar.js'></script>
+        <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script src='../assets/js/perfil.js'></script>
     </body>
     </html>
