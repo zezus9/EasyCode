@@ -47,11 +47,12 @@
                             $logado = true;
                             $usario = '';
                             $matricula = $_SESSION['matricula'];
-                            if (substr($matricula,0,1) == 0) {
-                                $usuario = "aluno";
-                            }
-                            else{
-                                $usuario = "professor";
+                            $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+
+                            $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
+
+                            while ($dados = mysqli_fetch_array($dadosUsuario)) {
+                                $nome = explode(' ',$dados['nome'])[0];
                             }
                         }
 
@@ -74,7 +75,7 @@
                                     <li class='nav-item dropdown'>
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
-                                            Aluno
+                                            $nome
                                             <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
                                             height='25'/> -->
                                         </a>
