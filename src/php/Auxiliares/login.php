@@ -36,7 +36,7 @@
                     $_SESSION['matricula'] = $aluno['matricula'];
                 }
                 // !PERFIL DO ALUNO
-                header('Location: ../perfil.php');
+                header('Location: ../sobrenos.php');
             }
             elseif ((mysqli_num_rows($dadosProfessor) != 0)) {
                 // *O usuário é um professor e deve ser redirecionado para o seu respectivo perfil
@@ -44,7 +44,7 @@
                     $_SESSION['matricula'] = $professor['matricula'];
                 }
                 // !PERFIL DO PROFESSOR
-                header('Location: ../perfil.php');
+                header('Location: ../sobrenos.php');
             }
         ?>
     </div>
