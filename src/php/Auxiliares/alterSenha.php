@@ -19,14 +19,9 @@
             if (isset($_SESSION['matricula'])) {
 
                 $matricula = $_SESSION['matricula'];
+                $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+                $dadosUsuario = $sql -> query("SELECT senha FROM $usuario WHERE matricula = '$matricula'");
                 if (!isset($_GET['rescue'])) {
-
-                    if (substr($matricula,0,1) == 0) {
-                        $dadosUsuario = $sql -> query("SELECT senha FROM aluno WHERE matricula = '$matricula'");
-                    } else {
-                        $dadosUsuario = $sql -> query("SELECT senha FROM professor WHERE matricula = '$matricula'");
-                    }
-                    
 
                     while ($dados = mysqli_fetch_array($dadosUsuario)) { $senha = $dados['senha']; }
 
@@ -40,25 +35,23 @@
                     } else {
 
                         $sql -> query(
-                            "UPDATE aluno SET
+                            "UPDATE $usuario SET
                                 `senha` = '$senhaNov'
                             WHERE matricula = '$matricula'");
                     
-                        echo "<h1>Alterações Realizadas com sucesso!</h1>";
-                        header("Refresh: 2; ../perfil.php");
+                        echo "<h1>Senha alterada com sucesso!</h1>";
+                        // header("Refresh: 2; sair.php");
                     }
                 } else {
-                    if (isset($_SESSION['matricula'])) { $matricula = $_SESSION['matricula']; }  
-                    else { header('Location: ../cadastro_login.html'); }
     
                     $senhaNov = $_POST['senha'];
                     $sql -> query(
-                        "UPDATE aluno SET
+                        "UPDATE $usuario SET
                             `senha` = '$senhaNov'
                         WHERE matricula = '$matricula'");
                 
                     echo "<h1>Senha alterada com sucesso!</h1>";
-                    // header("Refresh: 2; ../perfil.php");
+                    // header("Refresh: 2; sair.php");
                 }
             } else {
                 header('Location: ../cadastro_login.html');

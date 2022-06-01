@@ -3,6 +3,6 @@
     session_start();
     session_destroy();
 
-    header("Location: ../../Home.html")
+    header("Location: ../../cadastro_login.html")
 
 ?>

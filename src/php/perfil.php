@@ -12,14 +12,7 @@
         // !Testa se quem está logado é aluno ou professor
         $logado = true;
         $matricula = $_SESSION['matricula'];
-        if (substr($matricula,0,1) == 0) {
-            $usuario = 'aluno';
-            $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
-        }
-        else{
-            $usuario = 'professor';
-            $dadosUsuario = $sql -> query("SELECT * FROM professor WHERE matricula = '$matricula'");
-        }
+        $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
     }
     else{
         header('Location: ../cadastro_login.html');
@@ -27,31 +20,43 @@
 
     clearstatcache();
 
-    while ($dados = mysqli_fetch_array($dadosUsuario)) {
-        $idAluno = $dados['id'];
-        $nome = $dados['nome'];
-        $avatar = $dados['avatar'];
-        $email = $dados['email'];
-        $celular = $dados['telefone'];
-        $linkedin = $dados['linkedin'];
-        $github = $dados['github'];
-        $link = $dados['link_personalizado'];
-    }
+    $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
+    
+    if ($usuario == 'aluno') {
+        while ($dados = mysqli_fetch_array($dadosUsuario)) {
+            $idAluno = $dados['id'];
+            $nome = $dados['nome'];
+            $avatar = $dados['avatar'];
+            $email = $dados['email'];
+            $celular = $dados['telefone'];
+            $linkedin = $dados['linkedin'];
+            $github = $dados['github'];
+            $link = $dados['link_personalizado'];
+        }
 
-    $certificados = $sql -> query(
-        "SELECT 
-            cert.data_inicio,cert.data_fim,cert.pdf,
-            curso.linguagem,curso.campo,curso.logo,
-            prof.nome AS nome_prof
-        FROM certificado AS cert 
-        INNER JOIN curso ON cert.id_curso = curso.id
-        INNER JOIN professor AS prof ON cert.id_responsavel = prof.id
-        WHERE id_aluno = '$idAluno'
-        ORDER BY curso.linguagem");
-
-    $nãoCertificado = false;
-    if (mysqli_num_rows($certificados) == 0) {
-        $nãoCertificado = true;
+        $certificados = $sql -> query(
+            "SELECT 
+                cert.data_inicio,cert.data_fim,cert.pdf,
+                curso.linguagem,curso.campo,curso.logo,
+                prof.nome AS nome_prof
+            FROM certificado AS cert 
+            INNER JOIN curso ON cert.id_curso = curso.id
+            INNER JOIN professor AS prof ON cert.id_responsavel = prof.id
+            WHERE id_aluno = '$idAluno'
+            ORDER BY curso.linguagem");
+    
+        $nãoCertificado = false;
+        if (mysqli_num_rows($certificados) == 0) {
+            $nãoCertificado = true;
+        }
+    } else {
+        while ($dados = mysqli_fetch_array($dadosUsuario)) {
+            $idAluno = $dados['id'];
+            $nome = $dados['nome'];
+            $avatar = $dados['avatar'];
+            $email = $dados['email'];
+            $celular = $dados['telefone'];
+        }
     }
 
     echo "
@@ -108,7 +113,9 @@
                         </label>
                         <input type='radio' name='opcoes' id='home' class='opcoes'>
                     </li>
-                    
+opcoes;
+    if ($usuario == 'aluno') {
+        echo <<<certificadoAlunos
                     <li>
                         <label for='certificados' onclick='opcoes("certificados")'>
                             <span>
@@ -118,6 +125,9 @@
                         </label>
                         <input type='radio' name='opcoes' id='certificados' class='opcoes'>
                     </li>
+certificadoAlunos;
+    }
+    echo <<<opcoes
                     <li>
                         <label for='dPessoais' onclick='opcoes("dPessoais")'>
                             <span>
@@ -127,7 +137,9 @@
                         </label>
                         <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
                     </li>
-                    
+opcoes;
+    if ($usuario == 'aluno') {
+        echo <<<dProfissionaisAlunos
                     <li>
                         <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
                             <span>
@@ -137,7 +149,9 @@
                         </label>
                         <input type='radio' name='opcoes' id='dProfissionais' class='opcoes'>
                     </li>
-                    
+dProfissionaisAlunos;                    
+    }
+    echo <<<opcoes
                     <li>
                         <label for='alterSenha' onclick='opcoes("alterSenha")'>
                             <span>
@@ -164,49 +178,52 @@
         <section class='secao secaoAp' id='secao_home'>
             <h1>Home</h1>
         </section>
-        <section class='secao h-100' id='secao_certificados'>
+        <section class='secao h-100 m-5 p-5' id='secao_certificados'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
 opcoes;
 
-    if ($nãoCertificado) {
-        echo 
-        "
-            <div class='d-flex justify-content-center m-5 p-5'>
-                <h1 class='Josefinfont'>Ainda não há nada aqui!</h1>
-            </div>
-        ";
-    } else {
-        while ($certificado = mysqli_fetch_array($certificados)) {
-            $data_ini = implode('/',array_reverse(explode('-',$certificado['data_inicio'])));
-            $data_fim = implode('/',array_reverse(explode('-',$certificado['data_fim'])));
-    
+    if ($usuario == 'aluno') {
+
+        if ($nãoCertificado) {
             echo 
             "
-                <div class='card'>
-                    <div class='before'>
-                        <div class='titulo'>
-                            <h3>$certificado[linguagem]</h3>
-                        </div>
-                        <div class='logo_curso'>
-                            <img src='../assets/img/logo_cursos/$certificado[logo]' width='150px'>
-                        </div>
-                    </div>
-                    <div class='content'>
-                        <h3>$certificado[linguagem]</h3>
-                        <br>
-                        <p><strong>Campo:</strong> $certificado[campo]<p>
-                        <p><strong>Data Inicio:</strong> $data_ini</p>
-                        <p><strong>Data Final:</strong> $data_fim</p>
-                        <p><strong>Professor:</strong> $certificado[nome_prof]</p>
-                        <br>
-                        <div>
-                            <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
-                        </div>
-                        <a href='../assets/certificados/'>Baixe o PDF</a>
-                    </div>
+                <div class='d-flex justify-content-center m-5 p-5'>
+                    <h1 class='Josefinfont'>Ainda não há nada aqui!</h1>
                 </div>
             ";
-        // <a href='../assets/certificados/$certificados[pdf]'>Baixe o PDF</a>
+        } else {
+            while ($certificado = mysqli_fetch_array($certificados)) {
+                $data_ini = implode('/',array_reverse(explode('-',$certificado['data_inicio'])));
+                $data_fim = implode('/',array_reverse(explode('-',$certificado['data_fim'])));
+        
+                echo 
+                "
+                    <div class='card'>
+                        <div class='before'>
+                            <div class='titulo'>
+                                <h3>$certificado[linguagem]</h3>
+                            </div>
+                            <div class='logo_curso'>
+                                <img src='../assets/img/logo_cursos/$certificado[logo]' width='150px'>
+                            </div>
+                        </div>
+                        <div class='content'>
+                            <h3>$certificado[linguagem]</h3>
+                            <br>
+                            <p><strong>Campo:</strong> $certificado[campo]<p>
+                            <p><strong>Data Inicio:</strong> $data_ini</p>
+                            <p><strong>Data Final:</strong> $data_fim</p>
+                            <p><strong>Professor:</strong> $certificado[nome_prof]</p>
+                            <br>
+                            <div>
+                                <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
+                            </div>
+                            <a href='../assets/certificados/'>Baixe o PDF</a>
+                        </div>
+                    </div>
+                ";
+            // <a href='../assets/certificados/$certificados[pdf]'>Baixe o PDF</a>
+            }
         }
     }
 
@@ -341,6 +358,10 @@ opcoes;
                                     </div>
                                 </div>
                             </div>
+                            <div class='w-50'>
+                                <p><a href='resgSenha.php' class'nonTitle'>Esqueci a senha</a></p>
+                            </div>
+                            <br>
                             <div class='d-flex justify-content-center'>
                                 <input type='submit' value='SALVAR ALTERAÇÕES' class='btn btn-outline-secondary bg-color text-light'>
                             </div>

@@ -24,25 +24,21 @@
             else{
                 header('Location: ../cadastro_login.html');
             }
-
+            
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $celular = explode(' ',$_POST['celular']);
             $celular = preg_replace('/[+() -]/','',implode('+',\array_splice($celular,1,3)));
 
-            if (substr($matricula,0,1) == 0) {
-                $emails = $sql -> query("SELECT email FROM aluno WHERE email = '$email' AND matricula != '$matricula'");
-            }
-            else{
-                $emails = $sql -> query("SELECT email FROM professor WHERE email = '$email' AND matricula != '$matricula'");
-            }
+            $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+            $emails = $sql -> query("SELECT email FROM $usuario WHERE email = '$email' AND matricula != '$matricula'");
 
             if (mysqli_num_rows($emails) != 0) {
                 echo "<h1>Uma conta já foi criada neste e-mail</h1>";
                 header("Refresh: 2; ../perfil.php");
             } else {
                 $sql -> query(
-                    "UPDATE aluno SET
+                    "UPDATE $usuario SET
                         `nome` = '$nome',
                         `telefone` = '$celular',
                         `email` = '$email'

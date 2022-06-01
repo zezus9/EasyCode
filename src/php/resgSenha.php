@@ -49,12 +49,8 @@
 
         if ($logado) {
 
-            if (substr($matricula,0,1) == 0) {
-                $dadosUsuario = $sql -> query("SELECT email,nasc FROM aluno WHERE matricula = '$matricula'");
-            }
-            else{
-                $dadosUsuario = $sql -> query("SELECT email,nasc FROM professor WHERE matricula = '$matricula'");
-            }
+            $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+            $dadosUsuario = $sql -> query("SELECT email FROM $usuario WHERE matricula = '$matricula'");
         
             while ($dados = mysqli_fetch_array($dadosUsuario)) {
                 $email = $dados['email'];
@@ -120,62 +116,54 @@
         $email = $_POST['email'];
         $nascimento = $_POST['nascimento'];
         
-        if (substr($matricula,0,1) == 0) {
-            $dadosUsuario = $sql -> query("SELECT nasc FROM aluno WHERE matricula = '$matricula' AND email = '$email'");
-        }
-        else{
-            $dadosUsuario = $sql -> query("SELECT nasc FROM professor WHERE matricula = '$matricula' AND email = '$email'");
-        }
+        $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+        $dadosUsuario = $sql -> query("SELECT nasc FROM $usuario WHERE matricula = '$matricula' AND email = '$email'");
 
         while ($dados = mysqli_fetch_array($dadosUsuario)) {
             $nasc = implode('/',array_reverse(explode('-',$dados ['nasc'])));
         }
 
         if (mysqli_num_rows($dadosUsuario) != 0 and $nasc == $nascimento) {
-
             
-
-            if ($nasc == $nascimento) {
-                echo
-                "
-                    <section class='h-100' id='secao_alterSenha'>
-                            <div class='d-flex justify-content-center align-items-center h-100'>
-                                <div class='box-form'>
-                                    <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
-                                        <h1>Recuperação de Senha</h1>
-                                        <br>
-                                        <form action='Auxiliares/alterSenha.php?rescue=0' method='post' class='formulario flex flex--coluna form-alt w-50 formResg'>
-                                            <div>
-                                                <div class='w-100'>
-                                                    <div class='form-group'>
-                                                        <div class='input-container'>
-                                                            <label for='senha'><strong>Nova senha</strong></label>
-                                                            <input id='senha' class='input' type='password' data-tipo='senhaCad'  name='senha' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
-                                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                                        </div>
+            $_SESSION['matricula'] = $matricula;
+            echo
+            "
+                <section class='h-100' id='secao_alterSenha'>
+                        <div class='d-flex justify-content-center align-items-center h-100'>
+                            <div class='box-form'>
+                                <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
+                                    <h1>Recuperação de Senha</h1>
+                                    <br>
+                                    <form action='Auxiliares/alterSenha.php?rescue=0' method='post' class='formulario flex flex--coluna form-alt w-50 formResg'>
+                                        <div>
+                                            <div class='w-100'>
+                                                <div class='form-group'>
+                                                    <div class='input-container'>
+                                                        <label for='senha'><strong>Nova senha</strong></label>
+                                                        <input id='senha' class='input' type='password' data-tipo='senhaCad'  name='senha' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
+                                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
                                                     </div>
                                                 </div>
-                                                <div class='w-100'>
-                                                    <div class='form-group'>
-                                                        <div class='input-container'>
-                                                            <label for='senhaNov'><strong>Repita a nova senha</strong></label>
-                                                            <input id='senhaNov' class='input' type='password' data-tipo='senhaNov'  name='senhaNov' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
-                                                            <span class='input-mensagem-erro'>Este campo não está valido</span>
-                                                        </div>
-                                                    </div>
-                                                </div> 
                                             </div>
-                                            <div class='d-flex justify-content-center'>
-                                            <input type='submit' value='ALTERAR SENHA' class='btn btn-outline-secondary bg-color text-light' id='submit'>
+                                            <div class='w-100'>
+                                                <div class='form-group'>
+                                                    <div class='input-container'>
+                                                        <label for='senhaNov'><strong>Repita a nova senha</strong></label>
+                                                        <input id='senhaNov' class='input' type='password' data-tipo='senhaNov'  name='senhaNov' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ \\\/!@#$%^&*_=+-]).{6,12}$'>
+                                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                                    </div>
+                                                </div>
+                                            </div> 
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class='d-flex justify-content-center'>
+                                        <input type='submit' value='ALTERAR SENHA' class='btn btn-outline-secondary bg-color text-light' id='submit'>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </section>
-                ";
-            }
-
+                    </div>
+                </section>
+            ";
         } else {
             echo
             "
