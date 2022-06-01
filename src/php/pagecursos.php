@@ -32,21 +32,133 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav Josefinfont d-flex justify-content-center align-items-center p-1">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Home.html">Home</a>
-                        </li>
-                        <li id="select" class="nav-item">
-                            <a class="nav-link" href="pagecursos.php">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../cadastro_login.html">Inscreva-se / Entrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../sobrenos.html">Sobre nós</a>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse Josefinfont" id="navbarSupportedContent">
+                    <?php
+
+                        include 'Auxiliares/connect.php';
+
+                        // !Testa se esta logado ou não
+                        if (!isset($_SESSION)) {
+                            session_start();
+                        }
+                        
+                        // !Testa se esta logado ou não
+                        $logado = false;
+                        if (isset($_SESSION['matricula'])) {
+                            // !Testa se quem está logado é aluno ou professor
+                            $logado = true;
+                            $usario = '';
+                            $matricula = $_SESSION['matricula'];
+                            $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+
+                            $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
+
+                            while ($dados = mysqli_fetch_array($dadosUsuario)) {
+                                $nome = explode(' ',$dados['nome'])[0];
+                            }
+                        }
+
+                        if ($logado) {
+                            echo
+                            "
+                            <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                                <li id='select' class='nav-item'>
+                                    <a class='nav-link' href='pagecursos.php'>Cursos</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
+                                </li>
+                            </ul>
+                            ";
+                            if ($usuario == "aluno") {
+                                echo 
+                                "
+                                <ul class='navbar-nav ml-auto'>
+                                    <li class='nav-item dropdown'>
+                                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
+                                            data-bs-toggle='dropdown' aria-expanded='false'>
+                                            $nome
+                                            <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
+                                            height='25'/> -->
+                                        </a>
+    
+                                        <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
+                                            <a class='dropdown-item' href='perfil.php'>
+                                                <i class='bi bi-person-circle'></i> Perfil
+                                            </a>
+                                            <div class='dropdown-divider'></div>
+                                            <a class='dropdown-item' href='perfil.php'>
+                                                <i class='bi bi-journal-check'></i> Cursos Matriculados
+                                            </a>
+                                            <a class='dropdown-item' href='#'>
+                                                <i class='bi bi-award-fill'></i> Certificados
+                                            </a>
+                                            <a class='dropdown-item' href='Auxiliares/sair.php'>
+                                                <i class='bi bi-box-arrow-right'></i> Sair
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                ";
+                            }
+                            else{
+                                echo 
+                                "
+                                <ul class='navbar-nav ml-auto'>
+                                    <li class='nav-item dropdown'>
+                                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
+                                            data-bs-toggle='dropdown' aria-expanded='false'>
+                                            $nome
+                                            <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
+                                            height='25'/> -->
+                                        </a>
+    
+                                        <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
+                                            <a class='dropdown-item' href='#'>
+                                                <i class='bi bi-person-circle'></i> Perfil
+                                            </a>
+                                            <div class='dropdown-divider'></div>
+                                            <a class='dropdown-item' href='#'>
+                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-stack-overflow' viewBox='0 0 16 16'>
+                                                    <path d='M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z'/>
+                                                    <path d='M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254 0 9.108.852l4.26 5.727 1.146-.852L10.254 0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z'/>
+                                                </svg> Ministrar cursos
+                                            </a>
+                                            <a class='dropdown-item' href='#'>
+                                                <i class='bi bi-journal-plus'></i> Cadastro de cursos
+                                            </a>
+                                            <a class='dropdown-item' href='#'>
+                                                <i class='bi bi-chat-text-fill'></i> Mensagens
+                                            </a>
+                                            <a class='dropdown-item' href='Auxiliares/sair.php'>
+                                                <i class='bi bi-box-arrow-right'></i> Sair
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                ";     
+                            }
+                        }
+                        else{
+                            echo
+                            "
+                            <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                                <li class='nav-item'>
+                                    <a class='nav-link' href='../Home.html'>Home</a>
+                                </li>
+                                <li id='select' class='nav-item'>
+                                    <a class='nav-link' href='pagecursos.php'>Cursos</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' href='../cadastro_login.html'>Inscreva-se / Entrar</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
+                                </li>
+                            </ul>
+                            ";
+                        }
+                    ?>
                 </div>
             </div>
         </nav>

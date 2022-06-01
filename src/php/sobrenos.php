@@ -60,10 +60,10 @@
                             echo
                             "
                             <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-                                <li id='select' class='nav-item'>
+                                <li class='nav-item'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
-                                <li class='nav-item'>
+                                <li id='select' class='nav-item'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
                                 </li>
                             </ul>
@@ -81,17 +81,17 @@
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='perfil.php'>
                                                 <i class='bi bi-person-circle'></i> Perfil
                                             </a>
                                             <div class='dropdown-divider'></div>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='perfil.php'>
                                                 <i class='bi bi-journal-check'></i> Cursos Matriculados
                                             </a>
                                             <a class='dropdown-item' href='#'>
                                                 <i class='bi bi-award-fill'></i> Certificados
                                             </a>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='Auxiliares/sair.php'>
                                                 <i class='bi bi-box-arrow-right'></i> Sair
                                             </a>
                                         </div>
@@ -106,7 +106,7 @@
                                     <li class='nav-item dropdown'>
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
-                                            Professor
+                                            $nome
                                             <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
                                             height='25'/> -->
                                         </a>
@@ -128,7 +128,7 @@
                                             <a class='dropdown-item' href='#'>
                                                 <i class='bi bi-chat-text-fill'></i> Mensagens
                                             </a>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='Auxiliares/sair.php'>
                                                 <i class='bi bi-box-arrow-right'></i> Sair
                                             </a>
                                         </div>
@@ -144,13 +144,13 @@
                                 <li class='nav-item'>
                                     <a class='nav-link' href='../Home.html'>Home</a>
                                 </li>
-                                <li id='select' class='nav-item'>
+                                <li class='nav-item'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
                                 <li class='nav-item'>
                                     <a class='nav-link' href='../cadastro_login.html'>Inscreva-se / Entrar</a>
                                 </li>
-                                <li class='nav-item'>
+                                <li id='select' class='nav-item'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
                                 </li>
                             </ul>
@@ -177,7 +177,48 @@
     </header>
     <!-- HEADER -->
 
-    <section class="container">
+    <!-- MISSÃO, VISÃO E VALORES -->                
+    <section class="pt-4 container text-center">
+        <div class="row d-flex justify-content-center">
+        <div class="col-md-4 col-sm-6">
+                <div class="counter red">
+                    <div class="counter-icon">
+                        <i class="bi bi-flag-fill"></i>
+                        <h3>Missão</h3>
+                    </div>
+                    <div class="counter-content">
+                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="bi bi-eye-fill"></i>
+                        <h3>Visão</h3>
+                    </div>
+                    <div class="counter-content">
+                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="counter red">
+                    <div class="counter-icon">
+                        <i class="bi bi-star-fill"></i>
+                        <h3>Valores</h3>
+                    </div>
+                    <div class="counter-content">
+                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- MISSÃO, VISÃO E VALORES -->  
+
+    <!-- DESENVOLVEDORES -->  
+    <section class="pt-4 container">
         <h3 class="text-center">Desenvolvedores</h3>
         <div class="row g-3">
             <div class="col">
@@ -198,9 +239,21 @@
                         <div class="box">
                             <div>
                                 <ul class="list-inline">
-                                    <li class="list-inline-item redes"><i class="bi bi-github"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-linkedin"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-instagram"></i></li>
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/ErikaNS123" class="redes">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.linkedin.com/in/erika-nunes-8868a8154/" class="redes">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/kinhanuness/" class="redes">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -224,10 +277,22 @@
                         </div>
                         <div class="box">
                             <div>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item redes"><i class="bi bi-github"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-linkedin"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-instagram"></i></li>
+                            <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/Jeffersonpingu" class="redes">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.linkedin.com/in/jefferson-gomes-de-souza-48a214207/" class="redes">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/pinguimbear/" class="redes">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -251,10 +316,22 @@
                         </div>
                         <div class="box">
                             <div>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item redes"><i class="bi bi-github"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-linkedin"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-instagram"></i></li>
+                            <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/zezus9" class="redes">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.linkedin.com/in/jonathan-de-jesus9/" class="redes">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/zezus9/" class="redes">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -278,10 +355,22 @@
                         </div>
                         <div class="box">
                             <div>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item redes"><i class="bi bi-github"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-linkedin"></i></li>
-                                    <li class="list-inline-item redes"><i class="bi bi-instagram"></i></li>
+                            <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/Priscilamiguel67" class="redes">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="redes">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/priscylla__m/" class="redes">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -290,6 +379,7 @@
             </div>
         </div>
     </section>
+    <!-- DESENVOLVEDORES -->  
 
     <!-- FOOTER -->
     <footer class="text-center text-white text-lg-start Footer">
