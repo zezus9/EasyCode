@@ -36,3 +36,47 @@
 .card h2 {
     font-size: 1rem;
 }
+
+.counter{
+    color: #fff;
+    text-align: center;
+    padding: 22px 0 0;
+    margin: 0 10px;
+    position: relative;
+}
+
+.counter:before{
+    content: "";
+    border: 2px solid #008037;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1;
+}
+
+.counter-icon{
+    color: #008037;
+    font-size: 40px;
+    margin: 0 0 22px;
+}
+
+.counter-content{
+    background-color: #00b14d;
+    padding: 26px 18px 20px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+}
+
+.counter-content:before{
+    content: '';
+    background-color: #00b14d;
+    width: 25px;
+    height: 25px;
+    transform: translateX(-50%) rotate(45deg);
+    position: absolute;
+    left: 50%;
+    top: -13px;
+}
