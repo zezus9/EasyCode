@@ -60,10 +60,10 @@
                             echo
                             "
                             <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-                                <li id='select' class='nav-item'>
+                                <li class='nav-item'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
-                                <li class='nav-item'>
+                                <li id='select' class='nav-item d-flex align-items-center'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
                                 </li>
                             </ul>
@@ -144,13 +144,13 @@
                                 <li class='nav-item'>
                                     <a class='nav-link' href='../Home.html'>Home</a>
                                 </li>
-                                <li id='select' class='nav-item'>
+                                <li class='nav-item'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
                                 <li class='nav-item'>
                                     <a class='nav-link' href='../cadastro_login.html'>Inscreva-se / Entrar</a>
                                 </li>
-                                <li class='nav-item'>
+                                <li id='select' class='nav-item d-flex align-items-center'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
                                 </li>
                             </ul>
@@ -313,6 +313,7 @@
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+	<script src="../assets/js/nav.js"></script>
 </body>
 
 </html>

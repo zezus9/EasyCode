@@ -40,7 +40,7 @@
                             WHERE matricula = '$matricula'");
                     
                         echo "<h1>Senha alterada com sucesso!</h1>";
-                        // header("Refresh: 2; sair.php");
+                        header("Refresh: 2; sair.php");
                     }
                 } else {
     
@@ -51,7 +51,7 @@
                         WHERE matricula = '$matricula'");
                 
                     echo "<h1>Senha alterada com sucesso!</h1>";
-                    // header("Refresh: 2; sair.php");
+                    header("Refresh: 2; sair.php");
                 }
             } else {
                 header('Location: ../cadastro_login.html');

@@ -31,15 +31,19 @@
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
     </head>
+    <body>
+        <div class='d-flex align-items-center voltar' onclick='goBack()' style='cursor:pointer;'>
+            <img src='../assets/img/voltar.png' width='80px'>
+            <h3 class='color p-0 m-0'>VOLTAR</h3>
+        </div>
     ";
 
     if (!isset($_POST['email']) and !isset($_POST['matricula']) and !isset($_POST['nascimento'])) {
 
         echo
         "
-        <body>
-            <section class='h-100' id='secao_alterSenha'>
-                <div class='d-flex justify-content-center align-items-center h-100'>
+            <section class='h-75'>
+                <div class='d-flex justify-content-center align-items-center h-75'>
                     <div class='box-form'>
                         <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
                             <h1>Recuperação de Senha</h1>
@@ -128,7 +132,7 @@
             $_SESSION['matricula'] = $matricula;
             echo
             "
-                <section class='h-100' id='secao_alterSenha'>
+                <section class='h-75'>
                         <div class='d-flex justify-content-center align-items-center h-100'>
                             <div class='box-form'>
                                 <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
@@ -167,7 +171,7 @@
         } else {
             echo
             "
-                <section class='h-100' id='secao_alterSenha'>
+                <section class='h-75' id='secao_alterSenha'>
                     <div class='d-flex justify-content-center align-items-center h-100'>
                         <div class='box-form'>
                             <div class='d-flex justify-content-center align-items-center flex-column w-100 h-100'>
@@ -190,6 +194,11 @@
         <script src='../assets/js/libs/jquery.mask.js'></script>
         <script src='../assets/js/mascara.js'></script>
         <script src='../assets/js/resgSenha.js'></script>
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
     </html>
     ";
 

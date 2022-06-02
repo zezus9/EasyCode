@@ -44,7 +44,7 @@
                             <a class="nav-link" href="../cadastro_login.html">Inscreva-se / Entrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../sobrenos.html">Sobre nós</a>
+                            <a class="nav-link" href="sobrenos.php">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
