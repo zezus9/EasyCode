@@ -76,7 +76,7 @@
 
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
-        
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>        
     </head>
     ";
 
@@ -176,9 +176,109 @@ dProfissionaisAlunos;
             </div>
         </nav>
         <section class='secao secaoAp' id='secao_home'>
-            <h1>Home</h1>
+            <div class='container d-flex align-center justify-content-center nonSelect h-100'>
+                <div class='h-75 w-100'>
+                    <div class='w-100 h-50'>
+                        <div class='w-100 h-100'>
+                            <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
+                                <h1 class='text-center color m-3'>Continuar</h1>
+                                <div class='d-flex justify-content-center align-items-center h-100 owl-carousel'>
+                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
+                                        <div class='d-flex align-center col-md-3'>
+                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
+                                        </div>
+                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
+                                            <h5 class='text-center'>Javascript</h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='template_cursos.php?curso=03'>   
+                                                <img src='../assets/img/proximo.png' width='100%'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
+                                        <div class='d-flex align-center col-md-3'>
+                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
+                                        </div>
+                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
+                                            <h5 class='text-center'>Javascript</h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='template_cursos.php?curso=03'>   
+                                                <img src='../assets/img/proximo.png' width='100%'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
+                                        <div class='d-flex align-center col-md-3'>
+                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
+                                        </div>
+                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
+                                            <h5 class='text-center'>Javascript</h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='template_cursos.php?curso=03'>   
+                                                <img src='../assets/img/proximo.png' width='100%'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
+                                        <div class='d-flex align-center col-md-3'>
+                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
+                                        </div>
+                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
+                                            <h5 class='text-center'>Javascript</h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='template_cursos.php?curso=03'>   
+                                                <img src='../assets/img/proximo.png' width='100%'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='h-50 d-flex justify-content-between align-items-center flex-wrap'>
+                        <div class='col-md-6 col-12 h-100'>
+                            <div class='my-3 h-75 rounded px-5'>
+                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT END</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#frontend'>   
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-12 h-100'>
+                            <div class='my-3 h-75 rounded px-5'>
+                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                    <div class='h-100 d-flex justify-content-center align-items-center flex-column color'>
+                                        <h2>Alguma dúvida?</h2>
+                                        <h4>Fale com a gente</h4>
+                                        <a href='sobrenos.php'>
+                                            <button class='btn btn-outline-secondary fundocard color'>CONTATOS</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class='secao h-100 m-5 p-5' id='secao_certificados'>
+        <section class='secao h-100' id='secao_certificados'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
 opcoes;
 
@@ -198,7 +298,7 @@ opcoes;
         
                 echo 
                 "
-                    <div class='card'>
+                    <div class='cardCertificado'>
                         <div class='before'>
                             <div class='titulo'>
                                 <h3>$certificado[linguagem]</h3>
@@ -222,7 +322,6 @@ opcoes;
                         </div>
                     </div>
                 ";
-            // <a href='../assets/certificados/$certificados[pdf]'>Baixe o PDF</a>
             }
         }
     }
@@ -359,7 +458,9 @@ opcoes;
                                 </div>
                             </div>
                             <div class='w-50'>
-                                <p><a href='resgSenha.php' class'nonTitle'>Esqueci a senha</a></p>
+                                <a href='resgSenha.php' class='color'>
+                                    <strong>Esqueci a senha</strong>
+                                </a>
                             </div>
                             <br>
                             <div class='d-flex justify-content-center'>
@@ -371,7 +472,6 @@ opcoes;
             </div>
         </section>
         
-        <script type='text/javascript' src='../assets/js/vanilla-tilt.js'></script>
         <script src='../assets/js/app.js' type='module'></script>
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/libs/jquery.mask.js'></script>
@@ -379,6 +479,7 @@ opcoes;
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script src='../assets/js/perfil.js'></script>
+        <script src='../assets/js/pagecursos.js'></script>
     </body>
     </html>
     ";

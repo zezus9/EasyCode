@@ -223,7 +223,7 @@
         echo "
             <div class='row'>
                 <div>
-                    <h3>Front-End</h3>
+                    <a name='frontend'><h3>Front-End</h3></a>
                     <div class='owl-carousel'>
         ";
         for ($i=0; $i < count($FrontEnd); $i++){
