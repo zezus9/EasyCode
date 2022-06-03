@@ -181,13 +181,15 @@
     <section class="pt-4 container text-center">
         <div class="row d-flex justify-content-center">
         <div class="col-md-4 col-sm-6">
-                <div class="counter red">
+                <div class="counter">
                     <div class="counter-icon">
                         <i class="bi bi-flag-fill"></i>
                         <h3>Missão</h3>
                     </div>
                     <div class="counter-content">
-                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                        <span>
+                            Trazer um ensino interativo e de qualidade que incentive o aluno a crescer no ramo da programação
+                        </span>
                     </div>
                 </div>
             </div>
@@ -198,18 +200,24 @@
                         <h3>Visão</h3>
                     </div>
                     <div class="counter-content">
-                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                        <span>
+                            Se tornar a maior plataforma de ensino de programação.
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <div class="counter red">
+                <div class="counter">
                     <div class="counter-icon">
                         <i class="bi bi-star-fill"></i>
                         <h3>Valores</h3>
                     </div>
                     <div class="counter-content">
-                        <span class="counter-value">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione porro, tempore iure possimus deserunt incidunt. Vitae cum voluptates ullam necessitatibus. Quasi unde similique dolore facere, tempore architecto consequatur perspiciatis omnis!</span>
+                        <span>
+                            <p>Integridade</p>
+                            <p>Comprometimento</p>
+                            <p>Inovação</p>
+                        </span>
                     </div>
                 </div>
             </div>
