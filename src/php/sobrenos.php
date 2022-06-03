@@ -218,14 +218,14 @@
     <!-- MISSÃO, VISÃO E VALORES -->  
 
     <!-- DESENVOLVEDORES -->  
-    <section class="pt-4 container">
+    <section class="pt-4 pb-4 container">
         <h3 class="text-center">Desenvolvedores</h3>
-        <div class="row g-3">
+        <div class="row g-3 ">
             <div class="col">
                 <div class="card fundocard">
                     <div class="text-center">
                         <div class="img-hover-zoom img-hover-zoom--colorize">
-                            <img src="../assets/img/Avatares/default_image.png">
+                            <img src="../assets/img/Desenvolvedores/ERIKA.jpg">
                         </div>
                     </div>
                     <div class="card-body">
@@ -264,7 +264,7 @@
                 <div class="card fundocard">
                     <div class="text-center">
                         <div class="img-hover-zoom img-hover-zoom--colorize">
-                            <img src="../assets/img/Avatares/default_image.png">
+                            <img src="../assets/img/Desenvolvedores/JEFFERSON.jpg">
                         </div>
                     </div>
                     <div class="card-body">
@@ -303,7 +303,7 @@
                 <div class="card fundocard">
                     <div class="text-center">
                         <div class="img-hover-zoom img-hover-zoom--colorize">
-                            <img src="../assets/img/Avatares/default_image.png">
+                            <img src="../assets/img/Desenvolvedores/JONATHAN.jpg">
                         </div>
                     </div>
                     <div class="card-body">
@@ -342,7 +342,7 @@
                 <div class="card fundocard">
                     <div class="text-center">
                         <div class="img-hover-zoom img-hover-zoom--colorize">
-                            <img src="../assets/img/Avatares/default_image.png">
+                            <img src="../assets/img/Desenvolvedores/PRISCILA.jpg">
                         </div>
                     </div>
                     <div class="card-body">
