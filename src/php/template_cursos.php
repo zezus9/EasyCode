@@ -55,11 +55,12 @@
         <header>
             <nav class='navbar navbar-expand-lg navbar-light fixed-top Background nonSelect'>
                 <div class='container'>
-                    <a class='navbar-brand Lovelofont' href='Home.html'><img width='35' src='../assets/img/logoEASYCODE.png'
+                    <a class='navbar-brand Lovelofont'><img width='35' src='../assets/img/logoEASYCODE.png'
                             alt='Logo EC'>
                         EASYCODE</a>
-                    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav'
-                        aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+                        <button class='navbar-toggler' type='button' data-bs-toggle='collapse'
+                        data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent'
+                        aria-expanded='false' aria-label='Toggle navigation'>
                         <span class='navbar-toggler-icon'></span>
                     </button>
                     <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
