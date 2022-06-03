@@ -1,0 +1,131 @@
+/* 
+CORES:
+#7ED957 
+#C9E265
+#008037 
+*/
+
+
+/* !Página inteira */
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open sans', sans-serif;
+}
+
+body{
+    background-image: url(../img/bgimg.jpg);
+}
+
+.sidebar{
+    background: #008037;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%!important;
+    height:100% ;
+    transition: all 0.5s ease;
+}
+
+.sidebar .profile{
+    text-align:center;
+}
+
+.sidebar .profile img{
+    display: block;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.sidebar .profile h3{
+    color: #ffffff;
+}
+
+.sidebar .profile p {
+    color: rgb(206,240,253);
+    font-size:14px ;
+}
+
+.sidebar  ul{
+    padding: 0;
+    width: 200px;
+}
+
+.sidebar  ul li label{
+    display: block;
+    padding: 5%;
+    color: white;
+    font-size: 13px;
+    position: relative; 
+}
+
+.sidebar  ul li label .icon{
+    color:white;
+    width:30px;
+    display:inline-block;
+}
+
+/* link hover*/
+.sidebar ul li label:hover,
+.sidebar ul li label:focus { 
+	background: #7ED957; 
+}
+
+.sidebar  ul li label:hover .icon,
+.sidebar  ul li label.active .icon{
+    color: #008037;
+}
+
+.sidebar  ul li label:hover:before,
+.sidebar  ul li label.active:before{
+    display:block;
+}
+
+input[type="radio"],input[type="file"]{
+    display: none;
+}
+
+.sidebar ul li.active > label, label[aria-expanded="true"] {
+	background: white;
+    color: #008037;
+}
+
+.secao{
+    margin-left: 15%!important;
+    display: none;
+    height: 100vh!important;
+}
+
+.secaoAp{
+    margin-left: 15%!important;
+    display: block!important;
+}
+
+.avatar{
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
+.menu-elements{
+    background-color: #076630!important;
+    overflow-y: scroll;
+    max-height: 75%;
+}
+
+
+.menu-elements::-webkit-scrollbar {
+    width: 10px;
+}
+
+.menu-elements::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.menu-elements::-webkit-scrollbar-thumb {
+    background-color: #C9E265;
+}
