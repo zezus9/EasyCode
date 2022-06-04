@@ -75,6 +75,8 @@
         <link rel='stylesheet' href='../assets/css/inputs.css'>
 
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
+
+        <link rel='stylesheet' href='../assets/css/pagecursos.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>        
     </head>
@@ -82,7 +84,7 @@
 
     echo
     "
-    <body>
+    <body onload='carousel()'>
         <div >
             <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>
@@ -179,61 +181,24 @@ dProfissionaisAlunos;
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
                 <div class='h-75 w-100'>
                     <div class='w-100 h-50'>
-                        <div class='w-100 h-100'>
+                        <div class='w-100 h-100 row'>
                             <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
-                                <h1 class='text-center color m-3'>Continuar</h1>
-                                <div class='d-flex justify-content-center align-items-center h-100 owl-carousel'>
-                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
-                                        <div class='d-flex align-center col-md-3'>
-                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
+                                <h1 class='text-center color'>Continuar</h1>
+                                <div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100'>
+                                    <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard cardCarousel w-100'>
+                                        <div class='d-flex justify-content-center align-items-center h-100'>
+                                            <h5 class='text-center color m-0'>Javascript</h5>
                                         </div>
-                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
-                                            <h5 class='text-center'>Javascript</h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='template_cursos.php?curso=03'>   
-                                                <img src='../assets/img/proximo.png' width='100%'>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
-                                        <div class='d-flex align-center col-md-3'>
-                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
-                                        </div>
-                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
-                                            <h5 class='text-center'>Javascript</h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='template_cursos.php?curso=03'>   
-                                                <img src='../assets/img/proximo.png' width='100%'>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
-                                        <div class='d-flex align-center col-md-3'>
-                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
-                                        </div>
-                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
-                                            <h5 class='text-center'>Javascript</h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='template_cursos.php?curso=03'>   
-                                                <img src='../assets/img/proximo.png' width='100%'>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class='d-flex col-md-3 col-sm-5 d-inline-block fundocard m-1'>
-                                        <div class='d-flex align-center col-md-3'>
-                                            <img src='../assets/img/logo_cursos/menores/icon-javascript.png' width='100%'>
-                                        </div>
-                                        <div class='col-md-7 d-flex justify-content-center align-items-center'>
-                                            <h5 class='text-center'>Javascript</h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='template_cursos.php?curso=03'>   
-                                                <img src='../assets/img/proximo.png' width='100%'>
-                                            </a>
-                                        </div>
+                                        <a href='template_cursos.php?curso=03'>
+                                            <div class='d-flex h-50 m-3 home'>
+                                                <div class='d-flex justify-content-center align-items-center col-10 p-1'>
+                                                    <p class='text-center text-wrap m-0 text-light p-1'>Introdução ao Javascript</p>
+                                                </div>
+                                                <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
+                                                        <img src='../assets/img/proximo.png' width='100%'>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -250,7 +215,7 @@ dProfissionaisAlunos;
                                             </div>
                                         </div>
                                         <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT END</strong></h5>
+                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT-END</strong></h5>
                                         </div>
                                         <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
                                             <a href='pagecursos.php#frontend'>   
@@ -265,7 +230,7 @@ dProfissionaisAlunos;
                                             </div>
                                         </div>
                                         <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>BACK END</strong></h5>
+                                            <h5 class='sizeF text-center m-0 color'><strong>BACK-END</strong></h5>
                                         </div>
                                         <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
                                             <a href='pagecursos.php#backend'>   
@@ -501,15 +466,17 @@ opcoes;
                 </div>
             </div>
         </section>
-        
-        <script src='../assets/js/app.js' type='module'></script>
+
+        <script src='../assets/js/carouselPerfil.js'></script>
         <script src='../assets/js/libs/jquery.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+        <script src='../assets/js/app.js' type='module'></script>
         <script src='../assets/js/libs/jquery.mask.js'></script>
         <script src='../assets/js/mascara.js'></script>
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script src='../assets/js/perfil.js'></script>
-        <script src='../assets/js/pagecursos.js'></script>
     </body>
     </html>
     ";

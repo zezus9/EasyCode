@@ -3,7 +3,7 @@ function carousel() {
     owl.owlCarousel({
         stagePadding: 20,
         margin: 10,
-        loop: true,
+        loop: false,
         responsive: {
             0: {
                 items: 1,
