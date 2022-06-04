@@ -108,7 +108,7 @@
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
                                             $nome
-                                            <img src='../assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
+                                            <img src='./assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
