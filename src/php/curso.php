@@ -95,20 +95,12 @@
                     <span class='navbar-toggler-icon'></span>
                 </button>
                 <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
-    "
-                        include 'Auxiliares/connect.php';
-
-                        // !Testa se esta logado ou não
-                        if (!isset($_SESSION)) {
-                            session_start();
-                        }
-                        
-                        // !Testa se esta logado ou não
-                        $logado = false;
+    ";
+    
                         if (isset($_SESSION['matricula'])) {
                             // !Testa se quem está logado é aluno ou professor
                             $logado = true;
-                            $usario = '';
+                            $usuario = '';
                             $matricula = $_SESSION['matricula'];
                             $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
 
@@ -116,6 +108,7 @@
 
                             while ($dados = mysqli_fetch_array($dadosUsuario)) {
                                 $nome = explode(' ',$dados['nome'])[0];
+                                $avatar = $dados['avatar'];
                             }
                         }
 
@@ -139,8 +132,7 @@
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
                                             $nome
-                                            <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
-                                            height='25'/> -->
+                                            <img src='../assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
