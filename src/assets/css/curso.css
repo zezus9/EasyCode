@@ -13,7 +13,6 @@ CORES:
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'open sans', sans-serif;
 }
 
 body{
@@ -21,12 +20,11 @@ body{
 }
 
 .sidebar{
-    background: #008037;
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
     width: 15%!important;
-    height:100% ;
+    height:80%;
     transition: all 0.5s ease;
 }
 
@@ -91,7 +89,7 @@ input[type="radio"],input[type="file"]{
 }
 
 .sidebar ul li.active > label, label[aria-expanded="true"] {
-	background: white;
+	background: #7ED957;
     color: #008037;
 }
 
