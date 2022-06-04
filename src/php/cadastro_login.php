@@ -1,15 +1,26 @@
+<?php
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (isset($_SESSION['matricula'])) {
+		header('Location: perfil.php');
+    }
+
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<title>Entrar ou cadastrar</title>
-	<link rel='icon' type='imagem/png' href='assets/img/logoEASYCODE.png'>
+	<link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
 
-	<link rel="stylesheet" href="./assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/inputs.css">
-	<link rel="stylesheet" href="assets/css/pageEntCad.css">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/inputs.css">
+	<link rel="stylesheet" href="../assets/css/pageEntCad.css">
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,7 +32,7 @@
 		<div id="head" class="fixed-top nonSelect">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
-					<a class="navbar-brand Lovelofont" href="Home.html"><img width="35" src="assets/img/logoEASYCODE.png"
+					<a class="navbar-brand Lovelofont" href="index.php"><img width="35" src="../assets/img/logoEASYCODE.png"
 							alt="Logo EC">
 						EASYCODE</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -31,16 +42,16 @@
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav Josefinfont d-flex justify-content-center align-items-center p-1">
 							<li class="nav-item">
-								<a class="nav-link" href="Home.html">Home</a>
+								<a class="nav-link" href="index.php">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="php/pagecursos.php">Cursos</a>
+								<a class="nav-link" href="pagecursos.php">Cursos</a>
 							</li>
 							<li id="select" class="nav-item">
-								<a class="nav-link" href="cadastro_login.html">Inscreva-se / Entrar</a>
+								<a class="nav-link" href="cadastro_login.php">Inscreva-se / Entrar</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="php/sobrenos.php">Sobre nós</a>
+								<a class="nav-link" href="sobrenos.php">Sobre nós</a>
 							</li>
 						</ul>
 					</div>
@@ -51,7 +62,7 @@
 		<header id="header">
 			<div class="logo d-flex justify-content-center align-items-center">
 				<span class="d-flex justify-content-center align-items-center nonSelect">
-					<img src="assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%">
+					<img src="../assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%">
 				</span>
 			</div>
 			<div class="content">
@@ -75,12 +86,12 @@
 				<div>
 					<!-- !logos -->
 					<figure id="logo" class="m-1">
-						<img src="assets/img/logoEASYCODE.png" alt="Logo principal" width="10%" class="ms-5">
-						<img src="assets/img/EasyCode.png" alt="EasyCode" width="30%">
+						<img src="../assets/img/logoEASYCODE.png" alt="Logo principal" width="10%" class="ms-5">
+						<img src="../assets/img/EasyCode.png" alt="EasyCode" width="30%">
 					</figure>
 					<!-- !formulario -->
 					<div class="h-100 m-3 mt-0">
-						<form action="php/Auxiliares/login.php" method="post" class="formulario flex flex--coluna p-2">
+						<form action="Auxiliares/login.php" method="post" class="formulario flex flex--coluna p-2">
 							<h1 class="text-center Black">Entrar</h1>
 							<!-- *email e matricula -->
 							<div class="d-flex">
@@ -106,7 +117,7 @@
 							<div class="d-flex">
 								<!-- ?esqueci a senha -->
 								<div class="w-50">
-									<p><a href="php/resgSenha.php" class="nonTitle">Esqueci a senha</a></p>
+									<p><a href="resgSenha.php" class="nonTitle">Esqueci a senha</a></p>
 								</div>
 								<!-- ?lembre-me -->
 								<!-- <div class="w-50 text-right">
@@ -121,7 +132,7 @@
 							<br>
 							<!-- *mudar para o formulário de cadastro -->
 							<div class="text-center">
-								<h5 class="Black">Não tem cadastro? <a href="cadastrar.html" class="nonTitle">Cadastre-se aqui</a></h5>
+								<h5 class="Black">Não tem cadastro? <a href="#cadastrar" class="nonTitle">Cadastre-se aqui</a></h5>
 							</div>
 						</form>
 					</div>
@@ -133,12 +144,12 @@
 				<div class="h-75">
                     <!-- !logos -->
                     <figure id="logo" class="m-1">
-                        <img src="assets/img/logoEASYCODE.png" alt="Logo principal" width="10%" class="ms-5">
-                        <img src="assets/img/EasyCode.png" alt="EasyCode" width="30%">
+                        <img src="../assets/img/logoEASYCODE.png" alt="Logo principal" width="10%" class="ms-5">
+                        <img src="../assets/img/EasyCode.png" alt="EasyCode" width="30%">
                     </figure>
                     <!-- !formulario -->
                     <div class="h-100 m-3 mt-0">
-                        <form action="php/Auxiliares/cadastro.php" method="post" class="formulario flex flex--coluna p-2">
+                        <form action="Auxiliares/cadastro.php" method="post" class="formulario flex flex--coluna p-2">
                             <h1 class="text-center Black">Cadastrar</h1>
                             <br>
 							<!-- ?nome completo -->
@@ -190,7 +201,7 @@
                             <br>
                             <!-- *mudar para formulario de login -->
                             <div class="text-center">
-                                <h5 class="Black">Já está cadastrado? <a href="entrar.html" class="nonTitle">Entre por aqui</a></h5>
+                                <h5 class="Black">Já está cadastrado? <a href="#entrar" class="nonTitle">Entre por aqui</a></h5>
                             </div>
                         </form>
                     </div>
@@ -200,7 +211,7 @@
 
 		<!-- ?Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; easy code <a href=""></a></p>
+			<p class="copyright">&copy; easy code</p>
 		</footer>
 
 	</div>
@@ -209,17 +220,17 @@
 	<div id="bg"></div>
 
 	<!-- ?Scripts -->
-    <script src="assets/js/app.js" type="module"></script>
-	<script src="assets/js/libs/jquery.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/libs/browser.min.js"></script>
-	<script src="assets/js/libs/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/libs/jquery.js"></script>
-    <script src="assets/js/libs/jquery.mask.js"></script>
-    <script src="assets/js/mascara.js"></script>
-	<script src="assets/js/nav.js"></script>
+    <script src="../assets/js/app.js" type="module"></script>
+	<script src="../assets/js/libs/jquery.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/libs/browser.min.js"></script>
+	<script src="../assets/js/libs/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+	<script src="../assets/js/libs/jquery.js"></script>
+    <script src="../assets/js/libs/jquery.mask.js"></script>
+    <script src="../assets/js/mascara.js"></script>
+	<script src="../assets/js/nav.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
         integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
         crossorigin="anonymous"></script>

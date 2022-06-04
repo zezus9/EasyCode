@@ -54,7 +54,7 @@
                     header("Refresh: 2; sair.php");
                 }
             } else {
-                header('Location: ../cadastro_login.html');
+                header('Location: ../cadastro_login.php');
             }
 
         ?>

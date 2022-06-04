@@ -22,7 +22,7 @@
                 $matricula = $_SESSION['matricula'];
             }
             else{
-                header('Location: ../cadastro_login.html');
+                header('Location: ../cadastro_login.php');
             }
 
             $linkedin = $_POST['linkedin'];

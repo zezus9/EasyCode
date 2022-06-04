@@ -13,7 +13,7 @@
         $dadosUsuario = $sql -> query("SELECT avatar FROM $usuario WHERE matricula = '$matricula'");
     }
     else{
-        header('Location: ../cadastro_login.html');
+        header('Location: ../cadastro_login.php');
     }
 
     $avatar = $_FILES['avatar']['name'];

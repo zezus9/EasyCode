@@ -30,7 +30,10 @@ export function validar(input) {
 // *Objeto que guarda todos os tipos de erro baseados no data-type do input
 const mensagensErros = {
     emailMatricula: {
-        valueMissing: 'O campo de email ou usuário não pode estar vazio'
+        valueMissing: 'O campo não pode estar vazio'
+    },
+    matricula: {
+        valueMissing: 'O campo de matricula não pode estar vazio'
     },
     nome: {
         valueMissing: 'O nome não pode estar vazio'

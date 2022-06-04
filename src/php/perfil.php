@@ -15,7 +15,7 @@
         $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
     }
     else{
-        header('Location: ../cadastro_login.html');
+        header('Location: cadastro_login.php');
     }
 
     clearstatcache();

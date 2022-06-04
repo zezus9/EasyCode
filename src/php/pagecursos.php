@@ -146,13 +146,13 @@
                             "
                             <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
                                 <li class='nav-item'>
-                                    <a class='nav-link' href='../Home.html'>Home</a>
+                                    <a class='nav-link' href='index.php'>Home</a>
                                 </li>
                                 <li id='select' class='nav-item d-flex align-items-center'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
                                 <li class='nav-item'>
-                                    <a class='nav-link' href='../cadastro_login.html'>Inscreva-se / Entrar</a>
+                                    <a class='nav-link' href='cadastro_login.php'>Inscreva-se / Entrar</a>
                                 </li>
                                 <li class='nav-item'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
@@ -169,7 +169,7 @@
                 <div class="m-5">
                     <h1 class="text-uppercase Lovelofont">CURSOS</h1>
                     <p>A melhor plataforma para aprender programação <br> Venha se tornar um aluno da Easy Code</p>
-                    <a href="../cadastro_login.html" class="btn btn-success p-2 btn-lg ">&nbsp;&nbsp;Inscrever-se&nbsp;&nbsp;</a>
+                    <a href="cadastro_login.php" class="btn btn-success p-2 btn-lg ">&nbsp;&nbsp;Inscrever-se&nbsp;&nbsp;</a>
                 </div>
                 <div class="col-auto d-none d-lg-block m-3">
                     <img src="../assets/img/mascotecomlogo.png" width="200px" />

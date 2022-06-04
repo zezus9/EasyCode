@@ -13,7 +13,9 @@
         <?php
             session_start();
             include 'connect.php';
-            
+            if (!isset($_POST['emailMatricula']) and !isset($_POST['senha'])) {
+                header("Refresh: 1; ../cadastro_login.php");
+            }
             $emailMatricula = $_POST['emailMatricula'];
             $senha = $_POST['senha'];
             
@@ -27,25 +29,19 @@
             if (mysqli_num_rows($dadosAluno) == 0 and mysqli_num_rows($dadosProfessor) == 0) {
                 // !PAGINA DE ERRO
                 echo "<h1>Os dados de login fornecidos estão incorretos</h1>";
-                header("Refresh: 1;../../cadastro_login.html");
+                header("Refresh: 1; ../cadastro_login.php#entrar");
             }
-            // !O usuario foi encontrado no banco agora apenas vamos redireciona-lo para o site de sua matricula
             if ((mysqli_num_rows($dadosAluno) != 0)) {
-                // *O usuário é um aluno e deve ser redirecionado para o seu respectivo perfil
                 while ($aluno = mysqli_fetch_array($dadosAluno)) {
                     $_SESSION['matricula'] = $aluno['matricula'];
                 }
-                // !PERFIL DO ALUNO
-                header('Location: ../perfil.php');
             }
             elseif ((mysqli_num_rows($dadosProfessor) != 0)) {
-                // *O usuário é um professor e deve ser redirecionado para o seu respectivo perfil
                 while ($professor = mysqli_fetch_array($dadosProfessor)) {
                     $_SESSION['matricula'] = $professor['matricula'];
                 }
-                // !PERFIL DO PROFESSOR
-                header('Location: ../perfil.php');
             }
+            header('Location: ../perfil.php');
         ?>
     </div>
 </body>

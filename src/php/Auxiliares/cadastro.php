@@ -14,6 +14,10 @@
 
             include 'connect.php';
 
+            if (!isset($_POST['nome']) and!isset($_POST['senha'])) {
+                header('Location: ../cadastro_login.php');
+            }
+
             $nome = $_POST['nome'];
             $cpf = preg_replace('/[^0-9]/','',$_POST['cpf']);
             $celular = explode(' ',$_POST['celular']);
@@ -27,10 +31,10 @@
 
             if (mysqli_num_rows($emails) != 0) {
                 echo "<h1>Uma conta já foi criada neste e-mail</h1>";
-                header("Refresh: 2; ../../cadastro_login.html#cadastrar");
+                header("Refresh: 2; ../cadastro_login.php#cadastrar");
             } elseif (mysqli_num_rows($cpfs) != 0) {
                 echo "<h1>Uma conta já foi criada neste CPF</h1>";
-                header("Refresh: 2; ../../cadastro_login.html#cadastrar");
+                header("Refresh: 2; ../cadastro_login.php#cadastrar");
             } else {
                 $sql -> query(
                     "INSERT INTO aluno (id,nome,telefone,email,cpf,matricula,nasc,avatar,linkedin,github,link_personalizado,senha) 
@@ -44,7 +48,7 @@
                             'd_img.png',NULL,NULL,NULL,'$senha')");
     
                 echo "<h1>Usuario Cadastrado com sucesso</h1>";
-                header("Refresh: 2; ../../cadastro_login.html#entrar");
+                header("Refresh: 2; ../cadastro_login.php#entrar");
             }
 
         ?>

@@ -15,7 +15,7 @@
         $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
     }
     else{
-        header('Location: ../cadastro_login.html');
+        header('Location: cadastro_login.php');
     }
 
     clearstatcache();
@@ -197,13 +197,13 @@
                             "
                             <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
                                 <li class='nav-item'>
-                                    <a class='nav-link' href='../Home.html'>Home</a>
+                                    <a class='nav-link' href='index.php'>Home</a>
                                 </li>
                                 <li class='nav-item'>
                                     <a class='nav-link' href='pagecursos.php'>Cursos</a>
                                 </li>
                                 <li class='nav-item'>
-                                    <a class='nav-link' href='../cadastro_login.html'>Inscreva-se / Entrar</a>
+                                    <a class='nav-link' href='cadastro_login.php'>Inscreva-se / Entrar</a>
                                 </li>
                                 <li id='select' class='nav-item d-flex align-items-center'>
                                     <a class='nav-link' href='sobrenos.php'>Sobre nós</a>
