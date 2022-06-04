@@ -258,6 +258,36 @@ dProfissionaisAlunos;
                                             </a>
                                         </div>
                                     </div>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>BACK END</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#backend'>   
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>DATABASE</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#database'>
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

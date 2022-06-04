@@ -179,13 +179,15 @@
     <!-- HEADER -->
     
     <!-- Área de pesquisa -->
-    <section class="container">
-        <form class="m-3">
-            <h3 class="d-block text-center">Pesquisar cursos</h3>
-            <div class="d-flex justify-content-center align-items-center">
-                <input class="form-control w-50 d-block" id="busca" type="text" placeholder="O que deseja aprender?">        
-            </div>
-        </form>
+    <section class="container">    
+        <a name='frontend'>
+            <form class="m-3">
+                <h3 class="d-block text-center">Pesquisar cursos</h3>
+                <div class="d-flex justify-content-center align-items-center">
+                    <input class="form-control w-50 d-block" id="busca" type="text" placeholder="O que deseja aprender?">        
+                </div>
+            </form>
+        </a>
     </section><br>
     <!-- Área de pesquisa -->
 
@@ -223,7 +225,7 @@
         echo "
             <div class='row'>
                 <div>
-                    <a name='frontend'><h3>Front-End</h3></a>
+                    <h3>Front-End</h3>
                     <div class='owl-carousel'>
         ";
         for ($i=0; $i < count($FrontEnd); $i++){
@@ -259,7 +261,8 @@
 
         echo 
         "
-                </div>
+                    </div>
+                <a name='backend' class='nonSelect'>&nbsp;</a>
             </div>
         </div>
         <div class='row'>
@@ -301,10 +304,11 @@
         echo 
         "
                 </div>
+                <a name='database' class='nonSelect'>&nbsp;<br></a>
             </div>
         </div>
         <div class='row'>
-            <div><br>
+            <div>
                 <h3>Databases</h3>
                 <div class='owl-carousel'>
         ";
