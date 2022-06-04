@@ -132,11 +132,7 @@
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
                                             $nome
-<<<<<<< HEAD
                                             <img src='../assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
-=======
-                                            <img src='./assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
->>>>>>> 3ac6c0724fc534948be39ff71dccf02f88e729ee
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
