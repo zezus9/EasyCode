@@ -80,11 +80,8 @@
                                         <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
                                             data-bs-toggle='dropdown' aria-expanded='false'>
                                             $nome
-<<<<<<< HEAD
-                                            <img src='../assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
-=======
-                                            <img src='./assets/img/Avatares/$avatar' class='rounded-circle' height='25'/>
->>>>>>> 3ac6c0724fc534948be39ff71dccf02f88e729ee
+                                            <!-- <img src='assets/img/Avatares/default_image.png' class='rounded-circle'
+                                            height='25'/> -->
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
@@ -265,12 +262,12 @@
 
         echo 
         "
-                    </div>
-                <a name='backend' class='nonSelect'>&nbsp;</a>
+                </div>
             </div>
         </div>
+        <a name='backend'><br></a>
         <div class='row'>
-            <div><br>
+            <div>
                 <h3>Back-End</h3>
                 <div class='owl-carousel'>
         ";
@@ -308,9 +305,9 @@
         echo 
         "
                 </div>
-                <a name='database' class='nonSelect'>&nbsp;<br></a>
             </div>
         </div>
+        <a name='database'><br></a>
         <div class='row'>
             <div>
                 <h3>Databases</h3>
