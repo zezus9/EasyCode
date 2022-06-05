@@ -34,6 +34,20 @@
             $link = $dados['link_personalizado'];
         }
 
+        $cursosI = $sql -> query(
+            "SELECT 
+                curso.linguagem, cert.fase,curso.id
+            FROM certificado AS cert 
+            INNER JOIN curso ON cert.id_curso = curso.id
+            WHERE id_aluno = '$idAluno' AND `status` = 'NÃO TERMINADO'
+            ORDER BY cert.id"
+        );
+
+        $nãoCursosI = false;
+        if (mysqli_num_rows($cursosI) == 0) {
+            $nãoCursosI = true;
+        }
+
         $certificados = $sql -> query(
             "SELECT 
                 cert.data_inicio,cert.data_fim,cert.pdf,
@@ -42,8 +56,9 @@
             FROM certificado AS cert 
             INNER JOIN curso ON cert.id_curso = curso.id
             INNER JOIN professor AS prof ON cert.id_responsavel = prof.id
-            WHERE id_aluno = '$idAluno'
-            ORDER BY curso.linguagem");
+            WHERE id_aluno = '$idAluno' AND `status` = 'TERMINADO'
+            ORDER BY cert.id"
+        );
     
         $nãoCertificado = false;
         if (mysqli_num_rows($certificados) == 0) {
@@ -183,23 +198,52 @@ dProfissionaisAlunos;
                     <div class='w-100 h-50'>
                         <div class='w-100 h-100 row'>
                             <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
+                        
+opcoes;
+
+    if ($nãoCursosI) {
+        echo 
+        "
+                                <div class='d-flex justify-content-center align-items-center h-100 w-100'>
+                                    <div class='d-flex justify-content-center m-5 w-100'>
+                                        <div class='w-100'>
+                                            <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
+                                        </div>
+                                    </div>
+        ";
+    } else {
+
+        echo
+        "
                                 <h1 class='text-center color'>Continuar</h1>
                                 <div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100'>
-                                    <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard cardCarousel w-100'>
-                                        <div class='d-flex justify-content-center align-items-center h-100'>
-                                            <h5 class='text-center color m-0'>Javascript</h5>
-                                        </div>
-                                        <a href='template_cursos.php?curso=03'>
-                                            <div class='d-flex h-50 m-3 home'>
-                                                <div class='d-flex justify-content-center align-items-center col-10 p-1'>
-                                                    <p class='text-center text-wrap m-0 text-light p-1'>Introdução ao Javascript</p>
-                                                </div>
-                                                <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
-                                                        <img src='../assets/img/proximo.png' width='100%'>
-                                                </div>
-                                            </div>
-                                        </a>
+        ";
+        while ($curso = mysqli_fetch_array($cursosI)) {
+            
+            echo
+            "
+                                <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard cardCarousel w-100'>
+                                    <div class='d-flex justify-content-center align-items-center h-100'>
+                                        <h5 class='text-center color m-0'>$curso[linguagem]</h5>
                                     </div>
+                                    <a href='template_cursos.php?curso=$curso[id]'>
+                                        <div class='d-flex h-50 m-3 home'>
+                                            <div class='d-flex justify-content-center align-items-center col-10 p-1'>
+                                                <p class='text-center text-wrap m-0 text-light p-1'>$curso[fase]</p>
+                                            </div>
+                                            <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
+                                                    <img src='../assets/img/proximo.png' width='100%'>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+             
+            ";
+        }
+    }
+
+    echo
+    "
                                 </div>
                             </div>
                         </div>
@@ -275,7 +319,7 @@ dProfissionaisAlunos;
         </section>
         <section class='secao h-100' id='secao_certificados'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
-opcoes;
+    ";
 
     if ($usuario == 'aluno') {
 
@@ -283,7 +327,7 @@ opcoes;
             echo 
             "
                 <div class='d-flex justify-content-center m-5 p-5'>
-                    <h1 class='Josefinfont'>Ainda não há nada aqui!</h1>
+                    <h1 class='Josefinfont'>Ainda não há nada aqui...</h1>
                 </div>
             ";
         } else {

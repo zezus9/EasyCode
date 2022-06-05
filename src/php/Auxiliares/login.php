@@ -13,35 +13,31 @@
         <?php
             session_start();
             include 'connect.php';
-            if (!isset($_POST['emailMatricula']) and !isset($_POST['senha'])) {
-                header("Refresh: 1; ../cadastro_login.php");
-            }
+            
             $emailMatricula = $_POST['emailMatricula'];
             $senha = $_POST['senha'];
             
             // !Procura por um "@" dentro de $emailMatricula, se encontrar o login será feito pelo email, caso não pela matricula
             $user = is_int(strpos($emailMatricula,'@')) ? 'email' : 'matricula';
 
-            $dadosAluno     = $sql -> query("SELECT * FROM aluno WHERE `$user` = '$emailMatricula' AND `senha` = '$senha'");
-            $dadosProfessor = $sql -> query("SELECT * FROM professor WHERE `$user` = '$emailMatricula' AND `senha` = '$senha'");
+            $dadosAluno = $sql -> query("SELECT matricula FROM aluno     WHERE `$user` = '$emailMatricula' AND `senha` = '$senha'");
+            $dadosProf  = $sql -> query("SELECT matricula FROM professor WHERE `$user` = '$emailMatricula' AND `senha` = '$senha'");
 
-            // !Se a variavel $dados tiver 0 linhas significa que o usuario não logou corretamente
-            if (mysqli_num_rows($dadosAluno) == 0 and mysqli_num_rows($dadosProfessor) == 0) {
-                // !PAGINA DE ERRO
+            if (mysqli_num_rows($dadosAluno) == 0 and mysqli_num_rows($dadosProf) == 0) {
                 echo "<h1>Os dados de login fornecidos estão incorretos</h1>";
-                header("Refresh: 1; ../cadastro_login.php#entrar");
+                header("Refresh: 2; ../cadastro_login.php#entrar");
             }
             if ((mysqli_num_rows($dadosAluno) != 0)) {
                 while ($aluno = mysqli_fetch_array($dadosAluno)) {
                     $_SESSION['matricula'] = $aluno['matricula'];
                 }
-            }
-            elseif ((mysqli_num_rows($dadosProfessor) != 0)) {
-                while ($professor = mysqli_fetch_array($dadosProfessor)) {
+                header('Location: ../perfil.php');
+            } elseif ((mysqli_num_rows($dadosProf) != 0)) {
+                while ($professor = mysqli_fetch_array($dadosProf)) {
                     $_SESSION['matricula'] = $professor['matricula'];
                 }
+                header('Location: ../perfil.php');
             }
-            header('Location: ../perfil.php');
         ?>
     </div>
 </body>

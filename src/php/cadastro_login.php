@@ -67,14 +67,14 @@
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1 class="text-color">Entre na sua conta</h1>
-					<p class="secundary">seja um desenvolvedor<br class="nonSelect">entre para esse novo mundo.</p>
+					<h1 class="text-color">Seja um desenvolvedor</h1>
+					<p class="secundary">entre para esse novo mundo</p>
 				</div>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#entrar" class="secundary hover nonSelect">Entre na conta</a></li>
-					<li><a href="#cadastrar" class="secundary hover nonSelect">Crie uma conta</a></li>
+					<li><a href="#entrar" class="secundary hover nonSelect">Entre na sua conta</a></li>
+					<li><a href="#cadastrar" class="secundary hover nonSelect">Crie uma nova conta</a></li>
 				</ul>
 		</header>
 
