@@ -1,5 +1,6 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Trabalhar com interface do SQL server;
+- Tabelas;
+- Views;
+- Backup;
+- Índices e Full-Text Search;
+- Stored Procedures, Functions e Triggers.

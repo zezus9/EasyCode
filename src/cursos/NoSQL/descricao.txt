@@ -1,1 +1,1 @@
-Bancos de dados não relacionais existem desde o final da década de 1960, mas não obtiveram o apelido de "NoSQL" até atingirem sua onda de popularidade no início do século vinte e um, desencadeada pelas necessidades das empresas de Web 2.0 como Facebook, Google e Amazon.com.
+Bancos de dados não relacionais existem desde o final da década de 1960, mas não obtiveram o apelido de "NoSQL" até atingirem sua onda de popularidade no início do século 21, desencadeada pelas necessidades das empresas de Web 2.0 como Facebook, Google e Amazon.

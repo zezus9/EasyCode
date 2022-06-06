@@ -1,5 +1,3 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Trabalhar com o software NODEjs;
+- Usara JAVASCRIPT focado nas suas funcionalidades no Back-end;
+- Aprendera a utiliza NODEjs em qualquer ambiente.

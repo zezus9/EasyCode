@@ -1,5 +1,2 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá a utilizar um framework para ser utilizado no front-end de aplicações web;
+- Construirá um site utilizando ferramentas para facilitar o desenvolvimento.

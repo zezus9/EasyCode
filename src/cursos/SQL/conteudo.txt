@@ -1,5 +1,6 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Trabalhar com material pratico e teórico de SQL;
+- Conhecer os comandos SQL para Manipulação de Dados;
+- Aprender como relacionar tabelas e extratir informações relevantes;
+- Entender o funcionamento do SQL aplicável a QUALQUER banco relacional;
+- Entender o que são índices e porque eles são seus amigos;
+- Descobrir como criar/excluir/alterar tabelas e views.

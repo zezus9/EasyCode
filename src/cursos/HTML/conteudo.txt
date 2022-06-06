@@ -1,5 +1,3 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá a trabalhar com linguagem de marcação HTML;
+- Conhecerá as tags que essa linguagem usa;
+- Construirá um site utilizando a semântica do HTML, focada para o melhor uso da linguagem.

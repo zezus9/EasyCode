@@ -1,5 +1,2 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá a trabalhar com uma ferramenta de desenvolvimento front-end, web e mobile;
+- Criará um aplicativo simples, para introduzi-lo ao mundo de aplicações mobile.

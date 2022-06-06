@@ -1,5 +1,4 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá o básico sobre programação;
+- Aprenderá a resolver os problemas com logica;
+- Saber como os programas funcionam;
+- Como os algoritmos usam os dados para fazer os programas.

@@ -1,1 +1,2 @@
-Node.js é um fenômeno tem vários anos já. Diversos players gigantes da indústria de Internet tem adotado a plataforma, seja como uma ferramenta auxiliar, seja como sua principal tecnologia. O fato é que funciona, é eficiente e eficaz.
+Node.js é um fenômeno tem vários anos já. Diversos players gigantes da indústria de Internet tem adotado a plataforma, seja como uma ferramenta auxiliar, seja como sua principal tecnologia. 
+O fato é que funciona, é eficiente e eficaz.

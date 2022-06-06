@@ -1,5 +1,3 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Trabalhar com linguagem de programação PYTHON;
+- Desenvolver projetos com material pratico e teórico;
+- Comandos básicos da linguagem.

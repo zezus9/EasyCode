@@ -1,5 +1,4 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- A utilizar DOM;
+- Aprenderá a trabalhar com eventos;
+- Utilizará ECMAscript para programar com boas práticas;
+- Tudo que essa linguagem de programação pode fazer.

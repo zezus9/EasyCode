@@ -1,5 +1,4 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Trabalhar com linguagem RUBY;
+- Utilizar o padrão MVC;
+- Construir um MVP do zero com seu framework Rails;
+- Aprender desenvolvimento de sistemas do zero.

@@ -1,5 +1,5 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá habilidades para resolver desde problemas simples aos mais complexos, de maneira rápida e eficiente;
+- Terá agilidade em análises que envolvem grande volume de dados, ou que precisam automatizar cálculos, decisões e atividades repetitivas;
+- Manipulação de planilhas;
+- Organização dos dados congelar painéis, ordenar;
+- Validar e consolidar dados e calcular subtotais etc.

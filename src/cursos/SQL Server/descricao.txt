@@ -1,2 +1,2 @@
-Mantido pela Microsoft há anos, é um dos principais SGBDs relacionais do mercado. 
+Mantido pela Microsoft há anos, é um dos principais SGBDs relacionais do mercado.
 Distribuído em diferentes edições e com várias ferramentas integradas, esse banco é capaz de atender às demandas desde os mais simples negócios até os mais complexos cenários que lidam com grande volume de dados.

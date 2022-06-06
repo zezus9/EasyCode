@@ -1,5 +1,6 @@
-Você vai aprender a:
-- DESENHAR FODA;
-- JOGAR DARK SOUL SE TA MALUCO;
-- JOGAR BASQUETE;
-- E SE TORNAR SOMELIER DE VINHO VERMELHO.
+- Aprenderá a trabalhar com banco de dados MySQL;
+- Saber criar sistemas de informação;
+- Manipular e recuperar os dados;
+- Comandos de CRUD (Create, Read, Update, Delete)
+- Gerenciamento de tabelas;
+- Unir tabelas com JOINs.
