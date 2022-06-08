@@ -149,25 +149,6 @@ REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`,
 	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 
--- Copiando estrutura para função easycode.proximo_id
-DROP FUNCTION IF EXISTS `proximo_id`;
-DELIMITER //
-CREATE FUNCTION `proximo_id`() RETURNS varchar(3) CHARSET latin1
-    COMMENT 'Traz o id para que seja incluido no campo da matricula'
-BEGIN
-	
-   DECLARE last_id INT DEFAULT 0;
-	DECLARE next_id VARCHAR(3) DEFAULT  "";
-	
-	SELECT MAX(id) INTO last_id FROM aluno;
-	
-	set next_id = LPAD(last_id + 1, 3, '0');
-
-	RETURN next_id;
-
-END//
-DELIMITER ;
-
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
