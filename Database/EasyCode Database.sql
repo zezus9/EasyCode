@@ -14,12 +14,10 @@
 
 
 -- Copiando estrutura do banco de dados para easycode
-DROP DATABASE IF EXISTS `easycode`;
 CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `easycode`;
 
 -- Copiando estrutura para tabela easycode.aluno
-DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
   `id` int(3) unsigned zerofill NOT NULL,
   `nome` varchar(40) NOT NULL,
@@ -39,17 +37,16 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   UNIQUE KEY `matricula` (`matricula`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.aluno: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.aluno: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
 REPLACE INTO `aluno` (`id`, `nome`, `telefone`, `email`, `CPF`, `matricula`, `nasc`, `avatar`, `linkedin`, `github`, `link_personalizado`, `senha`) VALUES
-	(001, 'Jonathan de Jesus Simões', '11999999999', 'jonathan.simoes01@etec.sp.gov.br', '00000000000', '022001', '2002-10-02', '022001.png', 'https://www.linkedin.com/in/jonathan-de-jesus9/', '', 'http://localhost/EasyCode/src/php/perfil.php', 'Aaa000'),
+	(001, 'Jonathan de Jesus Simões', '11999999999', 'jonathan.simoes01@etec.sp.gov.br', '00000000000', '022001', '2002-10-02', '022001.png', 'https://www.linkedin.com/in/jonathan-de-jesus9/', 'https://github.com/zezus9', '', 'Aaa000'),
 	(002, 'Erika Nunes', '11888888888', 'erika.nunes@etec.sp.gov.br', '31515998002', '022002', '2002-02-28', 'd_img.png', NULL, NULL, NULL, 'Bbb111'),
 	(003, 'Jefferson Gomes', '11777777777', 'jefferson@etec.sp.gov.br', '22297238045', '022003', '2005-12-13', 'd_img.png', NULL, NULL, NULL, 'Ccc222'),
-	(004, 'Priscila Miguel', '11777777777', 'priscila@etec.sp.gov.br', '83652788044', '022004', '2003-03-05', 'd_img.png', NULL, NULL, NULL, 'Ddd333');
+	(004, 'Priscila Miguel', '11666666666', 'priscila@etec.sp.gov.br', '83652788044', '022004', '2003-03-05', 'd_img.png', NULL, NULL, NULL, 'Ddd333');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.certificado
-DROP TABLE IF EXISTS `certificado`;
 CREATE TABLE IF NOT EXISTS `certificado` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_aluno` int(3) unsigned zerofill NOT NULL,
@@ -59,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   `data_inicio` date NOT NULL,
   `data_fim` date DEFAULT NULL,
   `pdf` varchar(10) DEFAULT NULL,
+  `status` enum('NÃO TERMINADO','TERMINADO') NOT NULL DEFAULT 'NÃO TERMINADO',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK-aluno` (`id_aluno`),
   KEY `FK-curso` (`id_curso`),
@@ -66,21 +64,21 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-aluno` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`id`),
   CONSTRAINT `FK-curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`),
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela easycode.certificado: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
-REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `pdf`) VALUES
-	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', '001.pdf'),
-	(002, 001, 007, 001, 15, '2022-05-21', '2022-05-21', '002.pdf'),
-	(003, 001, 008, 001, 13, '2022-05-21', '2022-05-21', '003.pdf'),
-	(004, 001, 022, 001, 50, '2022-05-17', '2022-05-17', '004.pdf'),
-	(005, 001, 003, 001, 3, '2022-05-28', '2022-05-28', '005.pdf'),
-	(006, 002, 016, 001, 13, '2022-05-28', '2022-05-28', '006.pdf');
+REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `pdf`, `status`) VALUES
+	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', '001.pdf', 'TERMINADO'),
+	(002, 001, 007, 001, 15, '2022-05-21', '2022-05-21', '002.pdf', 'TERMINADO'),
+	(007, 001, 002, 001, 8, '2022-06-05', NULL, NULL, 'NÃO TERMINADO'),
+	(008, 001, 010, 001, 3, '2022-06-05', NULL, NULL, 'NÃO TERMINADO'),
+	(009, 001, 003, 001, 3, '2022-06-05', NULL, NULL, 'NÃO TERMINADO'),
+	(010, 001, 022, 001, 5, '2022-06-05', NULL, NULL, 'NÃO TERMINADO'),
+	(011, 001, 016, 001, 2, '2022-06-05', NULL, NULL, 'NÃO TERMINADO');
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.curso
-DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_responsavel` int(3) unsigned zerofill NOT NULL,
@@ -122,7 +120,6 @@ REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fas
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.professor
-DROP TABLE IF EXISTS `professor`;
 CREATE TABLE IF NOT EXISTS `professor` (
   `id` int(3) unsigned zerofill NOT NULL,
   `nome` varchar(40) NOT NULL,
@@ -141,10 +138,10 @@ CREATE TABLE IF NOT EXISTS `professor` (
   UNIQUE KEY `avatar` (`avatar`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.professor: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.professor: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `destaque`, `senha`) VALUES
-	(001, 'Jonathan', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
+	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
