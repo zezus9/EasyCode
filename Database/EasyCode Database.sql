@@ -14,10 +14,12 @@
 
 
 -- Copiando estrutura do banco de dados para easycode
+DROP DATABASE IF EXISTS `easycode`;
 CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `easycode`;
 
 -- Copiando estrutura para tabela easycode.aluno
+DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
   `id` int(3) unsigned zerofill NOT NULL,
   `nome` varchar(40) NOT NULL,
@@ -47,6 +49,7 @@ REPLACE INTO `aluno` (`id`, `nome`, `telefone`, `email`, `CPF`, `matricula`, `na
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.certificado
+DROP TABLE IF EXISTS `certificado`;
 CREATE TABLE IF NOT EXISTS `certificado` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_aluno` int(3) unsigned zerofill NOT NULL,
@@ -66,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.certificado: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.certificado: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
 REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `pdf`, `status`) VALUES
 	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', '001.pdf', 'TERMINADO'),
@@ -79,6 +82,7 @@ REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fas
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.curso
+DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_responsavel` int(3) unsigned zerofill NOT NULL,
@@ -120,6 +124,7 @@ REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fas
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.professor
+DROP TABLE IF EXISTS `professor`;
 CREATE TABLE IF NOT EXISTS `professor` (
   `id` int(3) unsigned zerofill NOT NULL,
   `nome` varchar(40) NOT NULL,
@@ -143,6 +148,25 @@ CREATE TABLE IF NOT EXISTS `professor` (
 REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `destaque`, `senha`) VALUES
 	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+
+-- Copiando estrutura para função easycode.proximo_id
+DROP FUNCTION IF EXISTS `proximo_id`;
+DELIMITER //
+CREATE FUNCTION `proximo_id`() RETURNS varchar(3) CHARSET latin1
+    COMMENT 'Traz o id para que seja incluido no campo da matricula'
+BEGIN
+	
+   DECLARE last_id INT DEFAULT 0;
+	DECLARE next_id VARCHAR(3) DEFAULT  "";
+	
+	SELECT MAX(id) INTO last_id FROM aluno;
+	
+	set next_id = LPAD(last_id + 1, 3, '0');
+
+	RETURN next_id;
+
+END//
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
