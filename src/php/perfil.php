@@ -100,7 +100,7 @@
     echo
     "
     <body onload='carousel()'>
-        <div >
+        <div>
             <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>
                 <i class='bi bi-list'></i> 
@@ -520,7 +520,7 @@ opcoes;
         <script src='../assets/js/mascara.js'></script>
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/apresentacaoPerfil.js'></script>
-        <script src='../assets/js/perfil.js'></script>
+        <script src='../assets/js/sidebar.js'></script>
     </body>
     </html>
     ";

@@ -13,6 +13,7 @@ CORES:
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'open sans', sans-serif;
 }
 
 body{
@@ -20,11 +21,12 @@ body{
 }
 
 .sidebar{
+    background: #008037;
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
     width: 15%!important;
-    height:80%;
+    height:100% ;
     transition: all 0.5s ease;
 }
 
@@ -89,7 +91,7 @@ input[type="radio"],input[type="file"]{
 }
 
 .sidebar ul li.active > label, label[aria-expanded="true"] {
-	background: #7ED957;
+	background: white;
     color: #008037;
 }
 
@@ -110,7 +112,7 @@ input[type="radio"],input[type="file"]{
 }
 
 .menu-elements{
-    background-color: #076630!important;
+    background-color: #118f47!important;
     overflow-y: scroll;
     max-height: 75%;
 }
@@ -126,4 +128,12 @@ input[type="radio"],input[type="file"]{
 
 .menu-elements::-webkit-scrollbar-thumb {
     background-color: #C9E265;
+}
+
+.fundocard {
+    background-image: url(../img/bgimg.jpg);
+}
+
+.border-image {
+    border: 3px solid #C9E265!important;
 }

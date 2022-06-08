@@ -32,8 +32,7 @@ CORES:
 }
 
 .nav-link:hover{
-    background-color: #7ED957;
-    border-radius: 38%;
+    background-color: #7ed9577e;
 }
 
 .not-nav-link{
