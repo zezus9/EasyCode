@@ -56,7 +56,7 @@ body{
     width: 200px;
 }
 
-.sidebar  ul li label{
+.sidebar  ul li{
     display: block;
     padding: 5%;
     color: white;
@@ -64,46 +64,26 @@ body{
     position: relative; 
 }
 
-.sidebar  ul li label .icon{
+.sidebar  ul li .icon{
     color:white;
     width:30px;
     display:inline-block;
 }
 
-/* link hover*/
-.sidebar ul li label:hover,
-.sidebar ul li label:focus { 
+.aulas:hover{ 
 	background: #7ED957; 
 }
 
-.sidebar  ul li label:hover .icon,
-.sidebar  ul li label.active .icon{
-    color: #008037;
-}
-
-.sidebar  ul li label:hover:before,
-.sidebar  ul li label.active:before{
-    display:block;
+.perfil:hover{
+    color: transparent;
 }
 
 input[type="radio"],input[type="file"]{
     display: none;
 }
 
-.sidebar ul li.active > label, label[aria-expanded="true"] {
-	background: white;
-    color: #008037;
-}
-
 .secao{
-    margin-left: 15%!important;
-    display: none;
     height: 100vh!important;
-}
-
-.secaoAp{
-    margin-left: 15%!important;
-    display: block!important;
 }
 
 .avatar{
@@ -116,7 +96,6 @@ input[type="radio"],input[type="file"]{
     overflow-y: scroll;
     max-height: 75%;
 }
-
 
 .menu-elements::-webkit-scrollbar {
     width: 10px;
@@ -132,8 +111,4 @@ input[type="radio"],input[type="file"]{
 
 .fundocard {
     background-image: url(../img/bgimg.jpg);
-}
-
-.border-image {
-    border: 3px solid #C9E265!important;
 }
