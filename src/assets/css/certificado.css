@@ -1,0 +1,51 @@
+.body{
+    background: url('../img/bgimg-mascote.png') right / contain no-repeat, url('../img/bgimg.jpg');
+    width: 1600px;
+    height: 1000px;
+    border-top: 20px solid #7ED957;
+    border-right: 20px solid #7ED957;
+    border-bottom: 20px solid #7ED957;
+}
+
+.section{
+    width: 100%;
+    height: 100%;
+}
+
+.div-principal{
+    background: url('../img/logoEASYCODE.png') top / 100% no-repeat, #7ED957;
+    height: 100%;
+    width: 150px;
+}
+
+.div-secudaria{
+    margin-left: 170px;
+}
+
+.titulo{
+    font-family: monospace;
+    font-size: 90px;
+    font-weight: bold;
+    color: #008037;
+}
+
+p{
+    width: 650px;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.texto-verde{
+    font-weight: bold;
+    padding: 2%;
+    font-size: 30px !important;
+    color: #008037;
+    background: #7ED957;
+    max-width: 650px;
+    min-width: 500px;
+    width: auto;
+}
+
+.site{
+    color:#008037;
+}
