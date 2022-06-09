@@ -355,7 +355,7 @@ opcoes;
                             <div>
                                 <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
                             </div>
-                            <a action='Auxiliares/pdf-certificado.php'>Baixe o PDF</a>
+                            <a href='Auxiliares/pdf-certificado.php'>Baixe o PDF</a>
                         </div>
                     </div>
                 ";

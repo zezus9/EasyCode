@@ -1,11 +1,12 @@
 <?php
 
-    require_once("dompdf/dompdf_config.inc.php");
-
+    include 'connect.php';
     // Dompdf namespace
-    use dompdf\dompdf;
+    use Dompdf\Dompdf;
+    require (__DIR__ . './vendor/autoload.php');
+
     // dompdf class
-    $dompdf = new dompdf();
+    $dompdf = new Dompdf();
     $certificado = file_get_contents('../certificado.php');
     // html que será transformado em PDF
     $dompdf->loadHtml($certificado);
@@ -18,8 +19,6 @@
     while ($dados = mysqli_fetch_array($dadosUsuario)) {
         $nome = $dados['nome'];
     }
-    $dompdf->stream("$nome.pdf");
-    
-    echo $certificado;
+    $dompdf->stream($nome.".pdf");
 
 ?>

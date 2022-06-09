@@ -1,17 +1,5 @@
 <?php
 
-    include 'Auxiliares/connect.php';
-
-    $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
-    while ($dados = mysqli_fetch_array($dadosUsuario)) {
-        $nome = $dados['nome'];
-    }
-    $certificados = $sql -> query(
-        "SELECT cert.data_fim, curso.linguagem FROM certificado"
-    );
-
-    $data_fim = implode('/',array_reverse(explode('-',$certificados['data_fim'])));
-
     echo
     "
     <!DOCTYPE html>
