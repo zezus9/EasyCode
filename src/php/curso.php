@@ -1,4 +1,6 @@
 <?php
+    
+    // http://localhost/EasyCode/src/php/curso.php?curso=005
 
     include 'Auxiliares/connect.php';
 
@@ -40,7 +42,7 @@
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>$nome</title>
+        <title>$linguagem</title>
         <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
 
         <link rel='stylesheet' href='../assets/css/curso.css'>

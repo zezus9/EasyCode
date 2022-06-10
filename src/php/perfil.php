@@ -47,8 +47,8 @@
 
         $certificados = $sql -> query(
             "SELECT 
+                curso.linguagem,curso.campo,curso.logo, curso.id,
                 cert.data_inicio,cert.data_fim,cert.pdf,
-                curso.linguagem,curso.campo,curso.logo,
                 prof.nome AS nome_prof
             FROM certificado AS cert 
             INNER JOIN curso ON cert.id_curso = curso.id
@@ -355,7 +355,7 @@ opcoes;
                             <div>
                                 <img src='../assets/img/logo_cursos/menores/$certificado[logo]' width='90px'>
                             </div>
-                            <a action='Auxiliares/pdf-certificado.php'>Baixe o PDF</a>
+                            <a href='Auxiliares/pdf-certificado.php?curso=$certificado[id]'>Baixe o PDF</a>
                         </div>
                     </div>
                 ";
