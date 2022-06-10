@@ -383,8 +383,6 @@ opcoes;
                         <div class='content'>
                             <h3>$certificado[linguagem]</h3>
                             <br>
-                            <p><strong>Campo:</strong> $certificado[campo]<p>
-                            <p><strong>Data Inicio:</strong> $data_ini</p>
                             <p><strong>Data Final:</strong> $data_fim</p>
                             <p><strong>Professor:</strong> $certificado[nome_prof]</p>
                             <br>

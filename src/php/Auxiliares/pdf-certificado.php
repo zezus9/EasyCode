@@ -13,7 +13,7 @@
         $matricula = $_SESSION['matricula'];
         $dadosUsuario = $sql -> query("SELECT nome FROM aluno WHERE matricula = '$matricula'");
         $certificados = $sql -> query(
-            "SELECT cert.data_fim, curso.linguagem 
+            "SELECT cert.data_fim, curso.linguagem,curso.duracao 
             FROM certificado as cert
             INNER JOIN curso ON cert.id_curso = curso.id
             WHERE id_curso = $id_curso"
@@ -29,6 +29,7 @@
     while ($certificado = mysqli_fetch_array($certificados)) {
         $linguagem = $certificado['linguagem'];
         $data_fim = implode('/',array_reverse(explode('-',$certificado['data_fim'])));
+        $duracao = $certificado['duracao'];
     }
 
     use Dompdf\Dompdf as Dompdf;
@@ -121,7 +122,7 @@
                     <h1 class='titulo'>CERTIFICADO</h1>
                     <p>Certificamos que</p>
                     <p class='texto-verde'>$nome</p>
-                    <p>em $data_fim concluiu o curso de</p>
+                    <p>em $data_fim concluiu um curso com duração de $duracao de</p>
                     <p class='texto-verde'>$linguagem</p>
                     <br><br><br><br><br>
                     <p>ASSINATURA</p>
