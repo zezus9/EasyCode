@@ -63,7 +63,6 @@
         }
     } else {
         while ($dados = mysqli_fetch_array($dadosUsuario)) {
-            $idAluno = $dados['id'];
             $nome = $dados['nome'];
             $avatar = $dados['avatar'];
             $email = $dados['email'];
@@ -142,6 +141,20 @@ opcoes;
                     </li>
 certificadoAlunos;
     }
+    else{
+        echo <<<cadastrarCursos
+                    <li>
+                        <label for='cadastrarCursos' onclick='opcoes("cadastrarCursos")'>
+                            <span>
+                                <i class="bi bi-journal-plus"></i> 
+                            </span>
+                            <span>Cadastrar Cursos</span>
+                        </label>
+                        <input type='radio' name='opcoes' id='cadastrarCursos' class='opcoes'>
+                    </li>
+cadastrarCursos;
+    }
+    
     echo <<<opcoes
                     <li>
                         <label for='dPessoais' onclick='opcoes("dPessoais")'>
@@ -153,6 +166,7 @@ certificadoAlunos;
                         <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
                     </li>
 opcoes;
+
     if ($usuario == 'aluno') {
         echo <<<dProfissionaisAlunos
                     <li>
@@ -189,37 +203,40 @@ dProfissionaisAlunos;
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav>          
+opcoes;
+
+    if ($usuario == 'aluno') {
+        echo
+        "
         <section class='secao secaoAp' id='secao_home'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
                 <div class='h-75 w-100'>
                     <div class='w-100 h-50'>
                         <div class='w-100 h-100 row'>
                             <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
-                        
-opcoes;
-
-    if ($nãoCursosI) {
-        echo 
-        "
+        ";
+        if ($nãoCursosI) {
+            echo 
+            "
                                 <div class='d-flex justify-content-center align-items-center h-100 w-100'>
                                     <div class='d-flex justify-content-center m-5 w-100'>
                                         <div class='w-100'>
                                             <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
                                         </div>
                                     </div>
-        ";
-    } else {
+            ";
+        } else {
 
-        echo
-        "
-                                <h1 class='text-center color'>Continuar</h1>
-                                <div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100'>
-        ";
-        while ($curso = mysqli_fetch_array($cursosI)) {
-            
             echo
             "
+                                <h1 class='text-center color'>Continuar</h1>
+                                <div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100'>
+            ";
+            while ($curso = mysqli_fetch_array($cursosI)) {
+                
+                echo
+                "
                                 <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard cardCarousel w-100'>
                                     <div class='d-flex justify-content-center align-items-center h-100'>
                                         <h5 class='text-center color m-0'>$curso[linguagem]</h5>
@@ -235,13 +252,13 @@ opcoes;
                                         </div>
                                     </a>
                                 </div>
-             
-            ";
+                
+                ";
+            }
         }
-    }
 
-    echo
-    "
+        echo
+        "
                                 </div>
                             </div>
                         </div>
@@ -315,6 +332,25 @@ opcoes;
                 </div>
             </div>
         </section>
+        ";
+    } else{
+    echo
+    "
+        <section class='secao secaoAp' id='secao_home'>
+            <h1>HOME PROFESSOR</h1>
+        </section>
+    ";
+    }
+
+    echo
+    "
+        <section class='secao' id='secao_cadastrarCursos'>
+            <h1>CADASTRO DE CURSOS</h1>
+        </section>
+    ";
+
+    echo
+    "  
         <section class='secao h-100' id='secao_certificados'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
     ";
@@ -363,7 +399,7 @@ opcoes;
         }
     }
 
-	echo
+    echo
     "
             </div>  
         </section>

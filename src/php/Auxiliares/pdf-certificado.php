@@ -143,5 +143,4 @@
 
     $dompdf->render();
     $dompdf->stream("Certificado.pdf",["Attachment" => false]);
-
 ?>
