@@ -336,7 +336,7 @@ opcoes;
     } else{
     echo
     "
-        <section class='secao secaoAp' id='secao_home'>
+        <section class='secao' id='secao_home'>
             <h1>HOME PROFESSOR</h1>
         </section>
     ";
@@ -356,50 +356,31 @@ opcoes;
                     </div>
                 </div>
             </form>
-            <p>
-                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Definicao' role='button' aria-expanded='false'>
+            <div>
+                <p>
                     Definição
-                </a>
-            </p>
-            <div class='collapse' id='Definicao'>
+                </p>
                 <div>
-                    Definição
-                    <select class='custom-select'>
-                        Duração
-                        <option value='1'>Um</option>
-                    </select>
+                    Carga horária:
+                    <input type='number'>
                     horas
                 </div>
-            </div>
-            <p>
-                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Material' role='button' aria-expanded='false'>
-                    Material
-                </a>
-            </p>
-            <div class='collapse' id='Material'>
                 <div>
-                    Material
-                    <p>
-                        <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Video' role='button' aria-expanded='false'>
-                            Videos
-                        </a>
-                    </p>
-                    <div class='collapse' id='Video'>
-                        <div>
-                            Videos
-                        </div>
+                    Quantidade de fases:
+                    <input type='number'>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-2 col-form-label'>Conteudo ensinado:</label>
+                    <div class='col-sm-8'>
+                        <textarea class='form-control' rows='2' placeholder='Descreva em tópicos todo o conteúdo que será ensinado neste curso'></textarea>
                     </div>
                 </div>
             </div>
-            <p>
-                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Questao' role='button' aria-expanded='false'>
-                    Questões
-                </a>
-            </p>
-            <div class='collapse' id='Questao'>
-                <div>
-                    Questões
-                </div>
+            <div>
+                <p class='btn btn-outline-secondary bg-color text-light bold'>
+                    <strong>ADICIONAR SEÇÃO</strong>
+                    <i class='bi bi-plus-square'></i>
+                </p>
             </div>
             <div class='d-flex justify-content-center'>
                 <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
