@@ -152,8 +152,13 @@ input[type="radio"],input[type="file"]{
     font-size: 1.2em;
 }
 
-.cardCarousel {
+.carouselA {
     height: 8em!important;
+    width: 20em!important;
+}
+
+.carouselP {
+    height: 13em!important;
     width: 20em!important;
 }
 

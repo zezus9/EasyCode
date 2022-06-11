@@ -52,7 +52,7 @@
         $certificados = $sql -> query(
             "SELECT 
                 curso.linguagem,curso.campo,curso.logo, curso.id,
-                cert.data_inicio,cert.data_fim,cert.pdf,
+                cert.data_inicio,cert.data_fim,
                 prof.nome AS nome_prof
             FROM certificado AS cert 
             INNER JOIN curso ON cert.id_curso = curso.id
@@ -67,11 +67,21 @@
         }
     } else {
         while ($dados = mysqli_fetch_array($dadosUsuario)) {
+            $idProfessor = $dados['id'];
             $nome = $dados['nome'];
             $avatar = $dados['avatar'];
             $email = $dados['email'];
             $celular = $dados['telefone'];
         }
+
+        $cursosM = $sql -> query(
+            "SELECT 
+                curso.linguagem
+            FROM curso
+            INNER JOIN professor AS prof ON curso.id_responsavel = prof.id
+            WHERE curso.id_responsavel = '$idProfessor'
+            ORDER BY curso.linguagem"
+        );
     }
 
     echo "
@@ -207,31 +217,20 @@ dProfissionaisAlunos;
                     </li>
                 </ul>
             </div>
-        </nav>          
+        </nav>
+        <section class='secao secaoAp' id='secao_home'>
 opcoes;
 
     if ($usuario == 'aluno') {
         echo
         "
-        <section class='secao secaoAp' id='secao_home'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
                 <div class='h-75 w-100'>
                     <div class='w-100 h-50'>
                         <div class='w-100 h-100 row'>
                             <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
         ";
-        if ($nãoCursosI) {
-            echo 
-            "
-                                <div class='d-flex justify-content-center align-items-center h-100 w-100'>
-                                    <div class='d-flex justify-content-center m-5 w-100'>
-                                        <div class='w-100'>
-                                            <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
-                                        </div>
-                                    </div>
-            ";
-        } else {
-
+        if (!$nãoCursosI) {
             echo
             "
                                 <h1 class='text-center color'>Continuar</h1>
@@ -241,14 +240,14 @@ opcoes;
                 
                 echo
                 "
-                                <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard cardCarousel w-100'>
+                                <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard carouselA w-100'>
                                     <div class='d-flex justify-content-center align-items-center h-100'>
                                         <h5 class='text-center color m-0'>$curso[linguagem]</h5>
                                     </div>
                                     <a href='template_cursos.php?curso=$curso[id]'>
                                         <div class='d-flex h-50 m-3 home'>
                                             <div class='d-flex justify-content-center align-items-center col-10 p-1'>
-                                                <p class='text-center text-wrap m-0 text-light p-1'>$curso[fase]</p>
+                                                <p class='text-center overflow-hidden m-0 text-light p-1'>$curso[fase]</p>
                                             </div>
                                             <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
                                                     <img src='../assets/img/proximo.png' width='100%'>
@@ -259,6 +258,16 @@ opcoes;
                 
                 ";
             }
+        } else {
+            echo 
+            "
+                                <div class='d-flex justify-content-center align-items-center h-100 w-100'>
+                                    <div class='d-flex justify-content-center m-5 w-100'>
+                                        <div class='w-100'>
+                                            <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
+                                        </div>
+                                    </div>
+            ";
         }
 
         echo
@@ -335,19 +344,169 @@ opcoes;
                     </div>
                 </div>
             </div>
-        </section>
         ";
     } else{
-    echo
-    "
-        <section class='secao' id='secao_home'>
-            <h1>HOME PROFESSOR</h1>
-        </section>
-    ";
+        //!Professor
+        echo
+        "
+            <div class='container d-flex align-center justify-content-center nonSelect h-100'>
+                <div class='h-75 w-100'>
+                    <div class='w-100 h-50'>
+                        <div class='w-100 h-100 row'>
+                            <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
+        ";
+
+        if (mysqli_num_rows($cursosM) != 0) {
+            echo "<div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100' h-100>";
+
+            while ($cursoP = mysqli_fetch_array($cursosM)) {
+                $matriculados = $sql -> query(
+                    "SELECT 
+                        curso.id
+                    FROM curso
+                    INNER JOIN certificado AS cert ON cert.id_curso = curso.id
+                    WHERE cert.id_responsavel = '$idProfessor' 
+                        AND curso.linguagem = '$cursoP[linguagem]'
+                    ORDER BY cert.id"
+                );
+                $terminados = $sql -> query(
+                    "SELECT 
+                        curso.id
+                    FROM curso
+                    INNER JOIN certificado AS cert ON cert.id_curso = curso.id
+                    WHERE cert.id_responsavel = '$idProfessor' 
+                        AND curso.linguagem = '$cursoP[linguagem]' 
+                        AND cert.`status` = 'TERMINADO'
+                    ORDER BY cert.id"
+                );
+                $matriculados = mysqli_num_rows($matriculados);
+                $terminados = mysqli_num_rows($terminados);
+
+                echo
+                    "
+                                        <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard carouselP w-100'>
+                                            <div class='d-flex justify-content-center align-items-center h-50'>
+                                                <h5 class='text-center color m-0 text-uppercase'>$cursoP[linguagem]</h5>
+                                            </div>
+                                            <div class='d-flex align-items-center justify-content-center h-100'>
+                                                <div class='d-flex flex-column align-items-end justify-content-center col-7'>
+                                                    <p class='m-1'><strong>Visualizações: </strong></p>
+                                                    <p class='m-1'><strong>Matriculados: </strong></p>
+                                                    <p class='m-1'><strong>Concluidos: </strong></p>
+                                                </div>
+                                                <div class='d-flex flex-column align-items-center justify-content-center col-5'>
+                                                    <p class='m-1 color'>15</p>
+                                                    <p class='m-1 color'>$matriculados</p>
+                                                    <p class='m-1 color'>$terminados</p>
+                                                </div>
+                                            </div>
+                                            <a href='template_cursos.php?curso=005' class='h-25'>
+                                                <div class='d-flex h-50 m-3 home'>
+                                                    <div class='d-flex justify-content-center align-items-center col-10 p-1'>
+                                                        <p class='text-center text-wrap m-0 text-light p-1' style='font-size:0.9em;'>
+                                                            Ir para a página do curso
+                                                        </p>
+                                                    </div>
+                                                    <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
+                                                        <img src='../assets/img/proximo.png' width='100%'>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+    
+                ";
+            }
+        } else {
+            echo
+            "
+                                <div class='d-flex justify-content-center align-items-center h-100 w-100'>
+                                    <div class='d-flex justify-content-center m-5 w-100'>
+                                        <div class='w-100'>
+                                            <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
+                                        </div>
+                                    </div>
+            ";
+        }
+            echo
+            "
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='h-50 d-flex justify-content-between align-items-center flex-wrap'>
+                        <div class='col-md-6 col-12 h-100'>
+                            <div class='my-3 h-75 rounded px-5'>
+                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT-END</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#frontend'>   
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>BACK-END</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#backend'>   
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                        <div class='col-lg-5 d-none d-lg-block'>
+                                            <div class='d-flex justify-content-end align-items-center h-100'>
+                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                            <h5 class='sizeF text-center m-0 color'><strong>DATABASE</strong></h5>
+                                        </div>
+                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                            <a href='pagecursos.php#database'>
+                                                <img src='../assets/img/proximo.png' width='80em'>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-12 h-100'>
+                            <div class='my-3 h-75 rounded px-5'>
+                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                    <div class='h-100 d-flex justify-content-center align-items-center flex-column color'>
+                                        <h2>Alguma dúvida?</h2>
+                                        <h4>Fale com a gente</h4>
+                                        <a href='sobrenos.php'>
+                                            <button class='btn btn-outline-secondary fundocard color'>CONTATOS</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ";
     }
 
     echo
     "
+        </section>
         <section class='secao secaoAp' id='secao_cadastrarCursos'>
             <h1 class='d-flex align-center justify-content-center'>MINISTRAR CURSO</h1>
             <form>

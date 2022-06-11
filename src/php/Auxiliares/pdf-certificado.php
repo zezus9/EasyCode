@@ -55,7 +55,7 @@
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Certificado EASYCODE - $linguagem</title>
+        <title>$linguagem</title>
         <style>
             .corpo{
                 background-image: url($bg);
@@ -144,5 +144,5 @@
 
 
     $dompdf->render();
-    $dompdf->stream("Certificado.pdf",["Attachment" => false]);
+    $dompdf->stream("Certificado EASYCODE - $linguagem",["Attachment" => false]);
 ?>
