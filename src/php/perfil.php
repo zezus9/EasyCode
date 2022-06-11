@@ -390,12 +390,10 @@ opcoes;
                                             </div>
                                             <div class='d-flex align-items-center justify-content-center h-100'>
                                                 <div class='d-flex flex-column align-items-end justify-content-center col-7'>
-                                                    <p class='m-1'><strong>Visualizações: </strong></p>
                                                     <p class='m-1'><strong>Matriculados: </strong></p>
                                                     <p class='m-1'><strong>Concluidos: </strong></p>
                                                 </div>
                                                 <div class='d-flex flex-column align-items-center justify-content-center col-5'>
-                                                    <p class='m-1 color'>15</p>
                                                     <p class='m-1 color'>$matriculados</p>
                                                     <p class='m-1 color'>$terminados</p>
                                                 </div>
