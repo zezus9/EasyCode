@@ -122,11 +122,12 @@
                     <h1 class='titulo'>CERTIFICADO</h1>
                     <p>Certificamos que</p>
                     <p class='texto-verde'>$nome</p>
-                    <p>em $data_fim concluiu um curso com duração de $duracao de</p>
+                    <p>em $data_fim concluiu o curso de</p>
                     <p class='texto-verde'>$linguagem</p>
-                    <br><br><br><br><br>
-                    <p>ASSINATURA</p>
+                    <p>com duração de $duracao horas</p>
                     <br><br>
+                    <p>ASSINATURA</p>
+                    <br>
                     <p class='site'>EASY CODE <br> www.easycode.com</p>
                     <img src='$logo' width='40px'>
                 </div>
