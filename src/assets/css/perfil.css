@@ -20,6 +20,10 @@ body{
     height: 100vh;
 }
 
+a{
+    text-decoration: none;
+}
+
 /* !Sidebar */
 .sidebar {
 	width: 250px; 
