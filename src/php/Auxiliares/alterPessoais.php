@@ -35,7 +35,7 @@
 
             if (mysqli_num_rows($emails) != 0) {
                 echo "<h1>Uma conta já foi criada neste e-mail</h1>";
-                header("Refresh: 2; ../perfil.php");
+                header("Refresh: 2; ../perfil.php?secoes=dPessoais");
             } else {
                 $sql -> query(
                     "UPDATE $usuario SET
@@ -45,7 +45,7 @@
                     WHERE matricula = '$matricula'");
     
                 echo "<h1>Alterações Realizadas com sucesso!</h1>";
-                header("Refresh: 2; ../perfil.php");
+                header("Refresh: 2; ../perfil.php?secoes=dPessoais");
             }
 
         ?>

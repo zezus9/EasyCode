@@ -31,7 +31,7 @@
                     if ($senhaAnt != $senha) {
 
                         echo "<h1>Senha Antiga incorreta</h1>";
-                        header("Refresh: 3; ../perfil.php");
+                        header("Refresh: 3; ../perfil.php?secoes=dPessoais");
                     } else {
 
                         $sql -> query(

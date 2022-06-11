@@ -91,7 +91,7 @@
                                             <a class='dropdown-item' href='perfil.php'>
                                                 <i class='bi bi-journal-check'></i> Cursos Matriculados
                                             </a>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='perfil.php?secoes=certificados'>
                                                 <i class='bi bi-award-fill'></i> Certificados
                                             </a>
                                             <a class='dropdown-item' href='Auxiliares/sair.php'>

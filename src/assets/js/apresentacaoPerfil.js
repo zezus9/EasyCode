@@ -1,9 +1,19 @@
+function inicio(){
+    let secaoI = document.querySelector('#secoes')
+    if (secaoI != null) {
+        opcoes(secaoI.value)
+    } else {
+        opcoes('home')
+    }
+}
+
 function opcoes(escolha){
     let secoes = document.querySelectorAll('.secao')
     for (let i = 0; i < secoes.length; i++) {
         secoes[i].style.display = 'none'
         secoes[i].classList.remove('secaoAp')
     }
+    console.log(escolha)
     let secao = document.getElementById('secao_'+escolha)
     secao.style.display = 'block'
 

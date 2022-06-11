@@ -15,6 +15,10 @@
         header('Location: cadastro_login.php');
     }
 
+    if (isset($_GET['secoes'])) {
+        echo "<input hidden value='$_GET[secoes]' id='secoes'></input>";
+    }
+
     clearstatcache();
 
     $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
@@ -96,7 +100,7 @@
 
     echo
     "
-    <body onload='carousel()'>
+    <body onload='carousel();inicio();'>
         <div>
             <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>

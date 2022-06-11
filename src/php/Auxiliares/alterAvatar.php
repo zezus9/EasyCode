@@ -7,7 +7,6 @@
     }
     
     if (isset($_SESSION['matricula'])) {
-        
         $matricula = $_SESSION['matricula'];
         $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
         $dadosUsuario = $sql -> query("SELECT avatar FROM $usuario WHERE matricula = '$matricula'");
@@ -33,6 +32,6 @@
             `avatar` = '$avatar'
         WHERE matricula = '$matricula'");
     
-    header("Location: ../perfil.php");
+    header("Location: ../perfil.php?secoes=dPessoais");
 
 ?>

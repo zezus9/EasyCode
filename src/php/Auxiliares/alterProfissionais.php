@@ -37,7 +37,7 @@
                 WHERE matricula = '$matricula'");
 
             echo "<h1>Alterações Realizadas com sucesso!</h1>";
-            header("Refresh: 2; ../perfil.php");
+            header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
 
         ?>
     </div>
