@@ -344,10 +344,70 @@ opcoes;
 
     echo
     "
-        <section class='secao' id='secao_cadastrarCursos'>
-            <h1>CADASTRO DE CURSOS</h1>
+        <section class='secao secaoAp' id='secao_cadastrarCursos'>
+            <h1 class='d-flex align-center justify-content-center'>MINISTRAR CURSO</h1>
+            <form>
+                <div class='form-group row'>
+                    <label class='col-sm-2 col-form-label'>Qual curso deseja ministrar?</label>
+                    <div class='col-sm-10'>
+                        <select class='form-control'>
+                            <option>opções automaticas</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <p>
+                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Definicao' role='button' aria-expanded='false'>
+                    Definição
+                </a>
+            </p>
+            <div class='collapse' id='Definicao'>
+                <div>
+                    Definição
+                    <select class='custom-select'>
+                        Duração
+                        <option value='1'>Um</option>
+                    </select>
+                    horas
+                </div>
+            </div>
+            <p>
+                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Material' role='button' aria-expanded='false'>
+                    Material
+                </a>
+            </p>
+            <div class='collapse' id='Material'>
+                <div>
+                    Material
+                    <p>
+                        <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Video' role='button' aria-expanded='false'>
+                            Videos
+                        </a>
+                    </p>
+                    <div class='collapse' id='Video'>
+                        <div>
+                            Videos
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a class='dropdown-toggle' data-bs-toggle='collapse' href='#Questao' role='button' aria-expanded='false'>
+                    Questões
+                </a>
+            </p>
+            <div class='collapse' id='Questao'>
+                <div>
+                    Questões
+                </div>
+            </div>
+            <div class='d-flex justify-content-center'>
+                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
+            </div>
         </section>
     ";
+
 
     echo
     "  
