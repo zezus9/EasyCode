@@ -508,43 +508,79 @@ opcoes;
     "
         </section>
         <section class='secao secaoAp' id='secao_cadastrarCursos'>
-            <h1 class='d-flex align-center justify-content-center'>MINISTRAR CURSO</h1>
+            <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
             <form>
-                <div class='form-group row'>
-                    <label class='col-sm-2 col-form-label'>Qual curso deseja ministrar?</label>
-                    <div class='col-sm-10'>
-                        <select class='form-control'>
-                            <option>opções automaticas</option>
-                        </select>
-                    </div>
+                <label><strong>Qual curso deseja ministrar?</strong></label>
+                <div class='col-sm-10'>
+                    <select class='form-control'>
+                        <option>opções automaticas</option>
+                    </select>
                 </div>
             </form>
+            <br>
             <div>
-                <p>
-                    Definição
-                </p>
+                <h4 class='Josefinfont text-color'>Definição</h4>
                 <div>
-                    Carga horária:
+                    <strong>Carga horária:</strong>
                     <input type='number'>
                     horas
                 </div>
                 <div>
-                    Quantidade de fases:
+                    <strong>Quantidade de fases:</strong>
                     <input type='number'>
                 </div>
                 <div class='form-group row'>
-                    <label class='col-sm-2 col-form-label'>Conteudo ensinado:</label>
+                    <label class='col-sm-2 col-form-label'><strong>Conteudo ensinado:</strong></label>
                     <div class='col-sm-8'>
                         <textarea class='form-control' rows='2' placeholder='Descreva em tópicos todo o conteúdo que será ensinado neste curso'></textarea>
                     </div>
                 </div>
             </div>
-            <div>
-                <p class='btn btn-outline-secondary bg-color text-light bold'>
-                    <strong>ADICIONAR SEÇÃO</strong>
-                    <i class='bi bi-plus-square'></i>
-                </p>
-            </div>
+            
+
+            <!--OPÇÕES-->
+            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO $contador</h5>
+            <form>
+                <div>
+                    <label><strong>Adicionar</strong></label>
+                    <div class='col-sm-10'>
+                        <select class='form-control'>
+                            <option>Material</option>
+                            <option>Video</option>
+                            <option>Questão</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!--MATERIAL-->
+                <div>
+                    <label><strong>Adicionar Material</strong></label>
+                    <div class='form-group'>
+                        <input type='email' class='form-control' placeholder='Titulo do Material'>
+                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    </div>
+                </div>
+
+                <!--VIDEO-->
+                <div>
+                    <label><strong>Adicionar Video</strong></label>
+                    <div class='form-group'>
+                        <input type='email' class='form-control' placeholder='Titulo do Material'>
+                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    </div>
+                </div>
+
+                <!--QUESTÕES-->
+                <div>
+                    <label><strong>Adicionar Questão</strong></label>
+                    <div class='form-group'>
+                        <input type='email' class='form-control' placeholder='Titulo do Material'>
+                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    </div>
+                </div>
+            </form>
+
+
             <div class='d-flex justify-content-center'>
                 <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
                 <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
