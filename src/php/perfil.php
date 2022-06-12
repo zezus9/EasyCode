@@ -586,7 +586,7 @@ opcoes;
                                 </select>
                             </div>
                         </div>
-                        
+
                         <!--ALTERNATIVA-->
                         <div class='collapse AMB' id='alternativa'>
                             <div>
@@ -596,7 +596,7 @@ opcoes;
                             <div class= form-check'>
                                 <input id='Radio' class='form-check-input' type='radio'>
                                 <label class='form-check-label' for='Radio'>
-                                Radio padrão
+                                    <input type='text' class='form-control' placeholder='text'>
                                 </label>
                             </div>
                         </div>
@@ -610,7 +610,7 @@ opcoes;
                             <div class='form-check'>
                                 <input class='form-check-input' type='checkbox' value='' id='defaultCheck1'>
                                 <label class='form-check-label' for='defaultCheck1'>
-                                Checkbox padrão
+                                    <input type='text' class='form-control' placeholder='text'>
                                 </label>
                             </div>
                         </div>
