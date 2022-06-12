@@ -30,3 +30,13 @@ document.querySelectorAll(".opcoes").forEach( function(opcao) {
         el.classList.add('active')
     });
 });
+
+$("#opcaoMVQ").on("change", function(){
+    $("div.collapse.show").removeClass("show"); // esconde os visíveis
+    $("#"+this.value).collapse('show'); // mostra a div relacionada ao value do option selecionado
+});
+
+$("#opcaoAMB").on("change", function () {
+    $("div.collapse.AMB.show").removeClass("show");
+    $("#"+this.value).collapse('show');
+});

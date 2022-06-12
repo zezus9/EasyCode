@@ -435,7 +435,7 @@ opcoes;
                         <div class='col-md-6 col-12 h-100'>
                             <div class='my-3 h-75 px-5'>
                                 <div class='d-flex justify-content-center align-items-center h-100 home px-4 py-2'>
-                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                    <div class='d-flex flex-column m-2 h-100 camposC col-md-4 py-2'>
                                         <div class='h-100 card fundocard'>
                                             <div class='h-25'>
                                                 <h6 class='color text-center'>TOTAL DE CURSOS</h6>
@@ -445,7 +445,7 @@ opcoes;
                                             </div>
                                         </div>
                                     </div>
-                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                    <div class='d-flex flex-column m-2 h-100 camposC col-md-4 py-2'>
                                         <div class='h-100 card fundocard'>
                                             <div class='h-25'>
                                                 <h6 class='color text-center'>TOTAL DE MATRICULAS</h6>
@@ -455,7 +455,7 @@ opcoes;
                                             </div>
                                         </div>
                                     </div>
-                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                    <div class='d-flex flex-column m-2 h-100 camposC col-md-4 py-2'>
                                         <div class='h-100 card fundocard'>
                                             <div class='h-25'>
                                                 <h6 class='color text-center'>TOTAL DE CERTIFICADOS</h6>

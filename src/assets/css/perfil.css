@@ -115,7 +115,7 @@ a{
     font-size:14px ;
 }
 
-input[type="radio"],input[type="file"]{
+.Radio,input[type="file"]{
     display: none;
 }
 
