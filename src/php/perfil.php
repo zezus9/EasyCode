@@ -617,7 +617,6 @@ opcoes;
                 </div>
             </form>
 
-
             <div class='d-flex justify-content-center'>
                 <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
                 <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
