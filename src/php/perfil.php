@@ -490,7 +490,7 @@ opcoes;
     echo
     "
         </section>
-        <section class='secao secaoAp' id='secao_cadastrarCursos'>
+        <section class='secao' id='secao_cadastrarCursos'>
             <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
             <form>
                 <label><strong>Qual curso deseja ministrar?</strong></label>
@@ -505,12 +505,12 @@ opcoes;
                 <h4 class='Josefinfont text-color'>Definição</h4>
                 <div>
                     <strong>Carga horária:</strong>
-                    <input type='number'>
+                    <input type='number'  min='1' max='50'>
                     horas
                 </div>
                 <div>
                     <strong>Quantidade de fases:</strong>
-                    <input type='number'>
+                    <input type='number'  min='2' max='100'>
                 </div>
                 <div class='form-group row'>
                     <label class='col-sm-2 col-form-label'><strong>Conteudo ensinado:</strong></label>
@@ -522,18 +522,26 @@ opcoes;
             
 
             <!--OPÇÕES-->
-            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO $contador</h5>
+            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO (colocar contador)</h5>
             <form>
                 <div>
                     <label><strong>Adicionar</strong></label>
-                    <div class='col-sm-10'>
-                        <select class='form-control'>
-                            <option>Material</option>
-                            <option>Video</option>
-                            <option>Questão</option>
-                        </select>
+                    <select class='form-control data-val='true' id='opcaoMVQ'>
+                        <option>Selecione uma opção</option>
+                        <option value='material'>Material</option>
+                        <option value='video'>Video</option>
+                        <option value='questao'>Questão</option>
+                    </select>
+
+                    <!--MATERIAL-->
+                    <div class='collapse' id='material'>
+                        <label><strong>Adicionar Material</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Titulo do Material'>
+                            <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                        </div>
                     </div>
-                </div>
+
                     <!--VIDEO-->
                     <div class='collapse' id='video'>
                         <label><strong>Adicionar Video</strong></label>
@@ -544,10 +552,10 @@ opcoes;
                                 <i class='bi bi-upload'></i>
                                 Subir video
                             </label>
-                            <input type='file' accept='video/mp4' class='form-control-file' id='Botao'>
+                            <input type='file' class='form-control-file' id='Botao'>
                         </div>
                     </div>
-                </div>
+
                     <!--QUESTÕES-->
                     <div class='collapse' id='questao'>
                         <label><strong>Adicionar Questão</strong></label>
@@ -604,6 +612,8 @@ opcoes;
                             </div>
                         </div>
                     </div>
+                    
+                    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
                 </div>
             </form>
 
