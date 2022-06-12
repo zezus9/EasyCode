@@ -568,7 +568,7 @@ opcoes;
                                 <i class='bi bi-upload'></i>
                                 Subir video
                             </label>
-                            <input type='file' class='form-control-file' id='Botao'>
+                            <input type='file' accept='video/mp4' class='form-control-file' id='Botao'>
                         </div>
                     </div>
 
