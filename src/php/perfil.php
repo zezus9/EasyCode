@@ -534,31 +534,75 @@ opcoes;
                         </select>
                     </div>
                 </div>
-
-                <!--MATERIAL-->
-                <div>
-                    <label><strong>Adicionar Material</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    <!--VIDEO-->
+                    <div class='collapse' id='video'>
+                        <label><strong>Adicionar Video</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Titulo do Video'>
+                            <textarea class='form-control' rows='2' placeholder='Descrição do Video'></textarea>
+                            <label for='Botao' class='btn btn-outline-secondary bg-color text-light'>
+                                <i class='bi bi-upload'></i>
+                                Subir video
+                            </label>
+                            <input type='file' accept='video/mp4' class='form-control-file' id='Botao'>
+                        </div>
                     </div>
                 </div>
+                    <!--QUESTÕES-->
+                    <div class='collapse' id='questao'>
+                        <label><strong>Adicionar Questão</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Pergunta'>
+                            <div class='col-sm-10'>
+                                <select class='form-control data-val='true' id='opcaoAMB'>
+                                    <option>Selecione uma opção</option>
+                                    <option value='alternativa'>Alternativa</option>
+                                    <option value='Mescolha'>Multipla escolha</option>
+                                    <option value='botao'>Botão</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <!--VIDEO-->
-                <div>
-                    <label><strong>Adicionar Video</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
-                    </div>
-                </div>
+                        <!--ALTERNATIVA-->
+                        <div class='collapse AMB' id='alternativa'>
+                            <div>
+                                <strong>Quantidade de alternativas:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div class= form-check'>
+                                <input id='Radio' class='form-check-input' type='radio'>
+                                <label class='form-check-label' for='Radio'>
+                                    <input type='text' class='form-control' placeholder='text'>
+                                </label>
+                            </div>
+                        </div>
 
-                <!--QUESTÕES-->
-                <div>
-                    <label><strong>Adicionar Questão</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                        <!--MÚLTIPLA ESCOLHA-->
+                        <div class='collapse AMB' id='Mescolha'>
+                            <div>
+                                <strong>Quantidade de escolhas:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' value='' id='defaultCheck1'>
+                                <label class='form-check-label' for='defaultCheck1'>
+                                    <input type='text' class='form-control' placeholder='text'>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--BOTÃO-->
+                        <div class='collapse AMB' id='botao'>
+                            <div>
+                                <strong>Quantidade de botões:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div>
+                                <label class='btn btn-outline-secondary bg-color text-light'>
+                                    <input type='text' class='form-control' placeholder='text'>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
