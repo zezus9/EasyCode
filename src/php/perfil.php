@@ -156,17 +156,17 @@ opcoes;
 certificadoAlunos;
     }
     else{
-        echo <<<cadastrarCursos
+        echo <<<ministrarCursos
                     <li>
-                        <label for='cadastrarCursos' onclick='opcoes("cadastrarCursos")'>
+                        <label for='ministrarCursos' onclick='opcoes("ministrarCursos")'>
                             <span>
                                 <i class="bi bi-journal-plus"></i> 
                             </span>
-                            <span>Cadastrar Cursos</span>
+                            <span>Ministrar Cursos</span>
                         </label>
-                        <input type='radio' name='opcoes' id='cadastrarCursos' class='opcoes'>
+                        <input type='radio' name='opcoes' id='ministrarCursos' class='opcoes'>
                     </li>
-cadastrarCursos;
+ministrarCursos;
     }
     
     echo <<<opcoes
@@ -346,6 +346,7 @@ opcoes;
             </div>
         ";
     } else{
+        
         //!Professor
         echo
         "
@@ -384,128 +385,128 @@ opcoes;
 
                 echo
                     "
-                                        <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard carouselP w-100'>
-                                            <div class='d-flex justify-content-center align-items-center h-50'>
-                                                <h5 class='text-center color m-0 text-uppercase'>$cursoP[linguagem]</h5>
-                                            </div>
-                                            <div class='d-flex align-items-center justify-content-center h-100'>
-                                                <div class='d-flex flex-column align-items-end justify-content-center col-7'>
-                                                    <p class='m-1'><strong>Matriculados: </strong></p>
-                                                    <p class='m-1'><strong>Concluidos: </strong></p>
-                                                </div>
-                                                <div class='d-flex flex-column align-items-center justify-content-center col-5'>
-                                                    <p class='m-1 color'>$matriculados</p>
-                                                    <p class='m-1 color'>$terminados</p>
-                                                </div>
-                                            </div>
-                                            <a href='template_cursos.php?curso=005' class='h-25'>
-                                                <div class='d-flex h-50 m-3 home'>
-                                                    <div class='d-flex justify-content-center align-items-center col-10 p-1'>
-                                                        <p class='text-center text-wrap m-0 text-light p-1' style='font-size:0.9em;'>
-                                                            Ir para a página do curso
-                                                        </p>
-                                                    </div>
-                                                    <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
-                                                        <img src='../assets/img/proximo.png' width='100%'>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard carouselP w-100'>
+                                    <div class='d-flex justify-content-center align-items-center h-50'>
+                                        <h5 class='text-center color m-0 text-uppercase'>$cursoP[linguagem]</h5>
+                                    </div>
+                                    <div class='d-flex align-items-center justify-content-center h-100'>
+                                        <div class='d-flex flex-column align-items-end justify-content-center col-7'>
+                                            <p class='m-1'><strong>Matriculados: </strong></p>
+                                            <p class='m-1'><strong>Concluidos: </strong></p>
                                         </div>
+                                        <div class='d-flex flex-column align-items-center justify-content-center col-5'>
+                                            <p class='m-1 color'>$matriculados</p>
+                                            <p class='m-1 color'>$terminados</p>
+                                        </div>
+                                    </div>
+                                    <a href='template_cursos.php?curso=005' class='h-25'>
+                                        <div class='d-flex h-50 m-3 home'>
+                                            <div class='d-flex justify-content-center align-items-center col-10 p-1'>
+                                                <p class='text-center text-wrap m-0 text-light p-1' style='font-size:0.9em;'>
+                                                    Ir para a página do curso
+                                                </p>
+                                            </div>
+                                            <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
+                                                <img src='../assets/img/proximo.png' width='100%'>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
     
                 ";
             }
         } else {
             echo
             "
-                                <div class='d-flex justify-content-center align-items-center h-100 w-100'>
-                                    <div class='d-flex justify-content-center m-5 w-100'>
-                                        <div class='w-100'>
-                                            <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
-                                        </div>
+                            <div class='d-flex justify-content-center align-items-center h-100 w-100'>
+                                <div class='d-flex justify-content-center m-5 w-100'>
+                                    <div class='w-100'>
+                                        <h1 class='Josefinfont color text-center'>Ainda não há nada aqui...</h1>
                                     </div>
+                                </div>
             ";
         }
-            echo
-            "
-                                </div>
+        echo
+        "
                             </div>
                         </div>
                     </div>
-                    <div class='h-50 d-flex justify-content-between align-items-center flex-wrap'>
-                        <div class='col-md-6 col-12 h-100'>
-                            <div class='my-3 h-75 rounded px-5'>
-                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
-                                            </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT-END</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#frontend'>   
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
+                </div>
+                <div class='h-50 d-flex justify-content-between align-items-center flex-wrap'>
+                    <div class='col-md-6 col-12 h-100'>
+                        <div class='my-3 h-75 rounded px-5'>
+                            <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                    <div class='col-lg-5 d-none d-lg-block'>
+                                        <div class='d-flex justify-content-end align-items-center h-100'>
+                                            <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
                                         </div>
                                     </div>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
-                                            </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>BACK-END</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#backend'>   
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
-                                        </div>
+                                    <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                        <h5 class='sizeF text-center m-0 color'><strong>FRONT-END</strong></h5>
                                     </div>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
-                                            </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>DATABASE</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#database'>
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
-                                        </div>
+                                    <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                        <a href='pagecursos.php#frontend'>   
+                                            <img src='../assets/img/proximo.png' width='80em'>
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class='col-md-6 col-12 h-100'>
-                            <div class='my-3 h-75 rounded px-5'>
-                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
-                                    <div class='h-100 d-flex justify-content-center align-items-center flex-column color'>
-                                        <h2>Alguma dúvida?</h2>
-                                        <h4>Fale com a gente</h4>
-                                        <a href='sobrenos.php'>
-                                            <button class='btn btn-outline-secondary fundocard color'>CONTATOS</button>
+                                <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                    <div class='col-lg-5 d-none d-lg-block'>
+                                        <div class='d-flex justify-content-end align-items-center h-100'>
+                                            <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                        </div>
+                                    </div>
+                                    <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                        <h5 class='sizeF text-center m-0 color'><strong>BACK-END</strong></h5>
+                                    </div>
+                                    <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                        <a href='pagecursos.php#backend'>   
+                                            <img src='../assets/img/proximo.png' width='80em'>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class='d-flex d-inline-block fundocard m-2 camposM'>
+                                    <div class='col-lg-5 d-none d-lg-block'>
+                                        <div class='d-flex justify-content-end align-items-center h-100'>
+                                            <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                        </div>
+                                    </div>
+                                    <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
+                                        <h5 class='sizeF text-center m-0 color'><strong>DATABASE</strong></h5>
+                                    </div>
+                                    <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
+                                        <a href='pagecursos.php#database'>
+                                            <img src='../assets/img/proximo.png' width='80em'>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class='col-md-6 col-12 h-100'>
+                        <div class='my-3 h-75 rounded px-5'>
+                            <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
+                                <div class='h-100 d-flex justify-content-center align-items-center flex-column color'>
+                                    <h2>Alguma dúvida?</h2>
+                                    <h4>Fale com a gente</h4>
+                                    <a href='sobrenos.php'>
+                                        <button class='btn btn-outline-secondary fundocard color'>CONTATOS</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        ";
+        </div>
+    ";
     }
 
     echo
     "
         </section>
-        <section class='secao secaoAp' id='secao_cadastrarCursos'>
+        <section class='secao' id='secao_ministrarCursos'>
             <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
             <form>
                 <label><strong>Qual curso deseja ministrar?</strong></label>
@@ -520,12 +521,12 @@ opcoes;
                 <h4 class='Josefinfont text-color'>Definição</h4>
                 <div>
                     <strong>Carga horária:</strong>
-                    <input type='number'>
+                    <input type='number'  min='1' max='50'>
                     horas
                 </div>
                 <div>
                     <strong>Quantidade de fases:</strong>
-                    <input type='number'>
+                    <input type='number'  min='2' max='100'>
                 </div>
                 <div class='form-group row'>
                     <label class='col-sm-2 col-form-label'><strong>Conteudo ensinado:</strong></label>
@@ -537,44 +538,97 @@ opcoes;
             
 
             <!--OPÇÕES-->
-            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO $contador</h5>
+            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO (colocar contador)</h5>
             <form>
                 <div>
                     <label><strong>Adicionar</strong></label>
-                    <div class='col-sm-10'>
-                        <select class='form-control'>
-                            <option>Material</option>
-                            <option>Video</option>
-                            <option>Questão</option>
-                        </select>
-                    </div>
-                </div>
+                    <select class='form-control data-val='true' id='opcaoMVQ'>
+                        <option>Selecione uma opção</option>
+                        <option value='material'>Material</option>
+                        <option value='video'>Video</option>
+                        <option value='questao'>Questão</option>
+                    </select>
 
-                <!--MATERIAL-->
-                <div>
-                    <label><strong>Adicionar Material</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    <!--MATERIAL-->
+                    <div class='collapse' id='material'>
+                        <label><strong>Adicionar Material</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Titulo do Material'>
+                            <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <!--VIDEO-->
-                <div>
-                    <label><strong>Adicionar Video</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    <!--VIDEO-->
+                    <div class='collapse' id='video'>
+                        <label><strong>Adicionar Video</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Titulo do Video'>
+                            <textarea class='form-control' rows='2' placeholder='Descrição do Video'></textarea>
+                            <label for='Botao' class='btn btn-outline-secondary bg-color text-light'>
+                                <i class='bi bi-upload'></i>
+                                Subir video
+                            </label>
+                            <input type='file' class='form-control-file' id='Botao'>
+                        </div>
                     </div>
-                </div>
 
-                <!--QUESTÕES-->
-                <div>
-                    <label><strong>Adicionar Questão</strong></label>
-                    <div class='form-group'>
-                        <input type='email' class='form-control' placeholder='Titulo do Material'>
-                        <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                    <!--QUESTÕES-->
+                    <div class='collapse' id='questao'>
+                        <label><strong>Adicionar Questão</strong></label>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Pergunta'>
+                            <div class='col-sm-10'>
+                                <select class='form-control data-val='true' id='opcaoAMB'>
+                                    <option>Selecione uma opção</option>
+                                    <option value='alternativa'>Alternativa</option>
+                                    <option value='Mescolha'>Multipla escolha</option>
+                                    <option value='botao'>Botão</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--ALTERNATIVA-->
+                        <div class='collapse AMB' id='alternativa'>
+                            <div>
+                                <strong>Quantidade de alternativas:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div class= form-check'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='opcao1' checked>
+                                <label class='form-check-label' for='exampleRadios1'>
+                                Radio padrão
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--MÚLTIPLA ESCOLHA-->
+                        <div class='collapse AMB' id='Mescolha'>
+                            <div>
+                                <strong>Quantidade de escolhas:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' value='' id='defaultCheck1'>
+                                <label class='form-check-label' for='defaultCheck1'>
+                                Checkbox padrão
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--BOTÃO-->
+                        <div class='collapse AMB' id='botao'>
+                            <div>
+                                <strong>Quantidade de botões:</strong>
+                                <input type='number' min='5' max='20'>
+                            </div>
+                            <div>
+                                <label class='btn btn-outline-secondary bg-color text-light'>
+                                    <input type='text' class='form-control' placeholder='text'>
+                                </label>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
                 </div>
             </form>
 
@@ -791,6 +845,9 @@ opcoes;
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script src='../assets/js/sidebar.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+
     </body>
     </html>
     ";
