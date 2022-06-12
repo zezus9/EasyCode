@@ -139,7 +139,7 @@
                             </span>
                             <span>Home</span>
                         </label>
-                        <input type='radio' name='opcoes' id='home' class='opcoes'>
+                        <input type='radio' name='opcoes' id='home' class='opcoes Radio'>
                     </li>
 opcoes;
     if ($usuario == 'aluno') {
@@ -151,7 +151,7 @@ opcoes;
                             </span>
                             <span>Certificados</span>
                         </label>
-                        <input type='radio' name='opcoes' id='certificados' class='opcoes'>
+                        <input type='radio' name='opcoes' id='certificados' class='opcoes Radio'>
                     </li>
 certificadoAlunos;
     }
@@ -164,7 +164,7 @@ certificadoAlunos;
                             </span>
                             <span>Ministrar Cursos</span>
                         </label>
-                        <input type='radio' name='opcoes' id='ministrarCursos' class='opcoes'>
+                        <input type='radio' name='opcoes' id='ministrarCursos' class='opcoes Radio'>
                     </li>
 ministrarCursos;
     }
@@ -177,7 +177,7 @@ ministrarCursos;
                             </span>
                             <span>Dados Pessoais</span>
                         </label>
-                        <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
+                        <input type='radio' name='opcoes' id='dPessoais' class='opcoes Radio'>
                     </li>
 opcoes;
 
@@ -190,7 +190,7 @@ opcoes;
                             </span>
                             <span>Dados Profissionais</span>
                         </label>
-                        <input type='radio' name='opcoes' id='dProfissionais' class='opcoes'>
+                        <input type='radio' name='opcoes' id='dProfissionais' class='opcoes Radio'>
                     </li>
 dProfissionaisAlunos;                    
     }
@@ -202,7 +202,7 @@ dProfissionaisAlunos;
                             </span>
                             <span>Alterar Senha</span>
                         </label>
-                        <input type='radio' name='opcoes' id='alterSenha' class='opcoes'>
+                        <input type='radio' name='opcoes' id='alterSenha' class='opcoes Radio'>
                     </li>
 
                     <li>
@@ -586,6 +586,7 @@ opcoes;
                                 </select>
                             </div>
                         </div>
+                        
                         <!--ALTERNATIVA-->
                         <div class='collapse AMB' id='alternativa'>
                             <div>
@@ -593,8 +594,8 @@ opcoes;
                                 <input type='number' min='5' max='20'>
                             </div>
                             <div class= form-check'>
-                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='opcao1' checked>
-                                <label class='form-check-label' for='exampleRadios1'>
+                                <input id='Radio' class='form-check-input' type='radio'>
+                                <label class='form-check-label' for='Radio'>
                                 Radio padrão
                                 </label>
                             </div>
