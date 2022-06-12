@@ -141,7 +141,7 @@
                             </span>
                             <span>Home</span>
                         </label>
-                        <input type='radio' name='opcoes' id='home' class='opcoes'>
+                        <input type='radio' name='opcoes' id='home' class='opcoes Radio'>
                     </li>
 opcoes;
     if ($usuario == 'aluno') {
@@ -153,7 +153,7 @@ opcoes;
                             </span>
                             <span>Certificados</span>
                         </label>
-                        <input type='radio' name='opcoes' id='certificados' class='opcoes'>
+                        <input type='radio' name='opcoes' id='certificados' class='opcoes Radio'>
                     </li>
 certificadoAlunos;
     }
@@ -166,7 +166,7 @@ certificadoAlunos;
                             </span>
                             <span>Cadastrar Cursos</span>
                         </label>
-                        <input type='radio' name='opcoes' id='cadastrarCursos' class='opcoes'>
+                        <input type='radio' name='opcoes' id='cadastrarCursos' class='opcoes Radio'>
                     </li>
 cadastrarCursos;
     }
@@ -179,7 +179,7 @@ cadastrarCursos;
                             </span>
                             <span>Dados Pessoais</span>
                         </label>
-                        <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
+                        <input type='radio' name='opcoes' id='dPessoais' class='opcoes Radio'>
                     </li>
                     <li>
                         <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
@@ -188,7 +188,7 @@ cadastrarCursos;
                             </span>
                             <span>Dados Profissionais</span>
                         </label>
-                        <input type='radio' name='opcoes' id='dProfissionais' class='opcoes'>
+                        <input type='radio' name='opcoes' id='dProfissionais' class='opcoes Radio'>
                     </li>
                     <li>
                         <label for='alterSenha' onclick='opcoes("alterSenha")'>
@@ -197,7 +197,7 @@ cadastrarCursos;
                             </span>
                             <span>Alterar Senha</span>
                         </label>
-                        <input type='radio' name='opcoes' id='alterSenha' class='opcoes'>
+                        <input type='radio' name='opcoes' id='alterSenha' class='opcoes Radio'>
                     </li>
 
                     <li>
@@ -796,7 +796,7 @@ opcoes;
                                 </div>
                             </div>
                             <div class='w-50'>
-                                <a href='resgSenha.php' class='color'>
+                                <a href='resgSenha.php' class='color2'>
                                     <strong>Esqueci a senha</strong>
                                 </a>
                             </div>
