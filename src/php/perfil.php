@@ -76,12 +76,14 @@
 
         $cursosM = $sql -> query(
             "SELECT 
-                curso.linguagem
+                curso.linguagem,curso.id
             FROM curso
             INNER JOIN professor AS prof ON curso.id_responsavel = prof.id
             WHERE curso.id_responsavel = '$idProfessor'
             ORDER BY curso.linguagem"
         );
+
+        $numCursos = mysqli_num_rows($cursosM);
     }
 
     echo "
@@ -179,10 +181,6 @@ cadastrarCursos;
                         </label>
                         <input type='radio' name='opcoes' id='dPessoais' class='opcoes'>
                     </li>
-opcoes;
-
-    if ($usuario == 'aluno') {
-        echo <<<dProfissionaisAlunos
                     <li>
                         <label for='dProfissionais' onclick='opcoes("dProfissionais")'>
                             <span>
@@ -192,9 +190,6 @@ opcoes;
                         </label>
                         <input type='radio' name='opcoes' id='dProfissionais' class='opcoes'>
                     </li>
-dProfissionaisAlunos;                    
-    }
-    echo <<<opcoes
                     <li>
                         <label for='alterSenha' onclick='opcoes("alterSenha")'>
                             <span>
@@ -347,6 +342,9 @@ opcoes;
         ";
     } else{
         //!Professor
+        $numAlunos = 0;
+        $numCertificados = 0;
+
         echo
         "
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
@@ -356,7 +354,7 @@ opcoes;
                             <div class='m-2 h-100 border rounded d-flex justify-content-center align-center flex-column home'>
         ";
 
-        if (mysqli_num_rows($cursosM) != 0) {
+        if ($numCursos != 0) {
             echo "<div class='d-flex justify-content-center align-items-center h-100 owl-carousel w-100' h-100>";
 
             while ($cursoP = mysqli_fetch_array($cursosM)) {
@@ -382,6 +380,8 @@ opcoes;
                 $matriculados = mysqli_num_rows($matriculados);
                 $terminados = mysqli_num_rows($terminados);
 
+                $numAlunos += $matriculados;
+                $numCertificados += $terminados;
                 echo
                     "
                                         <div class='d-flex flex-column col-md-3 col-sm-5 d-inline-block fundocard carouselP w-100'>
@@ -394,11 +394,11 @@ opcoes;
                                                     <p class='m-1'><strong>Concluidos: </strong></p>
                                                 </div>
                                                 <div class='d-flex flex-column align-items-center justify-content-center col-5'>
-                                                    <p class='m-1 color'>$matriculados</p>
-                                                    <p class='m-1 color'>$terminados</p>
+                                                    <p class='m-1 color2'>$matriculados</p>
+                                                    <p class='m-1 color2'>$terminados</p>
                                                 </div>
                                             </div>
-                                            <a href='template_cursos.php?curso=005' class='h-25'>
+                                            <a href='template_cursos.php?curso=$cursoP[id]' class='h-25'>
                                                 <div class='d-flex h-50 m-3 home'>
                                                     <div class='d-flex justify-content-center align-items-center col-10 p-1'>
                                                         <p class='text-center text-wrap m-0 text-light p-1' style='font-size:0.9em;'>
@@ -433,51 +433,36 @@ opcoes;
                     </div>
                     <div class='h-50 d-flex justify-content-between align-items-center flex-wrap'>
                         <div class='col-md-6 col-12 h-100'>
-                            <div class='my-3 h-75 rounded px-5'>
-                                <div class='d-flex justify-content-center align-items-center flex-column h-100 home'>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                            <div class='my-3 h-75 px-5'>
+                                <div class='d-flex justify-content-center align-items-center h-100 home px-4 py-2'>
+                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                        <div class='h-100 card fundocard'>
+                                            <div class='h-25'>
+                                                <h6 class='color text-center'>TOTAL DE CURSOS</h6>
                                             </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>FRONT-END</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#frontend'>   
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
+                                            <div class='h-75 d-flex justify-content-center align-items-center'>
+                                                <h1 class='color2'>$numCursos</h1>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                        <div class='h-100 card fundocard'>
+                                            <div class='h-25'>
+                                                <h6 class='color text-center'>TOTAL DE MATRICULAS</h6>
                                             </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>BACK-END</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#backend'>   
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
+                                            <div class='h-75 d-flex justify-content-center align-items-center'>
+                                                <h1 class='color2'>$numAlunos</h1>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class='d-flex d-inline-block fundocard m-2 camposM'>
-                                        <div class='col-lg-5 d-none d-lg-block'>
-                                            <div class='d-flex justify-content-end align-items-center h-100'>
-                                                <p class='sizeF text-center m-0'>mais cursos &nbsp;</p>
+                                    <div class='d-flex fundocard flex-column m-2 h-100 camposC col-md-4 py-2'>
+                                        <div class='h-100 card fundocard'>
+                                            <div class='h-25'>
+                                                <h6 class='color text-center'>TOTAL DE CERTIFICADOS</h6>
                                             </div>
-                                        </div>
-                                        <div class='col-lg-5 col-md-10 col-sm-10 col-10 d-flex justify-content-start align-items-center'>
-                                            <h5 class='sizeF text-center m-0 color'><strong>DATABASE</strong></h5>
-                                        </div>
-                                        <div class='d-flex justify-content-center align-items-center col-md-2 buscaS'>
-                                            <a href='pagecursos.php#database'>
-                                                <img src='../assets/img/proximo.png' width='80em'>
-                                            </a>
+                                            <div class='h-75 d-flex justify-content-center align-items-center'>
+                                                <h1 class='color2'>$numCertificados</h1>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

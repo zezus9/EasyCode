@@ -148,6 +148,11 @@ input[type="radio"],input[type="file"]{
     width: 90%;
 }
 
+.camposC{
+    height: 100%!important;
+    width: 30%;
+}
+
 .sizeF {
     font-size: 1.2em;
 }
