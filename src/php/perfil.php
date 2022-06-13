@@ -497,12 +497,12 @@ opcoes;
         <section class='secao secaoAp' id='secao_ministrarCursos'>
             <div class='d-flex justify-content-center align-items-center h-100'>
                 <div class='box-form d-flex p-5 justify-content-center h-100'>
-                    <div class='d-flex align-items-center flex-column w-50 p-3'>
+                    <div class='d-flex align-items-center flex-column w-100 p-3'>
                         <h1 class='Josefinfont text-color text-uppercase'>SEÇÃO</h1>
-                        <form class='d-flex align-items-center p-3 flex-column w-100'>
-                            <div class='w-75 d-flex align-items-center flex-column'>
-                                <label><strong>Adicionar</strong></label>
-                                <select class='form-control m-2' data-val='true' id='opcaoMVQ'>
+                        <form class='d-flex align-items-center p-2 flex-column w-100'>
+                            <div class='w-100 d-flex align-items-center flex-column'>
+                                <strong>Adicionar</strong>
+                                <select class='form-control m-2 w-50' data-val='true' id='opcaoMVQ'>
                                     <option>Selecione uma opção</option>
                                     <option value='material'>Material</option>
                                     <option value='video'>Video</option>
@@ -510,7 +510,7 @@ opcoes;
                                 </select>
 
                                 <!--MATERIAL-->
-                                <div class='collapse m-3 w-100 text-center' id='material'>
+                                <div class='collapse m-3 w-50 text-center' id='material'>
                                     <strong>Adicionar Material</strong>
                                     <div class='form-group w-100'>
                                         <input type='text' class='form-control' placeholder='Titulo do Material'>
@@ -519,7 +519,7 @@ opcoes;
                                 </div>
 
                                 <!--VIDEO-->
-                                <div class='collapse m-3 w-100 text-center' id='video'>
+                                <div class='collapse m-3 w-50 text-center' id='video'>
                                     <label><strong>Adicionar Video</strong></label>
                                     <div class='form-group'>
                                         <input type='text' class='form-control' placeholder='Titulo do Video'>
@@ -535,8 +535,8 @@ opcoes;
                                 <!--QUESTÕES-->
                                 <div class='collapse m-3 w-100 text-center d-block' id='questao'>
                                     <strong>Adicionar Questão</strong>
-                                    <div class='form-group'>
-                                        <div class='col-sm-10 w-100 my-2'>
+                                    <div class='form-group w-100 d-flex align-items-center flex-column'>
+                                        <div class='col-sm-10 w-50 my-2'>
                                             <select class='form-control data-val='true' id='opcaoAMB'>
                                                 <option>Tipo de questão</option>
                                                 <option value='alternativa'>Alternativa</option>
@@ -547,39 +547,47 @@ opcoes;
                                     </div>
 
                                     <!--ALTERNATIVA-->
-                                    <div class='collapse AMB w-100' id='alternativa'>
-                                        <textarea class='form-control my-2' rows='2' placeholder='Pergunta'></textarea>
-                                        <div>
-                                            <strong>Quantidade de alternativas:</strong>
-                                            <input type='number' min='3' max='5' value='3'>
-                                            <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
-                                        </div>
-                                        <div class='d-flex flex-column'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
+                                    <div class='collapse AMB w-100 m-2' id='alternativa'>
+                                        <div class='d-flex'>
+                                            <div class='w-50 p-2 d-flex flex-column justify-content-between'>
+                                                <textarea class='form-control my-2 h-100' style='resize: none' placeholder='Pergunta'></textarea>
+                                                <div>
+                                                    <strong>Quantidade de alternativas:</strong>
+                                                    <input type='number' min='3' max='5' value='3'>
+                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                                </div>
+                                            </div>
+                                            <div class='d-flex flex-column w-50 p-2'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!--MÚLTIPLA ESCOLHA-->
-                                    <div class='collapse AMB w-100' id='Mescolha'>
-                                        <textarea class='form-control my-2' rows='2' placeholder='Pergunta'></textarea>
-                                        <div>
-                                            <strong>Quantidade de escolhas:</strong>
-                                            <input type='number' min='3' max='5' value='3'>
-                                            <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
-                                        </div>
-                                        <div class='d-flex flex-column'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
-                                            <input type='text' class='form-control my-1' placeholder='text'>
+                                    <div class='collapse AMB w-100 m-2' id='Mescolha'>
+                                        <div class='d-flex'>
+                                            <div class='w-50 p-2 d-flex flex-column justify-content-between'>
+                                                <textarea class='form-control my-2 h-100' style='resize: none' placeholder='Pergunta'></textarea>
+                                                <div>
+                                                    <strong>Quantidade de escolhas:</strong>
+                                                    <input type='number' min='3' max='5' value='3'>
+                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                                </div>
+                                            </div>
+                                            <div class='d-flex flex-column w-50 p-2'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                                <input type='text' class='form-control my-1' placeholder='text'>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!--BOTÃO-->
-                                    <div class='collapse AMB' id='botao'>
+                                    <div class='collapse AMB w-50 m-2' id='botao'>
                                         <textarea class='form-control' rows='2' placeholder='Descrição do Video'></textarea>
                                         <div>
                                             <strong>Quantidade de botões:</strong>
@@ -592,7 +600,6 @@ opcoes;
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
                             </div>
                             <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
