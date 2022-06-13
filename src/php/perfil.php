@@ -158,17 +158,17 @@ opcoes;
 certificadoAlunos;
     }
     else{
-        echo <<<cadastrarCursos
+        echo <<<ministrarCursos
                     <li>
-                        <label for='cadastrarCursos' onclick='opcoes("cadastrarCursos")'>
+                        <label for='ministrarCursos' onclick='opcoes("ministrarCursos")'>
                             <span>
                                 <i class="bi bi-journal-plus"></i> 
                             </span>
-                            <span>Cadastrar Cursos</span>
+                            <span>Ministrar Cursos</span>
                         </label>
-                        <input type='radio' name='opcoes' id='cadastrarCursos' class='opcoes Radio'>
+                        <input type='radio' name='opcoes' id='ministrarCursos' class='opcoes Radio'>
                     </li>
-cadastrarCursos;
+ministrarCursos;
     }
     
     echo <<<opcoes
@@ -490,136 +490,142 @@ opcoes;
     echo
     "
         </section>
-        <section class='secao' id='secao_cadastrarCursos'>
-            <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
-            <form>
-                <label><strong>Qual curso deseja ministrar?</strong></label>
-                <div class='col-sm-10'>
-                    <select class='form-control'>
-                        <option>opções automaticas</option>
-                    </select>
-                </div>
-            </form>
-            <br>
-            <div>
-                <h4 class='Josefinfont text-color'>Definição</h4>
-                <div>
-                    <strong>Carga horária:</strong>
-                    <input type='number'  min='1' max='50'>
-                    horas
-                </div>
-                <div>
-                    <strong>Quantidade de fases:</strong>
-                    <input type='number'  min='2' max='100'>
-                </div>
-                <div class='form-group row'>
-                    <label class='col-sm-2 col-form-label'><strong>Conteudo ensinado:</strong></label>
-                    <div class='col-sm-8'>
-                        <textarea class='form-control' rows='2' placeholder='Descreva em tópicos todo o conteúdo que será ensinado neste curso'></textarea>
-                    </div>
-                </div>
-            </div>
-            
-
-            <!--OPÇÕES-->
-            <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO (colocar contador)</h5>
-            <form>
-                <div>
-                    <label><strong>Adicionar</strong></label>
-                    <select class='form-control data-val='true' id='opcaoMVQ'>
-                        <option>Selecione uma opção</option>
-                        <option value='material'>Material</option>
-                        <option value='video'>Video</option>
-                        <option value='questao'>Questão</option>
-                    </select>
-
-                    <!--MATERIAL-->
-                    <div class='collapse' id='material'>
-                        <label><strong>Adicionar Material</strong></label>
-                        <div class='form-group'>
-                            <input type='text' class='form-control' placeholder='Titulo do Material'>
-                            <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+        <section class='secao secaoAp' id='secao_ministrarCursos'>
+            <div class='d-flex justify-content-center align-items-center h-100'>
+                <div class='box-form d-flex align-items-center flex-column'>
+                    <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
+                    <form class='w-50 d-flex align-items-center flex-column'>
+                        <label><strong>Qual curso deseja ministrar?</strong></label>
+                        <div class='col-sm-10'>
+                            <select class='form-control'>
+                                <option>Curso:</option>
+                            </select>
                         </div>
-                    </div>
-
-                    <!--VIDEO-->
-                    <div class='collapse' id='video'>
-                        <label><strong>Adicionar Video</strong></label>
-                        <div class='form-group'>
-                            <input type='text' class='form-control' placeholder='Titulo do Video'>
-                            <textarea class='form-control' rows='2' placeholder='Descrição do Video'></textarea>
-                            <label for='Botao' class='btn btn-outline-secondary bg-color text-light'>
-                                <i class='bi bi-upload'></i>
-                                Subir video
-                            </label>
-                            <input type='file' class='form-control-file' id='Botao'>
+                        <div class='m-2'>
+                            <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
                         </div>
-                    </div>
-
-                    <!--QUESTÕES-->
-                    <div class='collapse' id='questao'>
-                        <label><strong>Adicionar Questão</strong></label>
-                        <div class='form-group'>
-                            <input type='text' class='form-control' placeholder='Pergunta'>
-                            <div class='col-sm-10'>
-                                <select class='form-control data-val='true' id='opcaoAMB'>
-                                    <option>Selecione uma opção</option>
-                                    <option value='alternativa'>Alternativa</option>
-                                    <option value='Mescolha'>Multipla escolha</option>
-                                    <option value='botao'>Botão</option>
-                                </select>
-                            </div>
+                    </form>
+                    <br>
+                    <div class='w-100 d-flex align-items-center flex-column' style='background:red;'>
+                        <h4 class='Josefinfont text-color'>Definição</h4>
+                        <div class='text-left'>
+                            <strong>Carga horária:</strong>
+                            <input type='number'  min='1' max='50'>
+                            horas
                         </div>
-
-                        <!--ALTERNATIVA-->
-                        <div class='collapse AMB' id='alternativa'>
-                            <div>
-                                <strong>Quantidade de alternativas:</strong>
-                                <input type='number' min='5' max='20'>
-                            </div>
-                            <div class= form-check'>
-                                <input id='Radio' class='form-check-input' type='radio'>
-                                <label class='form-check-label' for='Radio'>
-                                    <input type='text' class='form-control' placeholder='text'>
-                                </label>
-                            </div>
+                        <div>
+                            <strong>Quantidade de fases:</strong>
+                            <input type='number'  min='2' max='100'>
                         </div>
-
-                        <!--MÚLTIPLA ESCOLHA-->
-                        <div class='collapse AMB' id='Mescolha'>
-                            <div>
-                                <strong>Quantidade de escolhas:</strong>
-                                <input type='number' min='5' max='20'>
-                            </div>
-                            <div class='form-check'>
-                                <input class='form-check-input' type='checkbox' value='' id='defaultCheck1'>
-                                <label class='form-check-label' for='defaultCheck1'>
-                                    <input type='text' class='form-control' placeholder='text'>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!--BOTÃO-->
-                        <div class='collapse AMB' id='botao'>
-                            <div>
-                                <strong>Quantidade de botões:</strong>
-                                <input type='number' min='5' max='20'>
-                            </div>
-                            <div>
-                                <label class='btn btn-outline-secondary bg-color text-light'>
-                                    <input type='text' class='form-control' placeholder='text'>
-                                </label>
+                        <div class='form-group row'>
+                            <label class='col-sm-2 col-form-label'><strong>Conteudo ensinado:</strong></label>
+                            <div class='col-sm-8'>
+                                <textarea class='form-control' rows='2' placeholder='Descreva em tópicos todo o conteúdo que será ensinado neste curso'></textarea>
                             </div>
                         </div>
                     </div>
                     
-                    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
-                </div>
-            </form>
 
-            <div class='d-flex justify-content-center'>
-                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
-                <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
+                    <!--OPÇÕES-->
+                    <h5 class='Josefinfont text-color text-uppercase'>SEÇÃO (colocar contador)</h5>
+                    <form>
+                        <div>
+                            <label><strong>Adicionar</strong></label>
+                            <select class='form-control data-val='true' id='opcaoMVQ'>
+                                <option>Selecione uma opção</option>
+                                <option value='material'>Material</option>
+                                <option value='video'>Video</option>
+                                <option value='questao'>Questão</option>
+                            </select>
+
+                            <!--MATERIAL-->
+                            <div class='collapse' id='material'>
+                                <label><strong>Adicionar Material</strong></label>
+                                <div class='form-group'>
+                                    <input type='text' class='form-control' placeholder='Titulo do Material'>
+                                    <textarea class='form-control' rows='3' placeholder='Digite aqui todo o conteúdo deste material'></textarea>
+                                </div>
+                            </div>
+
+                            <!--VIDEO-->
+                            <div class='collapse' id='video'>
+                                <label><strong>Adicionar Video</strong></label>
+                                <div class='form-group'>
+                                    <input type='text' class='form-control' placeholder='Titulo do Video'>
+                                    <textarea class='form-control' rows='2' placeholder='Descrição do Video'></textarea>
+                                    <label for='Botao' class='btn btn-outline-secondary bg-color text-light'>
+                                        <i class='bi bi-upload'></i>
+                                        Subir video
+                                    </label>
+                                    <input type='file' class='form-control-file' id='Botao'>
+                                </div>
+                            </div>
+
+                            <!--QUESTÕES-->
+                            <div class='collapse' id='questao'>
+                                <label><strong>Adicionar Questão</strong></label>
+                                <div class='form-group'>
+                                    <input type='text' class='form-control' placeholder='Pergunta'>
+                                    <div class='col-sm-10'>
+                                        <select class='form-control data-val='true' id='opcaoAMB'>
+                                            <option>Selecione uma opção</option>
+                                            <option value='alternativa'>Alternativa</option>
+                                            <option value='Mescolha'>Multipla escolha</option>
+                                            <option value='botao'>Botão</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!--ALTERNATIVA-->
+                                <div class='collapse AMB' id='alternativa'>
+                                    <div>
+                                        <strong>Quantidade de alternativas:</strong>
+                                        <input type='number' min='5' max='20'>
+                                    </div>
+                                    <div class= form-check'>
+                                        <input id='Radio' class='form-check-input' type='radio'>
+                                        <label class='form-check-label' for='Radio'>
+                                            <input type='text' class='form-control' placeholder='text'>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--MÚLTIPLA ESCOLHA-->
+                                <div class='collapse AMB' id='Mescolha'>
+                                    <div>
+                                        <strong>Quantidade de escolhas:</strong>
+                                        <input type='number' min='5' max='20'>
+                                    </div>
+                                    <div class='form-check'>
+                                        <input class='form-check-input' type='checkbox' value='' id='defaultCheck1'>
+                                        <label class='form-check-label' for='defaultCheck1'>
+                                            <input type='text' class='form-control' placeholder='text'>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--BOTÃO-->
+                                <div class='collapse AMB' id='botao'>
+                                    <div>
+                                        <strong>Quantidade de botões:</strong>
+                                        <input type='number' min='5' max='20'>
+                                    </div>
+                                    <div>
+                                        <label class='btn btn-outline-secondary bg-color text-light'>
+                                            <input type='text' class='form-control' placeholder='text'>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+                        </div>
+                    </form>
+
+                    <div class='d-flex justify-content-center'>
+                        <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
+                    </div>
+                </div>
             </div>
         </section>
     ";
