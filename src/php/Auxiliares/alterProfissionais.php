@@ -28,16 +28,30 @@
             $linkedin = $_POST['linkedin'];
             $github = $_POST['github'];
             $link = $_POST['link'];
+            $descricao = $dados['descricao'];
 
-            $sql -> query(
-                "UPDATE aluno SET
-                    `linkedin` = '$linkedin',
-                    `github` = '$github',
-                    `link_personalizado` = '$link'
-                WHERE matricula = '$matricula'");
-
-            echo "<h1>Alterações Realizadas com sucesso!</h1>";
-            header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
+            if ($usuario == 'aluno') {
+                $sql -> query(
+                    "UPDATE aluno SET
+                        `linkedin` = '$linkedin',
+                        `github` = '$github',
+                        `link_personalizado` = '$link'
+                    WHERE matricula = '$matricula'");
+    
+                echo "<h1>Alterações Realizadas com sucesso!</h1>";
+                header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
+            } else{
+                $sql -> query(
+                    "UPDATE professor SET
+                        `linkedin` = '$linkedin',
+                        `github` = '$github',
+                        `link_personalizado` = '$link'
+                        `descricao` = '$descricao'
+                    WHERE matricula = '$matricula'");
+    
+                echo "<h1>Alterações Realizadas com sucesso!</h1>";
+                header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
+            }
 
         ?>
     </div>
