@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           5.7.33 - MySQL Community Server (GPL)
+-- Versão do servidor:           8.0.25 - MySQL Community Server - GPL
 -- OS do Servidor:               Win64
 -- HeidiSQL Versão:              11.2.0.6213
 -- --------------------------------------------------------
@@ -15,7 +15,7 @@
 
 -- Copiando estrutura do banco de dados para easycode
 DROP DATABASE IF EXISTS `easycode`;
-CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `easycode`;
 
 -- Copiando estrutura para tabela easycode.aluno
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   UNIQUE KEY `email_aluno` (`email`) USING BTREE,
   UNIQUE KEY `CPF` (`CPF`) USING BTREE,
   UNIQUE KEY `matricula` (`matricula`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Copiando dados para a tabela easycode.aluno: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   `id_aluno` int(3) unsigned zerofill NOT NULL,
   `id_curso` int(3) unsigned zerofill NOT NULL,
   `id_responsavel` int(3) unsigned zerofill NOT NULL,
-  `fase` int(11) NOT NULL,
+  `fase` int NOT NULL,
   `data_inicio` date NOT NULL,
   `data_fim` date DEFAULT NULL,
   `pdf` varchar(10) DEFAULT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-aluno` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`id`),
   CONSTRAINT `FK-curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`),
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 
 -- Copiando dados para a tabela easycode.certificado: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
@@ -89,13 +89,13 @@ CREATE TABLE IF NOT EXISTS `curso` (
   `logo` blob,
   `linguagem` varchar(40) NOT NULL,
   `campo` enum('FrontEnd','BackEnd','Database') NOT NULL,
-  `fase` int(11) NOT NULL,
-  `duracao` int(11) NOT NULL DEFAULT '0',
+  `fase` int NOT NULL,
+  `duracao` int NOT NULL DEFAULT '0',
   `desc_breve` text NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK-responsavel` (`id_responsavel`),
   CONSTRAINT `FK-responsavel` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3;
 
 -- Copiando dados para a tabela easycode.curso: ~21 rows (aproximadamente)
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
@@ -134,19 +134,22 @@ CREATE TABLE IF NOT EXISTS `professor` (
   `matricula` varchar(6) NOT NULL,
   `nasc` date NOT NULL,
   `avatar` varchar(15) NOT NULL,
-  `destaque` varchar(150) DEFAULT NULL,
+  `descricao` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkedin` varchar(512) DEFAULT NULL,
+  `github` varchar(512) DEFAULT NULL,
+  `link_personalizado` varchar(512) DEFAULT NULL,
   `senha` varchar(15) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `email_adm` (`email`) USING BTREE,
   UNIQUE KEY `CPF_adm` (`CPF`) USING BTREE,
   UNIQUE KEY `matricula_adm` (`matricula`) USING BTREE,
   UNIQUE KEY `avatar` (`avatar`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela easycode.professor: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.professor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
-REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `destaque`, `senha`) VALUES
-	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', 'Aaa000');
+REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `descricao`, `linkedin`, `github`, `link_personalizado`, `senha`) VALUES
+	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'Jonathan é formado em administração pela etec jd angela e cursa desenvolvimento de sistemas', NULL, NULL, NULL, 'Aaa000');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
