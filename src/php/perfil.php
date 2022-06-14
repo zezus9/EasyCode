@@ -773,15 +773,15 @@ opcoes;
     if ($usuario != 'aluno') {
         echo
         "  
-        <div class='w-100'>
-            <div class='form-group'>
-                <div class='input-container'>
-                    <label for='descricao'><strong>Descrição</strong></label>
-                    <textarea id='descricao' class='input text-uppercase' name='descricao' placeholder'#' type='text' data-tipo='text' value='$descricao'></textarea>
-                    <span class='input-mensagem-erro'>Este campo não está valido</span>
-                </div>
-            </div>
-        </div>
+                            <div class='w-100'>
+                                <div class='form-group'>
+                                    <div class='input-container'>
+                                        <label for='descricao'><strong>Descrição</strong></label>
+                                        <textarea id='descricao' class='input text-uppercase' name='descricao' placeholder'#' type='text' data-tipo='text' value='$descricao'></textarea>
+                                        <span class='input-mensagem-erro'>Este campo não está valido</span>
+                                    </div>
+                                </div>
+                            </div>
         ";
     }
 
