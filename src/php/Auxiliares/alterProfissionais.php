@@ -20,6 +20,7 @@
             
             if (isset($_SESSION['matricula'])) {
                 $matricula = $_SESSION['matricula'];
+                $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
             }
             else{
                 header('Location: ../cadastro_login.php');
@@ -28,7 +29,6 @@
             $linkedin = $_POST['linkedin'];
             $github = $_POST['github'];
             $link = $_POST['link'];
-            $descricao = $dados['descricao'];
 
             if ($usuario == 'aluno') {
                 $sql -> query(
@@ -41,16 +41,17 @@
                 echo "<h1>Alterações Realizadas com sucesso!</h1>";
                 header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
             } else{
+                $descricao = $_POST['descricao'];
                 $sql -> query(
                     "UPDATE professor SET
                         `linkedin` = '$linkedin',
                         `github` = '$github',
-                        `link_personalizado` = '$link'
+                        `link_personalizado` = '$link',
                         `descricao` = '$descricao'
                     WHERE matricula = '$matricula'");
     
                 echo "<h1>Alterações Realizadas com sucesso!</h1>";
-                header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
+                // header("Refresh: 2; ../perfil.php?secoes=dProfissionais");
             }
 
         ?>

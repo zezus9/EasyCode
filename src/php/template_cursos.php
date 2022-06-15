@@ -10,7 +10,7 @@
     $buscaCurso = $sql -> 
             query("SELECT 
                     cur.linguagem, cur.desc_breve,cur.logo,cur.duracao,cur.fase,
-                    prof.nome as nome_prof,prof.avatar,prof.destaque
+                    prof.nome as nome_prof,prof.avatar,prof.descricao
                 FROM curso AS cur
                 INNER JOIN professor AS prof ON cur.id_responsavel = prof.id
                 WHERE cur.id = '$id_curso'");
@@ -21,7 +21,7 @@
         $logo = $curso['logo'];
         $avatar = $curso['avatar'];
         $nome_prof = $curso['nome_prof'];
-        $destaque = $curso['destaque'];
+        $descricao = $curso['descricao'];
         $duracao = $curso['duracao'];
         $fase = $curso['fase'];
     }
@@ -243,7 +243,7 @@
                                                 <h5 class='text-center'>$nome_prof</h5>
                                             </div>
                                             <div class='h-75 d-flex justify-content-center align-items-center'>
-                                                <p>$destaque</p>
+                                                <p>$descricao</p>
                                             </div>
                                         </div>
                                     </div>

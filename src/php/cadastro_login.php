@@ -90,7 +90,7 @@
 						<img src="../assets/img/EasyCode.png" alt="EasyCode" width="30%">
 					</figure>
 					<!-- !formulario -->
-					<div class="h-100 m-3 mt-0">
+					<div class="h-100 m-2 mt-0">
 						<form action="Auxiliares/login.php" method="post" class="formulario flex flex--coluna p-2">
 							<h1 class="text-center Black">Entrar</h1>
 							<!-- *email e matricula -->
