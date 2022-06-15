@@ -119,13 +119,7 @@
                                             </a>
                                             <div class='dropdown-divider'></div>
                                             <a class='dropdown-item' href='#'>
-                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-stack-overflow' viewBox='0 0 16 16'>
-                                                    <path d='M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z'/>
-                                                    <path d='M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254 0 9.108.852l4.26 5.727 1.146-.852L10.254 0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z'/>
-                                                </svg> Ministrar cursos
-                                            </a>
-                                            <a class='dropdown-item' href='#'>
-                                                <i class='bi bi-journal-plus'></i> Cadastro de cursos
+                                            <i class='bi bi-journal-plus'></i> Ministrar cursos
                                             </a>
                                             <a class='dropdown-item' href='#'>
                                                 <i class='bi bi-chat-text-fill'></i> Mensagens
@@ -166,8 +160,37 @@
             <div class="area-imagem">
                 <div class="m-5">
                     <h1 class="text-uppercase Lovelofont">CURSOS</h1>
-                    <p>A melhor plataforma para aprender programação <br> Venha se tornar um aluno da Easy Code</p>
-                    <a href="cadastro_login.php" class="btn btn-success p-2 btn-lg ">&nbsp;&nbsp;Inscrever-se&nbsp;&nbsp;</a>
+                    <?php
+
+                        include 'Auxiliares/connect.php';
+
+                        if (!isset($_SESSION)) {
+                            session_start();
+                        }
+
+                        // !Testa se esta logado ou não
+                        $logado = false;
+                        if (isset($_SESSION['matricula'])) {
+                            // !Testa se quem está logado é aluno ou professor
+                            $logado = true;
+                            $matricula = $_SESSION['matricula'];
+                            $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+                        }
+
+                        if ($logado) {
+                            echo
+                            "
+                                <p>A melhor plataforma para aprender programação <br> Aproveite os benefícios de fazer parte da equipe Easy Code</p>
+                                <a href='perfil.php' class='btn btn-success p-2 btn-lg'>&nbsp;&nbsp;Matriculas&nbsp;&nbsp;</a>
+                            ";
+                        } else{
+                            echo 
+                            "
+                                <p>A melhor plataforma para aprender programação <br> Venha se tornar um aluno da Easy Code</p>
+                                <a href='cadastro_login.php' class='btn btn-success p-2 btn-lg'>&nbsp;&nbsp;Inscrever-se&nbsp;&nbsp;</a>
+                            ";
+                        }
+                    ?>
                 </div>
                 <div class="col-auto d-none d-lg-block m-3">
                     <img src="../assets/img/mascotecomlogo.png" width="200px" />
