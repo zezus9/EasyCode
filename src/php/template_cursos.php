@@ -270,6 +270,31 @@
                         </div>
                     </div>
                 </div>
+    ";
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    
+    $logado = false;
+    if (isset($_SESSION['matricula'])) {
+        $logado = true;
+        $usuario = '';
+        $matricula = $_SESSION['matricula'];
+        $usuario = substr($matricula,0,1) == 0 ? 'aluno' : 'professor';
+
+        $dadosUsuario = $sql -> query("SELECT * FROM $usuario WHERE matricula = '$matricula'");
+
+        $dadosAluno = $sql -> query("SELECT id FROM aluno WHERE matricula = '$matricula'");
+        while ($dados = mysqli_fetch_array($dadosAluno)) {
+            $id_aluno = $dados['id'];
+        }
+    }
+
+    if ($logado) {
+        if ($usuario == "aluno") {
+            echo
+            "
                 <div class='col-12 col-lg-6 col-xl-4'>
                     <div class='sticky-top'>
                         <br>
@@ -309,12 +334,108 @@
                                         </div>
                                         Ensino interativo
                                     </div>
-                                    <a href='' class='btn btn-success' role='button'>FAZER MATRÍCULA</a>
+            ";
+
+            $matriculado = $sql -> query("SELECT * FROM certificado 
+                                            WHERE id_curso = '$id_curso' AND id_aluno = '$id_aluno'");
+
+            if (mysqli_num_rows($matriculado)) {
+                echo 
+                "
+                                    <a href='curso.php' class='btn btn-success' role='button'>INICIAR CURSO</a>
+                ";
+            } else{
+                echo
+                "
+                                    <form action='Auxiliares/matricularAluno.php' method='post'>
+                                        <input hidden value='$id_curso' name='id_curso'>        
+                                        <input class='btn btn-success' type='submit' value='FAZER MATRÍCULA'>
+                                    </form>
+                ";
+            }
+
+            echo
+            "
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            ";
+
+        } else{
+            echo
+            "
+                <div class='col-12 col-lg-6 col-xl-4'>
+                    <div class='sticky-top'>
+                        <br>
+                        <div class='card shadow fundocard'>
+                            <div class='card-body p-xl-5 pb-xl-4'>
+                                <h5 class='text-center text-uppercase fw-bolder mb-4'>
+                                    A melhor plataforma para aprender programação <br> Aproveite os benefícios de fazer parte da equipe Easy Code
+                                </h5>
+                                <div class='col mx-auto text-center'>
+                                    <img src='../assets/img/Logo Mascote Sem fundo.png' width='200px'/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
+        }
+    } else{
+        echo
+            "
+                <div class='col-12 col-lg-6 col-xl-4'>
+                    <div class='sticky-top'>
+                        <br>
+                        <div class='card shadow fundocard'>
+                            <div class='card-body p-xl-5 pb-xl-4'>
+                                <h5 class='text-center text-uppercase fw-bolder mb-4'>Vantagens em aprender na Easy Code
+                                </h5>
+                                <div class='d-grid gap-3 fw-bold text-muted'>
+                                    <div class='d-flex flex-row align-items-center'>
+                                        <div class='me-3'>
+                                            <i class='bi bi-check-circle-fill' style='font-size:1.3rem;'></i>
+                                        </div>
+                                        Curso 100% gratuito
+                                    </div>
+                                    <div class='d-flex flex-row align-items-center'>
+                                        <div class='me-3'>
+                                            <i class='bi bi-award-fill' style='font-size:1.3rem;'></i>
+                                        </div>
+                                        Fornece certificação
+                                    </div>
+                                    <div class='d-flex flex-row align-items-center'>
+                                        <div class='me-3'>
+
+                                            <i class='bi bi-journals' style='font-size:1.3rem;'></i>
+                                        </div>
+                                        Materiais de apoio
+                                    </div>
+                                    <div class='d-flex flex-row align-items-center'>
+                                        <div class='me-3'>
+                                            <i class='bi bi-geo-alt-fill' style='font-size:1.3rem;'></i>
+                                        </div>
+                                        Acesso em qualquer lugar
+                                    </div>
+                                    <div class='d-flex flex-row align-items-center'>
+                                        <div class='me-3'>
+                                            <i class='bi bi-ui-checks' style='font-size:1.3rem;'></i>
+                                        </div>
+                                        Ensino interativo
+                                    </div>
+                                    <a href='cadastro_login.php' class='btn btn-success' role='button'>FAZER MATRÍCULA</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
+    }
+                      
+    echo
+    "
             </div>
             <br>
         </article>
