@@ -42,7 +42,7 @@
                 curso.linguagem, cert.fase,curso.id
             FROM certificado AS cert 
             INNER JOIN curso ON cert.id_curso = curso.id
-            WHERE id_aluno = '$idAluno' AND `status` = 'NÃO TERMINADO'
+            WHERE id_aluno = '$idAluno' AND `status` = 'INICIADO'
             ORDER BY cert.id"
         );
 
