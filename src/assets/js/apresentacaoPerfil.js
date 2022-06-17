@@ -13,7 +13,6 @@ function opcoes(escolha){
         secoes[i].style.display = 'none'
         secoes[i].classList.remove('secaoAp')
     }
-    console.log(escolha)
     let secao = document.getElementById('secao_'+escolha)
     secao.style.display = 'block'
 

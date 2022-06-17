@@ -506,35 +506,46 @@ opcoes;
         "
                     <div class='d-flex align-items-center flex-column w-50 p-3'>
                         <h1 class='d-flex align-center justify-content-center Josefinfont text-color'>MINISTRAR CURSO</h1>
-                        <form action='$_SERVER[PHP_SELF]' method='POST' class='w-50 d-flex align-items-center flex-column'>
+                        <form action='' method='POST' class='w-50 d-flex align-items-center flex-column'>
                             <strong>Qual curso deseja editar?</strong>
                             <div class='col-sm-10'>
-                                <select class='form-control' name='selectCurso' required>
-                                    <option value='none'>Curso:</option>
+                                <select class='form-control text-center' name='selectCurso' id='selectNC' required>
+                                    <option value='none'></option>
         ";
 
+        if ($numCursos > 0) {
+            $cursosM = $sql -> query(
+                "SELECT 
+                    curso.linguagem
+                FROM curso
+                INNER JOIN professor AS prof ON curso.id_responsavel = prof.id
+                WHERE curso.id_responsavel = '$idProfessor'
+                ORDER BY curso.linguagem"
+            );
         
+            while ($curso = mysqli_fetch_array($cursosM)){
+                echo "<option value='$curso[linguagem]'>$curso[linguagem]</option>";
+            }
+        }
         
         echo
         "
-                                    <option value='Python'>Python</option>
-                                    <option value='JavaScript'>JavaScript</option>
-                                    <option value='MySQL'>MySQL</option>
                                 </select>
                             </div>
                             <div class='m-2'>
-                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light' id='submitNC'>
                             </div>
                         </form>
                     </div>
         ";
     } elseif (isset($_POST['selectCurso']) and !isset($_POST['definido'])) {
+        $nomeCurso = $_POST['selectCurso'];
         echo
         "
                     <div class='d-flex align-items-center p-5 flex-column w-50 p-3' style='font-size:1.1em'>
-                        <h1 class='Josefinfont text-color'>Definição</h1>
-                        <form action='$_SERVER[PHP_SELF]' method='POST' class='d-flex align-items-center justify-content-around w-100 flex-column'>
-                            <input hidden name='selectCurso' value='$_POST[selectCurso]'> 
+                        <h1 class='Josefinfont text-color'>Definição - $nomeCurso</h1>
+                        <form action='$_SERVER[PHP_SELF]' method='POST' class='d-flex align-items-center justify-content-around w-100 flex-column' autocomplete='off'>
+                            <input hidden name='selectCurso' value='$nomeCurso'>
                             <input hidden name='definido' value='true'>
                             <div class='m-3 d-flex justify-content-center align-items-center'>
                                 <div class='d-flex flex-column align-items-end'>
@@ -542,32 +553,43 @@ opcoes;
                                     <strong class='m-2 p-0'>Quantidade de fases:</strong>
                                 </div>
                                 <div class='d-flex flex-column'>
-                                    <input class='m-2 p-0' type='number'  min='1' max='50' required>
-                                    <input class='m-2 p-0' type='number'  min='2' max='100' required>
+                                    <input class='m-2 p-0' type='number'  min='1' max='50' name='carga' required>
+                                    <input class='m-2 p-0' type='number'  min='2' max='100' name='fases' required>
                                 </div>
                             </div>
                             <div class='form-group w-100 d-flex align-items-center flex-column'>
                                 <label class='p-2'><strong>Conteudo ensinado:</strong></label>
                                 <div class='w-75 p-1'>
-                                    <textarea class='form-control' rows='4' max-length='15' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
+                                    <textarea class='form-control' rows='4' max-length='15' name='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
                                 </div>
-                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light submit x'>
+                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
                             </div>
                         </form>
                     </div>
         ";
     } elseif (isset($_POST['selectCurso']) and isset($_POST['definido'])) {
+        $nomeCurso = $_POST['selectCurso'];
+        $carga = $_POST['carga'];
+        $fases = $_POST['fases'];
+        $conteudo = $_POST['conteudo'];
+        $faseA = isset($_POST['faseA']) ? $_POST['faseA'] : '1';
+
+        // !Auxiliares/ministrandoCurso.php
         echo
         "
                     <div class='d-flex align-items-center flex-column w-100 p-2'>
-                        <h1 class='Josefinfont text-color text-uppercase'>SEÇÃO</h1>
-                        <form class='d-flex align-items-center p-2 flex-column w-100'>
-                            <input hidden name='selectCurso' value='$_POST[selectCurso]'> 
-                            <input hidden name='definido' value='$_POST[definido]'>
+                    <h1 class='Josefinfont text-color text-uppercase' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
+                        <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-2 flex-column w-100' id='formAulas' autocomplete='off'>
+                            <input hidden name='definido' value='true'>
+                            <input hidden name='selectCurso' value='$nomeCurso' id='nomeCursos'>
+                            <input hidden name='carga' value='$carga'>
+                            <input hidden name='fases' value='$fases' id='fases'>
+                            <input hidden name='faseA' value='$faseA' id='faseA'>
+                            <input hidden name='conteudo' value='$conteudo'>
                             <div class='w-100 d-flex align-items-center flex-column'>
                                 <strong>Adicionar</strong>
-                                <select class='form-control m-2 w-50' data-val='true' id='opcaoMVQ'>
-                                    <option>Selecione uma opção</option>
+                                <select class='form-control m-2 w-50 selects' id='opcaoMVQ' name='aula' onchange='resetQuestao()'>
+                                    <option value='none'>Selecione uma opção</option>
                                     <option value='material'>Material</option>
                                     <option value='video'>Video</option>
                                     <option value='questao'>Questão</option>
@@ -577,22 +599,22 @@ opcoes;
                                 <div class='collapse m-3 w-100 text-center' id='material'>
                                     <strong>Adicionar Material</strong>
                                     <div class='form-group w-100 d-flex flex-column align-items-center'>
-                                        <input type='text' class='form-control w-50' placeholder='Titulo do Material'>
-                                        <textarea class='form-control my-2' rows='10' placeholder='Cole aqui o conteúdo deste material'></textarea>
+                                        <input type='text' class='form-control w-50 materialVa' placeholder='Titulo do Material' name='tituloM' id='tituloM'>
+                                        <textarea class='form-control my-2 materialVa' rows='10' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
                                     </div>
                                 </div>
                     
                                 <!--VIDEO-->
                                 <div class='collapse m-3 w-50 text-center' id='video'>
-                                    <label><strong>Adicionar Video</strong></label>
+                                    <strong>Adicionar Video</strong>
                                     <div class='form-group'>
-                                        <input type='text' class='form-control' placeholder='Titulo do Video'>
-                                        <textarea class='form-control my-2' rows='8' placeholder='Descrição do Aula'></textarea>
-                                        <label for='Botao' class='btn btn-outline-secondary bg-color text-light m-2'>
+                                        <input type='text' class='form-control videoVa' placeholder='Titulo do Video' name='tituloV'>
+                                        <textarea class='form-control my-2 videoVa' rows='8' placeholder='Descrição do Aula' name='descricaoV'></textarea>
+                                        <label for='videoU' class='btn btn-outline-secondary bg-color text-light m-2'>
                                             <i class='bi bi-upload'></i>
                                             Subir video
                                         </label>
-                                        <input type='file' class='form-control-file' id='Botao'>
+                                        <input type='file' accept='video/*' class='form-control-file videoVa' id='videoU' name='videoU'>
                                     </div>
                                 </div>
                     
@@ -601,75 +623,78 @@ opcoes;
                                     <strong>Adicionar Questão</strong>
                                     <div class='form-group w-100 d-flex align-items-center flex-column'>
                                         <div class='col-sm-10 w-50 my-2'>
-                                            <select class='form-control data-val='true' id='opcaoAMB'>
-                                                <option>Tipo de questão</option>
+                                            <select class='form-control selects' data-val='true' id='opcaoAMB' name='tipoQ'>
+                                                <option id='tipoNone'>Tipo de questão</option>
                                                 <option value='alternativa'>Alternativa</option>
                                                 <option value='Mescolha'>Multipla escolha</option>
                                                 <option value='botao'>Botão</option>
                                             </select>
                                         </div>
                                     </div>
+        ";
+
+        $qtdeOpcoesA = !isset($_POST['qtdeOpcoesA']) ? '3' : $_POST['qtdeOpcoesA'];
+        $qtdeOpcoesM = !isset($_POST['qtdeOpcoesM']) ? '3' : $_POST['qtdeOpcoesM'];
+        $qtdeOpcoesB = !isset($_POST['qtdeOpcoesB']) ? '5' : $_POST['qtdeOpcoesB'];
+
+        echo
+        "
                     
                                     <!--ALTERNATIVA-->
                                     <div class='collapse AMB w-100 m-2' id='alternativa'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100' style='resize: none' placeholder='Pergunta'></textarea>
+                                                <textarea class='form-control my-2 h-100 questaoVa questaoAlt' style='resize: none' placeholder='Pergunta' name='perguntaA'></textarea>
                                                 <div>
                                                     <strong>Quantidade de alternativas:</strong>
-                                                    <input type='number' min='3' max='5' value='3'>
-                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesA' name='qtdeOpcoesA' class='questaoVa questaoAlt' id='qtdeOpcoesA'>
+                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
                                             <div class='d-flex flex-column w-50 p-2'>
+        ";
+
+        for ($i=1; $i <= $qtdeOpcoesA; $i++) {
+            echo<<<qtdeInputs
                                                 <div class='d-flex align-items-center'>
-                                                    <input type='radio' class='m-1' name='questaoRadio' checked>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
+                                                    <input type='radio' class='m-1 questaoVa questaoAlt' name='questaoR' id='questaoR$i'>
+                                                    <input type='text' class='form-control my-1 questaoVa questaoAlt' name='opcaoR$i' placeholder='text'>
                                                 </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='radio' class='m-1' name='questaoRadio'>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='radio' class='m-1' name='questaoRadio'>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='radio' class='m-1' name='questaoRadio'>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='radio' class='m-1' name='questaoRadio'>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
+qtdeInputs;
+        }
+
+        echo
+        "                                    
                                             </div>
                                         </div>
                                     </div>
-                    
+
                                     <!--MÚLTIPLA ESCOLHA-->
                                     <div class='collapse AMB w-100 m-2' id='Mescolha'>
                                         <div class='d-flex'>
+        
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100' style='resize: none' placeholder='Pergunta'></textarea>
+                                                <textarea class='form-control my-2 h-100 questaoVa questaoMes' style='resize: none' placeholder='Pergunta' name='perguntaM'></textarea>
                                                 <div>
                                                     <strong>Quantidade de escolhas:</strong>
-                                                    <input type='number' min='3' max='5' value='3'>
-                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesM' name='qtdeOpcoesM' class='questaoVa questaoMes' id='qtdeOpcoesM'>
+                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
                                             <div class='d-flex flex-column w-50 p-2'>
+        ";
+
+        for ($i=1; $i <= $qtdeOpcoesM; $i++) { 
+            echo<<<qtdeInputs
                                                 <div class='d-flex align-items-center'>
-                                                    <input type='checkbox' class='m-1' name='questaoCheck' checked>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
+                                                    <input type='checkbox' class='m-1 questaoC' name='questaoC' id='questaoC$i'>
+                                                    <input type='text' class='form-control my-1 questaoVa questaoMes' name='opcaoC$i' placeholder='text'>
                                                 </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='checkbox' class='m-1' name='questaoCheck' checked>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
-                                                <div class='d-flex align-items-center'>
-                                                    <input type='checkbox' class='m-1' name='questaoCheck'>
-                                                    <input type='text' class='form-control my-1' placeholder='text'>
-                                                </div>
+qtdeInputs;
+        }
+
+        echo
+        "
                                             </div>
                                         </div>
                                     </div>
@@ -678,72 +703,29 @@ opcoes;
                                     <div class='collapse AMB w-100 m-2' id='botao'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100' style='resize: none' placeholder='Pergunta'></textarea>
+                                                <textarea class='form-control my-2 h-100 questaoVa questaoBot' style='resize: none' placeholder='Pergunta' name='perguntaB'></textarea>
                                                 <div>
-                                                    <strong>Quantidade de alternativas:</strong>
-                                                    <input type='number' min='4' max='8' value='5'>
-                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                                    <strong>Quantidade de botões:</strong>
+                                                    <input type='number' min='4' max='8' value='$qtdeOpcoesB' name='qtdeOpcoesB' class='questaoVa questaoBot' id='qtdeOpcoesB'>
+                                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
                                             <div class='d-flex flex-wrap w-50 align-items-center'>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
+                                                <div class='h-100'>
+                                                    <div class='d-flex flex-wrap justify-content-center'>
+        ";
+
+        for ($i=1; $i <= $qtdeOpcoesB; $i++) { 
+            echo<<<qtdeInputs
+                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light m-1' style='width:48%'>
+                                                        <input class='mx-2 w-25 text-center' type='number' min='1' max='8' name='ordem$i' id='ordem$i'>
+                                                        <input type='text' class='form-control questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
                                                     </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='w-50'>
-                                                    <div class='d-flex btn btn-outline-secondary bg-color text-light mx-2'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='4' max='8'>
-                                                        <input type='text' class='form-control' placeholder='text'>
+qtdeInputs;
+        }
+
+        echo
+        "
                                                     </div>
                                                 </div>
                                             </div>
@@ -752,7 +734,7 @@ opcoes;
                                 </div>
                                 <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
                             </div>
-                            <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light'>
+                            <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light submit'>
                         </form>
                     </div>
         ";
@@ -913,7 +895,7 @@ opcoes;
                             <div class='w-100'>
                                 <div class='form-group h-50 m-2'>
                                     <div class='input-container h-100'>
-                                        <label for='descricao'><strong>Descrição</strong></label>
+                                        <label for='descricao'><strong>Formação</strong></label>
                                         <textarea id='descricao' class='input text-uppercase h-100' name='descricao' placeholder'#' type='text' data-tipo='text' value='$descricao'></textarea>
                                         <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
@@ -989,7 +971,7 @@ opcoes;
         <script src='../assets/js/alterAvatar.js'></script>
         <script src='../assets/js/apresentacaoPerfil.js'></script>
         <script src='../assets/js/sidebar.js'></script>
-        <script src='../assets/js/ministrarAux.js'></script>
+        <script src='../assets/js/aulasCursos.js'></script>
     </body>
     </html>
     ";
