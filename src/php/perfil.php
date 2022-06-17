@@ -92,6 +92,9 @@
         $numCursos = mysqli_num_rows($cursosM);
     }
 
+    if (isset($_POST['voltarCon']) && $_POST['voltarCon'] == 'voltar') {unset($_POST['selectCurso']);unset($_POST['voltarCon']);}
+    if (isset($_POST['voltarAul']) && $_POST['voltarAul'] == 'voltar') {unset($_POST['definido']);   unset($_POST['voltarAul']);}
+
     echo "
     <!DOCTYPE html>
     <html lang='pt-br'>
@@ -543,26 +546,30 @@ opcoes;
         echo
         "
                     <div class='d-flex align-items-center p-5 flex-column w-50 p-3' style='font-size:1.1em'>
-                        <h1 class='Josefinfont text-color'>Definição - $nomeCurso</h1>
+                        <h1 class='Josefinfont text-color text-center'>Definição - $nomeCurso</h1>
                         <form action='$_SERVER[PHP_SELF]' method='POST' class='d-flex align-items-center justify-content-around w-100 flex-column' autocomplete='off'>
                             <input hidden name='selectCurso' value='$nomeCurso'>
                             <input hidden name='definido' value='true'>
+                            <input hidden name='voltarCon' value='' id='voltarCon'>
                             <div class='m-3 d-flex justify-content-center align-items-center'>
                                 <div class='d-flex flex-column align-items-end'>
                                     <strong class='m-2 p-0'>Carga horária:</strong>
                                     <strong class='m-2 p-0'>Quantidade de fases:</strong>
                                 </div>
                                 <div class='d-flex flex-column'>
-                                    <input class='m-2 p-0' type='number'  min='1' max='50' name='carga' required>
-                                    <input class='m-2 p-0' type='number'  min='2' max='100' name='fases' required>
+                                    <input class='m-2 p-0 vDefinicao' type='number'  min='1' max='50' name='carga' required>
+                                    <input class='m-2 p-0 vDefinicao' type='number'  min='2' max='100' name='fases' required>
                                 </div>
                             </div>
                             <div class='form-group w-100 d-flex align-items-center flex-column'>
-                                <label class='p-2'><strong>Conteudo ensinado:</strong></label>
+                                <strong class='p-2'>Conteudo ensinado:</strong>
                                 <div class='w-75 p-1'>
-                                    <textarea class='form-control' rows='4' max-length='15' name='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
+                                    <textarea class='form-control vDefinicao' rows='4' max-length='15' name='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
                                 </div>
-                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light'>
+                                <div class='d-flex justify-content-center'>
+                                    <input type='submit' value='VOLTAR' class='btn btn-outline-secondary bg-color text-light m-1' id='voltarNC'>
+                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light m-1'>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -578,7 +585,7 @@ opcoes;
         echo
         "
                     <div class='d-flex align-items-center flex-column w-100 p-2'>
-                    <h1 class='Josefinfont text-color text-uppercase' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
+                    <h1 class='Josefinfont text-color' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
                         <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-2 flex-column w-100' id='formAulas' autocomplete='off'>
                             <input hidden name='definido' value='true'>
                             <input hidden name='selectCurso' value='$nomeCurso' id='nomeCursos'>
@@ -586,6 +593,7 @@ opcoes;
                             <input hidden name='fases' value='$fases' id='fases'>
                             <input hidden name='faseA' value='$faseA' id='faseA'>
                             <input hidden name='conteudo' value='$conteudo'>
+                            <input hidden name='voltarAul' value='' id='voltarAul'>
                             <div class='w-100 d-flex align-items-center flex-column'>
                                 <strong>Adicionar</strong>
                                 <select class='form-control m-2 w-50 selects' id='opcaoMVQ' name='aula' onchange='resetQuestao()'>
@@ -718,7 +726,7 @@ qtdeInputs;
         for ($i=1; $i <= $qtdeOpcoesB; $i++) { 
             echo<<<qtdeInputs
                                                     <div class='d-flex btn btn-outline-secondary bg-color text-light m-1' style='width:48%'>
-                                                        <input class='mx-2 w-25 text-center' type='number' min='1' max='8' name='ordem$i' id='ordem$i'>
+                                                        <input class='mx-2 w-25 text-center ordemP' type='number' min='1' max='8' name='ordem$i' id='ordem$i'>
                                                         <input type='text' class='form-control questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
                                                     </div>
 qtdeInputs;
@@ -734,7 +742,10 @@ qtdeInputs;
                                 </div>
                                 <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
                             </div>
-                            <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light submit'>
+                            <div class='d-flex justify-content-center'>
+                                <input type='submit' value='VOLTAR' class='btn btn-outline-secondary bg-color text-light m-1' id='voltarAu'>
+                                <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light m-1 submit'>
+                            </div>
                         </form>
                     </div>
         ";

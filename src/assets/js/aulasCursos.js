@@ -1,6 +1,7 @@
+const nomeCurso = document.querySelector('#submitNC')
+const voltarNC = document.querySelector('#voltarNC')
 const btn = document.querySelectorAll(".submit")
 const changeQTDE = document.querySelectorAll(".changeQTDE")
-const nomeCurso = document.querySelector('#submitNC')
 
 if (nomeCurso !== null) {
     nomeCurso.addEventListener("click", function(e) {
@@ -8,15 +9,22 @@ if (nomeCurso !== null) {
             e.preventDefault()
         }
     })
+} else if (voltarNC !== null) {
+    voltarNC.addEventListener("click", function(e) {
+        let vDefinicao = document.querySelectorAll('.vDefinicao')
+        required(vDefinicao,false)
+        document.querySelector('#voltarCon').value = 'voltar'
+    })
 } else if (btn.length !== 0) {
-    const fases = document.querySelector('#fases').value
+    var materialVa = document.querySelectorAll('.materialVa')
+    var videoVa = document.querySelectorAll('.videoVa')
+    var allQuestoesVa = document.querySelectorAll('.questaoVa')
+    var questaoAlt = document.querySelectorAll('.questaoAlt')
+    var questaoMes = document.querySelectorAll('.questaoMes')
+    var questaoBot = document.querySelectorAll('.questaoBot')
+    const voltarAu = document.querySelector('#voltarAu')
+    const fases = parseInt(document.querySelector('#fases').value)
     let faseAtual = document.querySelector('#faseA')
-    let materialVa = document.querySelectorAll('.materialVa')
-    let videoVa = document.querySelectorAll('.videoVa')
-    let allQuestoesVa = document.querySelectorAll('.questaoVa')
-    let questaoAlt = document.querySelectorAll('.questaoAlt')
-    let questaoMes = document.querySelectorAll('.questaoMes')
-    let questaoBot = document.querySelectorAll('.questaoBot')
 
     for (let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("click", function(e) {
@@ -32,8 +40,8 @@ if (nomeCurso !== null) {
                     Ncontinuar = false
                 }
             }
-    
-            if (faseAtual.value < fases) {
+            
+            if (parseInt(faseAtual.value) < fases) {
                 if (valid(escolhaA,escolhaQ)) {
                     faseAtual.value = parseInt(faseAtual.value) + 1
                 } else {
@@ -41,7 +49,7 @@ if (nomeCurso !== null) {
                 }
             } else if (!Ncontinuar || !valid(escolhaA,escolhaQ)) {
                 e.preventDefault()
-            } else if (faseAtual.value == fases) {
+            } else if (parseInt(faseAtual.value) == fases) {
                 document.querySelector('#formAulas').action = 'Auxiliares/ministrandoCurso.php'
             }
     
@@ -68,101 +76,133 @@ if (nomeCurso !== null) {
             }
         })
     }
-    
-    function opcaoE(inclusao,escolhaQ) {
-    
-        if (inclusao == 'material') {
-            required(materialVa,true)
-            required(videoVa,false)
-            required(allQuestoesVa,false)
-            document.querySelector('#tipoNone').removeAttribute("value")
-        } else if (inclusao == 'video') {
-            required(materialVa,false)
-            required(videoVa,true)
-            required(allQuestoesVa,false)
-            document.querySelector('#tipoNone').removeAttribute("value")
-        } else if (inclusao == 'questao') {
-            required(materialVa,false)
-            required(videoVa,false)
-            opcaoQ(escolhaQ)
-            document.querySelector('#tipoNone').value = 'none'
-        }
-    }
-    
-    function opcaoQ(inclusao) {
-    
-        if (inclusao == 'alternativa') {
-            required(questaoAlt,true)
-            required(questaoMes,false)
-            required(questaoBot,false)
-        } else if (inclusao == 'Mescolha') {
-            required(questaoAlt,false)
-            required(questaoMes,true)
-            required(questaoBot,false)
-        } else if (inclusao == 'botao') {
-            required(questaoAlt,false)
-            required(questaoMes,false)
-            required(questaoBot,true)
-        }
-    }
-    
-    function required(input,required) {
-    
-        for (let i = 0; i < input.length; i++) {
-            if (required) {
-                input[i].required = 'true'
-            } else {
-                input[i].removeAttribute("required")
-            }
-        }
-    }
-    
-    function valid(escolhaA,escolhaQ) {
-    
-        if (escolhaA == 'material') {
-            let valided = true
-            for (let i = 0; i < materialVa.length; i++) {if (!validating(materialVa[i])) {valided = false}}
-    
-            return valided
-        } else if (escolhaA == 'video') {
-            let valided = true
-            for (let i = 0; i < videoVa.length; i++) {if (!validating(videoVa[i])) {valided = false}}
-    
-            return valided
+    voltarAu.addEventListener("click", function(e) {
+        required(materialVa,false)
+        required(videoVa,false)
+        required(allQuestoesVa,false)
+        if (parseInt(faseAtual.value) == 1) {
+            document.querySelector('#voltarAul').value = 'voltar'
         } else {
-            if (escolhaQ == 'alternativa') {
-                let valided = true
-                for (let i = 0; i < questaoAlt.length; i++) {if (!validating(questaoAlt[i])) {valided = false}}
-                
-                return valided
-            } else if (escolhaQ == 'Mescolha') {
-                let valided = true
-                let checkboxs = document.querySelectorAll('.questaoC')
-                let checked = false
+            faseAtual.value = parseInt(faseAtual.value) - 1
+        }
+    })
+}
+
+function opcaoE(inclusao,escolhaQ) {
     
-                for (let i = 0; i < questaoMes.length; i++) {if (!validating(questaoMes[i])) {valided = false}}
-                for (let i = 0; i < checkboxs.length; i++)  {
-                    if (checkboxs[i].checked) {
-                        checked = true
+    if (inclusao == 'material') {
+        required(materialVa,true)
+        required(videoVa,false)
+        required(allQuestoesVa,false)
+        document.querySelector('#tipoNone').removeAttribute("value")
+    } else if (inclusao == 'video') {
+        required(materialVa,false)
+        required(videoVa,true)
+        required(allQuestoesVa,false)
+        document.querySelector('#tipoNone').removeAttribute("value")
+    } else if (inclusao == 'questao') {
+        required(materialVa,false)
+        required(videoVa,false)
+        opcaoQ(escolhaQ)
+        document.querySelector('#tipoNone').value = 'none'
+    }
+}
+
+function opcaoQ(inclusao) {
+
+    if (inclusao == 'alternativa') {
+        required(questaoAlt,true)
+        required(questaoMes,false)
+        required(questaoBot,false)
+    } else if (inclusao == 'Mescolha') {
+        required(questaoAlt,false)
+        required(questaoMes,true)
+        required(questaoBot,false)
+    } else if (inclusao == 'botao') {
+        required(questaoAlt,false)
+        required(questaoMes,false)
+        required(questaoBot,true)
+    }
+}
+
+function required(input,required) {
+
+    for (let i = 0; i < input.length; i++) {
+        if (required) {
+            input[i].required = 'true'
+        } else {
+            input[i].removeAttribute("required")
+        }
+    }
+}
+
+function valid(escolhaA,escolhaQ) {
+
+    if (escolhaA == 'material') {
+        let valided = true
+        for (let i = 0; i < materialVa.length; i++) {if (!validating(materialVa[i])) {valided = false}}
+
+        return valided
+    } else if (escolhaA == 'video') {
+        let valided = true
+        for (let i = 0; i < videoVa.length; i++) {if (!validating(videoVa[i])) {valided = false}}
+
+        return valided
+    } else {
+        if (escolhaQ == 'alternativa') {
+            let valided = true
+            for (let i = 0; i < questaoAlt.length; i++) {if (!validating(questaoAlt[i])) {valided = false}}
+            
+            return valided
+        } else if (escolhaQ == 'Mescolha') {
+            let valided = true
+            let checkboxs = document.querySelectorAll('.questaoC')
+            let checked = false
+
+            for (let i = 0; i < questaoMes.length; i++) {if (!validating(questaoMes[i])) {valided = false}}
+            for (let i = 0; i < checkboxs.length; i++)  {
+                if (checkboxs[i].checked) {
+                    checked = true
+                }
+            }
+            return valided && checked
+        } else if (escolhaQ == 'botao') {
+            let ordemP = document.querySelectorAll('.ordemP')
+            let checked = false
+            let rChecked = false
+            let arrayOrdem = Array()
+            let valided = true
+            
+            for (let i = 0; i < questaoBot.length; i++) {if (!validating(questaoBot[i])) {valided = false}}
+            for (let i = 0; i < ordemP.length; i++)  {
+                if (ordemP[i].value) {
+                    if (arrayOrdem.includes(ordemP[i].value)) {
+                        rChecked = true
+                    } else {
+                        arrayOrdem.push(ordemP[i].value)
                     }
                 }
-                return valided && checked
-            } else if (escolhaQ == 'botao') {
-                let valided = true
-                for (let i = 0; i < questaoBot.length; i++) {if (!validating(questaoBot[i])) {valided = false}}
-                
-                return valided
             }
+            if (arrayOrdem.length >= 3 && !rChecked) {
+                arrayOrdem.sort()
+                checked = true
+                for (let i = 0; i < arrayOrdem.length; i++)  {
+                    if (arrayOrdem[i] != i+1) {
+                        checked = false
+                    }
+                }
+            }
+            return valided && checked
         }
     }
-    
-    function validating(value) {
-        return value.validity.valid
-    }
-    
-    function resetQuestao() {
-        if (document.querySelector('#opcaoMVQ').value == 'questao') {
-            document.querySelector('#opcaoAMB').options.selectedIndex = 0
-        }
+}
+
+function validating(value) {
+    return value.validity.valid
+}
+
+function resetQuestao() {
+    if (document.querySelector('#opcaoMVQ').value == 'questao') {
+        document.querySelector('#opcaoAMB').options.selectedIndex = 0
     }
 }
