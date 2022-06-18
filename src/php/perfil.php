@@ -575,19 +575,20 @@ opcoes;
                     </div>
         ";
     } elseif (isset($_POST['selectCurso']) and isset($_POST['definido'])) {
+        $aulasComp = isset($_POST['aulasComp']) ? $_POST['aulasComp'] : '';
         $nomeCurso = $_POST['selectCurso'];
         $carga = $_POST['carga'];
         $fases = $_POST['fases'];
         $conteudo = $_POST['conteudo'];
         $faseA = isset($_POST['faseA']) ? $_POST['faseA'] : '1';
 
-        // !Auxiliares/ministrandoCurso.php
         echo
         "
                     <div class='d-flex align-items-center flex-column w-100 p-2'>
                     <h1 class='Josefinfont text-color' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
                         <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-2 flex-column w-100' id='formAulas' autocomplete='off'>
                             <input hidden name='definido' value='true'>
+                            <input hidden name='aulasComp' value='$aulasComp' id='aulasComp'>
                             <input hidden name='selectCurso' value='$nomeCurso' id='nomeCursos'>
                             <input hidden name='carga' value='$carga'>
                             <input hidden name='fases' value='$fases' id='fases'>
@@ -726,7 +727,7 @@ qtdeInputs;
         for ($i=1; $i <= $qtdeOpcoesB; $i++) { 
             echo<<<qtdeInputs
                                                     <div class='d-flex btn btn-outline-secondary bg-color text-light m-1' style='width:48%'>
-                                                        <input class='mx-2 w-25 text-center ordemP' type='number' min='1' max='8' name='ordem$i' id='ordem$i'>
+                                                        <input class='mx-2 w-25 text-center ordemP' type='number' min='1' max='8' name='ordem' id='ordem$i'>
                                                         <input type='text' class='form-control questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
                                                     </div>
 qtdeInputs;
@@ -755,12 +756,7 @@ qtdeInputs;
     "
                 </div>
             </div>
-        </section>
-    ";
-
-
-    echo
-    "  
+        </section>  
         <section class='secao h-100' id='secao_certificados'>
             <div class='container d-flex align-center justify-content-center nonSelect h-100'>
     ";
