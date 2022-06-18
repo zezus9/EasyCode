@@ -608,8 +608,8 @@ opcoes;
                                 <div class='collapse m-3 w-100 text-center' id='material'>
                                     <strong>Adicionar Material</strong>
                                     <div class='form-group w-100 d-flex flex-column align-items-center'>
-                                        <input type='text' class='form-control w-50 materialVa' placeholder='Titulo do Material' name='tituloM' id='tituloM'>
-                                        <textarea class='form-control my-2 materialVa' rows='10' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
+                                        <input type='text' class='w-50 materialVa input pl' placeholder='Titulo do Material' name='tituloM' id='tituloM'>
+                                        <textarea class='inputText my-2 materialVa' rows='10' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
                                     </div>
                                 </div>
                     
@@ -617,8 +617,8 @@ opcoes;
                                 <div class='collapse m-3 w-50 text-center' id='video'>
                                     <strong>Adicionar Video</strong>
                                     <div class='form-group'>
-                                        <input type='text' class='form-control videoVa' placeholder='Titulo do Video' name='tituloV'>
-                                        <textarea class='form-control my-2 videoVa' rows='8' placeholder='Descrição do Aula' name='descricaoV'></textarea>
+                                        <input type='text' class='videoVa input pl' placeholder='Titulo do Video' name='tituloV'>
+                                        <textarea class='inputText my-2 videoVa' rows='8' placeholder='Descrição do Aula' name='descricaoV'></textarea>
                                         <label for='videoU' class='btn btn-outline-secondary bg-color text-light m-2'>
                                             <i class='bi bi-upload'></i>
                                             Subir video
@@ -653,10 +653,10 @@ opcoes;
                                     <div class='collapse AMB w-100 m-2' id='alternativa'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100 questaoVa questaoAlt' style='resize: none' placeholder='Pergunta' name='perguntaA'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoAlt' style='resize: none' placeholder='Pergunta' name='perguntaA'></textarea>
                                                 <div>
                                                     <strong>Quantidade de alternativas:</strong>
-                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesA' name='qtdeOpcoesA' class='questaoVa questaoAlt' id='qtdeOpcoesA'>
+                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesA' name='qtdeOpcoesA' class='questaoVa questaoAlt inputNum' id='qtdeOpcoesA'>
                                                     <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
@@ -667,7 +667,7 @@ opcoes;
             echo<<<qtdeInputs
                                                 <div class='d-flex align-items-center'>
                                                     <input type='radio' class='m-1 questaoVa questaoAlt' name='questaoR' id='questaoR$i'>
-                                                    <input type='text' class='form-control my-1 questaoVa questaoAlt' name='opcaoR$i' placeholder='text'>
+                                                    <input type='text' class=' input pl my-1 questaoVa questaoAlt' name='opcaoR$i' placeholder='text'>
                                                 </div>
 qtdeInputs;
         }
@@ -683,10 +683,10 @@ qtdeInputs;
                                         <div class='d-flex'>
         
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100 questaoVa questaoMes' style='resize: none' placeholder='Pergunta' name='perguntaM'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoMes' style='resize: none' placeholder='Pergunta' name='perguntaM'></textarea>
                                                 <div>
                                                     <strong>Quantidade de escolhas:</strong>
-                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesM' name='qtdeOpcoesM' class='questaoVa questaoMes' id='qtdeOpcoesM'>
+                                                    <input type='number' min='3' max='5' value='$qtdeOpcoesM' name='qtdeOpcoesM' class='questaoVa questaoMes inputNum' id='qtdeOpcoesM'>
                                                     <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
@@ -697,7 +697,7 @@ qtdeInputs;
             echo<<<qtdeInputs
                                                 <div class='d-flex align-items-center'>
                                                     <input type='checkbox' class='m-1 questaoC' name='questaoC' id='questaoC$i'>
-                                                    <input type='text' class='form-control my-1 questaoVa questaoMes' name='opcaoC$i' placeholder='text'>
+                                                    <input type='text' class=' input pl my-1 questaoVa questaoMes' name='opcaoC$i' placeholder='text'>
                                                 </div>
 qtdeInputs;
         }
@@ -712,10 +712,10 @@ qtdeInputs;
                                     <div class='collapse AMB w-100 m-2' id='botao'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='form-control my-2 h-100 questaoVa questaoBot' style='resize: none' placeholder='Pergunta' name='perguntaB'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoBot' style='resize: none' placeholder='Pergunta' name='perguntaB'></textarea>
                                                 <div>
                                                     <strong>Quantidade de botões:</strong>
-                                                    <input type='number' min='4' max='8' value='$qtdeOpcoesB' name='qtdeOpcoesB' class='questaoVa questaoBot' id='qtdeOpcoesB'>
+                                                    <input type='number' min='4' max='8' value='$qtdeOpcoesB' name='qtdeOpcoesB' class='questaoVa questaoBot inputNum' id='qtdeOpcoesB'>
                                                     <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light changeQTDE'>
                                                 </div>
                                             </div>
@@ -727,7 +727,7 @@ qtdeInputs;
         for ($i=1; $i <= $qtdeOpcoesB; $i++) { 
             echo<<<qtdeInputs
                                                     <div class='d-flex btn btn-outline-secondary bg-color text-light m-1' style='width:48%'>
-                                                        <input class='mx-2 w-25 text-center ordemP inputNum' type='number' min='1' max='8' name='ordem' id='ordem$i'>
+                                                        <input class='mx-2 w-25 text-center ordemP inputNumB' type='number' min='1' max='8' name='ordem' id='ordem$i'>
                                                         <input type='text' class='input questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
                                                     </div>
 qtdeInputs;
@@ -903,7 +903,7 @@ qtdeInputs;
                                 <div class='form-group h-50 m-2'>
                                     <div class='input-container h-100'>
                                         <label for='descricao'><strong>Formação</strong></label>
-                                        <textarea id='descricao' class='input text-uppercase h-100' name='descricao' placeholder'#' type='text' data-tipo='text' value='$descricao'></textarea>
+                                        <textarea id='descricao' class='inputText h-100' name='descricao' placeholder='$descricao' style='background:transparent'></textarea>
                                         <span class='input-mensagem-erro'>Este campo não está valido</span>
                                     </div>
                                 </div>

@@ -10,11 +10,10 @@
 
 .input {
     box-sizing: border-box;
-    border-bottom: 1px solid var(--cor-secundaria);
     padding: 1.375rem 0.5rem 0.5rem;
     height: 3rem;
     width: 100%;
-    color: black;
+    color: black!important;
     background-color: transparent;
     border: 2px solid black;
     border-radius: 10px;
@@ -22,6 +21,14 @@
 
 .input::placeholder {
     visibility: hidden;
+}
+
+.pl {
+    background-color: white;
+}
+
+.pl::placeholder {
+    visibility: visible!important;
 }
 
 .input:focus {
@@ -34,7 +41,6 @@
     left: 1rem;
     font-size: var(--fonte-tamanho-input-label);
     color: black;
-    
     transition: all .25s;
 }
 
@@ -68,4 +74,63 @@
     display: block;
     margin-top: -10px;
     padding: 10px;
+}
+
+.inputSel{
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.5rem;
+    height: 2.5rem;
+    width: 100%;
+    color: #008037;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.inputNum{
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.5rem;
+    height: 2rem;
+    color: #008037;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.inputNumB{
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.5rem;
+    height: 100%;
+    width: 20%!important;
+    color: black;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button { 
+    -webkit-appearance: none;   
+}
+
+.inputText{
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
