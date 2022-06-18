@@ -512,7 +512,7 @@ opcoes;
                         <form action='' method='POST' class='w-50 d-flex align-items-center flex-column'>
                             <strong>Qual curso deseja editar?</strong>
                             <div class='col-sm-10'>
-                                <select class='form-control text-center' name='selectCurso' id='selectNC' required>
+                                <select class='text-center inputSel' name='selectCurso' id='selectNC' required>
                                     <option value='none'></option>
         ";
 
@@ -557,8 +557,8 @@ opcoes;
                                     <strong class='m-2 p-0'>Quantidade de fases:</strong>
                                 </div>
                                 <div class='d-flex flex-column'>
-                                    <input class='m-2 p-0 vDefinicao' type='number'  min='1' max='50' name='carga' required>
-                                    <input class='m-2 p-0 vDefinicao' type='number'  min='2' max='100' name='fases' required>
+                                    <input class='m-2 p-0 vDefinicao inputNum' type='number'  min='1' max='50' name='carga' required>
+                                    <input class='m-2 p-0 vDefinicao inputNum' type='number'  min='2' max='100' name='fases' required>
                                 </div>
                             </div>
                             <div class='form-group w-100 d-flex align-items-center flex-column'>
@@ -597,7 +597,7 @@ opcoes;
                             <input hidden name='voltarAul' value='' id='voltarAul'>
                             <div class='w-100 d-flex align-items-center flex-column'>
                                 <strong>Adicionar</strong>
-                                <select class='form-control m-2 w-50 selects' id='opcaoMVQ' name='aula' onchange='resetQuestao()'>
+                                <select class='m-2 w-50 selects inputSel' id='opcaoMVQ' name='aula' onchange='resetQuestao()'>
                                     <option value='none'>Selecione uma opção</option>
                                     <option value='material'>Material</option>
                                     <option value='video'>Video</option>
@@ -632,7 +632,7 @@ opcoes;
                                     <strong>Adicionar Questão</strong>
                                     <div class='form-group w-100 d-flex align-items-center flex-column'>
                                         <div class='col-sm-10 w-50 my-2'>
-                                            <select class='form-control selects' data-val='true' id='opcaoAMB' name='tipoQ'>
+                                            <select class='selects inputSel' data-val='true' id='opcaoAMB' name='tipoQ'>
                                                 <option id='tipoNone'>Tipo de questão</option>
                                                 <option value='alternativa'>Alternativa</option>
                                                 <option value='Mescolha'>Multipla escolha</option>
@@ -727,8 +727,8 @@ qtdeInputs;
         for ($i=1; $i <= $qtdeOpcoesB; $i++) { 
             echo<<<qtdeInputs
                                                     <div class='d-flex btn btn-outline-secondary bg-color text-light m-1' style='width:48%'>
-                                                        <input class='mx-2 w-25 text-center ordemP' type='number' min='1' max='8' name='ordem' id='ordem$i'>
-                                                        <input type='text' class='form-control questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
+                                                        <input class='mx-2 w-25 text-center ordemP inputNum' type='number' min='1' max='8' name='ordem' id='ordem$i'>
+                                                        <input type='text' class='input questaoVa questaoBot' name='opcaoB$i' placeholder='text'>
                                                     </div>
 qtdeInputs;
         }
