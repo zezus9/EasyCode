@@ -257,7 +257,7 @@ function valid(escolhaA,escolhaQ) {
                     }
                 }
             }
-            if (arrayOrdem.length >= 3 && !rChecked) {
+            if (arrayOrdem.length >= 2 && !rChecked) {
                 arrayOrdem.sort()
                 checked = true
                 for (let i = 0; i < arrayOrdem.length; i++)  {

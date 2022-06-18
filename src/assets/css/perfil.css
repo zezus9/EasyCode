@@ -277,10 +277,5 @@ a{
 }
 
 .input{
-    color: rgb(85, 82, 82)!important;
     padding: 1em!important;
-}
-
-.input:focus{
-    color: #008037!important;
 }
