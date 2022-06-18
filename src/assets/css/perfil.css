@@ -60,9 +60,9 @@ a{
 	background: #7ED957; 
 }
 
-.sidebar ul li.active > label, label[aria-expanded="true"] {
-	background: white;
-    color: #008037;
+.sidebar ul li.active > label {
+	background: white!important;
+    color: #008037!important;
 }
 
 .sidebar label[data-toggle="collapse"] {

@@ -100,19 +100,19 @@
     <html lang='pt-br'>
     <head>
         <!--link do icon-->
+        <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>$nome</title>
-        <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
-
+        
         <link rel='stylesheet' href='../assets/css/perfil.css'>
         <link rel='stylesheet' href='../assets/css/style.css'>
         <link rel='stylesheet' href='../assets/css/inputs.css'>
         <link rel='stylesheet' href='../assets/css/sidebar.css'>
-
+        
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
-
+        
         <link rel='stylesheet' href='../assets/css/pagecursos.css'>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
@@ -564,11 +564,11 @@ opcoes;
                             <div class='form-group w-100 d-flex align-items-center flex-column'>
                                 <strong class='p-2'>Conteudo ensinado:</strong>
                                 <div class='w-75 p-1'>
-                                    <textarea class='form-control vDefinicao' rows='4' max-length='15' name='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
+                                    <textarea class='inputText vDefinicao' rows='4' max-length='15' name='conteudo' id='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
                                 </div>
                                 <div class='d-flex justify-content-center'>
                                     <input type='submit' value='VOLTAR' class='btn btn-outline-secondary bg-color text-light m-1' id='voltarNC'>
-                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light m-1'>
+                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light m-1' id='enviarC'>
                                 </div>
                             </div>
                         </form>
@@ -579,7 +579,7 @@ opcoes;
         $nomeCurso = $_POST['selectCurso'];
         $carga = $_POST['carga'];
         $fases = $_POST['fases'];
-        $conteudo = $_POST['conteudo'];
+        $conteudo = str_replace('☺','</br>',$_POST['conteudo']);
         $faseA = isset($_POST['faseA']) ? $_POST['faseA'] : '1';
 
         echo

@@ -334,28 +334,37 @@
                                         </div>
                                         Ensino interativo
                                     </div>
+                                    <div class='d-flex justify-content-center'>
             ";
 
+            $completado = $sql -> query("SELECT * FROM certificado 
+                                            WHERE id_curso = '$id_curso' AND id_aluno = '$id_aluno' AND `status` = 'TERMINADO'");
             $matriculado = $sql -> query("SELECT * FROM certificado 
                                             WHERE id_curso = '$id_curso' AND id_aluno = '$id_aluno'");
 
-            if (mysqli_num_rows($matriculado)) {
+            if (mysqli_num_rows($completado)) {
                 echo 
                 "
-                                    <a href='curso.php' class='btn btn-success' role='button'>INICIAR CURSO</a>
+                                        <a href='perfil.php?secoes=certificados' class='btn btn-success' role='button'>CERTIFICADO</a>
                 ";
-            } else{
+            } elseif (mysqli_num_rows($matriculado)) {
+                echo 
+                "
+                                        <a href='curso.php?curso=$id_curso' class='btn btn-success' role='button'>INICIAR CURSO</a>
+                ";
+            } else {
                 echo
                 "
-                                    <form action='Auxiliares/matricularAluno.php' method='post'>
-                                        <input hidden value='$id_curso' name='id_curso'>        
-                                        <input class='btn btn-success' type='submit' value='FAZER MATRÍCULA'>
-                                    </form>
+                                        <form action='Auxiliares/matricularAluno.php' method='post'>
+                                            <input hidden value='$id_curso' name='id_curso'>        
+                                            <input class='btn btn-success' type='submit' value='FAZER MATRÍCULA'>
+                                        </form>
                 ";
             }
 
             echo
             "
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -425,7 +434,7 @@
                                         </div>
                                         Ensino interativo
                                     </div>
-                                    <a href='cadastro_login.php' class='btn btn-success' role='button'>FAZER MATRÍCULA</a>
+                                    <a href='cadastro_login.php' class='btn btn-success' role='button'>INSCREVA-SE</a>
                                 </div>
                             </div>
                         </div>

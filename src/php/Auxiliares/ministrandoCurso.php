@@ -27,7 +27,7 @@
                     WHERE linguagem = '$selectCurso'");
 
                 $conteudo = $_POST['conteudo'];
-                $conteudo = explode(';',$conteudo);
+                $conteudo = explode('</br>',$conteudo);
 
                 $abrirCont = fopen($conteudoAr,"w");
                 for ($t=0; $t < count($conteudo); $t++) {

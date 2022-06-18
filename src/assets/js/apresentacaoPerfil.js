@@ -13,6 +13,7 @@ function opcoes(escolha){
         secoes[i].style.display = 'none'
         secoes[i].classList.remove('secaoAp')
     }
+
     let secao = document.getElementById('secao_'+escolha)
     secao.style.display = 'block'
 
@@ -21,6 +22,7 @@ function opcoes(escolha){
         let elementPai = opcoes[i].parentElement
         elementPai.classList.remove('active')
     }
+    document.querySelector(`#${escolha}`).parentElement.classList.add('active')
 }
 
 document.querySelectorAll(".opcoes").forEach( function(opcao) {

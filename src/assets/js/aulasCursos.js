@@ -1,5 +1,6 @@
 const nomeCurso = document.querySelector('#submitNC')
 const voltarNC = document.querySelector('#voltarNC')
+const enviarC = document.querySelector('#enviarC')
 const btn = document.querySelectorAll(".submit")
 const changeQTDE = document.querySelectorAll(".changeQTDE")
 
@@ -11,9 +12,14 @@ if (nomeCurso !== null) {
     })
 } else if (voltarNC !== null) {
     voltarNC.addEventListener("click", function(e) {
+        e.preventDefault()
         let vDefinicao = document.querySelectorAll('.vDefinicao')
         required(vDefinicao,false)
         document.querySelector('#voltarCon').value = 'voltar'
+    })
+    enviarC.addEventListener("click", function(e) {
+        let conteudo = document.querySelector('#conteudo').value.split('\n')
+        document.querySelector('#conteudo').value = conteudo.join('☺')
     })
 } else if (btn.length !== 0) {
     var materialVa = document.querySelectorAll('.materialVa')
@@ -102,19 +108,22 @@ if (nomeCurso !== null) {
         if (escolhaA == 'material') {
             aulaAtual.push(faseAtual.value,escolhaA)
             for (let i = 0; i < materialVa.length; i++) {
-                aulaAtual.push(materialVa[i].value.replace('\n','☺'))
+                var material = materialVa[i].value.split('\n')
+                aulaAtual.push(material.join('☺'))
             }
         } else if (escolhaA == 'video') {
             aulaAtual.push(faseAtual.value,escolhaA)
             for (let i = 0; i < videoVa.length; i++) {
-                aulaAtual.push(videoVa[i].value.replace('\n','☺'))
+                var material = materialVa[i].value.split('\n')
+                aulaAtual.push(material.join('☺'))
             }
         } else if (escolhaQ == 'alternativa') {
             
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoAlt.length; i++) {
                 if (questaoAlt[i].type != 'radio') {
-                    aulaAtual.push(questaoAlt[i].value.replace('\n','☺'))
+                    var material = materialVa[i].value.split('\n')
+                    aulaAtual.push(material.join('☺'))
                 }
             }
 
@@ -130,7 +139,8 @@ if (nomeCurso !== null) {
 
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoMes.length; i++) {
-                aulaAtual.push(questaoMes[i].value.replace('\n','☺'))
+                var material = materialVa[i].value.split('\n')
+                aulaAtual.push(material.join('☺'))
             }
 
             let questaoCheck = document.getElementsByName('questaoC')
@@ -145,7 +155,8 @@ if (nomeCurso !== null) {
 
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoBot.length; i++) {
-                aulaAtual.push(questaoBot[i].value.replace('\n','☺'))
+                var material = materialVa[i].value.split('\n')
+                aulaAtual.push(material.join('☺'))
             }
 
             let questaoOrdem = document.getElementsByName('ordem')
