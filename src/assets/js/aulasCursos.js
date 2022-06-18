@@ -23,6 +23,7 @@ if (nomeCurso !== null) {
     var questaoMes = document.querySelectorAll('.questaoMes')
     var questaoBot = document.querySelectorAll('.questaoBot')
     const voltarAu = document.querySelector('#voltarAu')
+    let aulasComp = document.querySelector('#aulasComp')
     const fases = parseInt(document.querySelector('#fases').value)
     let faseAtual = document.querySelector('#faseA')
 
@@ -43,6 +44,10 @@ if (nomeCurso !== null) {
             
             if (parseInt(faseAtual.value) < fases) {
                 if (valid(escolhaA,escolhaQ)) {
+                    var aulas = aulasComp.value.split('.-.')[0] == '' ? Array() : aulasComp.value.split('.-.')
+                    aulas.push(addAula(escolhaA,escolhaQ))
+                    aulasComp.value = aulas.join('.-.')
+
                     faseAtual.value = parseInt(faseAtual.value) + 1
                 } else {
                     e.preventDefault()
@@ -50,6 +55,10 @@ if (nomeCurso !== null) {
             } else if (!Ncontinuar || !valid(escolhaA,escolhaQ)) {
                 e.preventDefault()
             } else if (parseInt(faseAtual.value) == fases) {
+                var aulas = aulasComp.value.split('.-.')[0] == '' ? Array() : aulasComp.value.split('.-.')
+                aulas.push(addAula(escolhaA,escolhaQ))
+                aulasComp.value = aulas.join('.-.')
+
                 document.querySelector('#formAulas').action = 'Auxiliares/ministrandoCurso.php'
             }
     
@@ -86,6 +95,71 @@ if (nomeCurso !== null) {
             faseAtual.value = parseInt(faseAtual.value) - 1
         }
     })
+
+    function addAula(escolhaA,escolhaQ) {
+        let aulaAtual = Array()
+
+        if (escolhaA == 'material') {
+            aulaAtual.push(faseAtual.value,escolhaA)
+            for (let i = 0; i < materialVa.length; i++) {
+                aulaAtual.push(materialVa[i].value.replace('\n','☺'))
+            }
+        } else if (escolhaA == 'video') {
+            aulaAtual.push(faseAtual.value,escolhaA)
+            for (let i = 0; i < videoVa.length; i++) {
+                aulaAtual.push(videoVa[i].value.replace('\n','☺'))
+            }
+        } else if (escolhaQ == 'alternativa') {
+            
+            aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
+            for (let i = 0; i < questaoAlt.length; i++) {
+                if (questaoAlt[i].type != 'radio') {
+                    aulaAtual.push(questaoAlt[i].value.replace('\n','☺'))
+                }
+            }
+
+            let questaoRadio = document.getElementsByName('questaoR')
+            let indexRadio = 0
+            for (let i = 0; i < questaoRadio.length; i++) {
+                if (questaoRadio[i].checked) {
+                    indexRadio = questaoRadio[i].id.substr(8)
+                }
+            }
+            aulaAtual.push(indexRadio)
+        } else if (escolhaQ == 'Mescolha') {
+
+            aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
+            for (let i = 0; i < questaoMes.length; i++) {
+                aulaAtual.push(questaoMes[i].value.replace('\n','☺'))
+            }
+
+            let questaoCheck = document.getElementsByName('questaoC')
+            let indexCheckbox = []
+            for (let i = 0; i < questaoCheck.length; i++) {
+                if (questaoCheck[i].checked) {
+                    indexCheckbox.push(questaoCheck[i].id.substr(8))
+                }
+            }
+            aulaAtual.push(indexCheckbox.join(','))
+        } else if (escolhaQ == 'botao') {
+
+            aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
+            for (let i = 0; i < questaoBot.length; i++) {
+                aulaAtual.push(questaoBot[i].value.replace('\n','☺'))
+            }
+
+            let questaoOrdem = document.getElementsByName('ordem')
+            let indexOrdem = []
+            for (let i = 0; i < questaoOrdem.length; i++) {
+                if (questaoOrdem[i].value != '') {
+                    indexOrdem.push(`${questaoOrdem[i].id.substr(5)}:${questaoOrdem[i].value}`)
+                }
+            }
+            aulaAtual.push(indexOrdem)
+        }
+
+        return aulaAtual.join('-.-')
+    }
 }
 
 function opcaoE(inclusao,escolhaQ) {
