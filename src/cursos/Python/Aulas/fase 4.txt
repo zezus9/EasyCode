@@ -1,0 +1,14 @@
+material
+
+Inserindo Comentários
+Os comentários podem ser usados para:
+•	Explicar o código Python;
+•	Tornar o código mais legível;
+•	Impedir a execução ao testar o código.
+Em python os comentários começam com um # e automaticamente será renderizado o restante da linha como um comentário. Python não possui uma sintaxe para comentários de várias linhas, para adicionar um comentário de várias linhas será necessário inserir um # para cada linha
+Exemplo 1:
+#Aqui será inserido o comentário 
+
+Exemplo 2:
+#Aqui será inserido a primeira linha de um comentário 
+#Aqui será inserido a segunda linha de um comentário

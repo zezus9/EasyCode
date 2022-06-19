@@ -1,0 +1,24 @@
+material
+
+FUNÇÃO
+print()
+O print() serve para imprimir alguma mensagem de texto (string) na tela. A sintaxe requer que seja utilizado os parênteses e aspas simples ou duplas, para identificar o texto que deseja ser exibido na tela.
+Exemplo 1:
+print (“Hello World”)
+Saída: 
+Hello World
+
+Exemplo 2:
+print (‘Hello World’)
+Saída: 
+Hello World
+
+input()
+É utilizado quando precisamos que o usuário passe ao programa algum tipo de dado. A função input() recebe como parâmetro uma string que será mostrada como auxílio ao usuário, geralmente o informando que tipo de dado o programa está aguardando receber.
+
+Exemplo:
+input("Escreva seu nome: ") 
+
+Quando fazemos isso, o terminal ou prompt de comando irá mostrar o texto "Escreva seu nome: " na tela e aguardar até que o usuário digite alguma informação.
+
+Observação importante: Python é sensitive case, ou seja, faz diferença entre utilizar letras maiúsculas e minúsculas, portanto, print e input deve ser escritos em letras minúsculas.

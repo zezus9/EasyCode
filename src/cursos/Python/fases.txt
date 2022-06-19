@@ -1,4 +1,12 @@
-SALVE 1
-SALVE 2
-SALVE 3
-SALVE 4
+Introdução - O que é Python?
+Tipos de Dados
+Variáveis 
+Inserindo Comentários
+FUNÇÃO
+Operadores
+Indentação Python
+Estrutura de decisão
+Estrutura de repetição
+botao
+alternativa
+Mescolha

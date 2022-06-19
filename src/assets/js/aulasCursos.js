@@ -11,8 +11,7 @@ if (nomeCurso !== null) {
         }
     })
 } else if (voltarNC !== null) {
-    voltarNC.addEventListener("click", function(e) {
-        e.preventDefault()
+    voltarNC.addEventListener("click", function() {
         let vDefinicao = document.querySelectorAll('.vDefinicao')
         required(vDefinicao,false)
         document.querySelector('#voltarCon').value = 'voltar'
@@ -53,8 +52,8 @@ if (nomeCurso !== null) {
                     var aulas = aulasComp.value.split('.-.')[0] == '' ? Array() : aulasComp.value.split('.-.')
                     aulas.push(addAula(escolhaA,escolhaQ))
                     aulasComp.value = aulas.join('.-.')
-
                     faseAtual.value = parseInt(faseAtual.value) + 1
+                    console.log(aulas)
                 } else {
                     e.preventDefault()
                 }
@@ -95,6 +94,11 @@ if (nomeCurso !== null) {
         required(materialVa,false)
         required(videoVa,false)
         required(allQuestoesVa,false)
+        
+        let menos = aulasComp.value.split('.-.')
+        menos.pop()
+        aulasComp.value = menos.join('.-.')
+
         if (parseInt(faseAtual.value) == 1) {
             document.querySelector('#voltarAul').value = 'voltar'
         } else {
@@ -122,7 +126,7 @@ if (nomeCurso !== null) {
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoAlt.length; i++) {
                 if (questaoAlt[i].type != 'radio') {
-                    var material = materialVa[i].value.split('\n')
+                    var material = questaoAlt[i].value.split('\n')
                     aulaAtual.push(material.join('☺'))
                 }
             }
@@ -139,7 +143,7 @@ if (nomeCurso !== null) {
 
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoMes.length; i++) {
-                var material = materialVa[i].value.split('\n')
+                var material = questaoMes[i].value.split('\n')
                 aulaAtual.push(material.join('☺'))
             }
 
@@ -155,7 +159,7 @@ if (nomeCurso !== null) {
 
             aulaAtual.push(faseAtual.value,escolhaA,escolhaQ)
             for (let i = 0; i < questaoBot.length; i++) {
-                var material = materialVa[i].value.split('\n')
+                var material = questaoBot[i].value.split('\n')
                 aulaAtual.push(material.join('☺'))
             }
 

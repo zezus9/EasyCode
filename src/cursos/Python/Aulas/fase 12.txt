@@ -1,0 +1,11 @@
+questao
+
+Mescolha
+Como se declara uma variável?
+
+2
+variável 2
+x = 2
+= 2
+x = str('python')
+Resposta: 3,5

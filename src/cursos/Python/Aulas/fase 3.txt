@@ -1,0 +1,13 @@
+material
+
+Variáveis 
+Em Python, as variáveis são criadas quando você atribui um valor a ela:
+Exemplo 1:
+x = 2
+Atribuindo valor 2 na variável x, reconhecendo o valor como um tipo inteiro
+Exemplo 2:
+y = "Hello, World!"
+Atribuindo valor "Hello, Word" na variável y, reconhecendo o valor como um tipo string
+
+Em Python, para usar variáveis, não precisamos declará-las no início do código, e sim em qualquer momento durante o código. 
+Também não precisamos definir seu tipo, pois a própria linguagem interpreta o tipo de dado que está sendo armazenado.

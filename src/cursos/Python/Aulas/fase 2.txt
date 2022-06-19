@@ -1,0 +1,12 @@
+material
+
+Tipos de Dados
+Para que possamos identificar dados que devem ser salvos na memória do computador, geralmente temos que identificar o tipo de dado que iremos trabalhar.
+Em Python, isso pode acontecer de forma dinâmica, ou seja, não precisamos muitas vezes dizer que uma variável é de um tipo específico, pois no momento da atribuição do valor, o próprio interpretador irá analisar e definir o tipo conforme a execução do programa (tipo embutido). De qualquer forma podemos também identificar em Python os tipos básicos que são: 
+INTEIRO (INT):
+O tipo inteiro é um tipo composto por caracteres numéricos (algarismos) inteiros. É um tipo usado para um número que pode ser escrito sem um componente decimal, podendo ser positivo ou negativo.
+Exemplo:
+Idade = 20
+print(type(idade)) 
+Saída: 
+class 

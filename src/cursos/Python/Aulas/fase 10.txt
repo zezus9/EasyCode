@@ -1,0 +1,12 @@
+questao
+
+botao
+Qual é o comando correto, em python, para imprimir alguma mensagem de texto na tela?
+
+Print(
+print(
+PRINT(
+"mensagem")
+mensagem)
+"mensagem"
+Resposta: 2:1,5:2

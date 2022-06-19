@@ -584,9 +584,9 @@ opcoes;
 
         echo
         "
-                    <div class='d-flex align-items-center flex-column w-100 p-2'>
+                    <div class='d-flex align-items-center flex-column w-100 p-1'>
                     <h1 class='Josefinfont text-color' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
-                        <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-2 flex-column w-100' id='formAulas' autocomplete='off'>
+                        <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-1 flex-column w-100' id='formAulas' autocomplete='off'>
                             <input hidden name='definido' value='true'>
                             <input hidden name='aulasComp' value='$aulasComp' id='aulasComp'>
                             <input hidden name='selectCurso' value='$nomeCurso' id='nomeCursos'>

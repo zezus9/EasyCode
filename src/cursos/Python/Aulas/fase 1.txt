@@ -1,0 +1,16 @@
+material
+
+Introdução - O que é Python?
+A Linguagem Python é uma linguagem de programação de script e interpretada, orientada a objetos, de alto nível e com muitas bibliotecas/recursos. Sua simplicidade reduz a manutenção de um programa.
+É usado para:
+•	Desenvolvimento Web;
+•	Desenvolvimento de Software;
+•	Matemática;
+•	Script do sistema.
+
+O que o Python pode fazer? 
+•	Pode ser usado em um servidor para criar aplicativos da web;
+•	Pode ser usado junto com o software para criar fluxos de trabalho;
+•	Pode se conectar a sistemas de banco de dados. Ele também pode ler e modificar arquivos;
+•	Pode ser usado para lidar com big data e realizar matemática complexa;
+•	Python pode ser usado para prototipagem rápida ou para desenvolvimento de software pronto para produção.

@@ -1,0 +1,27 @@
+material
+
+Operadores
+OPERADORES ARITMÉTICOS
+São utilizados para a realização de operações envolvendo cálculos matemáticos.
++   | Adição
+-    | Subtração
+*   | Multiplicação
+/    | Divisão Real
+//  | Divisão Inteira
+%  | Resto da Divisão
+** | Exponenciação
+
+OPERADORES RELACIONAIS
+São utilizados para comparar caracteres, números, variáveis e expressões.
+==  | Igual a
+!=   | Diferente de
+>    | Maior que
+<    | Menor que
+>=  | Maior ou igual a
+<=  | Menor ou igual a
+
+OPERADORES LÓGICOS
+Servem para combinar resultados de expressões, retornando se o resultado final é verdadeiro ou falso.
+and  | E
+or     | OU
+not   | NÃO
