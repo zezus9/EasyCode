@@ -19,16 +19,6 @@ body{
     background-image: url(../img/bgimg.jpg);
 }
 
-.sidebar{
-    background: #008037;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 15%!important;
-    height:100% ;
-    transition: all 0.5s ease;
-}
-
 .sidebar .profile{
     text-align:center;
 }

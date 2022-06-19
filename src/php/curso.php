@@ -66,7 +66,7 @@
             </a>
         </div>
         <!-- Sidebar -->
-        <nav class='sidebar sidebarcurso'>
+        <nav class='sidebar'>
             <!-- Fechar Menu-->
             <div class='fechar-x'>
                 <i class='bi bi-x'></i>
@@ -98,7 +98,7 @@ curso;
             <div class='navbar navbar-expand nonSelect'>
                 <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
                     <ul class='navbar-nav ml-auto justify-content-center'>
-                        <li class='perfil text-center'>
+                        <li class='dropup perfil text-center'>
                             <a class='dropdown-toggle text-light' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <span>$nome</span>
                             </a>
