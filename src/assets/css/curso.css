@@ -78,10 +78,6 @@ body{
     color: transparent;
 }
 
-input[type="radio"],input[type="file"]{
-    display: none;
-}
-
 .secao{
     height: 100vh!important;
 }
@@ -97,15 +93,19 @@ input[type="radio"],input[type="file"]{
     max-height: 75%;
 }
 
-.menu-elements::-webkit-scrollbar {
+.conteudo{
+    overflow-y: scroll;
+}
+
+.menu-elements::-webkit-scrollbar,.conteudo::-webkit-scrollbar {
     width: 10px;
 }
 
-.menu-elements::-webkit-scrollbar-track {
+.menu-elements::-webkit-scrollbar-track,.conteudo::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.menu-elements::-webkit-scrollbar-thumb {
+.menu-elements::-webkit-scrollbar-thumb,.conteudo::-webkit-scrollbar-thumb {
     background-color: #C9E265;
 }
 
@@ -114,7 +114,6 @@ input[type="radio"],input[type="file"]{
 }
 
 .borda{
-    background-color: transparent;
     border: 10px solid #008037;
     border-radius: 10px;
 }
@@ -122,4 +121,10 @@ input[type="radio"],input[type="file"]{
 .tamanho{
     width: 100vw;
     height: 100vh;
+}
+
+.bg-color {
+    background-color: #008037!important;
+    border-radius: 10px;
+    color: white;
 }

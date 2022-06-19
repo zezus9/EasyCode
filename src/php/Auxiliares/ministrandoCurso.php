@@ -110,7 +110,7 @@
             }
 
             echo "<h1>Curso adicionado com sucesso!</h1>";
-            // header("Refresh: 2; ../perfil.php");
+            header("Refresh: 2; ../perfil.php");
         ?>
     </div>
 </body>

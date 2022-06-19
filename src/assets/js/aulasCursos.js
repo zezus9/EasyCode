@@ -31,13 +31,13 @@ if (nomeCurso !== null) {
     let aulasComp = document.querySelector('#aulasComp')
     const fases = parseInt(document.querySelector('#fases').value)
     let faseAtual = document.querySelector('#faseA')
+    document.querySelector('#publicar').value = parseInt(faseAtual.value) == fases ? 'PUBLICAR' : 'PRÓXIMO'
 
     for (let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("click", function(e) {
             let selects = document.querySelectorAll('.selects')
             let escolhaA = document.querySelector('#opcaoMVQ').value
             let escolhaQ = document.querySelector('#opcaoAMB').value
-    
             opcaoE(escolhaA,escolhaQ)
     
             let Ncontinuar = true
@@ -53,7 +53,6 @@ if (nomeCurso !== null) {
                     aulas.push(addAula(escolhaA,escolhaQ))
                     aulasComp.value = aulas.join('.-.')
                     faseAtual.value = parseInt(faseAtual.value) + 1
-                    console.log(aulas)
                 } else {
                     e.preventDefault()
                 }

@@ -121,12 +121,57 @@ curso;
         </nav>      
         
         <section class='secao fixed-left'>
-            <h1>$linguagem</h1>
+            <div class='p-5 d-flex justify-content-center align-items-center tamanho'>
+                <div class='borda h-100 w-100 conteudo'>
+                    <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA -->
+                    <div class='h-50'>
+                        <div class='h-25 p-2'>
+                            <h1 class='text-center m-0'>QUESTÃO 1</h1>
+                        </div>
+                        <div class='h-75 p-3'>
+                            <div class='bg-color h-100 p-2 d-flex align-items-center justify-content-center'>
+                                <h3>Qual o nome da função de imprimir texto na tela?</h3>
+                            </div>
+                        </div>
+                    </dvi>
+                    <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>
+                        <!-- ALTERNATIVA -->
+                        <!--
+                        <div class='h-75 w-75 d-flex flex-wrap'>
+                            <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
+                                <input type='radio'>
+                                <h3 class='m-0 px-2'>Opção 1</h3>
+                            </div>
+                        </div>
+                        -->
+                        <!-- MULTIPLA ESCOLHA -->
+                        <!--
+                        <div class='h-75 w-75 d-flex flex-wrap'>
+                            <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
+                                <input type='checkbox'>
+                                <h3 class='m-0 px-2'>Opção 1</h3>
+                            </div>
+                        </div>
+                        -->
+                        <!-- BOTOES -->
+                        <!--
+                        <div class='h-25 borda w-75 d-flex justify-content-center align-items-center'>
+                            <h4 class='m-0'>Aqui vai a resposta</h4>
+                        </div>
+                        <div class='h-75 w-75 d-flex flex-wrap m-1'>
+                            <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
+                                <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light px-5 p-2'>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
         </section>
+    </body>
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/sidebar.js'></script>
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'></script>
-    </body>
     </html>
     ";
 ?>

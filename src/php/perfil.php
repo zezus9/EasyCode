@@ -501,7 +501,7 @@ opcoes;
         </section>
         <section class='secao' id='secao_ministrarCursos'>
             <div class='d-flex justify-content-center align-items-center h-100'>
-                <div class='box-form d-flex p-5 justify-content-center h-100' id='minCursos'>
+                <div class='box-form d-flex p-4 justify-content-center h-100' id='minCursos'>
     ";
 
     if (!isset($_POST['selectCurso'])) {
@@ -564,7 +564,7 @@ opcoes;
                             <div class='form-group w-100 d-flex align-items-center flex-column'>
                                 <strong class='p-2'>Conteudo ensinado:</strong>
                                 <div class='w-75 p-1'>
-                                    <textarea class='inputText vDefinicao' rows='4' max-length='15' name='conteudo' id='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
+                                    <textarea class='inputText vDefinicao' rows='6' maxlength='250' minlength='30' name='conteudo' id='conteudo' placeholder='Descreva em tópicos o conteúdo que será ensinado neste curso' required></textarea>
                                 </div>
                                 <div class='d-flex justify-content-center'>
                                     <input type='submit' value='VOLTAR' class='btn btn-outline-secondary bg-color text-light m-1' id='voltarNC'>
@@ -586,7 +586,7 @@ opcoes;
         "
                     <div class='d-flex align-items-center flex-column w-100 p-1'>
                     <h1 class='Josefinfont text-color' id='aulas'>Aula $faseA de $fases - $nomeCurso</h1>
-                        <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-1 flex-column w-100' id='formAulas' autocomplete='off'>
+                        <form action='$_SERVER[PHP_SELF]' method='post' enctype='multipart/form-data' class='d-flex align-items-center p-1 flex-column w-100 h-100' id='formAulas' autocomplete='off'>
                             <input hidden name='definido' value='true'>
                             <input hidden name='aulasComp' value='$aulasComp' id='aulasComp'>
                             <input hidden name='selectCurso' value='$nomeCurso' id='nomeCursos'>
@@ -595,7 +595,7 @@ opcoes;
                             <input hidden name='faseA' value='$faseA' id='faseA'>
                             <input hidden name='conteudo' value='$conteudo'>
                             <input hidden name='voltarAul' value='' id='voltarAul'>
-                            <div class='w-100 d-flex align-items-center flex-column'>
+                            <div class='w-100 h-100 d-flex align-items-center flex-column'>
                                 <strong>Adicionar</strong>
                                 <select class='m-2 w-50 selects inputSel' id='opcaoMVQ' name='aula' onchange='resetQuestao()'>
                                     <option value='none'>Selecione uma opção</option>
@@ -605,11 +605,11 @@ opcoes;
                                 </select>
                     
                                 <!--MATERIAL-->
-                                <div class='collapse m-3 w-100 text-center' id='material'>
+                                <div class='collapse m-3 w-100 h-100 text-center' id='material'>
                                     <strong>Adicionar Material</strong>
-                                    <div class='form-group w-100 d-flex flex-column align-items-center'>
+                                    <div class='form-group w-100 h-100 d-flex flex-column align-items-center'>
                                         <input type='text' class='w-50 materialVa input pl' placeholder='Titulo do Material' name='tituloM' id='tituloM'>
-                                        <textarea class='inputText my-2 materialVa' rows='10' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
+                                        <textarea class='inputText my-2 materialVa h-100' minlength='40' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
                                     </div>
                                 </div>
                     
@@ -617,13 +617,9 @@ opcoes;
                                 <div class='collapse m-3 w-50 text-center' id='video'>
                                     <strong>Adicionar Video</strong>
                                     <div class='form-group'>
-                                        <input type='text' class='videoVa input pl' placeholder='Titulo do Video' name='tituloV'>
-                                        <textarea class='inputText my-2 videoVa' rows='8' placeholder='Descrição do Aula' name='descricaoV'></textarea>
-                                        <label for='videoU' class='btn btn-outline-secondary bg-color text-light m-2'>
-                                            <i class='bi bi-upload'></i>
-                                            Subir video
-                                        </label>
-                                        <input type='file' accept='video/*' class='form-control-file videoVa' id='videoU' name='videoU'>
+                                        <input type='text' class='videoVa input pl' placeholder='Titulo do Video'>
+                                        <input type='url' class='input videoVa pl my-2' placeholder='Link do Video no Youtube'>
+                                        <textarea class='inputText materialVa h-100' minlength='10' maxlength='300' placeholder='Cole aqui o conteúdo deste material' name='material' id='material'></textarea>
                                     </div>
                                 </div>
                     
@@ -653,7 +649,7 @@ opcoes;
                                     <div class='collapse AMB w-100 m-2' id='alternativa'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='inputText my-2 h-100 questaoVa questaoAlt' style='resize: none' placeholder='Pergunta' name='perguntaA'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoAlt' minlength='10' maxlength='200' placeholder='Pergunta' name='perguntaA'></textarea>
                                                 <div>
                                                     <strong>Quantidade de alternativas:</strong>
                                                     <input type='number' min='3' max='5' value='$qtdeOpcoesA' name='qtdeOpcoesA' class='questaoVa questaoAlt inputNum' id='qtdeOpcoesA'>
@@ -683,7 +679,7 @@ qtdeInputs;
                                         <div class='d-flex'>
         
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='inputText my-2 h-100 questaoVa questaoMes' style='resize: none' placeholder='Pergunta' name='perguntaM'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoMes' minlength='10' maxlength='200' placeholder='Pergunta' name='perguntaM'></textarea>
                                                 <div>
                                                     <strong>Quantidade de escolhas:</strong>
                                                     <input type='number' min='3' max='5' value='$qtdeOpcoesM' name='qtdeOpcoesM' class='questaoVa questaoMes inputNum' id='qtdeOpcoesM'>
@@ -712,7 +708,7 @@ qtdeInputs;
                                     <div class='collapse AMB w-100 m-2' id='botao'>
                                         <div class='d-flex'>
                                             <div class='w-50 p-2 d-flex flex-column justify-content-between'>
-                                                <textarea class='inputText my-2 h-100 questaoVa questaoBot' style='resize: none' placeholder='Pergunta' name='perguntaB'></textarea>
+                                                <textarea class='inputText my-2 h-100 questaoVa questaoBot' minlength='10' maxlength='200' placeholder='Pergunta' name='perguntaB'></textarea>
                                                 <div>
                                                     <strong>Quantidade de botões:</strong>
                                                     <input type='number' min='4' max='8' value='$qtdeOpcoesB' name='qtdeOpcoesB' class='questaoVa questaoBot inputNum' id='qtdeOpcoesB'>
@@ -745,7 +741,7 @@ qtdeInputs;
                             </div>
                             <div class='d-flex justify-content-center'>
                                 <input type='submit' value='VOLTAR' class='btn btn-outline-secondary bg-color text-light m-1' id='voltarAu'>
-                                <input type='submit' value='PUBLICAR' class='btn btn-outline-secondary bg-color text-light m-1 submit'>
+                                <input type='submit' value='PRÓXIMO' class='btn btn-outline-secondary bg-color text-light m-1 submit' id='publicar'>
                             </div>
                         </form>
                     </div>
