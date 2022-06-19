@@ -19,19 +19,24 @@
         header('Location: cadastro_login.php');
     }
 
-    $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
-    
-    while ($dados = mysqli_fetch_array($dadosUsuario)) {
-        $nome = explode(' ',$dados['nome'])[0];
-        $avatar = $dados['avatar'];
-    }
-
     $id_curso = $_GET['curso'];
 
-    $curso = $sql -> query("SELECT linguagem from curso WHERE id = '$id_curso'");
+    $curso = $sql -> query(
+        "SELECT 
+            aluno.id,aluno.nome,aluno.avatar,
+            curso.linguagem,cert.fase
+        FROM certificado AS cert
+        INNER JOIN curso ON cert.id_curso = curso.id
+        INNER JOIN aluno ON cert.id_aluno = aluno.id
+        WHERE cert.id_curso = '$id_curso' AND aluno.matricula = '$matricula'"
+    );
 
     while ($aulas = mysqli_fetch_array($curso)){
+        $id_aluno = $aulas['id'];
+        $nome = $aulas['nome'];
+        $avatar = $aulas['avatar'];
         $linguagem = $aulas['linguagem'];
+        $fase = $aulas['fase'];
     }
 
     echo "
@@ -66,20 +71,36 @@
         </div>
         <nav class='sidebar'>
             <div class='fechar-x'>
-                <i class='bi bi-x'></i>
+                <i class='bi bi-x text-light'></i>
             </div>
             <div class='d-flex justify-content-center flex-column h-75 w-100'>
                 <ul class='menu-elements w-100'>
 curso;
 
     $arquivo = fopen ("../cursos/$linguagem/fases.txt", 'r');
+    $linhaAtual = 1;
     while(!feof($arquivo)) {
         $linha = fgets($arquivo, 1024);
+        if ($linhaAtual < $fase) {
+            echo
+            "<li class='aulas'>";
+        } elseif ($linhaAtual == $fase) {
+            echo
+            "<li class='active'>";
+        } else {
+            echo
+            "<li class='aulasBloq'>";
+        }
 
+        $aula = fopen ("../cursos/$linguagem/Aulas/fase " . $linhaAtual . ".txt", 'r');
+        while(!feof($arquivo)) {
+            // $linha = fgets($arquivo, 1024);
+        }
+        fclose($aula);
+        $linhaAtual += 1;
         echo
         "
-            <li class='aulas'>
-                <span>
+                    <span>
                     <i class='bi bi-house-door-fill'></i>
                 </span>
                 <span>$linha</span>
@@ -123,7 +144,7 @@ curso;
         </nav>      
         
         <section class='secao fixed-left'>
-            <div class='p-5 d-flex justify-content-center align-items-center tamanho'>
+            <div class='p-4 d-flex justify-content-center align-items-center tamanho'>
                 <div class='borda h-100 w-100 conteudo'>
                     <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA -->
                     <div class='h-50'>
