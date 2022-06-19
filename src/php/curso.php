@@ -60,15 +60,18 @@
     echo <<<curso
     <body>
         <div>
+            <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>
                 <i class='bi bi-list'></i> 
             </a>
         </div>
-        <nav class='sidebar'>
+        <!-- Sidebar -->
+        <nav class='sidebar sidebarcurso'>
+            <!-- Fechar Menu-->
             <div class='fechar-x'>
                 <i class='bi bi-x'></i>
             </div>
-            <div class='d-flex justify-content-center flex-column h-75 w-100'>
+            <div class='d-flex justify-content-center align-items-center flex-column h-75 w-100'>
                 <ul class='menu-elements w-100'>
 curso;
 
@@ -78,12 +81,12 @@ curso;
 
         echo
         "
-            <li class='aulas'>
-                <span>
-                    <i class='bi bi-house-door-fill'></i>
-                </span>
-                <span>$linha</span>
-            </li>
+                    <li class='aulas'>
+                        <span>
+                            <i class='bi bi-house-door-fill'></i>
+                        </span>
+                        <span>$linha</span>
+                    </li>
         ";
     }
     fclose($arquivo);
@@ -92,10 +95,10 @@ curso;
     "                    
                 </ul>
             </div>
-            <div class='navbar navbar-expand navbar-light nonSelect'>
+            <div class='navbar navbar-expand nonSelect'>
                 <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
-                    <ul class='navbar-nav ml-auto d-flex justify-content-center'>
-                        <li class='dropup perfil text-center'>
+                    <ul class='navbar-nav ml-auto justify-content-center'>
+                        <li class='perfil text-center'>
                             <a class='dropdown-toggle text-light' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <span>$nome</span>
                             </a>
@@ -133,7 +136,7 @@ curso;
                         <div class='m-3'>
                             <h4>texto</h4>
                         </div>
-                        <div class='d-flex flex-row-reverse m-3'>
+                        <div class='d-flex flex-row-reverse'>
                             <input type='submit' value='Próximo' class='btn btn-success'>
                         </div>
                     </div>-->
@@ -148,7 +151,7 @@ curso;
                             <div class='m-3'>
                                 <h4>texto</h4>
                             </div>
-                            <div class='d-flex flex-row-reverse m-3'>
+                            <div class='d-flex flex-row-reverse'>
                                 <input type='submit' value='Próximo' class='btn btn-success'>
                             </div>
                         </div>
@@ -165,7 +168,7 @@ curso;
                             </div>
                         </div>
                     </div>
-                    <div class='d-flex flex-row-reverse m-3'>
+                    <div class='d-flex flex-row-reverse'>
                         <input type='submit' value='Próximo' class='btn btn-success'>
                     </div>
                     <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>-->
