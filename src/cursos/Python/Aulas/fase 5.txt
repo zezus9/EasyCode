@@ -21,4 +21,4 @@ input("Escreva seu nome: ")
 
 Quando fazemos isso, o terminal ou prompt de comando irá mostrar o texto "Escreva seu nome: " na tela e aguardar até que o usuário digite alguma informação.
 
-Observação importante: Python é sensitive case, ou seja, faz diferença entre utilizar letras maiúsculas e minúsculas, portanto, print e input deve ser escritos em letras minúsculas.
+Observação importante: Python é sensitive case, ou seja, faz diferença entre utilizar letras maiúsculas e minúsculas, portanto, print e input deve ser tudo em letras minúsculas.

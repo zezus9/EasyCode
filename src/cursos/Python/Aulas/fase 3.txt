@@ -1,6 +1,6 @@
 material
 
-Variáveis 
+Variáveis
 Em Python, as variáveis são criadas quando você atribui um valor a ela:
 Exemplo 1:
 x = 2

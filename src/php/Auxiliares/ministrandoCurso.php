@@ -19,6 +19,7 @@
             $conteudoAr = "../../cursos/$selectCurso/conteudo.txt";
             $aulasComp = explode('.-.',$_POST['aulasComp']);
             $carga = $_POST['carga'];
+            $questao = 0;
 
             $sql -> query(
                 "UPDATE curso SET
@@ -43,13 +44,28 @@
 
                 if ($i == 0) {
                     $abrirFases = fopen($fases,"w");
-                    fwrite($abrirFases,"$aula[2]\n");
+                    if ($aula[1] == 'questao') {
+                        $questao += 1;
+                        fwrite($abrirFases,"Questão $questao\n");
+                    } else {
+                        fwrite($abrirFases,"$aula[2]\n");
+                    }
                 } elseif ($i + 1 == count($aulasComp)) {
                     $abrirFases = fopen($fases,"a+");
-                    fwrite($abrirFases,"$aula[2]");
+                    if ($aula[1] == 'questao') {
+                        $questao += 1;
+                        fwrite($abrirFases,"Questão $questao");
+                    } else {
+                        fwrite($abrirFases,"$aula[2]");
+                    }
                 } else {
                     $abrirFases = fopen($fases,"a+");
-                    fwrite($abrirFases,"$aula[2]\n");
+                    if ($aula[1] == 'questao') {
+                        $questao += 1;
+                        fwrite($abrirFases,"Questão $questao\n");
+                    } else {
+                        fwrite($abrirFases,"$aula[2]\n");
+                    }
                 }
 
                 $aulas = "../../cursos/$selectCurso/Aulas/fase " . $i+1 .".txt";
@@ -71,8 +87,10 @@
                     for ($a=1; $a < count($aula); $a++) { 
                         if ($a == 1) {
                             fwrite($abrirAula,"$aula[$a]\n");
-                        } elseif ($a == 4 or $a == 0) {
+                        } elseif ($a == 0) {
                             fwrite($abrirAula,"\n");
+                        } elseif ($a == 4) {
+                            fwrite($abrirAula,"\nQUESTÃO $questao");
                         } elseif ($a + 1 == count($aula)) {
                             fwrite($abrirAula,"\nResposta: $aula[$a]");
                         } else {
@@ -83,8 +101,10 @@
                     for ($a=1; $a < count($aula); $a++) { 
                         if ($a == 1) {
                             fwrite($abrirAula,"$aula[$a]\n");
-                        } elseif ($a == 4 or $a == 0) {
+                        } elseif ($a == 0) {
                             fwrite($abrirAula,"\n");
+                        } elseif ($a == 4) {
+                            fwrite($abrirAula,"\nQUESTÃO $questao");
                         } elseif ($a + 1 == count($aula)) {
                             fwrite($abrirAula,"\nResposta: $aula[$a]");
                         } else {
@@ -95,8 +115,10 @@
                     for ($a=1; $a < count($aula); $a++) { 
                         if ($a == 1) {
                             fwrite($abrirAula,"$aula[1]\n");
-                        } elseif ($a == 4 or $a == 0) {
+                        } elseif ($a == 0) {
                             fwrite($abrirAula,"\n");
+                        } elseif ($a == 4) {
+                            fwrite($abrirAula,"\nQUESTÃO $questao");
                         } elseif ($a + 1 == count($aula)) {
                             fwrite($abrirAula,"\nResposta: $aula[$a]");
                         } else {

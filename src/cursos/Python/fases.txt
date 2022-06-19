@@ -1,12 +1,12 @@
 Introdução - O que é Python?
 Tipos de Dados
-Variáveis 
+Variáveis
 Inserindo Comentários
 FUNÇÃO
 Operadores
 Indentação Python
 Estrutura de decisão
 Estrutura de repetição
-botao
-alternativa
-Mescolha
+Questão 1
+Questão 2
+Questão 3

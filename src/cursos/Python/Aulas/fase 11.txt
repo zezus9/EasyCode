@@ -1,8 +1,8 @@
 questao
 
 alternativa
-Qual é o caractere utilizada para comentar um código em python? 
-
+Qual é a caractere utilizada para comentar um código em python? 
+QUESTÃO 2
 //
 "
 #

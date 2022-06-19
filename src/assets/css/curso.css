@@ -70,8 +70,17 @@ body{
     display:inline-block;
 }
 
+.active{
+    background-color: white;
+    color: #008037!important;
+}
+
 .aulas:hover{ 
 	background: #7ED957; 
+}
+
+.aulasBloq {
+    background-color: #225a3a;
 }
 
 .perfil:hover{

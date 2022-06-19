@@ -2,7 +2,7 @@ questao
 
 Mescolha
 Como se declara uma variável?
-
+QUESTÃO 3
 2
 variável 2
 x = 2

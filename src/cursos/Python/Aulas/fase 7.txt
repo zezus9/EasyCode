@@ -5,7 +5,7 @@ A indentação refere-se aos espaços no início de uma linha de código e é um
 
 Exemplo Correto:
 if 5 > 2:
-     print("Olá")
+print("Olá")
 
 Exemplo Errado:
 if 5 > 2:

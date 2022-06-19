@@ -8,8 +8,8 @@ São utilizados para a realização de operações envolvendo cálculos matemát
 *   | Multiplicação
 /    | Divisão Real
 //  | Divisão Inteira
-%  | Resto da Divisão
 ** | Exponenciação
+%  | Resto da Divisão
 
 OPERADORES RELACIONAIS
 São utilizados para comparar caracteres, números, variáveis e expressões.

@@ -2,8 +2,9 @@ material
 
 Estrutura de decisão
 O if... else é uma estrutura de condição que permite avaliar uma expressão e, de acordo com seu resultado, executar uma determinada ação.
-No código a seguir temos um exemplo de uso do if, verificando se a variável idade é maior ou igual a 18. Em caso positivo, será impressa uma mensagem na tela e em caso negativo serão executados os comandos que estiverem posicionados entre as chaves logo após a instrução else.
+No código a seguir temos um exemplo de uso do if, verificando se a variável idade é maior ou igual que 18. Em caso positivo, será impressa uma mensagem na tela e em caso negativo serão executados os comandos que estiverem posicionados entre as chaves logo após a instrução else.
 
 Exemplo:
+idade = 18
 if idade >= 18:
 print(‘Você é maior de idade
