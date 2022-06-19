@@ -118,3 +118,8 @@ input[type="radio"],input[type="file"]{
     border: 10px solid #008037;
     border-radius: 10px;
 }
+
+.tamanho{
+    width: 100vw;
+    height: 100vh;
+}
