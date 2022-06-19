@@ -37,12 +37,15 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>$linguagem</title>
+        <!-- FAVICON -->
         <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
 
+        <!-- CSS -->
         <link rel='stylesheet' href='../assets/css/style.css'>
         <link rel='stylesheet' href='../assets/css/pagecursos.css'>
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'
-            integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'>
+
+        <!-- ICONS -->
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>        
     </head>
 
@@ -142,21 +145,12 @@
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='perfil.php'>
                                                 <i class='bi bi-person-circle'></i> Perfil
                                             </a>
                                             <div class='dropdown-divider'></div>
-                                            <a class='dropdown-item' href='#'>
-                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-stack-overflow' viewBox='0 0 16 16'>
-                                                    <path d='M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z'/>
-                                                    <path d='M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254 0 9.108.852l4.26 5.727 1.146-.852L10.254 0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z'/>
-                                                </svg> Ministrar cursos
-                                            </a>
-                                            <a class='dropdown-item' href='#'>
-                                                <i class='bi bi-journal-plus'></i> Cadastro de cursos
-                                            </a>
-                                            <a class='dropdown-item' href='#'>
-                                                <i class='bi bi-chat-text-fill'></i> Mensagens
+                                            <a class='dropdown-item' href='perfil.php?secoes=ministrarCursos'>
+                                                <i class='bi bi-journal-plus'></i> Ministrar cursos
                                             </a>
                                             <a class='dropdown-item' href='Auxiliares/sair.php'>
                                                 <i class='bi bi-box-arrow-right'></i> Sair
@@ -381,7 +375,7 @@
                         <div class='card shadow fundocard'>
                             <div class='card-body p-xl-5 pb-xl-4'>
                                 <h5 class='text-center text-uppercase fw-bolder mb-4'>
-                                    A melhor plataforma para aprender programação <br> Aproveite os benefícios de fazer parte da equipe Easy Code
+                                    A melhor plataforma de ensino de programação <br> Aproveite os benefícios de fazer parte da equipe Easy Code
                                 </h5>
                                 <div class='col mx-auto text-center'>
                                     <img src='../assets/img/Logo Mascote Sem fundo.png' width='200px'/>
@@ -458,6 +452,7 @@
             <h5 class='fw-bolder'>Metodologia Easy Code</h5>
             <div class='text-muted'>
                 <p>A metodologia da EasyCode foca na introdução aos assuntos e apresenta o básico para o entendimento das linguagens, com um ensino divertido e responsivo para que o aluno continue se interessando no assunto.</p>
+                <video src='../assets/videos/teste.mp4' width='auto' controls poster='../assets/Logo Mascote Sem fundo'></video>
             </div>
         </section>
     ";
@@ -500,10 +495,10 @@
                 © 2022 Easy Code - Todos os Direitos Reservados.
             </div>
         </footer>
+
+        <!-- SCRIPTS -->
         <script src='../assets/js/nav.js'></script> 
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'
-            integrity='sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/'
-            crossorigin='anonymous'></script>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'></script>
     </body>
 
     </html>

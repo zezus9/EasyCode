@@ -8,11 +8,11 @@
     <title>Cursos</title>
     <!-- FAVICON -->
     <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/pagecursos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <!-- ICONS -->
@@ -114,15 +114,12 @@
                                         </a>
     
                                         <div class='dropdown-menu Background' aria-labelledby='navbarDropdown'>
-                                            <a class='dropdown-item' href='#'>
+                                            <a class='dropdown-item' href='perfil.php'>
                                                 <i class='bi bi-person-circle'></i> Perfil
                                             </a>
                                             <div class='dropdown-divider'></div>
-                                            <a class='dropdown-item' href='#'>
-                                            <i class='bi bi-journal-plus'></i> Ministrar cursos
-                                            </a>
-                                            <a class='dropdown-item' href='#'>
-                                                <i class='bi bi-chat-text-fill'></i> Mensagens
+                                            <a class='dropdown-item' href='perfil.php?secoes=ministrarCursos'>
+                                                <i class='bi bi-journal-plus'></i> Ministrar cursos
                                             </a>
                                             <a class='dropdown-item' href='Auxiliares/sair.php'>
                                                 <i class='bi bi-box-arrow-right'></i> Sair
@@ -411,7 +408,7 @@
     </footer>
     <!-- FOOTER -->
 
-    <!-- JS -->
+    <!-- SCRIPTS -->
     <script src="../assets/js/pagecursos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
     <script src="../assets/js/libs/jquery.js"></script>
@@ -429,6 +426,6 @@
             }
         });
     </script>
-    <!-- JS -->
+    <!-- SCRIPTS -->
 </body>
 </html>
