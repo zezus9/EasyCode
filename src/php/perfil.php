@@ -130,7 +130,7 @@
             </a>
         </div>
         <!-- Sidebar -->
-        <nav class='sidebar'>
+        <nav class='sidebar sidebarperfil'>
             <!-- Fechar Menu-->
             <div class='fechar-x'>
                 <i class='bi bi-x'></i>

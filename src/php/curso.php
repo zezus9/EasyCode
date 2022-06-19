@@ -65,15 +65,18 @@
     echo <<<curso
     <body>
         <div>
+            <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>
                 <i class='bi bi-list'></i> 
             </a>
         </div>
-        <nav class='sidebar'>
+        <!-- Sidebar -->
+        <nav class='sidebar sidebarcurso'>
+            <!-- Fechar Menu-->
             <div class='fechar-x'>
                 <i class='bi bi-x text-light'></i>
             </div>
-            <div class='d-flex justify-content-center flex-column h-75 w-100'>
+            <div class='d-flex justify-content-center align-items-center flex-column h-75 w-100'>
                 <ul class='menu-elements w-100'>
 curso;
 
@@ -113,10 +116,10 @@ curso;
     "                    
                 </ul>
             </div>
-            <div class='navbar navbar-expand navbar-light nonSelect'>
+            <div class='navbar navbar-expand nonSelect'>
                 <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
-                    <ul class='navbar-nav ml-auto d-flex justify-content-center'>
-                        <li class='dropup perfil text-center'>
+                    <ul class='navbar-nav ml-auto justify-content-center'>
+                        <li class='perfil text-center'>
                             <a class='dropdown-toggle text-light' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <span>$nome</span>
                             </a>
@@ -146,18 +149,50 @@ curso;
         <section class='secao fixed-left'>
             <div class='p-4 d-flex justify-content-center align-items-center tamanho'>
                 <div class='borda h-100 w-100 conteudo'>
-                    <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA -->
-                    <div class='h-50'>
+                    <!-- MATERIAL 
+                    <div class='h-50 m-3'>
                         <div class='h-25 p-2'>
-                            <h1 class='text-center m-0'>QUESTÃO 1</h1>
+                            <h1 class='text-center m-0'><strong>FASE MATERIAL</strong></h1>
+                        </div>
+                        <div class='m-3'>
+                            <h4>texto</h4>
+                        </div>
+                        <div class='d-flex flex-row-reverse'>
+                            <input type='submit' value='Próximo' class='btn btn-success'>
+                        </div>
+                    </div>-->
+
+                    <!-- VIDEO -->
+                    <div class='h-50 m-3'>
+                        <div class='h-25 p-2'>
+                            <h1 class='text-center m-0'><strong>FASE VIDEO</strong></h1>
+                        </div>
+                        <div class='m-3 text-center'>
+                            <iframe width='600' height='340' src='https://www.youtube.com/embed/3hng-hmSv2Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                            <div class='m-3'>
+                                <h4>texto</h4>
+                            </div>
+                            <div class='d-flex flex-row-reverse'>
+                                <input type='submit' value='Próximo' class='btn btn-success'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA 
+                    <div class='h-50 m-3'>
+                        <div class='h-25 p-2'>
+                            <h1 class='text-center m-0'><strong>QUESTÃO 1</strong></h1>
                         </div>
                         <div class='h-75 p-3'>
                             <div class='bg-color h-100 p-2 d-flex align-items-center justify-content-center'>
                                 <h3>Qual o nome da função de imprimir texto na tela?</h3>
                             </div>
                         </div>
-                    </dvi>
-                    <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>
+                    </div>
+                    <div class='d-flex flex-row-reverse'>
+                        <input type='submit' value='Próximo' class='btn btn-success'>
+                    </div>
+                    <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>-->
                         <!-- ALTERNATIVA -->
                         <!--
                         <div class='h-75 w-75 d-flex flex-wrap'>
