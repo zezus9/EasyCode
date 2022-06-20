@@ -24,7 +24,7 @@
     $curso = $sql -> query(
         "SELECT 
             aluno.id,aluno.nome,aluno.avatar,
-            curso.linguagem,cert.fase
+            curso.linguagem,curso.fases,cert.fase
         FROM certificado AS cert
         INNER JOIN curso ON cert.id_curso = curso.id
         INNER JOIN aluno ON cert.id_aluno = aluno.id
@@ -36,6 +36,7 @@
         $nome = $aulas['nome'];
         $avatar = $aulas['avatar'];
         $linguagem = $aulas['linguagem'];
+        $fases = $aulas['fases'];
         $fase = $aulas['fase'];
     }
 
@@ -80,36 +81,70 @@
                 <ul class='menu-elements w-100'>
 curso;
 
-    $arquivo = fopen ("../cursos/$linguagem/fases.txt", 'r');
+    $fasesA = explode('._.',$fases);
     $linhaAtual = 1;
-    while(!feof($arquivo)) {
-        $linha = fgets($arquivo, 1024);
+    for ($i=0; $i < count($fasesA); $i++) { 
         if ($linhaAtual < $fase) {
             echo "<li class='aulas'>";
+            if (mb_strpos($fasesA[$i],"Questão")) {
+                echo
+                "
+                    <span>
+                        <i class='bi bi-patch-question-fill'></i>
+                    </span>
+                    <span>$fasesA[$i]</span>
+                </li>
+                ";
+            } else {
+                echo
+                "
+                        <i class='bi bi-book-fill'></i>
+                    </span>
+                    <span>$fasesA[$i]</span>
+                </li>
+                ";
+            }
         } elseif ($linhaAtual == $fase) {
             $aulaAtual = $linhaAtual;
             echo "<li class='active'>";
+            if (mb_strpos($fasesA[$i],"Questão")) {
+                echo
+                "
+                    <span>
+                        <i class='bi bi-patch-question-fill'></i>
+                    </span>
+                    <span>$fasesA[$i]</span>
+                </li>
+                ";
+            } else {
+                echo
+                "
+                        <i class='bi bi-book-fill'></i>
+                    </span>
+                    <span>$fasesA[$i]</span>
+                </li>
+                ";
+            }
         } else {
-            echo "<li class='aulasBloq'>";
+            echo 
+            "
+                <li class='aulasBloq'>
+                    <span>
+                        <i class='bi bi-lock-fill'></i>
+                    </span>
+                    <span>$fasesA[$i]</span>
+                </li>
+            ";
         }
 
         $linhaAtual += 1;
-        echo
-        "
-                    <span>
-                    <i class='bi bi-house-door-fill'></i>
-                </span>
-                <span>$linha</span>
-            </li>
-        ";
     }
-    fclose($arquivo);
-    
+
     echo
     "                    
                 </ul>
             </div>
-            <div class='navbar navbar-expand nonSelect'>
+            <div class='navbar navbar-expand nonSelect'>                
                 <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
                     <ul class='navbar-nav ml-auto justify-content-center'>
                         <li class='dropup perfil text-center'>
@@ -137,75 +172,113 @@ curso;
                     </ul>
                 </div>
             </div>
-        </nav>      
-        
+        </nav>
         <section class='secao fixed-left'>
             <div class='p-4 d-flex justify-content-center align-items-center tamanho'>
-                <div class='borda h-100 w-100 conteudo'>
-                    <!-- MATERIAL 
-                    <div class='h-50 m-3'>
-                        <div class='h-25 p-2'>
-                            <h1 class='text-center m-0'><strong>FASE MATERIAL</strong></h1>
-                        </div>
-                        <div class='m-3'>
-                            <h4>texto</h4>
-                        </div>
-                        <div class='d-flex flex-row-reverse'>
-                            <input type='submit' value='Próximo' class='btn btn-success'>
-                        </div>
-                    </div>-->
+                <div class='borda h-100 w-100'>
+    ";
 
-                    <!-- VIDEO -->
-                    <div class='h-50 m-3'>
-                        <div class='h-25 p-2'>
-                            <h1 class='text-center m-0'><strong>FASE VIDEO</strong></h1>
+    $aula = explode("\n",file_get_contents("../cursos/$linguagem/Aulas/fase $aulaAtual.txt"));
+    
+    if (trim($aula[0]) == 'material') {
+        echo 
+        "
+                    <!-- MATERIAL -->
+                    <div class='h-100 m-3'>
+                        <div class='p-2'>
+                            <h1 class='text-center m-0'><strong>$aula[1]</strong></h1>
                         </div>
-                        <div class='m-3 text-center'>
-                            <iframe width='600' height='340' src='https://www.youtube.com/embed/3hng-hmSv2Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-                            <div class='m-3'>
-                                <h4>texto</h4>
+                        <div class='d-flex flex-column justify-content-between h-100'>
+                            <div class='m-3 conteudo' style='background:red;'>
+                                <h4>
+        ";
+
+        $arquivo = fopen ("../cursos/$linguagem/Aulas/fase $aulaAtual.txt", 'r');
+        $contador = 0;
+        while(!feof($arquivo)) {
+            $linha = fgets($arquivo, 1024);
+            if ($contador > 2) {
+                echo "$linha<br>";
+            }
+            $contador += 1;
+        }
+        fclose($arquivo);
+
+        echo
+        "
+                                </h4>
                             </div>
                             <div class='d-flex flex-row-reverse'>
                                 <input type='submit' value='Próximo' class='btn btn-success'>
                             </div>
                         </div>
                     </div>
-
-                    <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA 
-                    <div class='h-50 m-3'>
-                        <div class='h-25 p-2'>
-                            <h1 class='text-center m-0'><strong>QUESTÃO 1</strong></h1>
-                        </div>
-                        <div class='h-75 p-3'>
-                            <div class='bg-color h-100 p-2 d-flex align-items-center justify-content-center'>
-                                <h3>Qual o nome da função de imprimir texto na tela?</h3>
+        ";
+    } elseif (trim($aula[0]) == 'video') {
+        echo
+        "
+                        <!-- VIDEO -->
+                        <div class='h-50 m-3'>
+                            <div class='h-25 p-2'>
+                                <h1 class='text-center m-0'><strong>FASE VIDEO</strong></h1>
+                            </div>
+                            <div class='m-3 text-center'>
+                                <iframe width='600' height='340' src='https://www.youtube.com/embed/3hng-hmSv2Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                                <div class='m-3'>
+                                    <h4>texto</h4>
+                                </div>
+                                <div class='d-flex flex-row-reverse'>
+                                    <input type='submit' value='Próximo' class='btn btn-success'>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class='d-flex flex-row-reverse'>
-                        <input type='submit' value='Próximo' class='btn btn-success'>
-                    </div>
-                    <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>-->
+        ";
+    } else {
+        echo
+        "
+                        <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA -->
+                        <div class='h-50 m-3'>
+                            <div class='h-25 p-2'>
+                                <h1 class='text-center m-0'><strong>QUESTÃO 1</strong></h1>
+                            </div>
+                            <div class='h-75 p-3'>
+                                <div class='bg-color h-100 p-2 d-flex align-items-center justify-content-center'>
+                                    <h3>Qual o nome da função de imprimir texto na tela?</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='d-flex flex-row-reverse'>
+                            <input type='submit' value='Próximo' class='btn btn-success'>
+                        </div>
+                        <div class='h-100 d-flex flex-column justify-content-center align-items-center mx-1'>
+        ";
+
+        if (trim($aula[2]) == 'alternativa') {
+            echo
+            "
                         <!-- ALTERNATIVA -->
-                        <!--
                         <div class='h-75 w-75 d-flex flex-wrap'>
                             <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
                                 <input type='radio'>
                                 <h3 class='m-0 px-2'>Opção 1</h3>
                             </div>
                         </div>
-                        -->
+            ";
+        } elseif (trim($aula[2]) == 'Mescolha') {
+            echo
+            "
                         <!-- MULTIPLA ESCOLHA -->
-                        <!--
                         <div class='h-75 w-75 d-flex flex-wrap'>
                             <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
                                 <input type='checkbox'>
                                 <h3 class='m-0 px-2'>Opção 1</h3>
                             </div>
                         </div>
-                        -->
+            ";
+        } elseif (trim($aula[2]) == 'botao') {
+            echo
+            "
                         <!-- BOTOES -->
-                        <!--
                         <div class='h-25 borda w-75 d-flex justify-content-center align-items-center'>
                             <h4 class='m-0'>Aqui vai a resposta</h4>
                         </div>
@@ -214,16 +287,21 @@ curso;
                                 <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light px-5 p-2'>
                             </div>
                         </div>
-                        -->
+            ";
+        }
+    }
+    echo
+    "
                     </div>
                 </div>
             </div>
         </section>
     </body>
         <!-- SCRIPTS -->
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'></script>
         <script src='../assets/js/libs/jquery.js'></script>
         <script src='../assets/js/sidebar.js'></script>
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js'></script>
+        <script src='../assets/js/curso.js'></script>
     </html>
     ";
 ?>

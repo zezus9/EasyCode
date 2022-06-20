@@ -15,16 +15,10 @@
             include 'connect.php';
         
             $selectCurso = $_POST['selectCurso'];
-            $fases = "../../cursos/$selectCurso/fases.txt";
             $conteudoAr = "../../cursos/$selectCurso/conteudo.txt";
             $aulasComp = explode('.-.',$_POST['aulasComp']);
-            $carga = $_POST['carga'];
             $questao = 0;
-
-            $sql -> query(
-                "UPDATE curso SET
-                    `duracao` = '$carga'
-                WHERE linguagem = '$selectCurso'");
+            $fases = Array();
 
             $conteudo = $_POST['conteudo'];
             $conteudo = explode('</br>',$conteudo);
@@ -42,32 +36,13 @@
                 
                 $aula = explode('-.-',$aulasComp[$i]);
 
-                if ($i == 0) {
-                    $abrirFases = fopen($fases,"w");
-                    if ($aula[1] == 'questao') {
-                        $questao += 1;
-                        fwrite($abrirFases,"Questão $questao\n");
-                    } else {
-                        fwrite($abrirFases,"$aula[2]\n");
-                    }
-                } elseif ($i + 1 == count($aulasComp)) {
-                    $abrirFases = fopen($fases,"a+");
-                    if ($aula[1] == 'questao') {
-                        $questao += 1;
-                        fwrite($abrirFases,"Questão $questao");
-                    } else {
-                        fwrite($abrirFases,"$aula[2]");
-                    }
+                if ($aula[1] == 'questao') {
+                    $questao += 1;
+                    array_push($fases,"Questão $questao");
                 } else {
-                    $abrirFases = fopen($fases,"a+");
-                    if ($aula[1] == 'questao') {
-                        $questao += 1;
-                        fwrite($abrirFases,"Questão $questao\n");
-                    } else {
-                        fwrite($abrirFases,"$aula[2]\n");
-                    }
+                    array_push($fases,"$aula[2]");
                 }
-
+                
                 $aulas = "../../cursos/$selectCurso/Aulas/fase " . $i+1 .".txt";
                 $abrirAula = fopen($aulas,"w");
 
@@ -128,8 +103,15 @@
                 }
 
                 fclose($abrirAula);
-                fclose($abrirFases);
             }
+
+            $carga = $_POST['carga'];
+            $fases = implode('\n',$fases);
+            $sql -> query(
+                "UPDATE curso SET
+                    `duracao` = '$carga',
+                    `fases` = '$fases'
+                WHERE linguagem = '$selectCurso'");
 
             echo "<h1>Curso adicionado com sucesso!</h1>";
             header("Refresh: 2; ../perfil.php");
