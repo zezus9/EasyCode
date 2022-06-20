@@ -19,19 +19,24 @@
         header('Location: cadastro_login.php');
     }
 
-    $dadosUsuario = $sql -> query("SELECT * FROM aluno WHERE matricula = '$matricula'");
-    
-    while ($dados = mysqli_fetch_array($dadosUsuario)) {
-        $nome = explode(' ',$dados['nome'])[0];
-        $avatar = $dados['avatar'];
-    }
-
     $id_curso = $_GET['curso'];
 
-    $curso = $sql -> query("SELECT linguagem from curso WHERE id = '$id_curso'");
+    $curso = $sql -> query(
+        "SELECT 
+            aluno.id,aluno.nome,aluno.avatar,
+            curso.linguagem,cert.fase
+        FROM certificado AS cert
+        INNER JOIN curso ON cert.id_curso = curso.id
+        INNER JOIN aluno ON cert.id_aluno = aluno.id
+        WHERE cert.id_curso = '$id_curso' AND aluno.matricula = '$matricula'"
+    );
 
     while ($aulas = mysqli_fetch_array($curso)){
+        $id_aluno = $aulas['id'];
+        $nome = $aulas['nome'];
+        $avatar = $aulas['avatar'];
         $linguagem = $aulas['linguagem'];
+        $fase = $aulas['fase'];
     }
 
     echo "
@@ -62,7 +67,7 @@
         <div>
             <!-- Abrir menu -->
             <a class='botao-hamburguer abrir-menu' href='#' role='button'>
-                <i class='bi bi-list'></i> 
+                <i class='bi bi-list text-light'></i> 
             </a>
         </div>
         <!-- Sidebar -->
@@ -76,21 +81,30 @@
 curso;
 
     $arquivo = fopen ("../cursos/$linguagem/fases.txt", 'r');
+    $linhaAtual = 1;
     while(!feof($arquivo)) {
         $linha = fgets($arquivo, 1024);
+        if ($linhaAtual < $fase) {
+            echo "<li class='aulas'>";
+        } elseif ($linhaAtual == $fase) {
+            $aulaAtual = $linhaAtual;
+            echo "<li class='active'>";
+        } else {
+            echo "<li class='aulasBloq'>";
+        }
 
+        $linhaAtual += 1;
         echo
         "
-                    <li class='aulas'>
-                        <span>
-                            <i class='bi bi-house-door-fill'></i>
-                        </span>
-                        <span>$linha</span>
-                    </li>
+                    <span>
+                    <i class='bi bi-house-door-fill'></i>
+                </span>
+                <span>$linha</span>
+            </li>
         ";
     }
     fclose($arquivo);
-
+    
     echo
     "                    
                 </ul>
