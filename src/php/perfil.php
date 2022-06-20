@@ -130,7 +130,7 @@
             </a>
         </div>
         <!-- Sidebar -->
-        <nav class='sidebar sidebarperfil'>
+        <nav class='sidebar'>
             <!-- Fechar Menu-->
             <div class='fechar-x'>
                 <i class='bi bi-x'></i>
@@ -255,7 +255,7 @@ opcoes;
                                                 <p class='text-center overflow-hidden m-0 text-light p-1'>$curso[fase]</p>
                                             </div>
                                             <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
-                                                    <img src='../assets/img/proximo.png' width='100%'>
+                                                <img src='../assets/img/proximo.png' width='100%'>
                                             </div>
                                         </div>
                                     </a>
