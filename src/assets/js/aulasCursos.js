@@ -52,7 +52,6 @@ if (nomeCurso !== null) {
                     var aulas = aulasComp.value.split('.-.')[0] == '' ? Array() : aulasComp.value.split('.-.')
                     aulas.push(addAula(escolhaA,escolhaQ))
                     aulasComp.value = aulas.join('.-.')
-                    console.log(aulas)
                     faseAtual.value = parseInt(faseAtual.value) + 1
                 } else {
                     e.preventDefault()

@@ -63,7 +63,7 @@
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
                     fwrite($abrirAula,"\nResposta: " . $resposta[0]);
-                    for ($a=1; $a < count($aula); $a++) { 
+                    for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
@@ -72,8 +72,7 @@
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
                     fwrite($abrirAula,"\nResposta: " . $resposta[0]);
-                    for ($a=1; $a < count($aula); $a++) { 
-                        echo "$aula[$a] ";
+                    for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
@@ -82,7 +81,7 @@
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
                     fwrite($abrirAula,"\nResposta: " . $resposta[0]);
-                    for ($a=1; $a < count($aula); $a++) { 
+                    for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
