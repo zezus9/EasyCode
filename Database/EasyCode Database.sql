@@ -12,12 +12,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Copiando estrutura do banco de dados para easycode
-DROP DATABASE IF EXISTS `easycode`;
-CREATE DATABASE IF NOT EXISTS `easycode` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `easycode`;
-
 -- Copiando estrutura para tabela easycode.aluno
 DROP TABLE IF EXISTS `aluno`;
 CREATE TABLE IF NOT EXISTS `aluno` (
@@ -66,9 +60,9 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   CONSTRAINT `FK-aluno` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`id`),
   CONSTRAINT `FK-curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`),
   CONSTRAINT `FK-professor` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela easycode.certificado: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela easycode.certificado: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
 REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fase`, `data_inicio`, `data_fim`, `status`) VALUES
 	(001, 001, 001, 001, 9, '2021-07-09', '2022-04-09', 'TERMINADO'),
@@ -77,7 +71,11 @@ REPLACE INTO `certificado` (`id`, `id_aluno`, `id_curso`, `id_responsavel`, `fas
 	(008, 001, 010, 001, 3, '2022-06-05', NULL, 'INICIADO'),
 	(009, 001, 003, 001, 3, '2022-06-05', NULL, 'INICIADO'),
 	(010, 001, 022, 001, 5, '2022-06-05', NULL, 'INICIADO'),
-	(011, 001, 016, 001, 2, '2022-06-05', NULL, 'INICIADO');
+	(011, 001, 016, 001, 2, '2022-06-05', NULL, 'INICIADO'),
+	(012, 001, 009, 001, 1, '2022-06-15', NULL, 'INICIADO'),
+	(013, 001, 012, 001, 1, '2022-06-18', NULL, 'INICIADO'),
+	(014, 001, 021, 001, 1, '2022-06-18', NULL, 'INICIADO'),
+	(015, 001, 005, 001, 12, '2022-06-18', NULL, 'INICIADO');
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.curso
@@ -91,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `curso` (
   `fase` int(11) NOT NULL,
   `duracao` int(11) NOT NULL DEFAULT '0',
   `desc_breve` text NOT NULL,
+  `fases` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK-responsavel` (`id_responsavel`),
   CONSTRAINT `FK-responsavel` FOREIGN KEY (`id_responsavel`) REFERENCES `professor` (`id`)
@@ -98,28 +97,28 @@ CREATE TABLE IF NOT EXISTS `curso` (
 
 -- Copiando dados para a tabela easycode.curso: ~21 rows (aproximadamente)
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fase`, `duracao`, `desc_breve`) VALUES
-	(001, 001, _binary 0x69636F6E2D7068702E706E67, 'PHP', 'BackEnd', 9, 15, 'PHP é uma linguagem de script popular que é especialmente adequada para desenvolvimento web.'),
-	(002, 001, _binary 0x69636F6E2D6A6176617363726970742E706E67, 'JavaScript', 'FrontEnd', 10, 30, 'JavaScript é uma linguagem de script aplicado principalmente para desenvolvimento web.'),
-	(003, 001, _binary 0x69636F6E2D6D7973716C2E706E67, 'MySQL', 'Database', 7, 20, 'O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL.'),
-	(004, 001, _binary 0x69636F6E2D68746D6C2E706E67, 'HTML', 'FrontEnd', 10, 25, 'Linguagem de Marcação usada para o desenvolvimento Web voltada para a parte semântica da página.'),
-	(005, 001, _binary 0x69636F6E2D707974686F6E2E706E67, 'Python', 'BackEnd', 16, 30, 'Linguagem de Programação que prioriza a legibilidade do código e é ótima para inciantes.'),
-	(006, 001, _binary 0x69636F6E2D727562792E706E67, 'Ruby', 'BackEnd', 12, 25, 'Ruby suporta programação funcional, orientada a objetos, entre outras. Inspirada em Python.'),
-	(007, 001, _binary 0x69636F6E2D6A6176612E706E67, 'Java', 'BackEnd', 15, 25, 'Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90.'),
-	(008, 001, _binary 0x69636F6E2D6373686172702E706E67, 'C#', 'BackEnd', 14, 30, 'C# é uma linguagem de programação, de tipagem forte, desenvolvida pela Microsoft.'),
-	(009, 001, _binary 0x69636F6E2D63706C7573706C75732E706E67, 'C++', 'BackEnd', 15, 30, 'C++ é uma linguagem de programação compilada multi-paradigma e de uso geral.'),
-	(010, 001, _binary 0x69636F6E2D632E706E67, 'C', 'BackEnd', 12, 25, 'C é uma linguagem de programação compilada de propósito geral, estruturada, imperativa, procedural.'),
-	(011, 001, _binary 0x69636F6E2D6E6F64656A732E706E67, 'JavaScript (NodeJS)', 'BackEnd', 15, 30, 'Linguagem de Script principalmente focado na iteratividade da página web.'),
-	(012, 001, _binary 0x69636F6E2D6373732E706E67, 'CSS', 'FrontEnd', 10, 25, 'CSS é um mecanismo para adicionar estilo (cores, fontes, espaçamento, etc.) a um documento web'),
-	(013, 001, _binary 0x69636F6E2D747970657363726970742E706E67, 'TypeScript', 'BackEnd', 10, 20, 'TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft.'),
-	(014, 001, _binary 0x69636F6E2D616E67756C61722E706E67, 'Angular', 'FrontEnd', 9, 15, 'Angular é uma plataforma para a construção de aplicações mobile e web.'),
-	(016, 001, _binary 0x69636F6E2D626F6F7473747261702E706E67, 'Bootstrap', 'FrontEnd', 12, 20, 'É o framework mais popular no mundo para o desenvolvimento de páginas web responsivas.'),
-	(017, 001, _binary 0x69636F6E2D73716C2E706E67, 'SQL', 'Database', 15, 30, 'SQL é a linguagem de pesquisa declarativa padrão para banco de dados relacional.'),
-	(018, 001, _binary 0x69636F6E2D6E6F73716C2E706E67, 'NoSQL', 'Database', 10, 25, 'NoSQL é um termo genérico que representa os bancos de dados não relacionais.'),
-	(019, 001, _binary 0x69636F6E2D73716C7365727665722E706E67, 'SQL Server', 'Database', 15, 30, 'É um sistema gerenciador de Banco de Dados desenvolvido pela Sybase em parceria com a Microsoft.'),
-	(020, 001, _binary 0x69636F6E2D657863656C2E706E67, 'Excel', 'Database', 12, 20, 'O Microsoft Excel é um programa para manipulação de planilhas e gerenciamento de dados.'),
-	(021, 001, _binary 0x69636F6E2D706F73746772652E706E67, 'PostgreSQL', 'Database', 12, 25, 'O PostgreSQL é uma ferramenta que atua como sistema de gerenciamento de bancos de dados relacionados.'),
-	(022, 001, _binary 0x69636F6E2D6C6F67696361646570726F6772616D6163616F2E706E67, 'Lógica de Programação', 'BackEnd', 15, 25, 'Essêncial para um iniciante, pode ser aplicado à todas as linguagens de programação.');
+REPLACE INTO `curso` (`id`, `id_responsavel`, `logo`, `linguagem`, `campo`, `fase`, `duracao`, `desc_breve`, `fases`) VALUES
+	(001, 001, _binary 0x69636F6E2D7068702E706E67, 'PHP', 'BackEnd', 9, 15, 'PHP é uma linguagem de script popular que é especialmente adequada para desenvolvimento web.', NULL),
+	(002, 001, _binary 0x69636F6E2D6A6176617363726970742E706E67, 'JavaScript', 'FrontEnd', 10, 30, 'JavaScript é uma linguagem de script aplicado principalmente para desenvolvimento web.', NULL),
+	(003, 001, _binary 0x69636F6E2D6D7973716C2E706E67, 'MySQL', 'Database', 7, 20, 'O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL.', NULL),
+	(004, 001, _binary 0x69636F6E2D68746D6C2E706E67, 'HTML', 'FrontEnd', 10, 25, 'Linguagem de Marcação usada para o desenvolvimento Web voltada para a parte semântica da página.', NULL),
+	(005, 001, _binary 0x69636F6E2D707974686F6E2E706E67, 'Python', 'BackEnd', 5, 30, 'Linguagem de Programação que prioriza a legibilidade do código e é ótima para inciantes.', 'Questão 1._.\ncsnicklasnclskncakcnsac._.\ncsacascasckjasc._.\ncsacsacsacascsacs._.\nsaasvsavasvasv'),
+	(006, 001, _binary 0x69636F6E2D727562792E706E67, 'Ruby', 'BackEnd', 12, 25, 'Ruby suporta programação funcional, orientada a objetos, entre outras. Inspirada em Python.', NULL),
+	(007, 001, _binary 0x69636F6E2D6A6176612E706E67, 'Java', 'BackEnd', 15, 25, 'Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90.', NULL),
+	(008, 001, _binary 0x69636F6E2D6373686172702E706E67, 'C#', 'BackEnd', 14, 30, 'C# é uma linguagem de programação, de tipagem forte, desenvolvida pela Microsoft.', NULL),
+	(009, 001, _binary 0x69636F6E2D63706C7573706C75732E706E67, 'C++', 'BackEnd', 15, 30, 'C++ é uma linguagem de programação compilada multi-paradigma e de uso geral.', NULL),
+	(010, 001, _binary 0x69636F6E2D632E706E67, 'C', 'BackEnd', 12, 25, 'C é uma linguagem de programação compilada de propósito geral, estruturada, imperativa, procedural.', NULL),
+	(011, 001, _binary 0x69636F6E2D6E6F64656A732E706E67, 'JavaScript (NodeJS)', 'BackEnd', 15, 30, 'Linguagem de Script principalmente focado na iteratividade da página web.', NULL),
+	(012, 001, _binary 0x69636F6E2D6373732E706E67, 'CSS', 'FrontEnd', 10, 25, 'CSS é um mecanismo para adicionar estilo (cores, fontes, espaçamento, etc.) a um documento web', NULL),
+	(013, 001, _binary 0x69636F6E2D747970657363726970742E706E67, 'TypeScript', 'BackEnd', 10, 20, 'TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft.', NULL),
+	(014, 001, _binary 0x69636F6E2D616E67756C61722E706E67, 'Angular', 'FrontEnd', 9, 15, 'Angular é uma plataforma para a construção de aplicações mobile e web.', NULL),
+	(016, 001, _binary 0x69636F6E2D626F6F7473747261702E706E67, 'Bootstrap', 'FrontEnd', 12, 20, 'É o framework mais popular no mundo para o desenvolvimento de páginas web responsivas.', NULL),
+	(017, 001, _binary 0x69636F6E2D73716C2E706E67, 'SQL', 'Database', 15, 30, 'SQL é a linguagem de pesquisa declarativa padrão para banco de dados relacional.', NULL),
+	(018, 001, _binary 0x69636F6E2D6E6F73716C2E706E67, 'NoSQL', 'Database', 10, 25, 'NoSQL é um termo genérico que representa os bancos de dados não relacionais.', NULL),
+	(019, 001, _binary 0x69636F6E2D73716C7365727665722E706E67, 'SQL Server', 'Database', 15, 30, 'É um sistema gerenciador de Banco de Dados desenvolvido pela Sybase em parceria com a Microsoft.', NULL),
+	(020, 001, _binary 0x69636F6E2D657863656C2E706E67, 'Excel', 'Database', 12, 20, 'O Microsoft Excel é um programa para manipulação de planilhas e gerenciamento de dados.', NULL),
+	(021, 001, _binary 0x69636F6E2D706F73746772652E706E67, 'PostgreSQL', 'Database', 12, 25, 'O PostgreSQL é uma ferramenta que atua como sistema de gerenciamento de bancos de dados relacionados.', NULL),
+	(022, 001, _binary 0x69636F6E2D6C6F67696361646570726F6772616D6163616F2E706E67, 'Lógica de Programação', 'BackEnd', 15, 25, 'Essêncial para um iniciante, pode ser aplicado à todas as linguagens de programação.', NULL);
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela easycode.professor
@@ -148,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `professor` (
 -- Copiando dados para a tabela easycode.professor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 REPLACE INTO `professor` (`id`, `nome`, `email`, `telefone`, `CPF`, `matricula`, `nasc`, `avatar`, `descricao`, `linkedin`, `github`, `link_personalizado`, `senha`) VALUES
-	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'cassac', 'http://localhost/EasyCode/src/php/perfil.php', 'http://localhost/EasyCode/src/php/perfil.php', 'http://localhost/EasyCode/src/php/perfil.php', 'Aaa000');
+	(001, 'Jonathan de Jesus Simões', 'jonathan.simoes@gmail.com', '11999999999', '0000000000', '122001', '2002-10-02', 'd_img.png', 'cassacsacsacascsacasc\r\ncasnclskacsaklcas\r\ncasmcsklacalkscnsacas', 'http://localhost/EasyCode/src/php/perfil.php', 'http://localhost/EasyCode/src/php/perfil.php', 'http://localhost/EasyCode/src/php/perfil.php', 'Aaa000');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
