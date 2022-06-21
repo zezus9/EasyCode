@@ -17,6 +17,7 @@
             $selectCurso = $_POST['selectCurso'];
             $conteudoAr = "../../cursos/$selectCurso/conteudo.txt";
             $aulasComp = explode('.-.',$_POST['aulasComp']);
+            $qtdAula = 0;
             $questao = 0;
             $fases = Array();
 
@@ -33,7 +34,7 @@
             array_map("unlink",glob($mascara));
 
             for ($i=0; $i < count($aulasComp); $i++) {
-                
+                $qtdAula += 1;
                 $aula = explode('-.-',$aulasComp[$i]);
 
                 if ($aula[1] == 'questao') {
@@ -53,50 +54,36 @@
                         fwrite($abrirAula,"\n$textA[$t]");
                     }
                 } elseif ($aula[1] == 'video') {
-                    fwrite($abrirAula,"$aula[1]\n\n$aula[2]\n$aula[4]");
-                    $textA = explode('☺',$aula[3]);
+                    fwrite($abrirAula,"$aula[1]\n\n$aula[2]\n$aula[3]");
+                    $textA = explode('☺',$aula[4]);
                     for ($t=0; $t < count($textA); $t++) {
                         fwrite($abrirAula,"\n$textA[$t]");
                     }
                 } elseif ($aula[2] == 'alternativa') {
+                    $resposta =  array_reverse($aula);
+                    fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
+                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
                     for ($a=1; $a < count($aula); $a++) { 
-                        if ($a == 1) {
-                            fwrite($abrirAula,"$aula[$a]\n");
-                        } elseif ($a == 0) {
-                            fwrite($abrirAula,"\n");
-                        } elseif ($a == 4) {
-                            fwrite($abrirAula,"\nQUESTÃO $questao");
-                        } elseif ($a + 1 == count($aula)) {
-                            fwrite($abrirAula,"\nResposta: $aula[$a]");
-                        } else {
+                        if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
                     }
                 } elseif ($aula[2] == 'Mescolha') {
+                    $resposta =  array_reverse($aula);
+                    fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
+                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
                     for ($a=1; $a < count($aula); $a++) { 
-                        if ($a == 1) {
-                            fwrite($abrirAula,"$aula[$a]\n");
-                        } elseif ($a == 0) {
-                            fwrite($abrirAula,"\n");
-                        } elseif ($a == 4) {
-                            fwrite($abrirAula,"\nQUESTÃO $questao");
-                        } elseif ($a + 1 == count($aula)) {
-                            fwrite($abrirAula,"\nResposta: $aula[$a]");
-                        } else {
+                        echo "$aula[$a] ";
+                        if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
                     }
                 } elseif ($aula[2] == 'botao') {
+                    $resposta =  array_reverse($aula);
+                    fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
+                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
                     for ($a=1; $a < count($aula); $a++) { 
-                        if ($a == 1) {
-                            fwrite($abrirAula,"$aula[1]\n");
-                        } elseif ($a == 0) {
-                            fwrite($abrirAula,"\n");
-                        } elseif ($a == 4) {
-                            fwrite($abrirAula,"\nQUESTÃO $questao");
-                        } elseif ($a + 1 == count($aula)) {
-                            fwrite($abrirAula,"\nResposta: $aula[$a]");
-                        } else {
+                        if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
                         }
                     }
@@ -106,15 +93,16 @@
             }
 
             $carga = $_POST['carga'];
-            $fases = implode('\n',$fases);
+            $fases = implode('._.\n',$fases);
             $sql -> query(
                 "UPDATE curso SET
+                    `fase` = '$qtdAula',
                     `duracao` = '$carga',
                     `fases` = '$fases'
                 WHERE linguagem = '$selectCurso'");
 
             echo "<h1>Curso adicionado com sucesso!</h1>";
-            header("Refresh: 2; ../perfil.php");
+            // header("Refresh: 2; ../perfil.php");
         ?>
     </div>
 </body>

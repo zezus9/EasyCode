@@ -1,11 +1,11 @@
 questao
 
 alternativa
-Qual é a caractere utilizada para comentar um código em python? 
 QUESTÃO 2
+Qual é o comando correto, em python, para imprimir alguma mensagem de texto na tela?
+Resposta: 3
 //
 "
 #
 /*
 *
-Resposta: 3

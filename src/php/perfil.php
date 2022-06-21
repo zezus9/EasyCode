@@ -620,7 +620,7 @@ opcoes;
                                     <div class='form-group'>
                                         <input type='text' class='videoVa input pl' placeholder='Titulo do Video'>
                                         <input type='url' class='input videoVa pl my-2' placeholder='Link do Video no Youtube'>
-                                        <textarea class='inputText videoVa h-100' minlength='10' maxlength='300' placeholder='Cole aqui o conteúdo deste material' name='video' id='video'></textarea>
+                                        <textarea class='inputText videoVa h-100' minlength='10' maxlength='500' placeholder='Cole aqui o conteúdo deste material' name='video' id='video'></textarea>
                                     </div>
                                 </div>
                     

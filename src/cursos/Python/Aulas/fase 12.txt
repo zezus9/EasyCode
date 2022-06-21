@@ -1,11 +1,10 @@
 questao
 
 Mescolha
-Como se declara uma variável?
 QUESTÃO 3
+Como se declara uma variável?
+Resposta: x = str(
 2
 variável 2
 x = 2
 = 2
-x = str('python')
-Resposta: 3,5

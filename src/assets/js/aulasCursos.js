@@ -52,6 +52,7 @@ if (nomeCurso !== null) {
                     var aulas = aulasComp.value.split('.-.')[0] == '' ? Array() : aulasComp.value.split('.-.')
                     aulas.push(addAula(escolhaA,escolhaQ))
                     aulasComp.value = aulas.join('.-.')
+                    console.log(aulas)
                     faseAtual.value = parseInt(faseAtual.value) + 1
                 } else {
                     e.preventDefault()
@@ -117,7 +118,7 @@ if (nomeCurso !== null) {
         } else if (escolhaA == 'video') {
             aulaAtual.push(faseAtual.value,escolhaA)
             for (let i = 0; i < videoVa.length; i++) {
-                var material = materialVa[i].value.split('\n')
+                var material = videoVa[i].value.split('\n')
                 aulaAtual.push(material.join('☺'))
             }
         } else if (escolhaQ == 'alternativa') {
