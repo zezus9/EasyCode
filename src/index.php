@@ -75,7 +75,7 @@
                         <br> de programacao aqui na easycode
                     </p>
                 </div>
-                <a href="pagecursos.php" class="btn btn-success rounded-pill p-3 btn-lg ">Saiba mais &nbsp; &nbsp;
+                <a href="php/pagecursos.php" class="btn btn-success rounded-pill p-3 btn-lg ">Saiba mais &nbsp; &nbsp;
                     <b class="bi bi-arrow-right" aria-hidden="true">
                     </b>
                 </a>
