@@ -17,11 +17,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Code - Home</title>
     <!-- FAVICON -->
-    <link rel='icon' type='imagem/png' href='../assets/img/logoEASYCODE.png'>
+    <link rel='icon' type='imagem/png' href='assets/img/logoEASYCODE.png'>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/stylehome.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/stylehome.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- ICONS -->
@@ -31,13 +31,13 @@
 <body class="hidden">
 
     <div class="d-none d-xl-block">
-        <img class="img" src="../assets/img/bgimg-mascote.png">
+        <img class="img" src="assets/img/bgimg-mascote.png">
     </div>
     <!-- HEADER -->
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light nonSelect">
             <div class="container">
-                <a class="navbar-brand Lovelofont" href="index.php"><img width="35" src="../assets/img/logoEASYCODE.png"
+                <a class="navbar-brand Lovelofont" href="index.php"><img width="35" src="assets/img/logoEASYCODE.png"
                         alt="Logo EC">
                     EASYCODE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,13 +50,13 @@
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagecursos.php">Cursos</a>
+                            <a class="nav-link" href="php/pagecursos.php">Cursos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastro_login.php">Inscreva-se / Entrar</a>
+                            <a class="nav-link" href="php/cadastro_login.php">Inscreva-se / Entrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sobrenos.php">Sobre nós</a>
+                            <a class="nav-link" href="php/sobrenos.php">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
@@ -85,8 +85,8 @@
 
     <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
-    <script src="../assets/js/typeWriter.js"></script>
-    <script src="../assets/js/nav.js"></script>
+    <script src="assets/js/typeWriter.js"></script>
+    <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

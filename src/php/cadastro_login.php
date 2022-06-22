@@ -31,7 +31,7 @@
 		<div id="head" class="fixed-top nonSelect">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
-					<a class="navbar-brand Lovelofont" href="index.php"><img width="35" src="../assets/img/logoEASYCODE.png"
+					<a class="navbar-brand Lovelofont" href="../index.php"><img width="35" src="../assets/img/logoEASYCODE.png"
 							alt="Logo EC">
 						EASYCODE</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -41,7 +41,7 @@
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav Josefinfont d-flex justify-content-center align-items-center p-1">
 							<li class="nav-item">
-								<a class="nav-link" href="index.php">Home</a>
+								<a class="nav-link" href="../index.php">Home</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="pagecursos.php">Cursos</a>
