@@ -378,26 +378,6 @@
                         A plataforma ideal para aprender linguagem de programação.
                     </p>
                 </div>
-                <p class="col-lg-6 mb-md-0 text-center">
-                    <span>
-                        Acompanhe-nos nas Redes Sociais <br>
-                        <!-- Instagram -->
-                        <a class="btn btn-outline-light m-1 logo-instagram" href="#!" role="button">
-                            <b class="bi bi-instagram"></b>
-                        </a>
-
-                        <!-- Linkedin -->
-                        <a class="btn btn-outline-light m-1 logo-linkedin" href="#!" role="button">
-                            <b class="bi bi-linkedin"></b>
-                        </a>
-
-                        <!-- Github -->
-                        <a class="btn btn-outline-light m-1 logo-github" href="#!" role="button">
-                            <b class="bi bi-github"></b>
-                        </a>
-                    </span>
-                    <br><br>
-                </p>
             </div>
         </div>
         <!-- Copyright -->
