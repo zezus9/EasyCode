@@ -46,7 +46,7 @@
 
     $data = file_get_contents('libs/img/logoEASYCODE.png');
     $type = pathinfo($data, PATHINFO_EXTENSION);
-    $logo = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    $logo = 'data:image/' . 'png' . ';base64,' . base64_encode($data);
 
     $html = "
     <!DOCTYPE html>
