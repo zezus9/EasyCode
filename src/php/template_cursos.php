@@ -378,7 +378,7 @@
                                     A melhor plataforma de ensino de programação <br> Aproveite os benefícios de fazer parte da equipe Easy Code
                                 </h5>
                                 <div class='col mx-auto text-center'>
-                                    <img src='../assets/img/Logo Mascote Sem fundo.png' width='200px'/>
+                                    <img src='../assets/img/logoMascoteSemFundo.png' width='200px'/>
                                 </div>
                             </div>
                         </div>
@@ -452,7 +452,7 @@
             <h5 class='fw-bolder'>Metodologia Easy Code</h5>
             <div class='text-muted'>
                 <p>A metodologia da EasyCode foca na introdução aos assuntos e apresenta o básico para o entendimento das linguagens, com um ensino divertido e responsivo para que o aluno continue se interessando no assunto.</p>
-                <video src='../assets/videos/teste.mp4' width='auto' controls poster='../assets/Logo Mascote Sem fundo'></video>
+                <video src='../assets/videos/teste.mp4' width='auto' controls poster='../assets/logoMascoteSemFundo.png'></video>
             </div>
         </section>
     ";

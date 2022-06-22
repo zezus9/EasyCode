@@ -61,7 +61,7 @@
 		<header id="header">
 			<div class="logo d-flex justify-content-center align-items-center">
 				<span class="d-flex justify-content-center align-items-center nonSelect">
-					<img src="../assets/img/logo Mascote Sem fundo.png" alt="logo" width="75%">
+					<img src="../assets/img/logoMascoteSemFundo.png" alt="logo" width="75%">
 				</span>
 			</div>
 			<div class="content">

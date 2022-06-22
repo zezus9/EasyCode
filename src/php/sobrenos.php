@@ -209,7 +209,7 @@
                             <p>Integridade</p>
                             <p>Comprometimento</p>
                             <p>Inovação</p>
-                        </span>
+                        </span
                     </div>
                 </div>
             </div>
