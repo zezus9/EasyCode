@@ -6,4 +6,4 @@
 * Jonathan de Jesus Simões
 * Priscila da Silva Miguel
 
-Turma Desenvolvimento de Sistemas - Etec Jardim Ângela
+Acesso disponível em: platformeasycode.epizy.com
