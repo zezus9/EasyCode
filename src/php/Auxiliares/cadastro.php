@@ -36,14 +36,17 @@
                 echo "<h1>Uma conta já foi criada neste CPF</h1>";
                 header("Refresh: 2; ../cadastro_login.php#cadastrar");
             } else {
+                $maxId = $sql -> query("SELECT MAX(id) as `max` FROM aluno");
+                while ($maiorId = mysqli_fetch_array($maxId)) { $id = $maiorId['max']; }
+                $nextId = str_pad($id + 1, 3, "0", STR_PAD_LEFT);
                 $sql -> query(
                     "INSERT INTO aluno (id,nome,telefone,email,cpf,matricula,nasc,avatar,linkedin,github,link_personalizado,senha) 
-                    VALUES (proximo_id(),
+                    VALUES ($nextId,
                             '$nome',
                             '$celular',
                             '$email',
                             '$cpf',
-                            CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),proximo_id()),
+                            CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),$nextId),
                             '$nascimento',
                             'd_img.png',NULL,NULL,NULL,'$senha')");
     
