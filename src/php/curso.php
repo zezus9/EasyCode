@@ -40,6 +40,8 @@
         $fase = $aulas['fase'];
     }
 
+    $faseA = !isset($_GET['fase']) ? $fase : $_GET['fase'];
+
     echo "
     <!DOCTYPE html>
     <html lang='pt-br'>
@@ -84,27 +86,7 @@ curso;
     $fasesA = explode('._.',$fases);
     $linhaAtual = 1;
     for ($i=0; $i < count($fasesA); $i++) { 
-        if ($linhaAtual < $fase) {
-            echo "<li class='aulas'>";
-            if (mb_strpos($fasesA[$i],"Questão")) {
-                echo
-                "
-                    <span>
-                        <i class='bi bi-patch-question-fill'></i>
-                    </span>
-                    <span>$fasesA[$i]</span>
-                </li>
-                ";
-            } else {
-                echo
-                "
-                        <i class='bi bi-book-fill'></i>
-                    </span>
-                    <span>$fasesA[$i]</span>
-                </li>
-                ";
-            }
-        } elseif ($linhaAtual == $fase) {
+        if ($linhaAtual == $faseA) {
             $aulaAtual = $linhaAtual;
             echo "<li class='active'>";
             if (mb_strpos($fasesA[$i],"Questão")) {
@@ -123,6 +105,33 @@ curso;
                     </span>
                     <span>$fasesA[$i]</span>
                 </li>
+                ";
+            }
+        } elseif ($linhaAtual <= $fase) {
+            echo
+            "
+                <a href='curso.php?curso=$id_curso&fase=$linhaAtual'>
+                    <li class='aulas'>
+            ";
+            if (mb_strpos($fasesA[$i],"Questão")) {
+                echo
+                "
+                        <span>
+                            <i class='bi bi-patch-question-fill'></i>
+                        </span>
+                        <span>$fasesA[$i]</span>
+                    </li>
+                </a>
+                ";
+            } else {
+                echo
+                "
+                        <span>
+                            <i class='bi bi-book-fill'></i>
+                        </span>
+                        <span>$fasesA[$i]</span>
+                    </li>
+                </a>
                 ";
             }
         } else {
@@ -145,7 +154,7 @@ curso;
                 </ul>
             </div>
             <div class='navbar navbar-expand nonSelect'>                
-                <div class='collapse navbar-collapse Josefinfont' id='navbarSupportedContent'>
+                <div class='collapse navbar-collapse Josefinfont d-flex justify-content-center' id='navbarSupportedContent'>
                     <ul class='navbar-nav ml-auto justify-content-center'>
                         <li class='dropup perfil text-center'>
                             <a class='dropdown-toggle text-light' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -244,34 +253,45 @@ curso;
     } else {
         echo
         "
-                        <!-- QUESTAO ALTERNATIVA OU MULTIPLA ESCOLHA -->
-                        <div class='h-100 d-flex flex-column justify-content-between'>
+                        <!-- QUESTAO -->
+                        <form method='post' action='Auxiliares/checkResp.php?curso=$id_curso&fase=$faseA' class='h-100 d-flex flex-column justify-content-between'>
                             <div class='h-50 m-2'>
                                 <div class='p-2'>
-                                    <h1 class='text-center m-0'><strong>$aula[4]</strong></h1>
+                                    <h1 class='text-center m-0'><strong>$aula[3]</strong></h1>
                                 </div>
                                 <div class='h-75'>
                                     <div class='bg-color h-100 d-flex align-items-center justify-content-center'>
-                                        <h3>$aula[3]</h3>
+                                        <h3>$aula[4]</h3>
                                     </div>
                                 </div>
                             </div>
-                        <div class='h-100 d-flex m-3 flex-column justify-content-center align-items-center mx-1 conteudo'>
+                            <div class='h-100 d-flex m-3 flex-column justify-content-center align-items-center mx-1 conteudo'>
         ";
 
         if (trim($aula[2]) == 'alternativa') {
             echo
             " 
                             <!-- ALTERNATIVA -->
-                            <div class='h-75 w-75 d-flex flex-wrap'>
+                            <div class='h-75 w-75 d-flex flex-wrap justify-content-center'>
+                                <input hidden name='questao' value='alternativa'>
             ";
 
             $arquivo = fopen ("../cursos/$linguagem/Aulas/fase $aulaAtual.txt", 'r');
             $contador = 0;
+            $resp = 1;
             while(!feof($arquivo)) {
                 $linha = fgets($arquivo, 1024);
-                if ($contador > 3) {
-                    echo "$linha<br>";
+                if ($contador > 5) {
+                    echo
+                    "
+                                <div class='w-50 h-25'>
+                                    <label for='radios$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ mx-5 m-1'>
+                                        <input type='radio' name='radios' id='radios$resp' value='$resp' required>
+                                        <h3 class='m-0 px-2 text-center'>$linha</h3>
+                                    </label>
+                                </div>
+                    ";
+                    $resp += 1;
                 }
                 $contador += 1;
             }
@@ -279,10 +299,6 @@ curso;
 
             echo
             "
-                                <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
-                                    <input type='radio'>
-                                    <h3 class='m-0 px-2'>Opção 1</h3>
-                                </div>
                             </div>
                         </div>
             ";
@@ -290,11 +306,33 @@ curso;
             echo
             "
                             <!-- MULTIPLA ESCOLHA -->
-                            <div class='h-75 w-75 d-flex flex-wrap'>
-                                <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
-                                    <input type='checkbox'>
-                                    <h3 class='m-0 px-2'>Opção 1</h3>
+                            <div class='h-75 w-75 d-flex flex-wrap justify-content-center checkbox'>
+                                <input hidden name='questao' value='Mescolha'>
+            ";
+
+            $arquivo = fopen ("../cursos/$linguagem/Aulas/fase $aulaAtual.txt", 'r');
+            $contador = 0;
+            $resp = 1;
+            while(!feof($arquivo)) {
+                $linha = fgets($arquivo, 1024);
+                if ($contador > 5) {
+                    echo
+                    "
+                                <div class='w-50 h-25'>
+                                    <label for='checks$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ mx-5 m-1'>
+                                        <input type='checkbox' name='checks[]' id='checks$resp' value='$resp' class='check'>    
+                                        <h3 class='m-0 px-2 text-center'>$linha</h3>
+                                    </label>
                                 </div>
+                    ";
+                    $resp += 1;
+                }
+                $contador += 1;
+            }
+            fclose($arquivo);
+
+            echo
+            "
                             </div>
                         </div>
             ";
@@ -302,24 +340,135 @@ curso;
             echo
             "
                             <!-- BOTOES -->
-                            <div class='h-25 borda w-75 d-flex justify-content-center align-items-center'>
-                                <h4 class='m-0'>Aqui vai a resposta</h4>
+                            <div class='h-25 borda w-75 m-1 d-flex justify-content-center align-items-center QuestaoB'>
+                                <h4 class='m-0 text-center' id='espaco'>Aqui vai a resposta</h4>
                             </div>
                             <div class='h-75 w-75 d-flex flex-wrap m-1'>
-                                <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
-                                    <input type='submit' value='SALVAR' class='btn btn-outline-secondary bg-color text-light px-5 p-2'>
-                                </div>
+                                <input hidden name='questao' value='botao'>
+                                <input hidden name='array' id='array' value=''>
+            ";
+
+            $arquivo = fopen ("../cursos/$linguagem/Aulas/fase $aulaAtual.txt", 'r');
+            $contador = 0;
+            while(!feof($arquivo)) {
+                $linha = fgets($arquivo, 1024);
+                if ($contador > 5) {
+                    echo
+                    "
+                            <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
+                                <buttons type='submit'  class='btn bg-color text-light px-5 p-2 w-50 botoes' name='botoes'>$linha</buttons>
+                            </div>
+                    ";
+                }
+                $contador += 1;
+            }
+            fclose($arquivo);
+
+            echo
+            "
                             </div>
                         </div>
             ";
         }
     }
+    if (trim($aula[0]) != 'questao') {
+        if ($faseA == $fase) {
+            echo
+            "
+                            <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
+                                <div class='d-flex flex-row-reverse m-3'>
+                                    <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
+                                </div>
+                            </a>
+            ";
+        } elseif ($faseA != $fase) {
+            echo
+            "
+                            <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
+                                <div class='d-flex flex-row-reverse m-3'>
+                                    <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
+                                </div>
+                            </a>
+            ";
+        }
+        echo "</div>";
+    } else {
+        if (!isset($_GET['result'])) {
+            echo
+            "
+                            <div class='d-flex flex-row-reverse p-3 w-100'>
+                                <input type='submit' value='PRONTO' class='btn bg-color text-light submit'>
+                            </div>
+            ";
+            echo "</form>";
+        } else {
+            $result = $_GET['result'];
+            if ($faseA == $fase) {
+                echo
+                "
+                                <div class='w-100'>
+                                    <div class='w-75' style='background:red;'>
+                                        Resultado
+                                    </div>
+                                    <div class='d-flex m-3 w-100'>
+                                        <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
+                                            <div class='w-100'>
+                                                <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                ";
+            } else {
+                echo
+                "
+                                <div class='w-100 h-25 d-flex position-relative'>
+                                    <div class='w-100 d-flex flex-column align-items-center justify-content-center  position-relative'>
+                ";
+
+                if ($result == 'true') {
+                    echo "<h4 class='text-success'>Resposta correta!</h4>";
+                } else {
+                    echo "<h4 class='text-danger'>Resposta incorreta!</h4>";
+                    if (trim($aula[2]) == "alternativa") {
+                        echo "<p>Resposta certa: opção <strong class='bg-color mx-2 px-3 py-1'>$aula[5]</strong></p>";
+                    } elseif (trim($aula[2]) == "Mescolha") {
+                        echo "<p>Resposta certa: opções ";
+                        $resposta = explode(',',trim($aula[5]));
+                        for ($f=0; $f < count($resposta); $f++) {
+                            echo "<strong class='bg-color mx-1 px-3 py-1'>$resposta[$f]</strong>";
+                        }
+                        echo "</p>";
+                    } elseif (trim($aula[2]) == "botao") {
+                        echo "<p>Resposta certa: opções ";
+                        $resposta = explode(',',trim($aula[5]));
+                        for ($f=0; $f < count($resposta); $f++) {
+                            $respostaC = explode(':',$resposta[$f]);
+                            echo "<strong class='bg-color mx-1 px-3 py-1'>$respostaC[0]</strong>";
+                        }
+                        echo "nessa ordem";
+                        echo "<p>";
+                    }
+                }
+
+                echo
+                "
+                                    </div>
+                                    <div class='d-flex m-3 position-absolute bottom-0 end-0'>
+                                        <div class='w-100'>
+                                            <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
+                                                <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                ";
+            }
+            echo "</div>";
+        }
+    }
     echo
     "
-                        <div class='d-flex flex-row-reverse m-3'>
-                            <input type='submit' value='Próximo' class='btn btn-success'>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

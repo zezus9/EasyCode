@@ -62,7 +62,7 @@
                 } elseif ($aula[2] == 'alternativa') {
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
-                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
+                    fwrite($abrirAula,"\n$resposta[0]");
                     for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
@@ -71,7 +71,7 @@
                 } elseif ($aula[2] == 'Mescolha') {
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
-                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
+                    fwrite($abrirAula,"\n$resposta[0]");
                     for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
@@ -80,7 +80,7 @@
                 } elseif ($aula[2] == 'botao') {
                     $resposta =  array_reverse($aula);
                     fwrite($abrirAula,"$aula[1]\n\n$aula[2]\nQUESTÃO $questao\n$aula[3]");
-                    fwrite($abrirAula,"\nResposta: " . $resposta[0]);
+                    fwrite($abrirAula,"\n$resposta[0]");
                     for ($a=1; $a < count($aula); $a++) {
                         if ($a > 4 and $a + 1 != count($aula)) {
                             fwrite($abrirAula,"\n$aula[$a]");
@@ -101,7 +101,7 @@
                 WHERE linguagem = '$selectCurso'");
 
             echo "<h1>Curso adicionado com sucesso!</h1>";
-            // header("Refresh: 2; ../perfil.php");
+            header("Refresh: 2; ../perfil.php");
         ?>
     </div>
 </body>

@@ -3,7 +3,7 @@ questao
 botao
 QUESTÃO 1
 Qual é o comando correto, em python, para imprimir alguma mensagem de texto na tela?
-Resposta: 2:1,5:2
+2:1,5:2
 Print(
 print(
 PRINT(

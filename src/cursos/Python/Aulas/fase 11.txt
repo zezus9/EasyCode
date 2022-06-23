@@ -3,7 +3,7 @@ questao
 alternativa
 QUESTÃO 2
 Qual é o comando correto, em python, para imprimir alguma mensagem de texto na tela?
-Resposta: 3
+3
 //
 "
 #
