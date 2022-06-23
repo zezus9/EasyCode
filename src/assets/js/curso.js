@@ -37,11 +37,4 @@ if (document.querySelector('.checkbox') !== null) {
             })
         })
     }
-    document.querySelector('.submit').addEventListener('click',function(e) {
-        if (array.length == 0) {
-            e.preventDefault()
-        } else {
-            document.querySelector('#array').value = array.join(',')
-        }
-    })
 }

@@ -375,20 +375,20 @@ curso;
         if ($faseA == $fase) {
             echo
             "
-                            <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
-                                <div class='d-flex flex-row-reverse m-3'>
+                            <div class='d-flex flex-row-reverse m-3'>
+                                <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
                                     <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
             ";
-        } elseif ($faseA != $fase) {
+        } else {
             echo
             "
-                            <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
-                                <div class='d-flex flex-row-reverse m-3'>
+                            <div class='d-flex flex-row-reverse m-3'>
+                                <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
                                     <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
             ";
         }
         echo "</div>";
@@ -404,22 +404,6 @@ curso;
         } else {
             $result = $_GET['result'];
             if ($faseA == $fase) {
-                echo
-                "
-                                <div class='w-100'>
-                                    <div class='w-75' style='background:red;'>
-                                        Resultado
-                                    </div>
-                                    <div class='d-flex m-3 w-100'>
-                                        <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
-                                            <div class='w-100'>
-                                                <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                ";
-            } else {
                 echo
                 "
                                 <div class='w-100 h-25 d-flex position-relative'>
@@ -457,7 +441,50 @@ curso;
                                     <div class='d-flex m-3 position-absolute bottom-0 end-0'>
                                         <div class='w-100'>
                                             <a href='Auxiliares/proximaFase.php?curso=$id_curso&faseA=$fase'>
-                                                <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
+                                                <div type='submit' class='btn bg-color text-light'>PRÓXIMO</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                ";
+            } else {
+                echo
+                "
+                                <div class='w-100 h-25 d-flex position-relative'>
+                                    <div class='w-100 d-flex flex-column align-items-center justify-content-center  position-relative'>
+                ";
+
+                if ($result == 'true') {
+                    echo "<h4 class='text-success'>Resposta correta!</h4>";
+                } else {
+                    echo "<h4 class='text-danger'>Resposta incorreta!</h4>";
+                    if (trim($aula[2]) == "alternativa") {
+                        echo "<p>Resposta certa: opção <strong class='bg-color mx-2 px-3 py-1'>$aula[5]</strong></p>";
+                    } elseif (trim($aula[2]) == "Mescolha") {
+                        echo "<p>Resposta certa: opções ";
+                        $resposta = explode(',',trim($aula[5]));
+                        for ($f=0; $f < count($resposta); $f++) {
+                            echo "<strong class='bg-color mx-1 px-3 py-1'>$resposta[$f]</strong>";
+                        }
+                        echo "</p>";
+                    } elseif (trim($aula[2]) == "botao") {
+                        echo "<p>Resposta certa: opções ";
+                        $resposta = explode(',',trim($aula[5]));
+                        for ($f=0; $f < count($resposta); $f++) {
+                            $respostaC = explode(':',$resposta[$f]);
+                            echo "<strong class='bg-color mx-1 px-3 py-1'>$respostaC[0]</strong>";
+                        }
+                        echo "nessa ordem<p>";
+                    }
+                }
+
+                echo
+                "
+                                    </div>
+                                    <div class='d-flex m-3 position-absolute bottom-0 end-0'>
+                                        <div class='w-100'>
+                                            <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
+                                                <div type='submit' class='btn bg-color text-light'>PRÓXIMO</div>
                                             </a>
                                         </div>
                                     </div>
