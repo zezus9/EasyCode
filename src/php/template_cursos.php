@@ -9,7 +9,7 @@
 
     $buscaCurso = $sql -> 
             query("SELECT 
-                    cur.linguagem, cur.desc_breve,cur.logo,cur.duracao,cur.fase,
+                    cur.linguagem, cur.desc_breve,cur.logo,cur.duracao,cur.fase,cur.status,
                     prof.nome as nome_prof,prof.avatar,prof.descricao
                 FROM curso AS cur
                 INNER JOIN professor AS prof ON cur.id_responsavel = prof.id
@@ -24,6 +24,7 @@
         $descricao = $curso['descricao'];
         $duracao = $curso['duracao'];
         $fase = $curso['fase'];
+        $status = $curso['status'];
     }
 
     // ! HEAD
@@ -336,7 +337,12 @@
             $matriculado = $sql -> query("SELECT * FROM certificado 
                                             WHERE id_curso = '$id_curso' AND id_aluno = '$id_aluno'");
 
-            if (mysqli_num_rows($completado)) {
+            if ($status == 'NÃO') {
+                echo 
+                "
+                                        <p class='btn btn-success' style='cursor: not-allowed;'>EM DESENVOLVIMENTO</p>
+                ";
+            } elseif (mysqli_num_rows($completado)) {
                 echo 
                 "
                                         <a href='perfil.php?secoes=certificados' class='btn btn-success' role='button'>CERTIFICADO</a>

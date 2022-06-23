@@ -12,7 +12,7 @@
     if (isset($_SESSION['matricula'])) {
         $matricula = $_SESSION['matricula'];
         if (substr($matricula,0,1) == 1) {
-            header('Location: cadastro_login.php');    
+            header('Location: perfil.php');    
         }
     }
     else{
@@ -24,7 +24,7 @@
     $curso = $sql -> query(
         "SELECT 
             aluno.id,aluno.nome,aluno.avatar,
-            curso.linguagem,curso.fases,cert.fase
+            curso.linguagem,curso.fases,curso.fase,curso.status,cert.fase
         FROM certificado AS cert
         INNER JOIN curso ON cert.id_curso = curso.id
         INNER JOIN aluno ON cert.id_aluno = aluno.id
@@ -37,9 +37,15 @@
         $avatar = $aulas['avatar'];
         $linguagem = $aulas['linguagem'];
         $fases = $aulas['fases'];
-        $fase = $aulas['fase'];
+        $fase = $aulas[7];
+        $faseC = $aulas[5];
+        $status = $aulas['status'];
     }
 
+    if ($status == 'NÃO') {
+        header('Location: pagecursos.php');
+    }
+    
     $faseA = !isset($_GET['fase']) ? $fase : $_GET['fase'];
 
     echo "
@@ -372,7 +378,16 @@ curso;
         }
     }
     if (trim($aula[0]) != 'questao') {
-        if ($faseA == $fase) {
+        if ($faseA == $faseC) {
+            echo
+            "
+                            <div class='d-flex flex-row-reverse m-3'>
+                                <a href='Auxiliares/cursoConc.php?curso=$id_curso'>
+                                    <button type='submit' class='btn bg-color text-light'>TERMINAR</button>
+                                </a>
+                            </div>
+            ";
+        } elseif ($faseA == $fase) {
             echo
             "
                             <div class='d-flex flex-row-reverse m-3'>
