@@ -46,7 +46,7 @@
                             '$celular',
                             '$email',
                             '$cpf',
-                            CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),$nextId),
+                            CONCAT('0',DATE_FORMAT(CURDATE(),'%y'),'$nextId'),
                             '$nascimento',
                             'd_img.png',NULL,NULL,NULL,'$senha')");
     
