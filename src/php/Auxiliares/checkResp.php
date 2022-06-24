@@ -29,15 +29,24 @@
         }
     } elseif ($questão == 'botao') {
         $array = $_POST['array'];
+        $result = true;
         $respostaC = explode(',',$respostaC);
         $array = explode(',',$array);
-        $result = true;
 
-        for ($i=0; $i < count($respostaC); $i++) { 
-            $respostaPos = explode(':',$respostaC[$i]);
-            if ($respostaPos[0] != $array[$i] or $respostaPos[1] != $i + 1) {
+        if (is_string($respostaC) and is_string($array)) {
+            $respostaPos = explode(':',$respostaC);
+            if ($respostaPos[0] != $array) {
                 $result = false;
             }
+        } elseif (count($respostaC) == count($array)) {
+            for ($i=0; $i < count($respostaC); $i++) { 
+                $respostaPos = explode(':',$respostaC[$i]);
+                if ($respostaPos[0] != $array[$i] or $respostaPos[1] != $i + 1) {
+                    $result = false;
+                }
+            }
+        } else {
+            $result = false;   
         }
     }
 

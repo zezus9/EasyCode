@@ -35,6 +35,17 @@ if (document.querySelector('.checkbox') !== null) {
                 botoes[i].removeAttribute("hidden")
                 array.splice(array.indexOf(i+1),1)
             })
+            document.querySelector('#array').value = array.join(',')
         })
     }
+    document.querySelector('.submit').addEventListener('click',function(e) {
+        let pass = false
+        if (espaco.innerHTML != 'Aqui vai a resposta') {
+            pass = true
+        }
+        
+        if (!pass) {
+            e.preventDefault()
+        }
+    })
 }
