@@ -128,7 +128,7 @@
                     <br><br>
                     <p>ASSINATURA</p>
                     <br>
-                    <p class='site'>EASY CODE <br> www.easycode.com</p>
+                    <p class='site'>EASY CODE <br> platformeasycode.epizy.com</p>
                     <img src='$logo' width='40px'>
                 </div>
             </section>
