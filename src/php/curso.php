@@ -267,7 +267,7 @@ curso;
                                 </div>
                                 <div class='h-75'>
                                     <div class='bg-color h-100 d-flex align-items-center justify-content-center'>
-                                        <h3>$aula[4]</h3>
+                                        <h3 class='text-center'>$aula[4]</h3>
                                     </div>
                                 </div>
                             </div>
@@ -290,12 +290,14 @@ curso;
                 if ($contador > 5) {
                     echo
                     "
-                                <div class='w-50 h-25'>
-                                    <label for='radios$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ mx-5 m-1'>
+                            <div class='col-lg-6 col-12 p-3 h-25 d-flex justify-content-center align-items-center'>
+                                <div class='col-md-12 col-12 col-lg-6 w-100'>
+                                    <label for='radios$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ m-1 w-100'>
                                         <input type='radio' name='radios' id='radios$resp' value='$resp' required>
                                         <h3 class='m-0 px-2 text-center'>$linha</h3>
                                     </label>
                                 </div>
+                            </div>
                     ";
                     $resp += 1;
                 }
@@ -324,12 +326,14 @@ curso;
                 if ($contador > 5) {
                     echo
                     "
-                                <div class='w-50 h-25'>
-                                    <label for='checks$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ mx-5 m-1'>
+                            <div class='col-lg-6 col-12 p-3 h-25 d-flex justify-content-center align-items-center'>
+                                <div class='col-md-12 col-12 col-lg-6 w-100'>
+                                    <label for='checks$resp' class='h-100 p-2 d-flex justify-content-between align-items-center bordaQ m-1 w-100'>
                                         <input type='checkbox' name='checks[]' id='checks$resp' value='$resp' class='check'>    
                                         <h3 class='m-0 px-2 text-center'>$linha</h3>
                                     </label>
                                 </div>
+                            </div>
                     ";
                     $resp += 1;
                 }
@@ -346,7 +350,7 @@ curso;
             echo
             "
                             <!-- BOTOES -->
-                            <div class='h-25 borda w-75 m-1 d-flex justify-content-center align-items-center QuestaoB'>
+                            <div class='h-25 borda w-75 m-1 d-flex flex-wrap justify-content-center align-items-center QuestaoB'>
                                 <h4 class='m-0 text-center' id='espaco'>Aqui vai a resposta</h4>
                             </div>
                             <div class='h-75 w-75 d-flex flex-wrap m-1'>
@@ -361,8 +365,10 @@ curso;
                 if ($contador > 5) {
                     echo
                     "
-                            <div class='w-50 d-flex p-3 h-25 justify-content-center align-items-center'>
-                                <buttons type='submit'  class='btn bg-color text-light px-5 p-2 w-50 botoes' name='botoes'>$linha</buttons>
+                            <div class='col-lg-6 col-12 p-3 h-25 d-flex justify-content-center align-items-center'>
+                                <div class='col-md-12 col-12 col-lg-6 w-100'>
+                                    <buttons type='submit' class='btn bg-color text-light px-5 p-2 w-100 botoes' name='botoes'>$linha</buttons>
+                                </div>
                             </div>
                     ";
                 }
@@ -397,10 +403,11 @@ curso;
                             </div>
             ";
         } else {
+            $nextF = $faseA + 1;
             echo
             "
-                            <div class='d-flex flex-row-reverse m-3'>
-                                <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
+                             <div class='d-flex flex-row-reverse m-3'>
+                                <a href='curso.php?curso=$id_curso&fase=$nextF'>
                                     <button type='submit' class='btn bg-color text-light'>PRÓXIMO</button>
                                 </a>
                             </div>

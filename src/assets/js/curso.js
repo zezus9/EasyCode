@@ -25,8 +25,10 @@ if (document.querySelector('.checkbox') !== null) {
                 espaco.innerHTML = ''
             }
             spanNew.textContent = `${botoes[i].innerHTML.trim()} `
-            spanNew.classList.add('bg-color','p-2','mx-1','spanNew')
-            espaco.appendChild(spanNew)
+            spanNew.classList.add('bg-color','p-2','m-2','spanNew')
+            spanNew.style.cursor = 'pointer'
+            espaco.parentElement.classList.add('h-auto')
+            espaco.parentElement.appendChild(spanNew)
             botoes[i].hidden = 'true'
             
             array.push(i+1)
@@ -34,6 +36,9 @@ if (document.querySelector('.checkbox') !== null) {
                 spanNew.remove()
                 botoes[i].removeAttribute("hidden")
                 array.splice(array.indexOf(i+1),1)
+                if (espaco.parentElement.children.length == 1) {
+                    espaco.parentElement.classList.remove('h-auto')
+                }
             })
             document.querySelector('#array').value = array.join(',')
         })
