@@ -10,7 +10,7 @@
     $buscaCurso = $sql -> 
             query("SELECT 
                     cur.linguagem, cur.desc_breve,cur.logo,cur.duracao,cur.fase,cur.status,
-                    prof.nome as nome_prof,prof.avatar,prof.descricao
+                    prof.nome as nome_prof,prof.avatar,prof.descricao,prof.linkedin,prof.github,prof.link_personalizado
                 FROM curso AS cur
                 INNER JOIN professor AS prof ON cur.id_responsavel = prof.id
                 WHERE cur.id = '$id_curso'");
@@ -25,6 +25,9 @@
         $duracao = $curso['duracao'];
         $fase = $curso['fase'];
         $status = $curso['status'];
+        $linkedin = $curso['linkedin'];
+        $github = $curso['github'];
+        $link = $curso['link_personalizado'];
     }
 
     // ! HEAD
@@ -229,16 +232,55 @@
                                 </div>
                                 <h4>Professor</h4>
                                 <div>
-                                    <div class='d-flex d-inline-block m-1'>
-                                        <div class='d-flex align-center col-md-3 col-sm-6'>
+                                    <div class='d-flex d-inline-block m-1 flex-wrap'>
+                                        <div class='d-flex align-center col-md-3 col-sm-6 col-12'>
                                             <img src='../assets/img/Avatares/$avatar' width='100%'>
                                         </div>
-                                        <div class='col-md-8  col-sm-6'>
+                                        <div class='col-md-8 col-sm-6 col-12 p-2'>
                                             <div class='h-25 d-flex justify-content-start align-items-end'>
                                                 <h5 class='text-center'>$nome_prof</h5>
                                             </div>
-                                            <div class='h-75 d-flex justify-content-center align-items-center'>
+                                            <div class='h-50 d-flex justify-content-center align-items-center'>
                                                 <p>$descricao</p>
+                                            </div>
+                                            <div class='h-25 d-flex flex-column flex-reverse'>
+                                                <ul class='list-inline'>
+    ";
+
+    if ($github != '') {
+        echo
+        "
+                                                    <li class='list-inline-item'>
+                                                        <a href='$github' class='redes'>
+                                                            <i class='bi bi-github'></i>
+                                                        </a>
+                                                    </li>
+        ";
+    }
+    if ($linkedin != '') {
+        echo
+        "
+                                                    <li class='list-inline-item'>
+                                                        <a href='$linkedin' class='redes'>
+                                                            <i class='bi bi-linkedin'></i>
+                                                        </a>
+                                                    </li>
+        ";
+    }
+    if ($link != '') {
+        echo
+        "
+                                                    <li class='list-inline-item'>
+                                                        <a href='$link' class='redes'>
+                                                            <i class='bi bi-house-door-fill'></i>
+                                                        </a>
+                                                    </li>
+        ";
+    }
+
+    echo
+    "
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>

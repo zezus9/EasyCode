@@ -362,7 +362,7 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="#" class="redes">
+                                        <a href="https://www.linkedin.com/in/priscilla-miguel-b10628186/" class="redes">
                                             <i class="bi bi-linkedin"></i>
                                         </a>
                                     </li>

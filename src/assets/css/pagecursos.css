@@ -77,3 +77,13 @@ input[placeholder] {
 .buscaS:hover{
   background-color: #0080374d; 
 }
+
+.redes {
+  font-size: 1.5rem;
+  color: darkgray;
+  transition: transform .5s;
+}
+
+.redes:hover {
+  color: #008037;
+}

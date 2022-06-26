@@ -233,7 +233,7 @@ curso;
                             </div>
                             <div class='h-100 w-100 d-flex flex-column conteudo align-items-center'>
                                 <div class='h-100 w-100 d-flex justify-content-center'>
-                                    <iframe class='h-100 w-50' src='$aula[3]' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                                    <iframe class='h-100 col-lg-6 col-md-6 col-11' src='$aula[3]' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
                                 </div>
                                 <div class='p-3 h-25 w-75'>
                                     <h4>
@@ -499,13 +499,13 @@ curso;
                         echo "nessa ordem<p>";
                     }
                 }
-
+                $nextF = $faseA + 1;
                 echo
                 "
                                     </div>
-                                    <div class='d-flex m-3 position-absolute bottom-0 end-0'>
+                                    <div class='d-flex m-3 position-absolute bottom-0 end-0 col-3'>
                                         <div class='w-100'>
-                                            <a href='curso.php?curso=$id_curso&fase=" . $faseA + 1 ."'>
+                                            <a href='curso.php?curso=$id_curso&fase=$nextF'>
                                                 <div type='submit' class='btn bg-color text-light'>PRÓXIMO</div>
                                             </a>
                                         </div>

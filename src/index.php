@@ -5,7 +5,7 @@
     }
 
     if (isset($_SESSION['matricula'])) {
-		header('Location: perfil.php');
+		header('Location: php/perfil.php');
     }
 
 ?>
