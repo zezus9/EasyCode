@@ -8,35 +8,11 @@
 		$main = $('#main'),
 		$main_articles = $main.children('article');
 
-	//! // Breakpoints.
-	// 	breakpoints({
-	// 		xlarge:   [ '1281px',  '1680px' ],
-	// 		large:    [ '981px',   '1280px' ],
-	// 		medium:   [ '737px',   '980px'  ],
-	// 		small:    [ '481px',   '736px'  ],
-	// 		xsmall:   [ '361px',   '480px'  ],
-	// 		xxsmall:  [ null,      '360px'  ]
-	// 	})
-
 	$window.on('load', function() {
 		window.setTimeout(function() {
 			$body.removeClass('is-preload');
 		}, 100);
 	});
-
-	//! // Fix: Flexbox min-height bug on IE.
-	// 	if (browser.name == 'ie') {
-	// 		var flexboxFixTimeoutId;
-	// 		$window.on('resize.flexbox-fix', function() {
-	// 			clearTimeout(flexboxFixTimeoutId);
-	// 			flexboxFixTimeoutId = setTimeout(function() {
-	// 				if ($wrapper.prop('scrollHeight') > $window.height())
-	// 					$wrapper.css('height', 'auto');
-	// 				else
-	// 					$wrapper.css('height', '100vh');
-	// 			}, 250);
-	// 		}).triggerHandler('resize.flexbox-fix');
-	// 	}
 
 	// Nav.
 	var $nav = $header.children('nav'),
@@ -53,41 +29,12 @@
 		locked = false;
 
 	// Methods.
-	$main._show = function(id) { // $main._show = function(id,initial) {
+	$main._show = function(id) {
 		var $article = $main_articles.filter('#' + id);
 
 		if ($article.length == 0)
 			return;
 
-		//! // Already locked? Speed through "show" steps w/o delays.
-		// if (locked || (typeof initial != 'undefined' && initial === true)) {
-		// 	// Mark as switching.
-		// 	$body.addClass('is-switching');
-		// 	// Mark as visible.
-		// 	$body.addClass('is-article-visible');
-		// 	// Deactivate all articles (just in case one's already active).
-		// 	$main_articles.removeClass('active');
-		// 	// Hide header, footer.
-		// 	$header.hide();
-		// 	$head.hide();
-		// 	$footer.hide();
-		// 	// Show main, article.
-		// 	$main.show();
-		// 	$article.show();
-		// 	// Activate article.
-		// 	$article.addClass('active');
-		// 	// Unlock.
-		// 	locked = false;
-		// 	setTimeout(function() {
-		// 		$body.removeClass('is-switching');
-		// 	}, (initial ? 1000 : 0));
-		// 	return;
-		// }
-
-		// Lock.
-		// locked = true;
-
-		// Article already visible? Just swap articles.
 		if ($body.hasClass('is-article-visible')) {
 			// Deactivate current article.
 			var $currentArticle = $main_articles.filter('.active');
@@ -107,9 +54,7 @@
 					}, delay);
 				}, 25);
 			}, delay);
-
 		}
-		// Otherwise, handle as normal.
 		else {
 			
 			// Mark as visible.

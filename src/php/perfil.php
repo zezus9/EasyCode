@@ -39,7 +39,7 @@
 
         $cursosI = $sql -> query(
             "SELECT 
-                curso.linguagem, cert.fase,curso.id
+                curso.linguagem,curso.id,curso.fases,cert.fase
             FROM certificado AS cert 
             INNER JOIN curso ON cert.id_curso = curso.id
             WHERE id_aluno = '$idAluno' AND cert.`status` = 'INICIADO'
@@ -252,7 +252,20 @@ opcoes;
                                     <a href='template_cursos.php?curso=$curso[id]'>
                                         <div class='d-flex h-50 m-3 home'>
                                             <div class='d-flex justify-content-center align-items-center col-10 p-1'>
-                                                <p class='text-center overflow-hidden m-0 text-light p-1'>$curso[fase]</p>
+                                                <p class='text-center overflow-hidden m-0 text-light p-1'>
+                ";
+
+                $fasesS = explode('._.',$curso['fases']);
+
+                for ($i=1; $i < sizeof($fasesS); $i++) { 
+                    if ($curso['fase'] == $i) {
+                        echo "$fasesS[$i]";
+                    }
+                }
+
+                echo
+                "
+                                                </p>
                                             </div>
                                             <div class='d-flex justify-content-center align-items-center buscaS col-2'>    
                                                 <img src='../assets/img/proximo.png' width='100%'>

@@ -1,6 +1,4 @@
 <?php
-    
-    // http://localhost/EasyCode/src/php/curso.php?curso=005
 
     include 'Auxiliares/connect.php';
 

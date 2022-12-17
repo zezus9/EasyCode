@@ -500,7 +500,7 @@
             <h5 class='fw-bolder'>Metodologia Easy Code</h5>
             <div class='text-muted'>
                 <p>A metodologia da EasyCode foca na introdução aos assuntos e apresenta o básico para o entendimento das linguagens, com um ensino divertido e responsivo para que o aluno continue se interessando no assunto.</p>
-                <video src='../assets/videos/teste.mp4' width='auto' controls poster='../assets/logoMascoteSemFundo.png'></video>
+                <iframe class='w-100' height='500px' src='https://www.youtube.com/embed/GV4pEYpVL_w' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
             </div>
         </section>
     ";
